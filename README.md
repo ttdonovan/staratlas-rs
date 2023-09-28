@@ -8,7 +8,7 @@ To generate crate documentation.
 
 ```
 $ cargo doc --no-deps
-# see 'target/doc`
+# see 'target/doc'
 ```
 
 ## Crates
@@ -21,11 +21,13 @@ Solana IDL to work with SA claim.
 
 Rust data types defined/built from galaxy.staratlas.com/nfts JSON.
 
-See [galaxy/README.md]() for more details.
+See [galaxy/README.md](galaxy/README.md) for more details.
 
 ### marketplace
 
 Solana IDL to work with SA marketplace.
+
+See [marketplace/README.md](marketplace/README.md) for example.
 
 ### score
 

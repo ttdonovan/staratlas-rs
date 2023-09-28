@@ -8,3 +8,8 @@ edition = "2021"
 [dependencies]
 anchor-gen = "0.3"
 anchor-lang = "0.27"
+
+[dev-dependencies]
+anchor-client = "0.27"
+anyhow = "1.0"
+staratlas-galaxy = { path = "../galaxy" }
