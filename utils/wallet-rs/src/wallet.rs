@@ -2,8 +2,9 @@ use borsh::{BorshDeserialize, BorshSerialize};
 use solana_sdk::signer::keypair::{keypair_from_seed, Keypair};
 
 use std::collections::HashMap;
+use std::fmt;
 
-#[derive(Debug, BorshDeserialize, BorshSerialize)]
+#[derive(BorshDeserialize, BorshSerialize)]
 pub struct Wallet {
     inner: HashMap<String, [u8; 64]>,
 }
@@ -92,5 +93,11 @@ impl Wallet {
     {
         let keypair = Keypair::from_base58_string(&private_key);
         self.inner.insert(alias.into(), keypair.to_bytes());
+    }
+}
+
+impl fmt::Debug for Wallet {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("Wallet").finish()
     }
 }
