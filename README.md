@@ -4,6 +4,12 @@ A collection of Rust crates to build on Star Atlas
 
 ## Development
 
+Copy `.env.sample` to `.env` and configure.
+
+```
+$ cp .env.sample .env
+```
+
 To generate crate documentation.
 
 ```
@@ -35,8 +41,20 @@ Solana IDL to work with SA score.
 
 ## Utils
 
+### config
+
+A simple utility to load common configruation variables from an ENV.
+
+```
+use staratlas_utils_config as config;
+
+let config = config::load_from_env();
+```
+
+See `.env.sample`.
+
 ### wallet
 
-A simple utility to encrypt/decrpty a Solana keypair in Rust.
+A simple utility to encrypt/decrypt a Solana keypair in Rust.
 
 See [utils/wallet-rs/README.md](utils/wallet-rs/README.md) for examples.

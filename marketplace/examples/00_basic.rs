@@ -7,11 +7,10 @@ use anchor_client::{
 
 use staratlas_galaxy::Galaxy;
 use staratlas_marketplace::{OrderAccount, ID as PROGRAM_ID};
+use staratlas_utils_config as config;
 
 use std::ops::Deref;
 use std::str::FromStr;
-
-const RPC_URL: &str = "replace-with-your-rpc-url";
 
 pub fn get_open_orders_for_asset<C: Deref<Target = impl Signer> + Clone>(
     client: &Client<C>,
@@ -37,9 +36,14 @@ fn main() -> anyhow::Result<()> {
     dbg!(nft);
 
     // setup Anchor client
+    let config = config::load_from_env();
+    let rpc_url = config
+        .solana_rpc_url
+        .ok_or(anyhow::anyhow!("RPC URL not found"))?;
+
     let wallet = Pubkey::new_unique();
     let payer = NullSigner::new(&wallet);
-    let client = Client::new(Cluster::Custom(RPC_URL.into(), RPC_URL.into()), &payer);
+    let client = Client::new(Cluster::Custom(rpc_url.clone(), rpc_url), &payer);
 
     // get open orders for the asset
     let asset_mint = Pubkey::from_str(&nft.mint)?;
