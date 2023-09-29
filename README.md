@@ -32,3 +32,11 @@ See [marketplace/README.md](marketplace/README.md) for example.
 ### score
 
 Solana IDL to work with SA score.
+
+## Utils
+
+### wallet
+
+A simple utility to encrypt/decrpty a Solana keypair in Rust.
+
+See [utils/wallet-rs/README.md](utils/wallet-rs/README.md) for examples.

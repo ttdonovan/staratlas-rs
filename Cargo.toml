@@ -6,4 +6,5 @@ members = [
     "galaxy",
     "marketplace",
     "score",
+    "utils/wallet-rs",
 ]
