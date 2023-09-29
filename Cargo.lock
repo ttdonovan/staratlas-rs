@@ -4422,6 +4422,7 @@ dependencies = [
  "cocoon",
  "rpassword",
  "solana-sdk",
+ "staratlas-utils-config",
 ]
 
 [[package]]

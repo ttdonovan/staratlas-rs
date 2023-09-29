@@ -11,3 +11,6 @@ borsh = { version = "1.0.0-alpha.2", features = ["derive"] }
 cocoon = "0.3"
 rpassword = "7.2"
 solana-sdk = "1.14"
+
+[dev-dependencies]
+staratlas-utils-config = { path = "../config" }

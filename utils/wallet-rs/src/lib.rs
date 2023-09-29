@@ -7,9 +7,9 @@ use std::path::Path;
 pub(crate) mod prompts;
 pub mod wallet;
 
-use wallet::Wallet;
+pub use wallet::Wallet;
 
-fn create_wallet_file<P>(wallet: Wallet, password: String, path: P) -> anyhow::Result<()>
+pub fn create_wallet_file<P>(wallet: Wallet, password: String, path: P) -> anyhow::Result<()>
 where
     P: AsRef<Path>,
 {
