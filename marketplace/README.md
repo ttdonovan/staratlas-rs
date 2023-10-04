@@ -1,4 +1,4 @@
-# marketpalce
+# marketplace
 
 Get OrderAccount for NFT asset from blockchain program.
 
