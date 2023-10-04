@@ -2,7 +2,11 @@
 
 A collection of Rust crates to build on Star Atlas
 
-## Development
+## Rust Setup
+
+See [rustup.rs](https://rustup.rs/) for toolchain installation.
+
+## Development Setup
 
 Copy `.env.sample` to `.env` and configure.
 
