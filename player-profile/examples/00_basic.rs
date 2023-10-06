@@ -8,7 +8,10 @@ use anchor_lang::Id;
 
 use std::str::FromStr;
 
-use staratlas_player_profile::{program::PlayerProfile, state::Profile};
+use staratlas_player_profile::{
+    program::PlayerProfile,
+    state::{PlayerName, Profile},
+};
 use staratlas_utils_config as config;
 
 fn main() -> anyhow::Result<()> {
@@ -47,12 +50,25 @@ fn main() -> anyhow::Result<()> {
 
     // Iterate over the Profile accounts and print out the profile information
     for (pubkey, profile) in profile_accounts {
-        dbg!(pubkey);
-        dbg!(profile.version);
-        dbg!(profile.auth_key_count);
-        dbg!(profile.key_threshold);
-        dbg!(profile.next_seq_id);
-        dbg!(profile.created_at);
+        dbg!(&pubkey);
+        dbg!(&profile.version);
+        dbg!(&profile.auth_key_count);
+        dbg!(&profile.key_threshold);
+        dbg!(&profile.next_seq_id);
+        dbg!(&profile.created_at);
+
+        // Lookup the PlayerName account for the PlayerProfile program
+        let (name_account, _bump) =
+            Pubkey::find_program_address(&[b"player_name", &pubkey.to_bytes()], &program_id);
+        dbg!(&name_account);
+
+        // Get the PlayerName account from the PlayerProfile program
+        let player_name = program.account::<PlayerName>(name_account)?;
+        dbg!(&player_name.version);
+        dbg!(&player_name.profile);
+        dbg!(&player_name.bump);
+
+        assert_eq!(&pubkey, &player_name.profile);
     }
 
     Ok(())
