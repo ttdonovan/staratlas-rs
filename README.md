@@ -39,6 +39,12 @@ Solana IDL to work with SA marketplace.
 
 See [marketplace/README.md](marketplace/README.md) for example.
 
+### player-profile
+
+Solana IDL to work with SA player-profile.
+
+See [player-profile/README.md](player-profile/README.md) for example.
+
 ### score
 
 Solana IDL to work with SA score.
