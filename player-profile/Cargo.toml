@@ -1,0 +1,15 @@
+[package]
+name = "staratlas-player-profile"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anchor-gen = "0.3"
+anchor-lang = "0.27"
+
+[dev-dependencies]
+anchor-client = "0.27"
+anyhow = "1.0"
+staratlas-utils-config = { path = "../utils/config" }

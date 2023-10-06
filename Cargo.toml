@@ -5,6 +5,7 @@ members = [
     "claim",
     "galaxy",
     "marketplace",
+    "player-profile",
     "score",
     "utils/config",
     "utils/wallet-rs",

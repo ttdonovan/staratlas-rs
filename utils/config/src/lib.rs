@@ -2,6 +2,7 @@ use dotenv::dotenv;
 
 use std::fmt;
 
+const ENV_PUBKEY_PLAYER_PROFILE: &str = "PUBKEY_PLAYER_PROFILE";
 const ENV_SOLANA_RPC_URL: &str = "SOLANA_RPC_URL";
 const ENV_WALLET_PASSWORD: &str = "WALLET_PASSWORD";
 
@@ -11,16 +12,19 @@ pub fn load_from_env() -> Config {
 }
 
 pub struct Config {
+    pub pubkey_player_profile: Option<String>,
     pub solana_rpc_url: Option<String>,
     pub wallet_password: Option<String>,
 }
 
 impl Config {
     pub fn from_env() -> Self {
+        let pubkey_player_profile = dotenv::var(ENV_PUBKEY_PLAYER_PROFILE).ok();
         let solana_rpc_url = dotenv::var(ENV_SOLANA_RPC_URL).ok();
         let wallet_password = dotenv::var(ENV_WALLET_PASSWORD).ok();
 
         Config {
+            pubkey_player_profile,
             solana_rpc_url,
             wallet_password,
         }

@@ -4421,6 +4421,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "staratlas-player-profile"
+version = "0.1.0"
+dependencies = [
+ "anchor-client",
+ "anchor-gen",
+ "anchor-lang",
+ "anyhow",
+ "staratlas-utils-config",
+]
+
+[[package]]
 name = "staratlas-score"
 version = "0.1.0"
 dependencies = [
