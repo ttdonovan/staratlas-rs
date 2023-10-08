@@ -4389,7 +4389,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "staratlas-cargo"
+version = "0.1.0"
+dependencies = [
+ "anchor-gen",
+ "anchor-lang",
+]
+
+[[package]]
 name = "staratlas-claim"
+version = "0.1.0"
+dependencies = [
+ "anchor-gen",
+ "anchor-lang",
+]
+
+[[package]]
+name = "staratlas-crafting"
 version = "0.1.0"
 dependencies = [
  "anchor-gen",
@@ -4429,6 +4445,22 @@ dependencies = [
  "anchor-lang",
  "anyhow",
  "staratlas-utils-config",
+]
+
+[[package]]
+name = "staratlas-profile-vault"
+version = "0.1.0"
+dependencies = [
+ "anchor-gen",
+ "anchor-lang",
+]
+
+[[package]]
+name = "staratlas-sage"
+version = "0.1.0"
+dependencies = [
+ "anchor-gen",
+ "anchor-lang",
 ]
 
 [[package]]

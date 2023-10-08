@@ -1,6 +1,8 @@
 # staratlas-rs
 
-A collection of Rust crates to build on Star Atlas
+A collection of Rust crates to build on [Star Atlas](https://staratlas.com/).
+
+See [Star Altas Builder: Resources for Builders](https://build.staratlas.com/).
 
 ## Rust Setup
 
@@ -23,9 +25,17 @@ $ cargo doc --no-deps
 
 ## Crates
 
+### cargo
+
+Solana IDL to work with SA cargo.
+
 ### claim
 
 Solana IDL to work with SA claim.
+
+### crafting
+
+Solana IDL to work with SA carfting.
 
 ### galaxy
 
@@ -44,6 +54,14 @@ See [marketplace/README.md](marketplace/README.md) for example.
 Solana IDL to work with SA player-profile.
 
 See [player-profile/README.md](player-profile/README.md) for example.
+
+### player-vault
+
+Solana IDL to work with SA player-valut.
+
+### sage
+
+`FIXME`
 
 ### score
 
