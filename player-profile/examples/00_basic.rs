@@ -44,9 +44,10 @@ fn main() -> anyhow::Result<()> {
     dbg!(&player_profile);
 
     // Get the Profile accounts from the PlayerProfile program
-    let profile_accounts = program.accounts::<Profile>(vec![RpcFilterType::Memcmp(
-        Memcmp::new_base58_encoded(30, &player_profile.to_bytes()),
-    )])?;
+    let profile_accounts = program.accounts::<Profile>(vec![
+        // RpcFilterType::DataSize(?),
+        RpcFilterType::Memcmp(Memcmp::new_base58_encoded(30, &player_profile.to_bytes())),
+    ])?;
 
     // Iterate over the Profile accounts and print out the profile information
     for (pubkey, profile) in profile_accounts {
@@ -56,6 +57,7 @@ fn main() -> anyhow::Result<()> {
         dbg!(&profile.key_threshold);
         dbg!(&profile.next_seq_id);
         dbg!(&profile.created_at);
+        dbg!(std::mem::size_of::<Profile>());
 
         // Lookup the PlayerName account for the PlayerProfile program
         let (name_account, _bump) =

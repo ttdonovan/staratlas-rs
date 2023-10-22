@@ -24,7 +24,7 @@ where
     Ok(())
 }
 
-fn open_wallet_file<P>(password: String, path: P) -> anyhow::Result<Wallet>
+pub fn open_wallet_file<P>(password: String, path: P) -> anyhow::Result<Wallet>
 where
     P: AsRef<Path>,
 {
