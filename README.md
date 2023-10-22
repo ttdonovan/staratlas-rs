@@ -81,6 +81,16 @@ let config = config::load_from_env();
 
 See `.env.sample`.
 
+### sa-market-cli: Star Atlas Marketplace CLI
+
+A simple utility to dump "orders" from Marketplace to a CSV.
+
+See [utils/sa-marketplace-rs/README.md](utils/sa-marketplace-rs/README.md) for usage.
+
+```
+cargo run -p sa-marketplace-cli -- --help
+```
+
 ### wallet
 
 A simple utility to encrypt/decrypt a Solana keypair in Rust.

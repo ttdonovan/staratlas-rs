@@ -12,5 +12,6 @@ members = [
     "sage",
     "score",
     "utils/config",
+    "utils/sa-marketplace-cli",
     "utils/wallet-rs",
 ]
