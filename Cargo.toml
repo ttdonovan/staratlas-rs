@@ -2,16 +2,7 @@
 resolver = "2"
 
 members = [
-    "cargo",
-    "claim",
-    "crafting",
     "galaxy",
-    "marketplace",
-    "player-profile",
-    "profile-vault",
-    "sage",
-    "score",
-    "utils/config",
-    "utils/sa-marketplace-cli",
-    "utils/wallet-rs",
+    "programs/*",
+    "utils/*",
 ]

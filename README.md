@@ -23,7 +23,7 @@ $ cargo doc --no-deps
 # see 'target/doc'
 ```
 
-## Crates
+## Programs
 
 ### cargo
 
@@ -37,27 +37,21 @@ Solana IDL to work with SA claim.
 
 Solana IDL to work with SA carfting.
 
-### galaxy
+### player-profile
 
-Rust data types defined/built from galaxy.staratlas.com/nfts JSON.
+Solana IDL to work with SA player-profile.
 
-See [galaxy/README.md](galaxy/README.md) for more details.
+See [player-profile/README.md](programs/player-profile/README.md) for example.
+
+### profile-vault
+
+Solana IDL to work with SA profile-vault.
 
 ### marketplace
 
 Solana IDL to work with SA marketplace.
 
 See [marketplace/README.md](marketplace/README.md) for example.
-
-### player-profile
-
-Solana IDL to work with SA player-profile.
-
-See [player-profile/README.md](player-profile/README.md) for example.
-
-### player-vault
-
-Solana IDL to work with SA player-valut.
 
 ### sage
 
@@ -66,6 +60,14 @@ Solana IDL to work with SA player-valut.
 ### score
 
 Solana IDL to work with SA score.
+
+## Crates
+
+### galaxy
+
+Rust data types defined/built from galaxy.staratlas.com/nfts JSON.
+
+See [galaxy/README.md](galaxy/README.md) for more details.
 
 ## Utils
 
