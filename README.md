@@ -51,7 +51,7 @@ Solana IDL to work with SA profile-vault.
 
 Solana IDL to work with SA marketplace.
 
-See [marketplace/README.md](marketplace/README.md) for example.
+See [marketplace/README.md](programs/marketplace/README.md) for example.
 
 ### sage
 
@@ -69,6 +69,18 @@ Rust data types defined/built from galaxy.staratlas.com/nfts JSON.
 
 See [galaxy/README.md](galaxy/README.md) for more details.
 
+## CLIs
+
+### sa-market-cli: Star Atlas Marketplace CLI
+
+A simple utility to dump "orders" from Marketplace to a CSV.
+
+See [clis/marketplace-cli/README.md](clis/marketplace-cli/README.md) for usage.
+
+```
+cargo run -p sa-marketplace-cli -- --help
+```
+
 ## Utils
 
 ### config
@@ -82,16 +94,6 @@ let config = config::load_from_env();
 ```
 
 See `.env.sample`.
-
-### sa-market-cli: Star Atlas Marketplace CLI
-
-A simple utility to dump "orders" from Marketplace to a CSV.
-
-See [utils/sa-marketplace-rs/README.md](utils/sa-marketplace-rs/README.md) for usage.
-
-```
-cargo run -p sa-marketplace-cli -- --help
-```
 
 ### wallet
 
