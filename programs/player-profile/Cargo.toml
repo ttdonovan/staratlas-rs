@@ -7,10 +7,11 @@ edition = "2021"
 
 [dependencies]
 anchor-gen = "0.3"
-anchor-lang = "0.27"
+anchor-client = "0.29"
+anchor-lang = "0.29"
+anyhow = "1.0"
+solana-account-decoder = "1.18"
 
 [dev-dependencies]
-anchor-client = "0.27"
-anyhow = "1.0"
 staratlas-utils-config = { path = "../../utils/config" }
 staratlas-utils-wallet = { path = "../../utils/wallet-rs" }

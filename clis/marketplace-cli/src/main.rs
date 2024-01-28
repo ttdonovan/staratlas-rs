@@ -14,7 +14,7 @@ use std::fs::File;
 use std::ops::Deref;
 use std::str::FromStr;
 
-/// Star Atlas: Marketplace CLI <donations: 2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77>
+/// Star Atlas: Marketplace CLI --> donations: 2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77 <--
 #[derive(Parser)]
 #[command(about, long_about = None)]
 struct Cli {

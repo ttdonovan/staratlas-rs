@@ -39,7 +39,7 @@ fn main() -> anyhow::Result<()> {
     let program_id = PlayerProfile::id();
     dbg!(&program_id);
 
-    let program = client.program(program_id);
+    let program = client.program(program_id)?;
 
     dbg!(&player_profile);
 
