@@ -12,7 +12,7 @@ use clap::{Parser, Subcommand};
 use staratlas_player_profile_sdk::{program::PlayerProfile, utils::derive_profile_accounts};
 use staratlas_sage_sdk::{
     fleets::derive_fleet_accounts,
-    games::{derive_game_accounts, derive_game_state_account},
+    games::{derive_game_account, derive_game_accounts, derive_game_state_account},
     program::Sage,
 };
 
@@ -42,6 +42,9 @@ struct ProviderConfig {
 
 #[derive(Default, Parser)]
 struct SageConfig {
+    /// Sage Game Pubkey
+    #[clap(long = "sage.game_id", env = "SAGE_GAME_ID")]
+    game_id: Option<Pubkey>,
     /// Sage Game State Pubkey
     #[clap(long = "sage.game_state_id", env = "SAGE_GAME_STATE_ID")]
     game_state_id: Option<Pubkey>,
@@ -53,6 +56,7 @@ struct SageConfig {
 #[derive(Subcommand)]
 enum Commands {
     ShowFleets,
+    ShowGame,
     ShowGames,
     ShowGameState,
     ShowPlayerProfile,
@@ -96,6 +100,17 @@ fn main() -> anyhow::Result<()> {
 
             println!("{:#?}", fleet_accounts);
         }
+        Commands::ShowGame => {
+            let game = derive_game_account(
+                &sage_program,
+                &cli.sage_config
+                    .game_id
+                    .expect("Requires --sage.game_state_id <GAME_STATE_ID>"),
+            )?;
+
+            println!("{:#?}", game);
+        }
+
         Commands::ShowGames => {
             let game_accounts = derive_game_accounts(&sage_program)?;
 

@@ -85,6 +85,22 @@ See [clis/marketplace-cli/README.md](clis/marketplace-cli/README.md) for usage.
 cargo run -p sa-marketplace-cli -- --help
 ```
 
+### sa-player-profile-cli: Star Atlas Player Profile CLI
+
+A utility to manage (add/remove) "ProfileKey" on a SA Player Profile.
+
+```
+cargo run -p sa-palyer-profile -- --help
+```
+
+### sa-sage-cli: Star Atlas Sage CLI (WIP)
+
+A CLI program to interact with SA Sage.
+
+```
+cargo run -p sa-sage-cli -- --help
+```
+
 ## Utils
 
 ### config
