@@ -9,17 +9,24 @@ use anchor_client::{
 use anchor_lang::prelude::Pubkey;
 use solana_account_decoder::UiAccountEncoding;
 
-use std::ops::Deref;
+use staratlas_player_profile::state;
 
-use crate::state::Profile;
+use crate::Profile;
+
+use std::ops::Deref;
 
 pub fn derive_profile_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     player_pubkey: &Pubkey,
 ) -> anyhow::Result<Vec<(Pubkey, Profile)>> {
-    let profile_accounts = program.accounts::<Profile>(vec![RpcFilterType::Memcmp(
+    let accounts = program.accounts::<state::Profile>(vec![RpcFilterType::Memcmp(
         Memcmp::new_base58_encoded(30, &player_pubkey.to_bytes()),
     )])?;
+
+    let profile_accounts = accounts
+        .iter()
+        .map(|(pubkey, account)| (*pubkey, Profile(account.clone())))
+        .collect();
 
     Ok(profile_accounts)
 }

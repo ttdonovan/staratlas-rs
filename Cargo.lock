@@ -3674,7 +3674,7 @@ dependencies = [
  "anyhow",
  "clap 4.4.6",
  "shellexpand",
- "staratlas-player-profile",
+ "staratlas-player-profile-sdk",
 ]
 
 [[package]]
@@ -4975,13 +4975,21 @@ dependencies = [
 name = "staratlas-player-profile"
 version = "0.1.0"
 dependencies = [
- "anchor-client 0.29.0",
  "anchor-gen",
+ "anchor-lang 0.29.0",
+ "staratlas-utils-config",
+ "staratlas-utils-wallet",
+]
+
+[[package]]
+name = "staratlas-player-profile-sdk"
+version = "0.1.0"
+dependencies = [
+ "anchor-client 0.29.0",
  "anchor-lang 0.29.0",
  "anyhow",
  "solana-account-decoder",
- "staratlas-utils-config",
- "staratlas-utils-wallet",
+ "staratlas-player-profile",
 ]
 
 [[package]]
@@ -4997,7 +5005,17 @@ name = "staratlas-sage"
 version = "0.1.0"
 dependencies = [
  "anchor-gen",
- "anchor-lang 0.27.0",
+ "anchor-lang 0.29.0",
+]
+
+[[package]]
+name = "staratlas-sage-sdk"
+version = "0.1.0"
+dependencies = [
+ "anchor-client 0.29.0",
+ "anchor-lang 0.29.0",
+ "anyhow",
+ "staratlas-sage",
 ]
 
 [[package]]

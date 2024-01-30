@@ -10,8 +10,11 @@ use anchor_client::{
 };
 use anchor_lang::{prelude::AccountMeta, AnchorDeserialize, Id};
 use clap::{Parser, Subcommand};
-use staratlas_player_profile::{
+use staratlas_player_profile_sdk::{
+    accounts,
+    instruction,
     program::PlayerProfile,
+    typedefs,
     utils::{derive_profile_accounts, get_profile_accounts},
 };
 
@@ -75,14 +78,14 @@ fn build_permissions(input: [[bool; 8]; 3]) -> [u8; 8] {
 
 fn derive_permissioned_profile_keys(
     account: &Account,
-) -> anyhow::Result<Vec<staratlas_player_profile::typedefs::ProfileKey>> {
+) -> anyhow::Result<Vec<typedefs::ProfileKey>> {
     let mut profile_keys = vec![];
 
     // first 30 bytes are the profile and each subsequent 80 bytes is a permissioned account
     let permissioned_data = account.data[30..].chunks_exact(80);
     for data in permissioned_data {
         let profile_key =
-            staratlas_player_profile::typedefs::ProfileKey::try_from_slice(&mut &data[..])?;
+            typedefs::ProfileKey::try_from_slice(&mut &data[..])?;
         profile_keys.push(profile_key)
     }
     Ok(profile_keys)
@@ -125,10 +128,10 @@ fn main() -> anyhow::Result<()> {
                 [true, true, true, true, true, true, true, true],
             ]);
 
-            let ix = staratlas_player_profile::instruction::AddKeys {
+            let ix = instruction::AddKeys {
                 _key_add_index: 0,
                 _key_permissions_index: 0,
-                _keys_to_add: vec![staratlas_player_profile::typedefs::AddKeyInput {
+                _keys_to_add: vec![typedefs::AddKeyInput {
                     scope: sage_program_id,
                     expire_time: -1,
                     permissions,
@@ -137,7 +140,7 @@ fn main() -> anyhow::Result<()> {
 
             let builder = profile_program
                 .request()
-                .accounts(staratlas_player_profile::accounts::AddKeys {
+                .accounts(accounts::AddKeys {
                     funder: payer.pubkey(),
                     key: payer.pubkey(),
                     profile: *profile_pubkey,
@@ -165,17 +168,17 @@ fn main() -> anyhow::Result<()> {
 
             if let Some(idx) = profile_keys
                 .iter()
-                .position(&|k: &staratlas_player_profile::typedefs::ProfileKey| &k.key == &old_key)
+                .position(&|k: &typedefs::ProfileKey| &k.key == &old_key)
             {
                 if idx != 0 {
-                    let ix = staratlas_player_profile::instruction::RemoveKeys {
+                    let ix = instruction::RemoveKeys {
                         _key_index: 0,
                         _keys_to_remove: [idx as u16, (idx + 1) as u16],
                     };
 
                     let builder = profile_program
                         .request()
-                        .accounts(staratlas_player_profile::accounts::RemoveKeys {
+                        .accounts(accounts::RemoveKeys {
                             funder: payer.pubkey(),
                             key: payer.pubkey(),
                             profile: *profile_pubkey,
@@ -204,14 +207,10 @@ fn main() -> anyhow::Result<()> {
         }
         Commands::ShowProfile => {
             let profile_accounts = derive_profile_accounts(&profile_program, &player_profile)?;
-            let (profile_pubkey, profile) = profile_accounts[0];
+            let (profile_pubkey, profile) = &profile_accounts[0];
 
             println!("{:?}", profile_pubkey);
-            println!("version: {:?}", &profile.version);
-            println!("auth_key_count: {:?}", &profile.auth_key_count);
-            println!("auth_key_threshold: {:?}", &profile.key_threshold);
-            println!("next_seq_id: {:?}", &profile.next_seq_id);
-            println!("created_at: {:?}", &profile.created_at);
+            println!("{:?}", &profile);
         }
     }
 

@@ -4,6 +4,7 @@ resolver = "2"
 members = [
     "clis/*",
     "galaxy",
+    "program-sdks/*",
     "programs/*",
     "utils/*",
 ]

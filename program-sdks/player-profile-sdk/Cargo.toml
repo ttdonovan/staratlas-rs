@@ -1,5 +1,5 @@
 [package]
-name = "sa-player-profile-cli"
+name = "staratlas-player-profile-sdk"
 version = "0.1.0"
 edition = "2021"
 
@@ -9,6 +9,5 @@ edition = "2021"
 anchor-client = "0.29"
 anchor-lang = "0.29"
 anyhow = "1.0"
-clap = { version = "4.4", features = ["derive", "env"] }
-shellexpand = "3.1"
-staratlas-player-profile-sdk = { path = "../../program-sdks/player-profile-sdk" }
+solana-account-decoder = "1.18"
+staratlas-player-profile = { path = "../../programs/player-profile", features = ["no-entrypoint"]  }

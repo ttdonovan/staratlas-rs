@@ -55,11 +55,15 @@ See [marketplace/README.md](programs/marketplace/README.md) for example.
 
 ### sage
 
-`FIXME`
+Solana IDL to work with SA sage.
 
 ### score
 
 Solana IDL to work with SA score.
+
+# Program SDKs
+
+These are extended SDKs around SA Programs.
 
 ## Crates
 
