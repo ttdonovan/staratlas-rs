@@ -3678,6 +3678,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sa-sage-cli"
+version = "0.1.0"
+dependencies = [
+ "anchor-client 0.29.0",
+ "anchor-lang 0.29.0",
+ "anyhow",
+ "clap 4.4.6",
+ "shellexpand",
+ "staratlas-player-profile-sdk",
+ "staratlas-sage-sdk",
+]
+
+[[package]]
 name = "schannel"
 version = "0.1.22"
 source = "registry+https://github.com/rust-lang/crates.io-index"

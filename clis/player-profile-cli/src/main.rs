@@ -11,8 +11,7 @@ use anchor_client::{
 use anchor_lang::{prelude::AccountMeta, AnchorDeserialize, Id};
 use clap::{Parser, Subcommand};
 use staratlas_player_profile_sdk::{
-    accounts,
-    instruction,
+    accounts, instruction,
     program::PlayerProfile,
     typedefs,
     utils::{derive_profile_accounts, get_profile_accounts},
@@ -84,8 +83,7 @@ fn derive_permissioned_profile_keys(
     // first 30 bytes are the profile and each subsequent 80 bytes is a permissioned account
     let permissioned_data = account.data[30..].chunks_exact(80);
     for data in permissioned_data {
-        let profile_key =
-            typedefs::ProfileKey::try_from_slice(&mut &data[..])?;
+        let profile_key = typedefs::ProfileKey::try_from_slice(&mut &data[..])?;
         profile_keys.push(profile_key)
     }
     Ok(profile_keys)
