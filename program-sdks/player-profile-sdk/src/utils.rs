@@ -20,7 +20,7 @@ pub fn derive_profile_accounts<C: Deref<Target = impl Signer> + Clone>(
     player_pubkey: &Pubkey,
 ) -> anyhow::Result<Vec<(Pubkey, Profile)>> {
     let accounts = program.accounts::<state::Profile>(vec![RpcFilterType::Memcmp(
-        Memcmp::new_base58_encoded(30, &player_pubkey.to_bytes()),
+        Memcmp::new_base58_encoded(30, player_pubkey.as_ref()),
     )])?;
 
     let profile_accounts = accounts
@@ -38,7 +38,7 @@ pub fn get_profile_accounts<C: Deref<Target = impl Signer> + Clone>(
     let config = RpcProgramAccountsConfig {
         filters: Some(vec![RpcFilterType::Memcmp(Memcmp::new_base58_encoded(
             30,
-            &player_pubkey.to_bytes(),
+            player_pubkey.as_ref(),
         ))]),
         account_config: RpcAccountInfoConfig {
             encoding: Some(UiAccountEncoding::Base64),
@@ -50,7 +50,7 @@ pub fn get_profile_accounts<C: Deref<Target = impl Signer> + Clone>(
 
     let profile_accounts = program
         .rpc()
-        .get_program_accounts_with_config(&program.id(), config);
+        .get_program_accounts_with_config(&program.id(), config)?;
 
-    Ok(profile_accounts?)
+    Ok(profile_accounts)
 }

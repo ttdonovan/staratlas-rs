@@ -1,4 +1,4 @@
-pub use staratlas_sage::{program, state};
+pub use staratlas_sage::{program, state, typedefs};
 
 use std::fmt;
 use std::str;
@@ -24,7 +24,7 @@ impl fmt::Debug for Fleet {
             .field("game_id", &self.0.game_id)
             .field("owner_profile", &self.0.owner_profile)
             .field("fleet_ships", &self.0.fleet_ships)
-            .field("fleet_label", &self.fleet_label())
+            // .field("fleet_label", &self.fleet_label())
             .field("ship_counts", &self.0.ship_counts)
             .field("stats", &self.0.stats)
             .field("cargo_hold", &self.0.cargo_hold)
@@ -33,6 +33,16 @@ impl fmt::Debug for Fleet {
             .field("update_id", &self.0.update_id)
             .finish()
     }
+}
+
+#[derive(Debug)]
+pub enum FleetState {
+    StarbaseLoadingBay(typedefs::StarbaseLoadingBay),
+    Idle(typedefs::Idle),
+    MineAsteroid(typedefs::MineAsteroid),
+    MoveWarp(typedefs::MoveWarp),
+    MoveSubwarp(typedefs::MoveSubwarp),
+    Respawn(typedefs::Respawn),
 }
 
 pub struct Game(state::Game);

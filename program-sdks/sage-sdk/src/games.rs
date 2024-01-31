@@ -9,8 +9,8 @@ use std::ops::Deref;
 
 use crate::{Game, GameState};
 
-pub fn derive_game_account(
-    program: &Program<impl Deref<Target = impl Signer> + Clone>,
+pub fn derive_game_account<C: Deref<Target = impl Signer> + Clone>(
+    program: &Program<C>,
     game_pubkey: &Pubkey,
 ) -> anyhow::Result<Game> {
     let account = program.account::<state::Game>(*game_pubkey)?;

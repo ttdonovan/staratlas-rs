@@ -5028,6 +5028,7 @@ dependencies = [
  "anchor-client 0.29.0",
  "anchor-lang 0.29.0",
  "anyhow",
+ "solana-account-decoder",
  "staratlas-sage",
 ]
 

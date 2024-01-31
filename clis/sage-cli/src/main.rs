@@ -11,7 +11,10 @@ use clap::{Parser, Subcommand};
 
 use staratlas_player_profile_sdk::{program::PlayerProfile, utils::derive_profile_accounts};
 use staratlas_sage_sdk::{
-    fleets::derive_fleet_accounts,
+    fleets::{
+        derive_fleet_account, derive_fleet_account_with_state, derive_fleet_accounts,
+        derive_fleet_address, get_fleet_account,
+    },
     games::{derive_game_account, derive_game_accounts, derive_game_state_account},
     program::Sage,
 };
@@ -42,19 +45,30 @@ struct ProviderConfig {
 
 #[derive(Default, Parser)]
 struct SageConfig {
-    /// Sage Game Pubkey
+    /// Sage Game's Pubkey
     #[clap(long = "sage.game_id", env = "SAGE_GAME_ID")]
     game_id: Option<Pubkey>,
-    /// Sage Game State Pubkey
+    /// Sage Game State's Pubkey
     #[clap(long = "sage.game_state_id", env = "SAGE_GAME_STATE_ID")]
     game_state_id: Option<Pubkey>,
-    /// Sage Player Profile Pubkey
+    /// Sage Player Profile's Pubkey
     #[clap(long = "sage.profile_id", env = "SAGE_PROFILE_ID")]
     profile_id: Option<Pubkey>,
 }
 
 #[derive(Subcommand)]
 enum Commands {
+    ShowFleet {
+        /// Fleet's Pubkey
+        #[arg(long)]
+        fleet_id: Option<Pubkey>,
+        /// Fleet's Label
+        #[arg(long)]
+        fleet_label: Option<String>,
+        /// Show Fleet's State (default: false)
+        #[arg(long, default_value_t = false)]
+        with_state: bool,
+    },
     ShowFleets,
     ShowGame,
     ShowGames,
@@ -90,13 +104,67 @@ fn main() -> anyhow::Result<()> {
     let player_profile_program = client.program(PlayerProfile::id())?;
 
     match &cli.command {
+        Commands::ShowFleet {
+            fleet_id,
+            fleet_label,
+            with_state,
+        } => {
+            if let Some(fleet) = match (fleet_id.as_ref(), fleet_label.as_ref()) {
+                (Some(fleet_id), _) => {
+                    if *with_state {
+                        let (fleet, fleet_state) =
+                            derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        Some((fleet, Some(fleet_state)))
+                    } else {
+                        let fleet = derive_fleet_account(&sage_program, &fleet_id)?;
+                        Some((fleet, None))
+                    }
+                }
+                (_, Some(fleet_label)) => {
+                    let game_id = &cli
+                        .sage_config
+                        .game_id
+                        .expect("Requires --sage.game_state_id <GAME_STATE_ID>");
+
+                    let profile_id = &cli
+                        .sage_config
+                        .profile_id
+                        .expect("Requires --sage.profile_id <PROFILE_ID>");
+
+                    let (fleet_pubkey, _) =
+                        derive_fleet_address(&game_id, &profile_id, fleet_label.as_str());
+
+                    if *with_state {
+                        let (fleet, fleet_state) =
+                            derive_fleet_account_with_state(&sage_program, &fleet_pubkey)?;
+                        Some((fleet, Some(fleet_state)))
+                    } else {
+                        let fleet = derive_fleet_account(&sage_program, &fleet_pubkey)?;
+                        Some((fleet, None))
+                    }
+                }
+                _ => {
+                    println!(
+                        "Requires --fleet_pubkey <FLEET_PUBKEY> or --fleet_label <FLEET_LABEL>"
+                    );
+                    None
+                }
+            } {
+                println!("{:#?}", fleet);
+            };
+        }
         Commands::ShowFleets => {
-            let fleet_accounts = derive_fleet_accounts(
-                &sage_program,
-                &cli.sage_config
-                    .profile_id
-                    .expect("Requires --sage.profile_id <PROFILE_ID>"),
-            )?;
+            let game_id = &cli
+                .sage_config
+                .game_id
+                .expect("Requires --sage.game_state_id <GAME_STATE_ID>");
+
+            let profile_id = &cli
+                .sage_config
+                .profile_id
+                .expect("Requires --sage.profile_id <PROFILE_ID>");
+
+            let fleet_accounts = derive_fleet_accounts(&sage_program, game_id, profile_id)?;
 
             println!("{:#?}", fleet_accounts);
         }
