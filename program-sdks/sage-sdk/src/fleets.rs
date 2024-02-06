@@ -49,14 +49,16 @@ pub fn derive_fleet_account_with_state<C: Deref<Target = impl Signer> + Clone>(
     fleet_pubkey: &Pubkey,
 ) -> anyhow::Result<(Fleet, FleetState)> {
     let account = get_fleet_account(program, fleet_pubkey)?;
-    let mut account_data = account.data.as_slice();
-
-    let fleet = state::Fleet::deserialize(&mut account_data)?;
+    let account_data = account.data.as_slice();
 
     // let _ = account_data[..8]; // what are these 8 bytes?
 
-    let mut remaining_data = &account_data[8..];
+    let mut account_data = &account_data[8..];
+    let fleet = state::Fleet::deserialize(&mut account_data)?;
+
+    let remaining_data = account_data;
     let discriminator = remaining_data[0];
+    let mut remaining_data = &remaining_data[1..];
 
     let fleet_state = match discriminator {
         0 => {

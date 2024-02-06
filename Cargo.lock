@@ -4941,7 +4941,7 @@ name = "staratlas-cargo"
 version = "0.1.0"
 dependencies = [
  "anchor-gen",
- "anchor-lang 0.27.0",
+ "anchor-lang 0.29.0",
 ]
 
 [[package]]
@@ -5029,6 +5029,9 @@ dependencies = [
  "anchor-lang 0.29.0",
  "anyhow",
  "solana-account-decoder",
+ "spl-associated-token-account",
+ "spl-token",
+ "staratlas-cargo",
  "staratlas-sage",
 ]
 

@@ -1,4 +1,4 @@
-use borsh::{BorshDeserialize, BorshSerialize};
+use borsh::BorshDeserialize;
 use cocoon::Cocoon;
 
 use std::fs::File;
@@ -14,7 +14,7 @@ where
     P: AsRef<Path>,
 {
     let mut file = File::create(path)?;
-    let encoded = wallet.try_to_vec()?;
+    let encoded = borsh::to_vec(&wallet)?;
 
     let cocoon = Cocoon::new(password.as_bytes());
     let _ = cocoon

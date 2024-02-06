@@ -9,5 +9,8 @@ edition = "2021"
 anchor-client = "0.29"
 anchor-lang = "0.29"
 anyhow = "1.0"
+spl-associated-token-account = "2.3"
+spl-token = "4.0"
 solana-account-decoder = "1.18"
+staratlas-cargo = { path = "../../programs/cargo", features = ["no-entrypoint"]  }
 staratlas-sage = { path = "../../programs/sage", features = ["no-entrypoint"]  }
