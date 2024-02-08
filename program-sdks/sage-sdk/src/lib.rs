@@ -1,5 +1,3 @@
-use anchor_lang::prelude::Pubkey;
-
 use std::fmt;
 use std::str;
 
@@ -13,6 +11,18 @@ pub mod utils;
 
 use programs::staratlas_cargo;
 use programs::staratlas_sage::{state, typedefs};
+
+pub struct CargoPod(staratlas_cargo::state::CargoPod);
+
+impl fmt::Debug for CargoPod {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("CargoPod")
+            .field("vesion", &self.0.version)
+            .field("stats_definition", &self.0.stats_definition)
+            .field("authority", &self.0.authority)
+            .finish()
+    }
+}
 
 pub struct CargoStatsDefinition(staratlas_cargo::state::CargoStatsDefinition);
 
@@ -43,7 +53,7 @@ impl fmt::Debug for CargoType {
     }
 }
 
-pub struct Fleet(state::Fleet);
+pub struct Fleet(pub state::Fleet);
 
 impl Fleet {
     pub fn fleet_label(&self) -> &str {
@@ -81,13 +91,7 @@ pub enum FleetState {
     Respawn(typedefs::Respawn),
 }
 
-pub struct Game(state::Game);
-
-impl Game {
-    pub fn cargo_stats_definition(&self) -> &Pubkey {
-        &self.0.cargo.stats_definition
-    }
-}
+pub struct Game(pub state::Game);
 
 impl fmt::Debug for Game {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -97,6 +101,7 @@ impl fmt::Debug for Game {
             .field("profile", &self.0.profile)
             .field("game_state", &self.0.game_state)
             .field("cargo", &self.0.cargo)
+            .field("mints", &self.0.mints)
             .finish()
     }
 }

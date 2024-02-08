@@ -1,5 +1,21 @@
 use super::*;
-use crate::{programs::staratlas_cargo::state, CargoStatsDefinition, CargoType};
+use crate::{programs::staratlas_cargo::state, CargoPod, CargoStatsDefinition, CargoType};
+
+pub fn cargo_pod_accounts<C: Deref<Target = impl Signer> + Clone>(
+    program: &Program<C>,
+    starbase_player: &Pubkey,
+) -> anyhow::Result<Vec<(Pubkey, CargoPod)>> {
+    let accounts = program.accounts::<state::CargoPod>(vec![RpcFilterType::Memcmp(
+        Memcmp::new_base58_encoded(41, starbase_player.as_ref()),
+    )])?;
+
+    let cargo_pod_accounts = accounts
+        .iter()
+        .map(|(pubkey, account)| (*pubkey, CargoPod(account.clone())))
+        .collect();
+
+    Ok(cargo_pod_accounts)
+}
 
 pub fn cargo_stats_definition_account<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,

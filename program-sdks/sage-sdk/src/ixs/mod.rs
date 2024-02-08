@@ -14,6 +14,7 @@ use spl_associated_token_account::{
 use std::ops::Deref;
 use std::str::FromStr;
 
+pub mod cargo;
 pub mod fleet;
 pub mod mining;
 

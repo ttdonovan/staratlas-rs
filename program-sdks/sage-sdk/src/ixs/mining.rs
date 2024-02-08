@@ -5,7 +5,6 @@ use staratlas_sage::{instruction, state, typedefs};
 
 use crate::{derive, find, CargoStatsDefinition, Fleet, FleetState, Game};
 
-// https://solscan.io/tx/prmR8eRxm9e3Rht8FDkdRMaS2ViY6AqUePkMLzcJ6mKtnEMBsyowm3mFTpx3Ux7dA2MDdsu96mduPXoMk16PPLg
 pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
@@ -42,8 +41,6 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let resources = derive::resource_accounts(sage_program, game_id, &planet)?;
             let (resource, resource_acct) = resources.first().expect("at least one resource");
             let mine_item = &resource_acct.0.mine_item;
-            // let mine_item =
-            //     derive_account::<_, state::MineItem>(sage_program, &resource.0.mine_item)?;
 
             let instr = instruction::StartMiningAsteroid {
                 _input: typedefs::StartMiningAsteroidInput { key_index: 0 },

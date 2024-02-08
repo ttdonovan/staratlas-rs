@@ -11,7 +11,6 @@ use clap::{Parser, Subcommand};
 
 use staratlas_player_profile_sdk::{program::PlayerProfile, utils::derive_profile_accounts};
 use staratlas_sage_sdk::{
-    // cargo::derive_cargo_stats_definition_account,
     derive,
     fleets::{
         derive_fleet_account, derive_fleet_account_with_state, derive_fleet_accounts,
@@ -20,6 +19,7 @@ use staratlas_sage_sdk::{
     games::{derive_game_account, derive_game_accounts, derive_game_state_account},
     ixs,
     programs::{staratlas_cargo::program::Cargo, staratlas_sage::program::Sage},
+    FleetState,
 };
 
 use std::rc::Rc;
@@ -83,10 +83,28 @@ enum Commands {
 
 #[derive(Subcommand)]
 enum Actions {
-    StarbaseDock { fleet_id: Pubkey },
-    StarbaseUndock { fleet_id: Pubkey },
-    StartMining { fleet_id: Pubkey },
-    StopMining { fleet_id: Pubkey },
+    CargoDeposit {
+        fleet_id: Pubkey,
+        mint: Pubkey,
+        amount: u64,
+    },
+    CargoWithdraw {
+        fleet_id: Pubkey,
+        mint: Pubkey,
+        amount: u64,
+    },
+    StarbaseDock {
+        fleet_id: Pubkey,
+    },
+    StarbaseUndock {
+        fleet_id: Pubkey,
+    },
+    StartMining {
+        fleet_id: Pubkey,
+    },
+    StopMining {
+        fleet_id: Pubkey,
+    },
 }
 
 fn default_keypair() -> Keypair {
@@ -137,10 +155,79 @@ fn main() -> anyhow::Result<()> {
             let game = derive_game_account(&sage_program, &game_id)?;
             let cargo_stats_definition = derive::cargo_stats_definition_account(
                 &cargo_program,
-                game.cargo_stats_definition(),
+                &game.0.cargo.stats_definition,
             )?;
 
-            match action {
+            let ixs = match action {
+                Actions::CargoDeposit {
+                    fleet_id,
+                    mint,
+                    amount,
+                } => {
+                    // ammoK8AkX2wnebQb35cDAZtTkvsXQbi82cGeTnUvvfK
+                    // foodQJAztMzX1DKpLaiounNe2BDMds5RNuPC6jsNrDG
+                    // fueL3hBZjLLLJHiFH9cqZoozTG3XQZ53diwFPwbzNim
+                    let (fleet, fleet_state) =
+                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+
+                    let cargo_pod_to = if mint == &game.0.mints.fuel {
+                        &fleet.0.fuel_tank
+                    } else if mint == &game.0.mints.ammo {
+                        &fleet.0.ammo_bank
+                    } else {
+                        &fleet.0.cargo_hold
+                    };
+
+                    match fleet_state {
+                        FleetState::StarbaseLoadingBay(state) => {
+                            let ixs = ixs::cargo::depost_to_fleet(
+                                &sage_program,
+                                &cargo_program,
+                                (fleet_id, &fleet),
+                                (&game_id, &game),
+                                &state.starbase,
+                                cargo_pod_to,
+                                mint,
+                                *amount,
+                            )?;
+
+                            Some(ixs)
+                        }
+                        _ => {
+                            println!("Fleet is not docked at a starbase");
+                            None
+                        }
+                    }
+                }
+                Actions::CargoWithdraw {
+                    fleet_id,
+                    mint,
+                    amount,
+                } => {
+                    // HYDR4EPHJcDPcaLYUcNCtrXUdt1PnaN4MvE655pevBYp
+                    let (fleet, fleet_state) =
+                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+
+                    match fleet_state {
+                        FleetState::StarbaseLoadingBay(state) => {
+                            let ixs = ixs::cargo::withdraw_from_fleet(
+                                &sage_program,
+                                &cargo_program,
+                                (fleet_id, &fleet),
+                                (&game_id, &game),
+                                &state.starbase,
+                                mint,
+                                *amount,
+                            )?;
+
+                            Some(ixs)
+                        }
+                        _ => {
+                            println!("Fleet is not docked at a starbase");
+                            None
+                        }
+                    }
+                }
                 Actions::StarbaseDock { fleet_id } => {
                     let (fleet, fleet_state) =
                         derive_fleet_account_with_state(&sage_program, &fleet_id)?;
@@ -151,13 +238,7 @@ fn main() -> anyhow::Result<()> {
                         (&game_id, &game),
                     )?;
 
-                    let mut builder = sage_program.request();
-                    for ix in ixs {
-                        builder = builder.instruction(ix);
-                    }
-
-                    // let signature = builder.send()?;
-                    // println!("{}", signature);
+                    Some(ixs)
                 }
                 Actions::StarbaseUndock { fleet_id } => {
                     let (fleet, fleet_state) =
@@ -169,13 +250,7 @@ fn main() -> anyhow::Result<()> {
                         (&game_id, &game),
                     )?;
 
-                    let mut builder = sage_program.request();
-                    for ix in ixs {
-                        builder = builder.instruction(ix);
-                    }
-
-                    // let signature = builder.send()?;
-                    // println!("{}", signature);
+                    Some(ixs)
                 }
                 Actions::StartMining { fleet_id } => {
                     let (fleet, fleet_state) =
@@ -187,13 +262,7 @@ fn main() -> anyhow::Result<()> {
                         (&game_id, &game),
                     )?;
 
-                    let mut builder = sage_program.request();
-                    for ix in ixs {
-                        builder = builder.instruction(ix);
-                    }
-
-                    // let signature = builder.send()?;
-                    // println!("{}", signature);
+                    Some(ixs)
                 }
                 Actions::StopMining { fleet_id } => {
                     let (fleet, fleet_state) =
@@ -205,14 +274,18 @@ fn main() -> anyhow::Result<()> {
                         (&game_id, (&game, &cargo_stats_definition)),
                     )?;
 
-                    let mut builder = sage_program.request();
-                    for ix in ixs {
-                        builder = builder.instruction(ix);
-                    }
-
-                    // let signature = builder.send()?;
-                    // println!("{}", signature);
+                    Some(ixs)
                 }
+            };
+
+            if let Some(ixs) = ixs {
+                let mut builder = sage_program.request();
+                for ix in ixs {
+                    builder = builder.instruction(ix);
+                }
+
+                // let signature = builder.send()?;
+                // println!("{}", signature);
             }
         }
         Commands::ShowFleet {
