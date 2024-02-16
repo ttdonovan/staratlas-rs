@@ -3,8 +3,6 @@ use std::str;
 
 pub mod derive;
 pub mod find;
-pub mod fleets;
-pub mod games;
 pub mod ixs;
 pub mod programs;
 pub mod utils;

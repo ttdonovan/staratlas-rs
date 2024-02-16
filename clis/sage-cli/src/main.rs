@@ -11,17 +11,12 @@ use clap::{Parser, Subcommand};
 
 use staratlas_player_profile_sdk::{program::PlayerProfile, utils::derive_profile_accounts};
 use staratlas_sage_sdk::{
-    derive,
-    fleets::{
-        derive_fleet_account, derive_fleet_account_with_state, derive_fleet_accounts,
-        derive_fleet_address,
-    },
-    games::{derive_game_account, derive_game_accounts, derive_game_state_account},
-    ixs,
+    derive, ixs,
     programs::{staratlas_cargo::program::Cargo, staratlas_sage::program::Sage},
     FleetState,
 };
 
+use std::io::{self, Write};
 use std::rc::Rc;
 
 /// Star Atlas: Sage CLI --> donations: 2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77 <--
@@ -51,9 +46,6 @@ struct SageConfig {
     /// Sage Game's Pubkey
     #[clap(long = "sage.game_id", env = "SAGE_GAME_ID")]
     game_id: Option<Pubkey>,
-    /// Sage Game State's Pubkey
-    #[clap(long = "sage.game_state_id", env = "SAGE_GAME_STATE_ID")]
-    game_state_id: Option<Pubkey>,
     /// Sage Player Profile's Pubkey
     #[clap(long = "sage.profile_id", env = "SAGE_PROFILE_ID")]
     profile_id: Option<Pubkey>,
@@ -63,22 +55,10 @@ struct SageConfig {
 enum Commands {
     #[command(subcommand)]
     Actions(Actions),
-    ShowFleet {
-        /// Fleet's Pubkey
-        #[arg(long)]
-        fleet_id: Option<Pubkey>,
-        /// Fleet's Label
-        #[arg(long)]
-        fleet_label: Option<String>,
-        /// Show Fleet's State (default: false)
-        #[arg(long, default_value_t = false)]
-        with_state: bool,
-    },
-    ShowFleets,
-    ShowGame,
-    ShowGames,
-    ShowGameState,
-    ShowPlayerProfile,
+    #[command(subcommand)]
+    Find(Find),
+    #[command(subcommand)]
+    Show(Show),
 }
 
 #[derive(Subcommand)]
@@ -104,6 +84,36 @@ enum Actions {
     },
     StopMining {
         fleet_id: Pubkey,
+    },
+    Warp {
+        fleet_id: Pubkey,
+        x_coord: i64,
+        y_coord: i64,
+    },
+    WarpExit {
+        fleet_id: Pubkey,
+    },
+}
+
+#[derive(Subcommand)]
+enum Find {
+    Games,
+    Fleet {
+        /// Fleet's Label
+        fleet_name: String,
+    },
+    PlayerProfile,
+}
+
+#[derive(Subcommand)]
+enum Show {
+    AllFleets,
+    Fleet {
+        /// Fleet's Pubkey
+        fleet_id: Pubkey,
+        /// Show Fleet's State (default: false)
+        #[arg(long, default_value_t = false)]
+        with_state: bool,
     },
 }
 
@@ -152,11 +162,7 @@ fn main() -> anyhow::Result<()> {
 
             let cargo_program = client.program(Cargo::id())?;
 
-            let game = derive_game_account(&sage_program, &game_id)?;
-            let cargo_stats_definition = derive::cargo_stats_definition_account(
-                &cargo_program,
-                &game.0.cargo.stats_definition,
-            )?;
+            let game = derive::game_account(&sage_program, &game_id)?;
 
             let ixs = match action {
                 Actions::CargoDeposit {
@@ -168,7 +174,7 @@ fn main() -> anyhow::Result<()> {
                     // foodQJAztMzX1DKpLaiounNe2BDMds5RNuPC6jsNrDG
                     // fueL3hBZjLLLJHiFH9cqZoozTG3XQZ53diwFPwbzNim
                     let (fleet, fleet_state) =
-                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
                     let cargo_pod_to = if mint == &game.0.mints.fuel {
                         &fleet.0.fuel_tank
@@ -206,7 +212,7 @@ fn main() -> anyhow::Result<()> {
                 } => {
                     // HYDR4EPHJcDPcaLYUcNCtrXUdt1PnaN4MvE655pevBYp
                     let (fleet, fleet_state) =
-                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
                     match fleet_state {
                         FleetState::StarbaseLoadingBay(state) => {
@@ -230,9 +236,9 @@ fn main() -> anyhow::Result<()> {
                 }
                 Actions::StarbaseDock { fleet_id } => {
                     let (fleet, fleet_state) =
-                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
-                    let ixs = ixs::fleet::dock_to_starbase(
+                    let ixs = ixs::starbase::dock_to_starbase(
                         &sage_program,
                         (fleet_id, (&fleet, &fleet_state)),
                         (&game_id, &game),
@@ -242,9 +248,9 @@ fn main() -> anyhow::Result<()> {
                 }
                 Actions::StarbaseUndock { fleet_id } => {
                     let (fleet, fleet_state) =
-                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
-                    let ixs = ixs::fleet::undock_from_starbase(
+                    let ixs = ixs::starbase::undock_from_starbase(
                         &sage_program,
                         (fleet_id, (&fleet, &fleet_state)),
                         (&game_id, &game),
@@ -254,9 +260,9 @@ fn main() -> anyhow::Result<()> {
                 }
                 Actions::StartMining { fleet_id } => {
                     let (fleet, fleet_state) =
-                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
-                    let ixs = ixs::mining::start_mining_asteroid(
+                    let ixs = ixs::mine::start_mining_asteroid(
                         &sage_program,
                         (fleet_id, (&fleet, &fleet_state)),
                         (&game_id, &game),
@@ -266,13 +272,39 @@ fn main() -> anyhow::Result<()> {
                 }
                 Actions::StopMining { fleet_id } => {
                     let (fleet, fleet_state) =
-                        derive_fleet_account_with_state(&sage_program, &fleet_id)?;
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
-                    let ixs = ixs::mining::stop_mining_asteroid(
+                    let ixs = ixs::mine::stop_mining_asteroid(
                         &sage_program,
                         (fleet_id, (&fleet, &fleet_state)),
-                        (&game_id, (&game, &cargo_stats_definition)),
+                        (&game_id, &game),
                     )?;
+
+                    Some(ixs)
+                }
+                Actions::Warp {
+                    fleet_id,
+                    x_coord,
+                    y_coord,
+                } => {
+                    let (fleet, _fleet_state) =
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
+
+                    let ixs = ixs::warp::warp_to_coordinate(
+                        &sage_program,
+                        &cargo_program,
+                        (fleet_id, &fleet),
+                        (&game_id, &game),
+                        [*x_coord, *y_coord],
+                    )?;
+
+                    Some(ixs)
+                }
+                Actions::WarpExit { fleet_id } => {
+                    let (fleet, _fleet_state) =
+                        derive::fleet_account_with_state(&sage_program, &fleet_id)?;
+
+                    let ixs = ixs::warp::ready_to_exit_warp(&sage_program, (fleet_id, &fleet))?;
 
                     Some(ixs)
                 }
@@ -284,89 +316,68 @@ fn main() -> anyhow::Result<()> {
                     builder = builder.instruction(ix);
                 }
 
-                // let signature = builder.send()?;
-                // println!("{}", signature);
+                print!("Confirm sign and send? Y/N: ");
+                io::stdout().flush()?;
+
+                let mut input = String::new();
+                io::stdin().read_line(&mut input)?;
+
+                if input.trim().eq_ignore_ascii_case("Y") {
+                    let signature = builder.send()?;
+                    println!("{}", signature);
+                } else {
+                    let ixs = builder.instructions()?;
+                    dbg!(ixs);
+                }
             }
         }
-        Commands::ShowFleet {
-            fleet_id,
-            fleet_label,
-            with_state,
-        } => {
-            if let Some(fleet) = match (fleet_id.as_ref(), fleet_label.as_ref()) {
-                (Some(fleet_id), _) => {
+        Commands::Find(find) => match find {
+            Find::Games => {
+                let game_accounts = derive::game_accounts(&sage_program)?;
+
+                println!("{:#?}", game_accounts);
+            }
+            Find::Fleet { fleet_name } => {
+                let (game_id, player_profile) = parse_sage_config(&cli.sage_config);
+
+                let (fleet_pubkey, _) =
+                    derive::fleet_address(&game_id, &player_profile, fleet_name.as_str());
+
+                let fleet = derive::fleet_account(&sage_program, &fleet_pubkey)?;
+
+                println!("{:#?}", vec![(fleet_pubkey, fleet)]);
+            }
+            Find::PlayerProfile => {
+                let profile_accounts =
+                    derive_profile_accounts(&player_profile_program, &payer.pubkey())?;
+
+                println!("{:#?}", profile_accounts);
+            }
+        },
+        Commands::Show(show) => {
+            let (game_id, player_profile) = parse_sage_config(&cli.sage_config);
+
+            match show {
+                Show::AllFleets => {
+                    let fleet_accounts =
+                        derive::fleet_accounts(&sage_program, &game_id, &player_profile)?;
+
+                    println!("{:#?}", fleet_accounts);
+                }
+                Show::Fleet {
+                    fleet_id,
+                    with_state,
+                } => {
                     if *with_state {
                         let (fleet, fleet_state) =
-                            derive_fleet_account_with_state(&sage_program, &fleet_id)?;
-                        Some((fleet, Some(fleet_state)))
+                            derive::fleet_account_with_state(&sage_program, &fleet_id)?;
+                        println!("{:#?}", (fleet, fleet_state));
                     } else {
-                        let fleet = derive_fleet_account(&sage_program, &fleet_id)?;
-                        Some((fleet, None))
+                        let fleet = derive::fleet_account(&sage_program, &fleet_id)?;
+                        println!("{:#?}", fleet);
                     }
                 }
-                (_, Some(fleet_label)) => {
-                    let (game_id, profile_id) = parse_sage_config(&cli.sage_config);
-
-                    let (fleet_pubkey, _) =
-                        derive_fleet_address(&game_id, &profile_id, fleet_label.as_str());
-
-                    if *with_state {
-                        let (fleet, fleet_state) =
-                            derive_fleet_account_with_state(&sage_program, &fleet_pubkey)?;
-                        Some((fleet, Some(fleet_state)))
-                    } else {
-                        let fleet = derive_fleet_account(&sage_program, &fleet_pubkey)?;
-                        Some((fleet, None))
-                    }
-                }
-                _ => {
-                    println!(
-                        "Requires --fleet_pubkey <FLEET_PUBKEY> or --fleet_label <FLEET_LABEL>"
-                    );
-                    None
-                }
-            } {
-                println!("{:#?}", fleet);
-            };
-        }
-        Commands::ShowFleets => {
-            let (game_id, profile_id) = parse_sage_config(&cli.sage_config);
-
-            let fleet_accounts = derive_fleet_accounts(&sage_program, &game_id, &profile_id)?;
-
-            println!("{:#?}", fleet_accounts);
-        }
-        Commands::ShowGame => {
-            let game = derive_game_account(
-                &sage_program,
-                &cli.sage_config
-                    .game_id
-                    .expect("Requires --sage.game_state_id <GAME_STATE_ID>"),
-            )?;
-
-            println!("{:#?}", game);
-        }
-
-        Commands::ShowGames => {
-            let game_accounts = derive_game_accounts(&sage_program)?;
-
-            println!("{:#?}", game_accounts);
-        }
-        Commands::ShowGameState => {
-            let game_state = derive_game_state_account(
-                &sage_program,
-                &cli.sage_config
-                    .game_state_id
-                    .expect("Requires --sage.game_state_id <GAME_STATE_ID>"),
-            )?;
-
-            println!("{:#?}", game_state);
-        }
-        Commands::ShowPlayerProfile => {
-            let profile_accounts =
-                derive_profile_accounts(&player_profile_program, &payer.pubkey())?;
-
-            println!("{:#?}", profile_accounts);
+            }
         }
     }
 

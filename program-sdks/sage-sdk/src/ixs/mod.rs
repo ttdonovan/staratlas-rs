@@ -15,8 +15,9 @@ use std::ops::Deref;
 use std::str::FromStr;
 
 pub mod cargo;
-pub mod fleet;
-pub mod mining;
+pub mod mine;
+pub mod starbase;
+pub mod warp;
 
 fn derive_account<C: Deref<Target = impl Signer> + Clone, T: anchor_lang::AccountDeserialize>(
     program: &Program<C>,

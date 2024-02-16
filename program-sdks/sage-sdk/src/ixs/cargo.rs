@@ -4,9 +4,6 @@ use staratlas_sage::{instruction, state, typedefs};
 
 use crate::{derive, find, Fleet, Game};
 
-// https://github.com/ttdonovan/lab-assistant-ts/blob/f2404b5c56cab89889a57f1d138ae3defc4ecf87/labs-cmd-center/src/sageFleetHandler.ts#L368C11-L368C32
-// https://solscan.io/tx/JQdBmzLHAqSXcSCkpqehC2s8JQHBusCs6CMgL1shjdmtHH9aT73AWH2ULTykujR4z5NeFXeLfNpmcNwaYMiq63J
-// foodQJAztMzX1DKpLaiounNe2BDMds5RNuPC6jsNrDG
 pub fn depost_to_fleet<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     cargo_program: &Program<C>,

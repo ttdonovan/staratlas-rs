@@ -3,7 +3,7 @@ use super::*;
 use staratlas_cargo::program::Cargo;
 use staratlas_sage::{instruction, state, typedefs};
 
-use crate::{derive, find, CargoStatsDefinition, Fleet, FleetState, Game};
+use crate::{derive, find, Fleet, FleetState, Game};
 
 pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
@@ -75,10 +75,10 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
 pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
-    game: (&Pubkey, (&Game, &CargoStatsDefinition)),
+    game: (&Pubkey, &Game),
 ) -> anyhow::Result<Vec<Instruction>> {
     let (fleet_pubkey, (fleet, fleet_state)) = fleet;
-    let (game_pubkey, (game, cargo_stats_definition)) = game;
+    let (game_pubkey, game) = game;
 
     match fleet_state {
         FleetState::MineAsteroid(mine_asteroid) => {
@@ -93,8 +93,10 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let fuel_mint = &game.0.mints.fuel;
 
             // cargo stats definition
-            let seq_id: u16 = cargo_stats_definition.0.seq_id;
             let cargo_stats_definition = &game.0.cargo.stats_definition;
+            // let cargo_stats_definition_acct = derive::cargo_stats_definition_account(cargo_program, cargo_stats_definition)?;
+            // dbg!(&cargo_stats_definition_acct.0.seq_id);
+            let seq_id = 1;
 
             // player profile's faction
             let (profile_faction, _) = find_profile_faction_address(&player_profile)?;

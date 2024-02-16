@@ -1,13 +1,4 @@
-use anchor_client::{
-    solana_client::{
-        rpc_config::{RpcAccountInfoConfig, RpcProgramAccountsConfig},
-        rpc_filter::{Memcmp, RpcFilterType},
-    },
-    solana_sdk::{account::Account, commitment_config::CommitmentConfig, signature::Signer},
-    Program,
-};
-use anchor_lang::{prelude::Pubkey, AnchorDeserialize, Id};
-use solana_account_decoder::UiAccountEncoding;
+use super::*;
 
 use staratlas_sage::{program::Sage, state, typedefs};
 
@@ -15,7 +6,7 @@ use crate::{utils::str_to_u8_32, Fleet, FleetState};
 
 use std::ops::Deref;
 
-pub fn derive_fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
+pub fn fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     game_pubkey: &Pubkey,
     player_profile_pubkey: &Pubkey,
@@ -36,7 +27,7 @@ pub fn derive_fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
     Ok(fleet_accounts)
 }
 
-pub fn derive_fleet_account<C: Deref<Target = impl Signer> + Clone>(
+pub fn fleet_account<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     fleet_pubkey: &Pubkey,
 ) -> anyhow::Result<Fleet> {
@@ -44,7 +35,7 @@ pub fn derive_fleet_account<C: Deref<Target = impl Signer> + Clone>(
     Ok(Fleet(account))
 }
 
-pub fn derive_fleet_account_with_state<C: Deref<Target = impl Signer> + Clone>(
+pub fn fleet_account_with_state<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     fleet_pubkey: &Pubkey,
 ) -> anyhow::Result<(Fleet, FleetState)> {
@@ -94,7 +85,7 @@ pub fn derive_fleet_account_with_state<C: Deref<Target = impl Signer> + Clone>(
     Ok((Fleet(fleet), fleet_state))
 }
 
-pub fn derive_fleet_address(
+pub fn fleet_address(
     game_pubkey: &Pubkey,
     player_profile_pubkey: &Pubkey,
     fleet_label: &str,
