@@ -1,0 +1,16 @@
+[package]
+name = "hydro-bot"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anchor-client = "0.29"
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+macroquad = "0.4"
+shellexpand = "3.1"
+solana-program = "1.18"
+spl-associated-token-account = "2.3"
+staratlas-sage-sdk = { path = "../../program-sdks/sage-sdk" }

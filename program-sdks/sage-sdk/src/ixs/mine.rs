@@ -119,6 +119,7 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let ammo_bank = &fleet.0.ammo_bank;
             let fuel_tank = &fleet.0.fuel_tank;
 
+            // ata for resource
             let ata_resource_from = get_associated_token_address(&mine_item, resource_mint);
             let ata_resource_to = get_associated_token_address(cargo_hold, resource_mint);
 
@@ -129,12 +130,27 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
                 &spl_token::id(),
             );
 
+            // ata for ammo, food and fuel
             let ata_fleet_ammo = get_associated_token_address(ammo_bank, ammo_mint);
             let ata_fleet_food = get_associated_token_address(cargo_hold, food_mint);
             let ata_fleet_fuel = get_associated_token_address(fuel_tank, fuel_mint);
 
             let food_token_from = &ata_fleet_food;
             let ammo_token_from = &ata_fleet_ammo;
+
+            // let ata_ammo_from_ix = create_associated_token_account_idempotent(
+            //     &sage_program.payer(),
+            //     &ammo_token_from,
+            //     ammo_mint,
+            //     &spl_token::id(),
+            // );
+
+            // let ata_food_from_ix = create_associated_token_account_idempotent(
+            //     &sage_program.payer(),
+            //     &food_token_from,
+            //     food_mint,
+            //     &spl_token::id(),
+            // );
 
             let resource_token_from = ata_resource_from;
             let resource_token_to = ata_resource_to;
@@ -205,6 +221,8 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let builder = sage_program
                 .request()
                 .instruction(ata_resource_to_ix)
+                // .instruction(ata_ammo_from_ix)
+                // .instruction(ata_food_from_ix)
                 .instruction(fleet_state_handler_ix)
                 .instruction(stop_mining_asteroid_ix);
 

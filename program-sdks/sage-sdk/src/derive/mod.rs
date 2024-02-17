@@ -23,7 +23,7 @@ pub use fleet::*;
 pub use game::*;
 pub use planet::*;
 
-pub(crate) fn derive_account<
+pub fn derive_account<
     C: Deref<Target = impl Signer> + Clone,
     T: anchor_lang::AccountDeserialize,
 >(
