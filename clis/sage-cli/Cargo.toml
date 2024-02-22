@@ -10,6 +10,7 @@ anchor-client = "0.29"
 anchor-lang = "0.29"
 anyhow = "1.0"
 clap = { version = "4.4", features = ["derive", "env"] }
+comfy-table = "7.1"
 shellexpand = "3.1"
 staratlas-player-profile-sdk = { path = "../../program-sdks/player-profile-sdk" }
 staratlas-sage-sdk = { path = "../../program-sdks/sage-sdk" }

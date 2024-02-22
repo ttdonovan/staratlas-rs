@@ -335,7 +335,18 @@ fn main() -> anyhow::Result<()> {
             Find::Games => {
                 let game_accounts = derive::game_accounts(&sage_program)?;
 
-                println!("{:#?}", game_accounts);
+                let mut table = comfy_table::Table::new();
+                table.set_header(vec!["Game ID", "Version", "Mints"]);
+
+                for (pubkey, game) in game_accounts {
+                    table.add_row(vec![
+                        pubkey.to_string(),
+                        game.0.version.to_string(),
+                        format!("{:#?}", game.0.mints),
+                    ]);
+                }
+
+                println!("{table}");
             }
             Find::Fleet { fleet_name } => {
                 let (game_id, player_profile) = parse_sage_config(&cli.sage_config);
@@ -351,7 +362,24 @@ fn main() -> anyhow::Result<()> {
                 let profile_accounts =
                     derive_profile_accounts(&player_profile_program, &payer.pubkey())?;
 
-                println!("{:#?}", profile_accounts);
+                let mut table = comfy_table::Table::new();
+                table.set_header(vec![
+                    "Profile ID",
+                    "Version",
+                    "Auth Key Count",
+                    "Key Threshold",
+                ]);
+
+                for (pubkey, profile) in profile_accounts {
+                    table.add_row(vec![
+                        pubkey.to_string(),
+                        profile.0.version.to_string(),
+                        profile.0.auth_key_count.to_string(),
+                        profile.0.key_threshold.to_string(),
+                    ]);
+                }
+
+                println!("{table}");
             }
         },
         Commands::Show(show) => {
@@ -362,7 +390,28 @@ fn main() -> anyhow::Result<()> {
                     let fleet_accounts =
                         derive::fleet_accounts(&sage_program, &game_id, &player_profile)?;
 
-                    println!("{:#?}", fleet_accounts);
+                    let mut table = comfy_table::Table::new();
+                    table.set_header(vec![
+                        "Fleet ID",
+                        "Fleet Label",
+                        "Ship Counts",
+                        "Movement Stats",
+                        "Cargo Stats",
+                        "Misc Stats",
+                    ]);
+
+                    for (pubkey, fleet) in fleet_accounts {
+                        table.add_row(vec![
+                            pubkey.to_string(),
+                            fleet.fleet_label().to_string(),
+                            format!("{:#?}", fleet.0.ship_counts),
+                            format!("{:#?}", fleet.0.stats.movement_stats),
+                            format!("{:#?}", fleet.0.stats.cargo_stats),
+                            format!("{:#?}", fleet.0.stats.misc_stats),
+                        ]);
+                    }
+
+                    println!("{table}");
                 }
                 Show::Fleet {
                     fleet_id,

@@ -15,7 +15,7 @@ pub struct CargoPod(staratlas_cargo::state::CargoPod);
 impl fmt::Debug for CargoPod {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("CargoPod")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("stats_definition", &self.0.stats_definition)
             .field("authority", &self.0.authority)
             .finish()
@@ -27,7 +27,7 @@ pub struct CargoStatsDefinition(staratlas_cargo::state::CargoStatsDefinition);
 impl fmt::Debug for CargoStatsDefinition {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("CargoStatsDefinition")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("authority", &self.0.authority)
             .field("default_cargo_type", &self.0.default_cargo_type)
             .field("stats_count", &self.0.stats_count)
@@ -41,7 +41,7 @@ pub struct CargoType(staratlas_cargo::state::CargoType);
 impl fmt::Debug for CargoType {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("CargoType")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("stats_definition", &self.0.stats_definition)
             .field("mint", &self.0.mint)
             .field("bump", &self.0.bump)
@@ -64,7 +64,7 @@ impl Fleet {
 impl fmt::Debug for Fleet {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("Fleet")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("game_id", &self.0.game_id)
             .field("owner_profile", &self.0.owner_profile)
             .field("fleet_ships", &self.0.fleet_ships)
@@ -94,7 +94,7 @@ pub struct Game(pub state::Game);
 impl fmt::Debug for Game {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("Game")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("update_id", &self.0.update_id)
             .field("profile", &self.0.profile)
             .field("game_state", &self.0.game_state)
@@ -109,7 +109,7 @@ pub struct GameState(state::GameState);
 impl fmt::Debug for GameState {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("GameState")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("update_id", &self.0.update_id)
             .field("game_id", &self.0.game_id)
             .finish()
@@ -121,7 +121,7 @@ pub struct Planet(state::Planet);
 impl fmt::Debug for Planet {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("Planet")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("game_id", &self.0.game_id)
             .field("sector", &self.0.sector)
             .field("sub_coordinates", &self.0.sub_coordinates)
@@ -142,7 +142,7 @@ pub struct Resource(state::Resource);
 impl fmt::Debug for Resource {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         f.debug_struct("Resource")
-            .field("vesion", &self.0.version)
+            .field("version", &self.0.version)
             .field("game_id", &self.0.game_id)
             .field("location", &self.0.location)
             .field("mine_item", &self.0.mine_item)
