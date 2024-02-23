@@ -4,8 +4,6 @@ use staratlas_sage::{program::Sage, state, typedefs};
 
 use crate::{utils::str_to_u8_32, Fleet, FleetState};
 
-use std::ops::Deref;
-
 pub fn fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     game_pubkey: &Pubkey,
