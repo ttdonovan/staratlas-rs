@@ -3,33 +3,60 @@ use spl_associated_token_account::get_associated_token_address;
 
 use staratlas_sage_sdk::{derive, FleetState};
 
-use crate::{bot, sage, ui};
-use bot::Autoplay;
+use std::str::FromStr;
+use std::time::{Duration, Instant};
 
-struct BotStats {
-    is_mining_state: bool,
-    emission_rate: f32,
-    resource_amount: f32,
-    mining_duration: f32,
-    mining_end_time: f64,
-    mining_countdown: f64,
+use crate::{bot, sage, time, ui};
+
+#[derive(Debug, PartialEq)]
+pub enum Autoplay {
+    Undefined,
+    ManageHangarCargo,
+    ReadyStarbaseDock,
+    ReadyStarbaseUndock,
+    StartMiningAsteroid,
+    IsMiningAstroid,
 }
 
-impl Default for BotStats {
-    fn default() -> Self {
-        BotStats {
-            is_mining_state: false,
+struct BotArgs {
+    emission_rate: f32,
+    resource_amount: f32,
+    autoplay_timer: time::Stopwatch,
+    autoplay_last_time: Instant,
+    mining_timer: time::Timer,
+    mining_last_time: Instant,
+    next_action: Autoplay,
+    fleet_state_dirty: bool,
+}
+
+impl BotArgs {
+    fn new() -> Self {
+        BotArgs {
             emission_rate: 0.0,
             resource_amount: 0.0,
-            mining_duration: 0.0,
-            mining_end_time: 0.0,
-            mining_countdown: 0.0,
+            autoplay_timer: time::Stopwatch::default(),
+            autoplay_last_time: Instant::now(),
+            mining_timer: time::Timer::default(),
+            mining_last_time: Instant::now(),
+            next_action: Autoplay::Undefined,
+            fleet_state_dirty: false,
         }
     }
 }
 
+impl BotArgs {
+    pub fn is_autoplay(&self, next_action: Autoplay) -> bool {
+        !self.autoplay_timer.paused() && self.next_action == next_action
+    }
+
+    pub fn set_next_action(&mut self, next_action: Autoplay) {
+        self.fleet_state_dirty = true;
+        self.next_action = next_action;
+    }
+}
+
 pub struct App {
-    bots: Vec<(bot::Bot, BotStats)>,
+    bots: Vec<(bot::Bot, BotArgs)>,
     resource_counter: u64,
 }
 
@@ -44,39 +71,57 @@ impl App {
             ui::print_lines(
                 vec![
                     &format!("Resource Counter: {}", &self.resource_counter),
-                    &format!("Elapsed Time: {:2}", time),
+                    &format!("Elapsed Time: {:.2}", time),
                     &format!("-----------------------------"),
                 ],
                 0.0,
             );
 
-            for (pos, (bot, stats)) in &mut self.bots.iter_mut().enumerate() {
-                let y_offset = 60.0 + (pos * 140) as f32;
+            for (pos, (bot, args)) in &mut self.bots.iter_mut().enumerate() {
+                // calculate autoplay delta time
+                let dt = {
+                    let now = Instant::now();
+                    let delta = now.duration_since(args.autoplay_last_time);
+                    args.autoplay_last_time = now;
+                    delta
+                };
+                args.autoplay_timer.tick(dt);
 
+                let y_offset = 60.0 + (pos * 180) as f32;
                 ui::print_lines(
                     vec![
                         &format!("Fleet ID: {}", &bot.fleet_id),
                         &format!("Fleet State: {:?}", &bot.fleet_state),
-                        &format!("Is Mining?: {:?}", &stats.is_mining_state),
                         &format!(
-                            "Mining: Rate({:2}) Amount({})",
-                            &stats.emission_rate, &stats.resource_amount
+                            "Mining: Rate({:.3}) Amount({}) Duration({:?})",
+                            &args.emission_rate,
+                            &args.resource_amount,
+                            &args.mining_timer.duration()
                         ),
-                        &format!("Countdown: {:?}", &stats.mining_countdown),
-                        &format!("Autoplay ({:?}): {:?}", &bot.autoplay, &bot.next_action),
+                        &format!("Mining Elapsed: {:.2}", &args.mining_timer.elapsed_secs()),
+                        &format!(
+                            "Mining Remaining : {:.3}",
+                            &args.mining_timer.remaining_secs()
+                        ),
+                        &format!("Mining Fraction: {:.3}", &args.mining_timer.fraction()),
+                        &format!("Mining Finished: {}", &args.mining_timer.finished()),
+                        &format!(
+                            "Autoplay ({:?}): {:?}",
+                            &args.next_action, &args.autoplay_timer
+                        ),
                         &format!("-----------------------------"),
                     ],
                     y_offset,
                 );
 
-                if bot.fleet_state_dirty {
+                if args.fleet_state_dirty {
                     // 1. Refresh fleet state (if dirty)
                     let (_, fleet_state) = derive::fleet_account_with_state(
                         &game_handler.sage_program,
                         &bot.fleet_id,
                     )?;
 
-                    bot.set_fleet_sate(fleet_state);
+                    bot.fleet_state = fleet_state;
                 }
 
                 match bot.fleet_state {
@@ -87,37 +132,34 @@ impl App {
                             );
 
                             if is_mouse_button_pressed(MouseButton::Left)
-                                || bot.is_autoplay(Autoplay::ReadyStarbaseDock)
+                                || args.is_autoplay(Autoplay::ReadyStarbaseDock)
                             {
                                 info!("Prepare to dock to starbase");
 
                                 if let Ok(signature) = game_handler.dock_to_starbase(bot) {
                                     info!("Dock Signature: {:?}", signature);
-
-                                    bot.fleet_state_dirty = true;
-                                    bot.set_next_action(Autoplay::ManageHangarCargo);
+                                    args.set_next_action(Autoplay::ManageHangarCargo);
                                 }
                             }
 
                             if is_mouse_button_pressed(MouseButton::Right)
-                                || bot.is_autoplay(Autoplay::StartMiningAsteroid)
+                                || args.is_autoplay(Autoplay::StartMiningAsteroid)
                             {
                                 info!("Prepare to mine asteroid");
 
                                 if let Ok(signature) = game_handler.start_mining_asteroid(bot) {
                                     info!("Mining Start Signature: {:?}", signature);
-
-                                    bot.fleet_state_dirty = true;
-                                    bot.set_next_action(Autoplay::IsMiningAstroid);
+                                    args.set_next_action(Autoplay::IsMiningAstroid);
                                 }
                             }
                         }
                         _ => unimplemented!(),
                     },
-                    FleetState::MineAsteroid(_mine_asteroid) => {
+                    FleetState::MineAsteroid(mine_asteroid) => {
                         ui::print_input("Stop Mine Asteroid (Mouse Left)");
 
-                        if !stats.is_mining_state {
+                        // a zero mining timer duration means this is the 'first' time mining
+                        if args.mining_timer.duration() == Duration::ZERO {
                             // // mine asteroid's resource (account) and mine item (account)
                             // let resource =
                             //     derive_account::<_, state::Resource>(&game_handler.sage_program, &mine_asteroid.resource)?;
@@ -130,34 +172,78 @@ impl App {
                             let system_richness: f32 = 100.0 / 100.0;
 
                             // calculate asteroid mining emission rate
-                            stats.emission_rate =
+                            args.emission_rate =
                                 (bot.fleet_acct.0.stats.cargo_stats.mining_rate as f32 / 10000.0)
                                     * system_richness
                                     / resource_hardness;
 
                             // calculate resource amount to extract
-                            stats.resource_amount =
-                                bot.fleet_acct.0.stats.cargo_stats.cargo_capacity as f32; // minus 'food'
+                            let keyed_accounts = rpc_client.get_token_accounts_by_owner(
+                                &bot.fleet_acct.0.cargo_hold,
+                                anchor_client::solana_client::rpc_request::TokenAccountsFilter::ProgramId(spl_token::id()),
+                            )?;
 
-                            // calculate mining duration
-                            stats.mining_duration = stats.resource_amount / stats.emission_rate;
-                            stats.mining_end_time = time + stats.mining_duration as f64;
+                            let held_amount =
+                                keyed_accounts.iter().fold(0.0, |amount, keyed_acct| {
+                                    let pubkey =
+                                        anchor_client::anchor_lang::prelude::Pubkey::from_str(
+                                            &keyed_acct.pubkey,
+                                        )
+                                        .unwrap();
+                                    let balance =
+                                        rpc_client.get_token_account_balance(&pubkey).unwrap();
+
+                                    let ui_amount = balance.ui_amount.unwrap_or(0.0);
+                                    amount + ui_amount
+                                }) as u32;
+
+                            // calculate 'estimated' space left in cargo hold
+
+                            let mining_time_elapsed = time::get_time() as i64 - mine_asteroid.start;
+                            let amount_mined = mining_time_elapsed as f32 * args.emission_rate;
+                            let est_held_cargo = held_amount + amount_mined as u32;
+
+                            args.resource_amount = (bot
+                                .fleet_acct
+                                .0
+                                .stats
+                                .cargo_stats
+                                .cargo_capacity
+                                - est_held_cargo)
+                                as f32;
+
+                            // calculate mining duration and set mining timer
+                            let mining_duration =
+                                Duration::from_secs_f32(args.resource_amount / args.emission_rate);
+                            args.mining_timer.set_duration(mining_duration);
                         };
 
-                        stats.is_mining_state = true; // set mining state to true
-                        stats.mining_countdown = stats.mining_end_time - time; // mining countdown
+                        // calculate mining delta time
+                        let dt = {
+                            let now = Instant::now();
+                            let delta = now.duration_since(args.mining_last_time);
+                            args.mining_last_time = now;
+                            delta
+                        };
+
+                        args.mining_timer.tick(dt);
 
                         if is_mouse_button_pressed(MouseButton::Left)
-                            || stats.mining_countdown <= 0.0
+                            || args.mining_timer.finished()
                         {
                             info!("Prepare to stop mining asteroid");
 
-                            if let Ok(signature) = game_handler.stop_mining_asteroid(bot) {
-                                info!("Mining Stop Signature: {:?}", signature);
-                                stats.is_mining_state = false; // set mining state to false (reset)
-
-                                bot.fleet_state_dirty = true;
-                                bot.set_next_action(Autoplay::ReadyStarbaseDock);
+                            match game_handler.stop_mining_asteroid(bot) {
+                                Ok(signature) => {
+                                    info!("Mining Stop Signature: {:?}", signature);
+                                    // set mining timer duration to zero and reset
+                                    args.mining_timer.set_duration(Duration::ZERO);
+                                    args.mining_timer.reset();
+                                    args.set_next_action(Autoplay::ReadyStarbaseDock);
+                                }
+                                Err(err) => {
+                                    error!("Error: {:?}", err);
+                                }
                             }
                         }
                     }
@@ -165,7 +251,7 @@ impl App {
                         ui::print_input("Hangar Withdraw Cargo and Resupply (Mouse Left) | Undock from Starbase (Mouse Right)");
 
                         if is_mouse_button_pressed(MouseButton::Left)
-                            || bot.is_autoplay(Autoplay::ManageHangarCargo)
+                            || args.is_autoplay(Autoplay::ManageHangarCargo)
                         {
                             info!(
                                 "Prepare to withdarw cargo, refuel, rearm, and supply cargo hold"
@@ -301,21 +387,18 @@ impl App {
                             }
 
                             if hangar_ok {
-                                bot.fleet_state_dirty = true;
-                                bot.set_next_action(Autoplay::ReadyStarbaseUndock);
+                                args.set_next_action(Autoplay::ReadyStarbaseUndock);
                             }
                         }
 
                         if is_mouse_button_pressed(MouseButton::Right)
-                            || bot.is_autoplay(Autoplay::ReadyStarbaseUndock)
+                            || args.is_autoplay(Autoplay::ReadyStarbaseUndock)
                         {
                             info!("Prepare to undock from starbase");
 
                             if let Ok(signature) = game_handler.undock_from_starbase(bot) {
                                 info!("Undock Signature: {:?}", signature);
-
-                                bot.fleet_state_dirty = true;
-                                bot.set_next_action(Autoplay::StartMiningAsteroid);
+                                args.set_next_action(Autoplay::StartMiningAsteroid);
                             };
                         }
                     }
@@ -335,13 +418,23 @@ impl App {
     }
 }
 
-pub async fn run(game_handler: &sage::GameHandler, bots: Vec<bot::Bot>) -> anyhow::Result<()> {
+pub async fn run(
+    game_handler: &sage::GameHandler,
+    bots: Vec<bot::Bot>,
+    autoplay: bool,
+) -> anyhow::Result<()> {
+    let mut bots: Vec<_> = bots.into_iter().map(|bot| (bot, BotArgs::new())).collect();
+
+    if !autoplay {
+        bots.iter_mut().for_each(|(_, args)| {
+            args.autoplay_timer.pause();
+        });
+    }
+
     let mut app = App {
-        bots: bots
-            .into_iter()
-            .map(|bot| (bot, BotStats::default()))
-            .collect(),
+        bots,
         resource_counter: 0,
     };
+
     app.run(game_handler).await
 }

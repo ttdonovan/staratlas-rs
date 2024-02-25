@@ -14,4 +14,6 @@ macroquad = "0.4"
 shellexpand = "3.1"
 solana-program = "1.18"
 spl-associated-token-account = "2.3"
+spl-token = "4.0"
+shared_time = { path = "../crates/shared_time" }
 staratlas-sage-sdk = { path = "../../program-sdks/sage-sdk" }

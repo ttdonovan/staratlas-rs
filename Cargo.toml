@@ -9,3 +9,7 @@ members = [
     "programs/*",
     "utils/*",
 ]
+
+exclude = [
+    "bots/crates",
+]

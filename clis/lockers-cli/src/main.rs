@@ -53,22 +53,22 @@ enum Find {
     /// Locked Voter: Escrow Account
     Escrow {
         /// Proxy Account address (pubkey)
-        owner_id: Pubkey
+        owner_id: Pubkey,
     },
     /// Proxy Rewarder: Proxy Account
     Proxy {
         /// Wallet address (pubkey)
-        owner_id: Pubkey
+        owner_id: Pubkey,
     },
     /// Proxy Rewarder: Proxy Escrow Account
     ProxyEscrow {
         /// Wallet address (pubkey)
-        escrow_owner_id: Pubkey
+        escrow_owner_id: Pubkey,
     },
     /// Proxy Rewarder: Registered Locker Account
     RegisteredLocker {
         /// Locker Account address (pubkey)
-        locker_id: Pubkey
+        locker_id: Pubkey,
     },
 }
 
@@ -77,32 +77,32 @@ enum Show {
     /// Locked Voter: Escrow Account
     Escrow {
         /// Account address
-        pubkey: Pubkey
+        pubkey: Pubkey,
     },
     /// Locked Voter: Locker Account
     Locker {
         /// Account address
-        pubkey: Pubkey
+        pubkey: Pubkey,
     },
     /// Locked Voter: Locker Whitelist Entry Account
     LockerWhitelistEntry {
         /// Account address
-        pubkey: Pubkey
+        pubkey: Pubkey,
     },
     /// Proxy Rewarder: Proxy Account
     Proxy {
         /// Account address
-        pubkey: Pubkey
+        pubkey: Pubkey,
     },
     /// Proxy Rewarder: Proxy Escrow Account
     ProxyEscrow {
         /// Account address
-        pubkey: Pubkey
+        pubkey: Pubkey,
     },
     /// Proxy Rewarder: Registered Locker Account
     RegisteredLocker {
         /// Account address
-        pubkey: Pubkey
+        pubkey: Pubkey,
     },
 }
 
@@ -187,14 +187,12 @@ fn main() -> anyhow::Result<()> {
                 let account =
                     derive::proxy_rewarder::proxy_account(&proxy_rewarder_program, &pubkey)?;
                 println!("{:#?}", account);
-            },
+            }
             Show::ProxyEscrow { pubkey } => {
-                let account = derive::proxy_rewarder::proxy_escrow_account(
-                    &proxy_rewarder_program,
-                    &pubkey,
-                )?;
+                let account =
+                    derive::proxy_rewarder::proxy_escrow_account(&proxy_rewarder_program, &pubkey)?;
                 println!("{:#?}", account);
-            },
+            }
             Show::RegisteredLocker { pubkey } => {
                 let account = derive::proxy_rewarder::registered_locker_account(
                     &proxy_rewarder_program,

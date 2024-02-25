@@ -7,6 +7,7 @@ mod bot;
 mod cli;
 mod errors;
 mod sage;
+use shared_time as time;
 mod traits;
 mod ui;
 
@@ -27,14 +28,13 @@ async fn main() -> anyhow::Result<()> {
     // Setup sage bots from game handler and fleet id
     let mut bots = Vec::new();
     for fleet_id in &fleet_ids {
-        let mut bot = bot::init(&game_handler, fleet_id, &HYDRO_MINT)?;
-        let autoplay = cli.autoplay_enabled();
-        bot.set_autoplay(autoplay);
+        let bot = bot::init(&game_handler, fleet_id, &HYDRO_MINT)?;
         bots.push(bot);
     }
 
     // Run the bots in a game loop
-    app::run(&game_handler, bots).await?;
+    let autoplay = cli.autoplay_enabled();
+    app::run(&game_handler, bots, autoplay).await?;
 
     Ok(())
 }
