@@ -27,6 +27,7 @@ struct BotArgs {
     mining_last_time: Instant,
     next_action: Autoplay,
     fleet_state_dirty: bool,
+    errors_counter: u32,
 }
 
 impl BotArgs {
@@ -40,6 +41,7 @@ impl BotArgs {
             mining_last_time: Instant::now(),
             next_action: Autoplay::Undefined,
             fleet_state_dirty: false,
+            errors_counter: 0,
         }
     }
 }
@@ -87,7 +89,7 @@ impl App {
                 };
                 args.autoplay_timer.tick(dt);
 
-                let y_offset = 60.0 + (pos * 180) as f32;
+                let y_offset = 60.0 + (pos * 200) as f32;
                 ui::print_lines(
                     vec![
                         &format!("Fleet ID: {}", &bot.fleet_id),
@@ -109,6 +111,7 @@ impl App {
                             "Autoplay ({:?}): {:?}",
                             &args.next_action, &args.autoplay_timer
                         ),
+                        &format!("Errors Counter: {}", &args.errors_counter),
                         &format!("-----------------------------"),
                     ],
                     y_offset,
@@ -136,9 +139,15 @@ impl App {
                             {
                                 info!("Prepare to dock to starbase");
 
-                                if let Ok(signature) = game_handler.dock_to_starbase(bot) {
-                                    info!("Dock Signature: {:?}", signature);
-                                    args.set_next_action(Autoplay::ManageHangarCargo);
+                                match game_handler.dock_to_starbase(bot) {
+                                    Ok(signature) => {
+                                        info!("Dock Signature: {:?}", signature);
+                                        args.set_next_action(Autoplay::ManageHangarCargo);
+                                    }
+                                    Err(err) => {
+                                        error!("Error: {:?}", err);
+                                        args.errors_counter += 1;
+                                    }
                                 }
                             }
 
@@ -147,9 +156,15 @@ impl App {
                             {
                                 info!("Prepare to mine asteroid");
 
-                                if let Ok(signature) = game_handler.start_mining_asteroid(bot) {
-                                    info!("Mining Start Signature: {:?}", signature);
-                                    args.set_next_action(Autoplay::IsMiningAstroid);
+                                match game_handler.start_mining_asteroid(bot) {
+                                    Ok(signature) => {
+                                        info!("Mining Start Signature: {:?}", signature);
+                                        args.set_next_action(Autoplay::IsMiningAstroid);
+                                    }
+                                    Err(err) => {
+                                        error!("Error: {:?}", err);
+                                        args.errors_counter += 1;
+                                    }
                                 }
                             }
                         }
@@ -183,6 +198,7 @@ impl App {
                                 anchor_client::solana_client::rpc_request::TokenAccountsFilter::ProgramId(spl_token::id()),
                             )?;
 
+                            // calculate 'estimated' space left in cargo hold
                             let held_amount =
                                 keyed_accounts.iter().fold(0.0, |amount, keyed_acct| {
                                     let pubkey =
@@ -196,8 +212,6 @@ impl App {
                                     let ui_amount = balance.ui_amount.unwrap_or(0.0);
                                     amount + ui_amount
                                 }) as u32;
-
-                            // calculate 'estimated' space left in cargo hold
 
                             let mining_time_elapsed = time::get_time() as i64 - mine_asteroid.start;
                             let amount_mined = mining_time_elapsed as f32 * args.emission_rate;
@@ -226,6 +240,7 @@ impl App {
                             delta
                         };
 
+                        // update mining timer
                         args.mining_timer.tick(dt);
 
                         if is_mouse_button_pressed(MouseButton::Left)
@@ -243,6 +258,7 @@ impl App {
                                 }
                                 Err(err) => {
                                     error!("Error: {:?}", err);
+                                    args.errors_counter += 1;
                                 }
                             }
                         }
@@ -278,6 +294,7 @@ impl App {
                                             amount,
                                         ) {
                                             error!("Error: {:?}", err);
+                                            args.errors_counter += 1;
                                             hangar_ok = false;
                                         };
                                     }
@@ -313,6 +330,7 @@ impl App {
                                         fuel_amount,
                                     ) {
                                         error!("Error: {:?}", err);
+                                        args.errors_counter += 1;
                                         hangar_ok = false;
                                     };
                                 }
@@ -347,6 +365,7 @@ impl App {
                                         ammo_amount,
                                     ) {
                                         error!("Error: {:?}", err);
+                                        args.errors_counter += 1;
                                         hangar_ok = false;
                                     };
                                 }
@@ -381,6 +400,7 @@ impl App {
                                         food_amount,
                                     ) {
                                         error!("Error: {:?}", err);
+                                        args.errors_counter += 1;
                                         hangar_ok = false;
                                     };
                                 }
@@ -396,10 +416,16 @@ impl App {
                         {
                             info!("Prepare to undock from starbase");
 
-                            if let Ok(signature) = game_handler.undock_from_starbase(bot) {
-                                info!("Undock Signature: {:?}", signature);
-                                args.set_next_action(Autoplay::StartMiningAsteroid);
-                            };
+                            match game_handler.undock_from_starbase(bot) {
+                                Ok(signature) => {
+                                    info!("Undock Signature: {:?}", signature);
+                                    args.set_next_action(Autoplay::StartMiningAsteroid);
+                                }
+                                Err(err) => {
+                                    error!("Error: {:?}", err);
+                                    args.errors_counter += 1;
+                                }
+                            }
                         }
                     }
                     _ => (),
