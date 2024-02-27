@@ -11,10 +11,8 @@ use anchor_client::{
 use anchor_lang::{prelude::AccountMeta, AnchorDeserialize, Id};
 use clap::{Parser, Subcommand};
 use staratlas_player_profile_sdk::{
-    accounts, instruction,
-    program::PlayerProfile,
-    typedefs,
-    utils::{derive_profile_accounts, get_profile_accounts},
+    derive::{self, get_profile_accounts},
+    programs::staratlas_player_profile::{accounts, instruction, program::PlayerProfile, typedefs},
 };
 
 use std::rc::Rc;
@@ -204,7 +202,7 @@ fn main() -> anyhow::Result<()> {
             println!("{:?}", profile_keys);
         }
         Commands::ShowProfile => {
-            let profile_accounts = derive_profile_accounts(&profile_program, &player_profile)?;
+            let profile_accounts = derive::profile_accounts(&profile_program, &player_profile)?;
             let (profile_pubkey, profile) = &profile_accounts[0];
 
             println!("{:?}", profile_pubkey);

@@ -9,7 +9,10 @@ use anchor_client::{
 use anchor_lang::Id;
 use clap::{Parser, Subcommand};
 
-use staratlas_player_profile_sdk::{program::PlayerProfile, utils::derive_profile_accounts};
+use staratlas_player_profile_sdk::{
+    derive::profile_accounts as derive_profile_accounts,
+    programs::staratlas_player_profile::program::PlayerProfile,
+};
 use staratlas_sage_sdk::{
     derive, ixs,
     programs::{staratlas_cargo::program::Cargo, staratlas_sage::program::Sage},

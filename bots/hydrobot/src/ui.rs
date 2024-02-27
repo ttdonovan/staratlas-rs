@@ -6,7 +6,7 @@ pub fn print_input(text: &str) {
     draw_text_ex(
         text,
         screen_width() / 2.0 - center.x,
-        screen_height() / 2.0 - center.y,
+        screen_height() - 30.0,
         TextParams {
             font_size: 30,
             ..Default::default()

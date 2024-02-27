@@ -9,13 +9,11 @@ use anchor_client::{
 use anchor_lang::prelude::Pubkey;
 use solana_account_decoder::UiAccountEncoding;
 
-use staratlas_player_profile::state;
-
-use crate::Profile;
+use crate::{programs::staratlas_player_profile::state, Profile};
 
 use std::ops::Deref;
 
-pub fn derive_profile_accounts<C: Deref<Target = impl Signer> + Clone>(
+pub fn profile_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     player_pubkey: &Pubkey,
 ) -> anyhow::Result<Vec<(Pubkey, Profile)>> {

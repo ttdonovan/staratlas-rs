@@ -1,8 +1,9 @@
-pub use staratlas_player_profile::{accounts, instruction, program, state, typedefs};
-
 use std::fmt;
 
-pub mod utils;
+pub mod derive;
+pub mod programs;
+
+use programs::staratlas_player_profile::state;
 
 pub struct Profile(pub state::Profile);
 

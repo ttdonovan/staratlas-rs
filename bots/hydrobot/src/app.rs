@@ -213,18 +213,13 @@ impl App {
                                     amount + ui_amount
                                 }) as u32;
 
+                            let cargo_capacity = bot.fleet_acct.0.stats.cargo_stats.cargo_capacity;
                             let mining_time_elapsed = time::get_time() as i64 - mine_asteroid.start;
                             let amount_mined = mining_time_elapsed as f32 * args.emission_rate;
-                            let est_held_cargo = held_amount + amount_mined as u32;
+                            let mut est_held_cargo = held_amount + amount_mined as u32;
+                            est_held_cargo = est_held_cargo.min(cargo_capacity);
 
-                            args.resource_amount = (bot
-                                .fleet_acct
-                                .0
-                                .stats
-                                .cargo_stats
-                                .cargo_capacity
-                                - est_held_cargo)
-                                as f32;
+                            args.resource_amount = (cargo_capacity - est_held_cargo) as f32;
 
                             // calculate mining duration and set mining timer
                             let mining_duration =

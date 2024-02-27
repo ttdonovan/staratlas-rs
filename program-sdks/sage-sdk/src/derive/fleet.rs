@@ -38,6 +38,10 @@ pub fn fleet_account_with_state<C: Deref<Target = impl Signer> + Clone>(
     fleet_pubkey: &Pubkey,
 ) -> anyhow::Result<(Fleet, FleetState)> {
     let account = get_fleet_account(program, fleet_pubkey)?;
+    fleet_with_state(&account)
+}
+
+pub fn fleet_with_state(account: &Account) -> anyhow::Result<(Fleet, FleetState)> {
     let account_data = account.data.as_slice();
 
     // let _ = account_data[..8]; // what are these 8 bytes?
