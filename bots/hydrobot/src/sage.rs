@@ -144,7 +144,7 @@ impl GameHandler {
         Ok(signature)
     }
 
-    pub fn depost_to_fleet(
+    pub fn deposit_to_fleet(
         &self,
         fleet: &impl traits::FleetWithState,
         starbase: &Pubkey,
@@ -152,7 +152,7 @@ impl GameHandler {
         mint: &Pubkey,
         amount: u64,
     ) -> anyhow::Result<Signature> {
-        let ixs = ixs::cargo::depost_to_fleet(
+        let ixs = ixs::cargo::deposit_to_fleet(
             &self.sage_program,
             &self.cargo_program,
             (fleet.fleet_id(), fleet.fleet_acct()),

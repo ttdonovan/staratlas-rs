@@ -4,7 +4,7 @@ use staratlas_sage::{instruction, state, typedefs};
 
 use crate::{derive, find, Fleet, Game};
 
-pub fn depost_to_fleet<C: Deref<Target = impl Signer> + Clone>(
+pub fn deposit_to_fleet<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     cargo_program: &Program<C>,
     fleet: (&Pubkey, &Fleet),

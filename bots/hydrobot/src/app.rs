@@ -317,7 +317,7 @@ impl App {
 
                                     debug!("Fuel Amount (Refuel): {}", fuel_amount);
 
-                                    if let Err(err) = game_handler.depost_to_fleet(
+                                    if let Err(err) = game_handler.deposit_to_fleet(
                                         bot,
                                         &state.starbase,
                                         fuel_tank,
@@ -352,7 +352,7 @@ impl App {
 
                                     debug!("Ammo Amount (Rearm): {}", ammo_amount);
 
-                                    if let Err(err) = game_handler.depost_to_fleet(
+                                    if let Err(err) = game_handler.deposit_to_fleet(
                                         bot,
                                         &state.starbase,
                                         ammo_bank,
@@ -387,7 +387,7 @@ impl App {
 
                                     debug!("Food Amount (Supply): {}", food_amount);
 
-                                    if let Err(err) = game_handler.depost_to_fleet(
+                                    if let Err(err) = game_handler.deposit_to_fleet(
                                         bot,
                                         &state.starbase,
                                         cargo_hold,

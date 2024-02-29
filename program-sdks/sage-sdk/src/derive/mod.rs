@@ -17,11 +17,13 @@ mod cargo;
 mod fleet;
 mod game;
 mod planet;
+mod starbase;
 
 pub use cargo::*;
 pub use fleet::*;
 pub use game::*;
 pub use planet::*;
+pub use starbase::*;
 
 pub fn derive_account<
     C: Deref<Target = impl Signer> + Clone,

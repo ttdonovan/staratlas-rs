@@ -56,8 +56,8 @@ pub struct Fleet(pub state::Fleet);
 impl Fleet {
     pub fn fleet_label(&self) -> &str {
         let fleet_label = str::from_utf8(&self.0.fleet_label).unwrap();
-        let fleet_lable_trimmed = fleet_label.trim_end_matches(char::from(0));
-        fleet_lable_trimmed
+        let fleet_label_trimmed = fleet_label.trim_end_matches(char::from(0));
+        fleet_label_trimmed
     }
 }
 
@@ -116,7 +116,7 @@ impl fmt::Debug for GameState {
     }
 }
 
-pub struct Planet(state::Planet);
+pub struct Planet(pub state::Planet);
 
 impl fmt::Debug for Planet {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -126,7 +126,7 @@ impl fmt::Debug for Planet {
             .field("sector", &self.0.sector)
             .field("sub_coordinates", &self.0.sub_coordinates)
             .field("planet_type", &self.0.planet_type)
-            .field("postiion", &self.0.position)
+            .field("position", &self.0.position)
             .field("size", &self.0.size)
             .field("max_hp", &self.0.max_hp)
             .field("current_health", &self.0.current_health)
@@ -137,7 +137,31 @@ impl fmt::Debug for Planet {
     }
 }
 
-pub struct Resource(state::Resource);
+pub struct MineItem(pub state::MineItem);
+
+impl fmt::Debug for MineItem {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("MineItem")
+            .field("version", &self.0.version)
+            .field("game_id", &self.0.game_id)
+            // .filed("name", &self.0.name)
+            .field("mint", &self.0.mint)
+            .field("mine_item_update_id", &self.0.mine_item_update_id)
+            .field("resource_hardness", &self.0.resource_hardness)
+            .field("num_resource_accounts", &self.0.num_resource_accounts)
+            .field("bump", &self.0.bump)
+            .finish()
+    }
+}
+
+impl MineItem {
+    pub fn name(&self) -> &str {
+        let name = str::from_utf8(&self.0.name).unwrap();
+        let name_trimmed = name.trim_end_matches(char::from(0));
+        name_trimmed
+    }
+}
+pub struct Resource(pub state::Resource);
 
 impl fmt::Debug for Resource {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
@@ -146,6 +170,25 @@ impl fmt::Debug for Resource {
             .field("game_id", &self.0.game_id)
             .field("location", &self.0.location)
             .field("mine_item", &self.0.mine_item)
+            .field("location_type", &self.0.location_type)
+            .field("system_richness", &self.0.system_richness)
+            .field("amount_mined", &self.0.amount_mined)
+            .field("num_miners", &self.0.num_miners)
+            .field("mine_item_update_id", &self.0.mine_item_update_id)
+            .field("resource_update_id", &self.0.resource_update_id)
+            .field("bump", &self.0.bump)
+            .finish()
+    }
+}
+
+pub struct Starbase(pub state::Starbase);
+
+impl fmt::Debug for Starbase {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        f.debug_struct("Starbase")
+            .field("version", &self.0.version)
+            .field("game_id", &self.0.game_id)
+            .field("sector", &self.0.sector)
             .finish()
     }
 }

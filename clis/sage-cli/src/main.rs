@@ -189,7 +189,7 @@ fn main() -> anyhow::Result<()> {
 
                     match fleet_state {
                         FleetState::StarbaseLoadingBay(state) => {
-                            let ixs = ixs::cargo::depost_to_fleet(
+                            let ixs = ixs::cargo::deposit_to_fleet(
                                 &sage_program,
                                 &cargo_program,
                                 (fleet_id, &fleet),

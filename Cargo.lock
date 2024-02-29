@@ -2451,7 +2451,7 @@ dependencies = [
  "clap 4.5.0",
  "color-eyre",
  "macroquad",
- "shared_time",
+ "shared-time",
  "shellexpand",
  "solana-program",
  "spl-associated-token-account",
@@ -4024,7 +4024,7 @@ dependencies = [
  "comfy-table",
  "crossterm",
  "ratatui",
- "shared_time",
+ "shared-time",
  "shellexpand",
  "staratlas-player-profile-sdk",
  "staratlas-sage-sdk",
@@ -4245,7 +4245,19 @@ dependencies = [
 ]
 
 [[package]]
-name = "shared_time"
+name = "shared-sage-context"
+version = "0.1.0"
+dependencies = [
+ "anchor-client 0.29.0",
+ "anyhow",
+ "spl-associated-token-account",
+ "spl-token",
+ "staratlas-player-profile-sdk",
+ "staratlas-sage-sdk",
+]
+
+[[package]]
+name = "shared-time"
 version = "0.1.0"
 
 [[package]]
@@ -5965,6 +5977,22 @@ name = "ttf-parser"
 version = "0.15.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7b3e06c9b9d80ed6b745c7159c40b311ad2916abb34a49e9be2653b90db0d8dd"
+
+[[package]]
+name = "tui-minebot"
+version = "0.1.0"
+dependencies = [
+ "anchor-client 0.29.0",
+ "anyhow",
+ "clap 4.5.0",
+ "color-eyre",
+ "comfy-table",
+ "crossterm",
+ "ratatui",
+ "shared-sage-context",
+ "shared-time",
+ "shellexpand",
+]
 
 [[package]]
 name = "tungstenite"

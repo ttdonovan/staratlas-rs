@@ -13,7 +13,7 @@ color-eyre = "0.6"
 comfy-table = "7.1"
 crossterm = "0.27"
 ratatui = "0.26"
-shared_time = { path = "../../crates/shared_time" }
+shared-time = { path = "../../crates/shared-time" }
 shellexpand = "3.1"
 staratlas-player-profile-sdk = { path = "../../program-sdks/player-profile-sdk" }
 staratlas-sage-sdk = { path = "../../program-sdks/sage-sdk" }

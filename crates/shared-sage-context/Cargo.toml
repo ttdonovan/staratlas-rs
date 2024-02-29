@@ -1,5 +1,5 @@
 [package]
-name = "hydrobot"
+name = "shared-sage-context"
 version = "0.1.0"
 edition = "2021"
 
@@ -8,12 +8,7 @@ edition = "2021"
 [dependencies]
 anchor-client = "0.29"
 anyhow = "1.0"
-clap = { version = "4.5", features = ["derive", "env"] }
-color-eyre = "0.6"
-macroquad = "0.4"
-shellexpand = "3.1"
-solana-program = "1.18"
 spl-associated-token-account = "2.3"
 spl-token = "4.0"
-shared-time = { path = "../../crates/shared-time" }
+staratlas-player-profile-sdk = { path = "../../program-sdks/player-profile-sdk" }
 staratlas-sage-sdk = { path = "../../program-sdks/sage-sdk" }
