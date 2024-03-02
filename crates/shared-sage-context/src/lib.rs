@@ -34,7 +34,11 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
         builder = builder.instruction(ix);
     }
 
-    builder.send()
+    // retry once on error
+    match builder.send() {
+        Ok(signature) => Ok(signature),
+        Err(_err) => builder.send(),
+    }
 }
 
 fn get_balance(rpc: &RpcClient, address: &Pubkey) -> f64 {
@@ -105,8 +109,6 @@ impl SageContext {
     }
 
     pub fn starbase_acct(&self, starbase_id: &Pubkey) -> anyhow::Result<(Pubkey, Starbase)> {
-        // let starbase =
-        //     derive::derive_account::<_, state::Starbase>(&self.sage_program, starbase_id)?;
         let starbase = derive::starbase_account(&self.sage_program, starbase_id)?;
         Ok((*starbase_id, starbase))
     
@@ -217,13 +219,14 @@ impl SageContext {
         fleet: &Fleet,
         starbase: &Pubkey,
         mint: &Pubkey,
-        amount: u64,
+        amount: Option<u64>,
     ) -> anyhow::Result<Option<Signature>> {
-        let mut amount = if amount == u64::MAX {
-            let address = get_associated_token_address(&fleet.0.cargo_hold, mint);
-            get_balance(&self.rpc, &address) as u64
-        } else {
-            amount
+        let mut amount = match amount {
+            Some(amount) => amount,
+            None => {
+                let address = get_associated_token_address(&fleet.0.cargo_hold, mint);
+                get_balance(&self.rpc, &address) as u64
+            },
         };
 
         amount -= 1; // leave 1 token behind

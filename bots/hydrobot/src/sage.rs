@@ -29,7 +29,11 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
         builder = builder.instruction(ix);
     }
 
-    builder.send()
+    // retry once on error
+    match builder.send() {
+        Ok(signature) => Ok(signature),
+        Err(_err) => builder.send(),
+    }
 }
 
 pub struct GameHandler {

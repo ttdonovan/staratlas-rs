@@ -134,8 +134,10 @@ impl Widget for &mut App {
             "Ammo Status",
             "Cargo Status",
             "Autoplay",
-            "Last Txs",
         ]);
+
+        let mut tx_table = comfy_table::Table::new();
+        tx_table.set_header(vec!["Fleet ID", "Last Txs", "Counter", "Errors"]);
 
         for bot in &self.bots {
             table.add_row(vec![
@@ -154,10 +156,16 @@ impl Widget for &mut App {
                 format!("{}/{}", bot.ammo_bank.1, bot.ammo_bank.2),
                 format!("{}/{}", bot.cargo_hold.1, bot.cargo_hold.2),
                 format!("{:#?}", bot.autoplay),
+            ]);
+
+            tx_table.add_row(vec![
+                format!("{}", bot.masked_fleet_id()),
                 format!("{}", bot.last_txs()),
+                format!("{}", bot.txs_counter),
+                format!("{}", bot.txs_errors),
             ]);
         }
 
-        Paragraph::new(Text::raw(format!("{table}"))).render(body, buf);
+        Paragraph::new(Text::raw(format!("{table}\n{tx_table}"))).render(body, buf);
     }
 }
