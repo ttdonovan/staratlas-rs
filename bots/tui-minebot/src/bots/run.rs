@@ -4,15 +4,6 @@ fn get_and_set_fleet_state(bot: &mut MiningBot, sage: &sage::SageContext) -> any
     let (_, fleet_state) = sage.fleet_with_state_accts(&bot.fleet.0)?;
     bot.fleet.4 = fleet_state;
 
-    match &bot.fleet.4 {
-        FleetState::MineAsteroid(mine_asteroid) => {
-            bot.mine_asteroid_start = mine_asteroid.start;
-        }
-        _ => {
-            bot.mine_asteroid_start = 0;
-        }
-    }
-
     bot.is_fleet_state_dirty = false;
 
     Ok(())
@@ -64,7 +55,7 @@ fn calc_and_set_mine_asteroid_amount(bot: &mut MiningBot) {
         bot.cargo_hold.1,
         bot.cargo_hold.2,
         bot.mine_asteroid_emission_rate,
-        bot.mine_asteroid_start,
+        bot.mine_start(),
     );
 }
 

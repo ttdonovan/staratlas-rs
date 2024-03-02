@@ -33,7 +33,6 @@ pub fn init_bots(
 
                     let mine_asteroid_emission_rate =
                         calc_asteroid_mining_emission_rate(&fleet, &resource, &mine_item);
-                    let mine_asteroid_start = 0;
 
                     bots.push(MiningBot {
                         fleet: (
@@ -50,7 +49,6 @@ pub fn init_bots(
                         resource: (resource_pubkey, resource),
                         mine_item: (mine_item_pubkey, mine_item.name().to_string(), mine_item),
                         mine_asteroid_emission_rate,
-                        mine_asteroid_start,
                         mine_asteroid_amount: 0,
                         mine_asteroid_duraiton: Duration::ZERO,
                         mining_timer: time::Timer::default(),
@@ -68,7 +66,6 @@ pub fn init_bots(
 
                 let mine_asteroid_emission_rate =
                     calc_asteroid_mining_emission_rate(&fleet, &resource, &mine_item);
-                let mine_asteroid_start = mine_asteroid.start;
 
                 bots.push(MiningBot {
                     fleet: (
@@ -85,7 +82,6 @@ pub fn init_bots(
                     resource: (resource_pubkey, resource),
                     mine_item: (mine_item_pubkey, mine_item.name().to_string(), mine_item),
                     mine_asteroid_emission_rate,
-                    mine_asteroid_start,
                     mine_asteroid_amount: 0,
                     mine_asteroid_duraiton: Duration::ZERO,
                     mining_timer: time::Timer::default(),
@@ -109,7 +105,6 @@ pub fn init_bots(
 
                     let mine_asteroid_emission_rate =
                         calc_asteroid_mining_emission_rate(&fleet, &resource, &mine_item);
-                    let mine_asteroid_start = 0;
 
                     bots.push(MiningBot {
                         fleet: (
@@ -126,7 +121,6 @@ pub fn init_bots(
                         resource: (resource_pubkey, resource),
                         mine_item: (mine_item_pubkey, mine_item.name().to_string(), mine_item),
                         mine_asteroid_emission_rate,
-                        mine_asteroid_start,
                         mine_asteroid_amount: 0,
                         mine_asteroid_duraiton: Duration::ZERO,
                         mining_timer: time::Timer::default(),
@@ -156,7 +150,7 @@ pub fn init_bots(
             bot.cargo_hold.1,
             bot.cargo_hold.2,
             bot.mine_asteroid_emission_rate,
-            bot.mine_asteroid_start,
+            bot.mine_start(),
         );
         bot.mine_asteroid_duraiton = calc_asteroid_mining_duration(
             bot.mine_asteroid_amount,

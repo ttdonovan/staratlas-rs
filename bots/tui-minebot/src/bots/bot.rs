@@ -36,7 +36,6 @@ pub struct MiningBot {
     pub resource: Resource,
     pub mine_item: MineItem,
     pub mine_asteroid_emission_rate: f32,
-    pub mine_asteroid_start: i64,
     pub mine_asteroid_amount: u32,
     pub mine_asteroid_duraiton: Duration,
     pub mining_timer: time::Timer,
@@ -69,6 +68,17 @@ impl MiningBot {
 
     pub fn mine_amount(&self) -> u32 {
         self.mine_asteroid_amount
+    }
+
+    pub fn mine_start(&self) -> i64 {
+        match &self.fleet.4 {
+            FleetState::MineAsteroid(mine_asteroid) => {
+                mine_asteroid.start
+            }
+            _ => {
+                0
+            }
+        }
     }
 
     pub fn mine_duration(&self) -> Duration {
