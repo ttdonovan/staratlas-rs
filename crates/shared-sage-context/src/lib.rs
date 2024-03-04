@@ -231,7 +231,7 @@ impl SageContext {
 
         amount -= 1; // leave 1 token behind
 
-        if amount > 0 {
+        if amount >= 1 {
             let ixs = ixs::cargo::withdraw_from_fleet(
                 &self.sage_program,
                 &self.cargo_program,

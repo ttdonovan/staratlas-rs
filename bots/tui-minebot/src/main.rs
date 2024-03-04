@@ -11,6 +11,10 @@ mod term;
 
 fn main() -> anyhow::Result<()> {
     errors::init_hooks().unwrap();
+    tui_logger::init_logger(log::LevelFilter::Info)?;
+    tui_logger::set_default_level(log::LevelFilter::Info);
+    log::info!(target: "App", "logging initialized");
+
     let cli = cli::Cli::parse();
     let client = cli::init_client(&cli)?;
     let (game_id, fleet_ids) = cli::init_sage_config(&cli);

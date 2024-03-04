@@ -1,6 +1,7 @@
 use anyhow::Result;
 use crossterm::event::{Event, KeyCode, KeyEvent, KeyEventKind};
 use ratatui::{prelude::*, widgets::*};
+use tui_logger::TuiLoggerWidget;
 
 use std::time::{Duration, Instant};
 
@@ -108,9 +109,13 @@ impl App {
 
 impl Widget for &mut App {
     fn render(self, area: Rect, buf: &mut Buffer) {
-        let vertical = Layout::vertical([Constraint::Length(4), Constraint::Min(0)]);
+        let vertical = Layout::vertical([
+            Constraint::Length(4),
+            Constraint::Min(0),
+            Constraint::Fill(1),
+        ]);
 
-        let [header, body] = vertical.areas(area);
+        let [header, body, footer] = vertical.areas(area);
 
         // render header
         Paragraph::new(Text::from(vec![
@@ -167,5 +172,7 @@ impl Widget for &mut App {
         }
 
         Paragraph::new(Text::raw(format!("{table}\n{tx_table}"))).render(body, buf);
+
+        TuiLoggerWidget::default().render(footer, buf);
     }
 }

@@ -2185,6 +2185,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "fxhash"
+version = "0.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c31b6d751ae2c7f11320402d34e41349dd1016f8d5d45e48c4312bc8625af50c"
+dependencies = [
+ "byteorder",
+]
+
+[[package]]
 name = "generic-array"
 version = "0.14.7"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -5979,6 +5988,20 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "7b3e06c9b9d80ed6b745c7159c40b311ad2916abb34a49e9be2653b90db0d8dd"
 
 [[package]]
+name = "tui-logger"
+version = "0.11.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4358d7a45f901c23c4e43e0885c159f035b2ca3a90e646f4d1dbae80b45a6c79"
+dependencies = [
+ "chrono",
+ "fxhash",
+ "lazy_static",
+ "log",
+ "parking_lot",
+ "ratatui",
+]
+
+[[package]]
 name = "tui-minebot"
 version = "0.1.0"
 dependencies = [
@@ -5988,10 +6011,12 @@ dependencies = [
  "color-eyre",
  "comfy-table",
  "crossterm",
+ "log",
  "ratatui",
  "shared-sage-context",
  "shared-time",
  "shellexpand",
+ "tui-logger",
 ]
 
 [[package]]

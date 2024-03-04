@@ -9,7 +9,7 @@ pub enum Autoplay {
     StarbaseDock,
     StarbaseUndock,
     StarbaseHangarCargoWithdraw,
-    StarbaseHangerCargoDeposit(CargoDeposit),
+    StarbaseHangarCargoDeposit(CargoDeposit),
 }
 
 #[derive(Debug, PartialEq)]
@@ -72,12 +72,8 @@ impl MiningBot {
 
     pub fn mine_start(&self) -> i64 {
         match &self.fleet.4 {
-            FleetState::MineAsteroid(mine_asteroid) => {
-                mine_asteroid.start
-            }
-            _ => {
-                0
-            }
+            FleetState::MineAsteroid(mine_asteroid) => mine_asteroid.start,
+            _ => 0,
         }
     }
 

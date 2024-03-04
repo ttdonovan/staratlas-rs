@@ -124,7 +124,7 @@ pub fn init_bots(
                         mine_asteroid_amount: 0,
                         mine_asteroid_duraiton: Duration::ZERO,
                         mining_timer: time::Timer::default(),
-                        autoplay: Autoplay::StarbaseHangarCargoWithdraw,
+                        autoplay: Autoplay::StarbaseHangarCargoDeposit(CargoDeposit::Fuel), // Autoplay::StarbaseHangarCargoWithdraw,
                         txs: None,
                         txs_counter: 0,
                         txs_errors: 0,

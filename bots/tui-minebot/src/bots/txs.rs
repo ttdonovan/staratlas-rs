@@ -15,7 +15,11 @@ pub fn sage_start_mining_asteroid(
             Ok(signature)
         }
         Err(err) => {
-            // println!("Error: {:?}", err);
+            log::error!(
+                "[{}] Start Mining Asteroid: {:?}",
+                bot.masked_fleet_id(),
+                err
+            );
             bot.txs_errors += 1;
             Err(err)
         }
@@ -37,7 +41,11 @@ pub fn sage_stop_mining_asteroid(
             Ok(signature)
         }
         Err(err) => {
-            // println!("Error: {:?}", err);
+            log::error!(
+                "[{}] Stop Mining Asteroid: {:?}",
+                bot.masked_fleet_id(),
+                err
+            );
             bot.txs_errors += 1;
             Err(err)
         }
@@ -58,7 +66,7 @@ pub fn sage_dock_to_starbase(
             Ok(signature)
         }
         Err(err) => {
-            // println!("Error: {:?}", err);
+            log::error!("[{}] Dock to Starbase: {:?}", bot.masked_fleet_id(), err);
             bot.txs_errors += 1;
             Err(err)
         }
@@ -79,7 +87,11 @@ pub fn sage_undock_from_starbase(
             Ok(signature)
         }
         Err(err) => {
-            // println!("Error: {:?}", err);
+            log::error!(
+                "[{}] Undock from Starbase: {:?}",
+                bot.masked_fleet_id(),
+                err
+            );
             bot.txs_errors += 1;
             Err(err)
         }
@@ -110,7 +122,11 @@ pub fn sage_mine_item_widthdraw_from_fleet(
             Ok(None)
         }
         Err(err) => {
-            // println!("Error: {:?}", err);
+            log::error!(
+                "[{}], Widthdraw from Fleet: {:?}",
+                bot.masked_fleet_id(),
+                err
+            );
             bot.txs_errors += 1;
             Err(err)
         }
@@ -136,7 +152,7 @@ pub fn sage_deposit_to_fleet(
             Ok(signature)
         }
         Err(err) => {
-            // println!("Error: {:?}", err);
+            log::error!("[{}] Deposit to Fleet: {:?}", bot.masked_fleet_id(), err);
             bot.txs_errors += 1;
             Err(err)
         }
