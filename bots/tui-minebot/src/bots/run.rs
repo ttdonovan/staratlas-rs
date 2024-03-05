@@ -25,8 +25,13 @@ fn get_and_set_token_balance_for_fuel(
     sage: &sage::SageContext,
 ) -> anyhow::Result<()> {
     let fuel_amount = sage.get_token_account_balances_by_owner(&bot.fuel_tank.0)?;
-    bot.set_fuel_amount(fuel_amount);
+    log::info!(
+        "[{}] Token balance Fuel Tank: {:?}",
+        &bot.masked_fleet_id(),
+        fuel_amount
+    );
 
+    bot.set_fuel_amount(fuel_amount);
     Ok(())
 }
 
@@ -35,8 +40,13 @@ fn get_and_set_token_balance_for_ammo_bank(
     sage: &sage::SageContext,
 ) -> anyhow::Result<()> {
     let ammo_amount = sage.get_token_account_balances_by_owner(&bot.ammo_bank.0)?;
-    bot.set_ammo_amount(ammo_amount);
+    log::info!(
+        "[{}] Token balance Ammo Bank: {:?}",
+        &bot.masked_fleet_id(),
+        ammo_amount
+    );
 
+    bot.set_ammo_amount(ammo_amount);
     Ok(())
 }
 
@@ -45,8 +55,13 @@ fn get_and_set_token_balance_for_cargo_hold(
     sage: &sage::SageContext,
 ) -> anyhow::Result<()> {
     let cargo_amount = sage.get_token_account_balances_by_owner(&bot.cargo_hold.0)?;
-    bot.set_cargo_amount(cargo_amount);
+    log::info!(
+        "[{}] Token balance Cargo Hold: {:?}",
+        &bot.masked_fleet_id(),
+        cargo_amount
+    );
 
+    bot.set_cargo_amount(cargo_amount);
     Ok(())
 }
 

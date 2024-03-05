@@ -12,9 +12,11 @@ clap = { version = "4.5", features = ["derive", "env"] }
 color-eyre = "0.6"
 comfy-table = "7.1"
 crossterm = "0.27"
+itertools = "0.12"
 log = "0.4"
 ratatui = "0.26"
 shared-time = { path = "../../crates/shared-time" }
 shared-sage-context = { path = "../../crates/shared-sage-context" }
 shellexpand = "3.1"
+strum = "0.26"
 tui-logger = "0.11"

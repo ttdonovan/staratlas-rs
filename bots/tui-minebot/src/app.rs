@@ -1,14 +1,16 @@
 use anyhow::Result;
 use crossterm::event::{Event, KeyCode, KeyEvent, KeyEventKind};
+use itertools::Itertools;
 use ratatui::{prelude::*, widgets::*};
-use tui_logger::TuiLoggerWidget;
+use strum::{Display, EnumIter, FromRepr, IntoEnumIterator};
 
 use std::time::{Duration, Instant};
 
-use crate::{bots, sage, term, time};
+use crate::{bots, sage, tabs, term, time};
 
 pub struct App {
     mode: Mode,
+    tab: Tab,
     stopwatch: time::Stopwatch,
     dt: Duration,
     last_time: Instant,
@@ -23,6 +25,13 @@ enum Mode {
     Quit,
 }
 
+#[derive(Default, Clone, Copy, Display, EnumIter, FromRepr, PartialEq)]
+enum Tab {
+    #[default]
+    Fleets,
+    Logs,
+}
+
 pub fn run(
     context: sage::SageContext,
     bots: Vec<bots::MiningBot>,
@@ -35,6 +44,7 @@ impl App {
     pub fn new(context: sage::SageContext, bots: Vec<bots::MiningBot>) -> Self {
         App {
             mode: Mode::default(),
+            tab: Tab::default(),
             stopwatch: time::Stopwatch::default(),
             dt: Duration::ZERO,
             last_time: Instant::now(),
@@ -71,10 +81,20 @@ impl App {
 
         match key.code {
             Char('q') | Esc => self.quit(),
+            Char('h') | Left => self.prev_tab(),
+            Char('l') | Right => self.next_tab(),
             _ => {}
         };
 
         Ok(())
+    }
+
+    fn prev_tab(&mut self) {
+        self.tab = self.tab.prev();
+    }
+
+    fn next_tab(&mut self) {
+        self.tab = self.tab.next();
     }
 
     fn update(&mut self) -> Result<()> {
@@ -111,11 +131,12 @@ impl Widget for &mut App {
     fn render(self, area: Rect, buf: &mut Buffer) {
         let vertical = Layout::vertical([
             Constraint::Length(4),
+            Constraint::Length(1),
             Constraint::Min(0),
-            Constraint::Fill(1),
+            Constraint::Length(1),
         ]);
 
-        let [header, body, footer] = vertical.areas(area);
+        let [header, tab_bar, tab_area, footer] = vertical.areas(area);
 
         // render header
         Paragraph::new(Text::from(vec![
@@ -125,54 +146,54 @@ impl Widget for &mut App {
         ]))
         .render(header, buf);
 
-        // render body
-        let mut table = comfy_table::Table::new();
-        table.set_header(vec![
-            "Fleet ID",
-            "Name/Callsign",
-            "Resource Name",
-            "Mining Rate",
-            "Mining Amount",
-            "Mining Duration",
-            "Mining Timer",
-            "Fuel Status",
-            "Ammo Status",
-            "Cargo Status",
-            "Autoplay",
-        ]);
+        // render tab bar
+        let horizontal = Layout::horizontal([Constraint::Fill(1)]);
 
-        let mut tx_table = comfy_table::Table::new();
-        tx_table.set_header(vec!["Fleet ID", "Last Txs", "Counter", "Errors"]);
+        let [tabs] = horizontal.areas(tab_bar);
 
-        for bot in &self.bots {
-            table.add_row(vec![
-                format!("{}", bot.masked_fleet_id()),
-                format!("{}", bot.fleet_name()),
-                format!("{}", bot.mine_item_name()),
-                format!("{}", bot.mine_rate()),
-                format!("{}", bot.mine_amount()),
-                format!("{:.2}s", bot.mine_duration().as_secs_f32()),
-                format!(
-                    "{:.2}s ({:.3})",
-                    bot.mining_timer.remaining_secs(),
-                    bot.mining_timer.fraction()
-                ),
-                format!("{}/{}", bot.fuel_tank.1, bot.fuel_tank.2),
-                format!("{}/{}", bot.ammo_bank.1, bot.ammo_bank.2),
-                format!("{}/{}", bot.cargo_hold.1, bot.cargo_hold.2),
-                format!("{:#?}", bot.autoplay),
-            ]);
+        let tab_titles = Tab::iter().map(Tab::title);
+        Tabs::new(tab_titles)
+            .select(self.tab as usize)
+            .render(tabs, buf);
 
-            tx_table.add_row(vec![
-                format!("{}", bot.masked_fleet_id()),
-                format!("{}", bot.last_txs()),
-                format!("{}", bot.txs_counter),
-                format!("{}", bot.txs_errors),
-            ]);
+        // render tab body
+        match self.tab {
+            Tab::Fleets => {
+                let tab = tabs::FleetsTab::new(&self.bots);
+                tab.render(tab_area, buf);
+            }
+            Tab::Logs => {
+                let tab = tabs::LogsTab::default();
+                tab.render(tab_area, buf);
+            }
         }
 
-        Paragraph::new(Text::raw(format!("{table}\n{tx_table}"))).render(body, buf);
+        // render footer
+        let keys = [("H/←", "Left"), ("L/→", "Right"), ("Q/Esc", "Quit")];
 
-        TuiLoggerWidget::default().render(footer, buf);
+        let spans = keys
+            .iter()
+            .map(|(key, desc)| Span::default().content(format!(" {desc} ({key}) ")))
+            .collect_vec();
+
+        Line::from(spans).centered().render(footer, buf);
+    }
+}
+
+impl Tab {
+    fn next(self) -> Self {
+        let current_index = self as usize;
+        let next_index = current_index.saturating_add(1);
+        Self::from_repr(next_index).unwrap_or(self)
+    }
+
+    fn prev(self) -> Self {
+        let current_index = self as usize;
+        let next_index = current_index.saturating_sub(1);
+        Self::from_repr(next_index).unwrap_or(self)
+    }
+
+    fn title(self) -> String {
+        format!(" {self} ")
     }
 }

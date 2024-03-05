@@ -7,6 +7,7 @@ mod app;
 mod bots;
 mod cli;
 mod errors;
+mod tabs;
 mod term;
 
 fn main() -> anyhow::Result<()> {

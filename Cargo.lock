@@ -6011,11 +6011,13 @@ dependencies = [
  "color-eyre",
  "comfy-table",
  "crossterm",
+ "itertools 0.12.1",
  "log",
  "ratatui",
  "shared-sage-context",
  "shared-time",
  "shellexpand",
+ "strum 0.26.1",
  "tui-logger",
 ]
 

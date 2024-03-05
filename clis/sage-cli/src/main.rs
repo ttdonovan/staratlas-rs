@@ -319,6 +319,12 @@ fn main() -> anyhow::Result<()> {
                     builder = builder.instruction(ix);
                 }
 
+                // let rpc_client = sage_program.rpc();
+                // let tx = builder.signed_transaction()?;
+                // dbg!(&tx);
+                // let fee = rpc_client.get_fee_for_message(tx.message())?;
+                // dbg!(fee);
+
                 print!("Confirm sign and send? Y/N: ");
                 io::stdout().flush()?;
 
@@ -329,8 +335,8 @@ fn main() -> anyhow::Result<()> {
                     let signature = builder.send()?;
                     println!("{}", signature);
                 } else {
-                    let ixs = builder.instructions()?;
-                    dbg!(ixs);
+                    let tx = builder.signed_transaction()?;
+                    dbg!(tx);
                 }
             }
         }
@@ -426,27 +432,14 @@ fn main() -> anyhow::Result<()> {
                         println!("{:#?}", (fleet, fleet_state));
                     } else {
                         let fleet = derive::fleet_account(&sage_program, &fleet_id)?;
-                        // println!("{:#?}", fleet);
+                        println!("{:#?}", fleet);
 
-                        use std::str::FromStr;
-                        let rpc_client = sage_program.rpc();
-                        let keyed_accounts = rpc_client.get_token_accounts_by_owner(
-                            &fleet.0.cargo_hold,
-                            anchor_client::solana_client::rpc_request::TokenAccountsFilter::ProgramId(spl_token::id()),
-                        )?;
-
-                        let total_amount = keyed_accounts.iter().fold(0.0, |amount, keyed_acct| {
-                            let pubkey = Pubkey::from_str(&keyed_acct.pubkey).unwrap();
-                            let balance = rpc_client.get_token_account_balance(&pubkey).unwrap();
-
-                            dbg!(&keyed_acct.account.data);
-                            dbg!(&balance);
-
-                            let ui_amount = balance.ui_amount.unwrap_or(0.0);
-                            amount + ui_amount
-                        });
-
-                        dbg!(&total_amount);
+                        // let rpc_client = sage_program.rpc();
+                        // let keyed_accounts = rpc_client.get_token_accounts_by_owner(
+                        //     &fleet.0.cargo_hold,
+                        //     anchor_client::solana_client::rpc_request::TokenAccountsFilter::ProgramId(spl_token::id()),
+                        // )?;
+                        // dbg!(keyed_accounts);
                     }
                 }
             }
