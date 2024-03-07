@@ -30,6 +30,12 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
 ) -> Result<Signature, ClientError> {
     let mut builder = program.request();
 
+    // FIXME: this is a hack to set a the compute unit price for higher priority
+    // https://solana.com/docs/core/runtime#compute-budget
+    // Priority Fee added to each transaction in Lamports. Set to 0 (zero) to disable priority fees. 1 Lamport = 0.000000001 SOL
+    let ix = ComputeBudgetInstruction::set_compute_unit_price(5000);
+    builder = builder.instruction(ix);
+
     for ix in ixs {
         builder = builder.instruction(ix);
     }
