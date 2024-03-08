@@ -1,6 +1,7 @@
 use anchor_client::{
     solana_sdk::{
         commitment_config::CommitmentConfig,
+        compute_budget::ComputeBudgetInstruction,
         pubkey::Pubkey,
         signature::{read_keypair_file, Keypair, Signer},
     },
@@ -64,7 +65,7 @@ enum Commands {
     Show(Show),
 }
 
-#[derive(Subcommand)]
+#[derive(Subcommand, PartialEq)]
 enum Actions {
     CargoDeposit {
         fleet_id: Pubkey,
@@ -313,30 +314,51 @@ fn main() -> anyhow::Result<()> {
                 }
             };
 
+            // print!("Confirm sign and send? Y/N: ");
+            // io::stdout().flush()?;
+
+            // let mut input = String::new();
+            // io::stdin().read_line(&mut input)?;
+
+            // if input.trim().eq_ignore_ascii_case("Y") {
+            //     let signature = builder.send()?;
+            //     println!("{}", signature);
+            // } else {
+            //     let tx = builder.signed_transaction()?;
+            //     dbg!(tx);
+            // }
+
+            // Compute Budget Instruction Checklist
+            // [x] - Dock Startbase
+            //       - [v1.labs]    https://solscan.io/tx/5MFSxc7UJA6AYBzC3mfyk1VuscTs3jvjtCdqZsDnus6PCZ6FBquJQeZo8XUzKZw1E3ohyP1Y47FXSdR9sCNHxiDQ
+            //       - [command]    cargo run -p sa-sage-cli -- actions starbase-dock 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
+            //       - [sage-cli]   https://solscan.io/tx/3rfzSVWeptRLHeaZe1Xgyq59nvGj39KWC2sEqa9W1Ef23jAVspqgpnY6sJQmRLJRDrzW1abMNPUT95hoSMXZ4ro8
+            // [x] - Undock Startbase
+            //       - [v1.labs]    https://solscan.io/tx/4dwTqBGDs4P3MboNZUppt2HYGgVh6iREWHcDVoYqCD8f4v3jtMp3qZLBjg52nErjJwgbLF4TzTiyLjBUYrAEqc7G
+            //       - [command]    cargo run -p sa-sage-cli -- actions starbase-undock 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
+            //       - [sage-cli]   https://solscan.io/tx/2BzQ7pfACSFNDZqbuZPubSD3SeL9hGzY7jXaodatNdvxWXnmAky1a6DvQTGwJn23JR5geN1psSQBv7zvXRJBYHMj
+            // [x] - Start Mining
+            //       - [v1.labs]    https://solscan.io/tx/2oxUVzSgX9jGk4H8jLRuTinQENygXMLiTXkgpyM8dXvGKLyH1X6xeYnFi8pP4yr445YDE36iEYUfTY9YNB5doJb2
+            //       - [command]    cargo run -p sa-sage-cli -- actions start-mining 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
+            //       - [sage-cli]   https://solscan.io/tx/5KyfzD7bpqteQRGJbLm5tLdjbmU4oLvSGzdoeG2frAzxdQWtXzZvBxzn4Yn3GEw1d59xFvXAuypyqhCoPcXdvZC4
+            // [ ] - Stop Mining
+            //       - [v1.labs]    https://solscan.io/tx/2ZhustmWRvFFFBcdXDSk7pwC8CxUkAghAHumA2S5Bjri85eQTKxvAN97kXA6ZGFzwJ8DdKCFM3zbs8yfSoyCZ9n3
+            //       - [command]    cargo run -p sa-sage-cli -- actions stop-mining 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
+            //       - [sage-cli]   Error: RPC response error -32602: base64 encoded solana_sdk::transaction::versioned::VersionedTransaction too large: 1696 bytes (max: encoded/raw 1644/1232)
+            //       - [no compute] https://solscan.io/tx/5t3h2sUhGxFqx8zCs3jLVhkxAjvc8Q4nTgyCvRZXjmHVTqPMbT27RjceQs3vrHuXB93jUfB23BcF6PX4gabkbv3Z
+
+            // `ixs` either [] (0 txs), [ix] (1 txs) or [ix, ix] (2 txs)
             if let Some(ixs) = ixs {
-                let mut builder = sage_program.request();
                 for ix in ixs {
-                    builder = builder.instruction(ix);
-                }
+                    let mut builder = sage_program.request();
+                    let i = ComputeBudgetInstruction::set_compute_unit_price(5000);
+                    builder = builder.instruction(i);
+                    builder = ix
+                        .into_iter()
+                        .fold(builder, |builder, i| builder.instruction(i));
 
-                // let rpc_client = sage_program.rpc();
-                // let tx = builder.signed_transaction()?;
-                // dbg!(&tx);
-                // let fee = rpc_client.get_fee_for_message(tx.message())?;
-                // dbg!(fee);
-
-                print!("Confirm sign and send? Y/N: ");
-                io::stdout().flush()?;
-
-                let mut input = String::new();
-                io::stdin().read_line(&mut input)?;
-
-                if input.trim().eq_ignore_ascii_case("Y") {
                     let signature = builder.send()?;
                     println!("{}", signature);
-                } else {
-                    let tx = builder.signed_transaction()?;
-                    dbg!(tx);
                 }
             }
         }

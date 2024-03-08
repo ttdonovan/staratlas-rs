@@ -9,7 +9,8 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
     game: (&Pubkey, &Game),
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_pubkey, (fleet, fleet_state)) = fleet;
     let (game_pubkey, game) = game;
 
@@ -65,18 +66,21 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
 
             let builder = sage_program.request().instruction(start_mining_asteroid_ix);
 
-            let ixs = builder.instructions()?;
-            Ok(ixs)
+            let ix = builder.instructions()?;
+            ixs.push(ix);
         }
-        _ => Ok(vec![]),
+        _ => {}
     }
+
+    Ok(ixs)
 }
 
 pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
     game: (&Pubkey, &Game),
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_pubkey, (fleet, fleet_state)) = fleet;
     let (game_pubkey, game) = game;
 
@@ -223,12 +227,18 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
                 .instruction(ata_resource_to_ix)
                 // .instruction(ata_ammo_from_ix)
                 // .instruction(ata_food_from_ix)
-                .instruction(fleet_state_handler_ix)
-                .instruction(stop_mining_asteroid_ix);
+                .instruction(fleet_state_handler_ix);
 
-            let ixs = builder.instructions()?;
-            Ok(ixs)
+            let ix = builder.instructions()?;
+            ixs.push(ix);
+
+            let builder = sage_program.request().instruction(stop_mining_asteroid_ix);
+
+            let ix = builder.instructions()?;
+            ixs.push(ix);
         }
-        _ => Ok(vec![]),
+        _ => {}
     }
+
+    Ok(ixs)
 }

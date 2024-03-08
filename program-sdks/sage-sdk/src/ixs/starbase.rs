@@ -8,7 +8,8 @@ pub fn dock_to_starbase<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
     game: (&Pubkey, &Game),
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_pubkey, (fleet, fleet_state)) = fleet;
     let (game_pubkey, game) = game;
 
@@ -47,12 +48,13 @@ pub fn dock_to_starbase<C: Deref<Target = impl Signer> + Clone>(
             );
 
             let builder = sage_program.request().instruction(idle_to_loading_bay_ix);
-            let ixs = builder.instructions()?;
-
-            Ok(ixs)
+            let ix = builder.instructions()?;
+            ixs.push(ix);
         }
-        _ => Ok(vec![]),
+        _ => {}
     }
+
+    Ok(ixs)
 }
 
 // https://solscan.io/tx/5jeoFmZ7krmdYraqxz6ea8pFPoPs1HmuQmXLgFPxtjJDdsA6PjtnHXKniizJoy958srK8G8shMC1saQQLxTqmBFT
@@ -60,7 +62,8 @@ pub fn undock_from_starbase<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
     game: (&Pubkey, &Game),
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_pubkey, (fleet, fleet_state)) = fleet;
     let (game_pubkey, game) = game;
 
@@ -100,10 +103,11 @@ pub fn undock_from_starbase<C: Deref<Target = impl Signer> + Clone>(
             );
 
             let builder = sage_program.request().instruction(loading_bay_to_idle_ix);
-            let ixs = builder.instructions()?;
-
-            Ok(ixs)
+            let ix = builder.instructions()?;
+            ixs.push(ix);
         }
-        _ => Ok(vec![]),
+        _ => {}
     }
+
+    Ok(ixs)
 }

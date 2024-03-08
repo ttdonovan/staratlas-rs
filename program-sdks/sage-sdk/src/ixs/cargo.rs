@@ -13,7 +13,8 @@ pub fn deposit_to_fleet<C: Deref<Target = impl Signer> + Clone>(
     cargo_pod_to: &Pubkey,
     mint: &Pubkey,
     amount: u64,
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_id, fleet_acct) = fleet;
     let (game_id, game_acct) = game;
 
@@ -85,7 +86,9 @@ pub fn deposit_to_fleet<C: Deref<Target = impl Signer> + Clone>(
         .instruction(ata_token_to_ix)
         .instruction(deposit_cargo_to_fleet_ix);
 
-    let ixs = builder.instructions()?;
+    let ix = builder.instructions()?;
+    ixs.push(ix);
+
     Ok(ixs)
 }
 
@@ -97,7 +100,8 @@ pub fn withdraw_from_fleet<C: Deref<Target = impl Signer> + Clone>(
     starbase: &Pubkey,
     mint: &Pubkey,
     amount: u64,
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_id, fleet_acct) = fleet;
     let (game_id, game_acct) = game;
 
@@ -170,6 +174,8 @@ pub fn withdraw_from_fleet<C: Deref<Target = impl Signer> + Clone>(
         .instruction(ata_token_to_ix)
         .instruction(withdraw_cargo_from_fleet_ix);
 
-    let ixs = builder.instructions()?;
+    let ix = builder.instructions()?;
+    ixs.push(ix);
+
     Ok(ixs)
 }

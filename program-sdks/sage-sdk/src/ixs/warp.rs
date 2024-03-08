@@ -11,7 +11,8 @@ pub fn warp_to_coordinate<C: Deref<Target = impl Signer> + Clone>(
     fleet: (&Pubkey, &Fleet),
     game: (&Pubkey, &Game),
     coordinate: [i64; 2],
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_id, fleet_acct) = fleet;
     let (game_id, game_acct) = game;
     let game_state = &game_acct.0.game_state;
@@ -64,14 +65,17 @@ pub fn warp_to_coordinate<C: Deref<Target = impl Signer> + Clone>(
 
     let builder = sage_program.request().instruction(warp_to_coordinate_ix);
 
-    let ixs = builder.instructions()?;
+    let ix = builder.instructions()?;
+    ixs.push(ix);
+
     Ok(ixs)
 }
 
 pub fn ready_to_exit_warp<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, &Fleet),
-) -> anyhow::Result<Vec<Instruction>> {
+) -> anyhow::Result<Vec<Vec<Instruction>>> {
+    let mut ixs = vec![];
     let (fleet_id, _) = fleet;
 
     let instr = instruction::FleetStateHandler {};
@@ -83,6 +87,8 @@ pub fn ready_to_exit_warp<C: Deref<Target = impl Signer> + Clone>(
 
     let builder = sage_program.request().instruction(fleet_state_handler_ix);
 
-    let ixs = builder.instructions()?;
+    let ix = builder.instructions()?;
+    ixs.push(ix);
+
     Ok(ixs)
 }
