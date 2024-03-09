@@ -1,13 +1,15 @@
+use std::sync::RwLock;
+
 use ratatui::{prelude::*, widgets::*};
 
 use crate::bots;
 
 pub struct FleetsTab<'a> {
-    bots: &'a Vec<bots::MiningBot>,
+    bots: &'a Vec<RwLock<bots::MiningBot>>,
 }
 
 impl<'a> FleetsTab<'a> {
-    pub fn new(bots: &'a Vec<bots::MiningBot>) -> Self {
+    pub fn new(bots: &'a Vec<RwLock<bots::MiningBot>>) -> Self {
         FleetsTab { bots }
     }
 }
@@ -30,9 +32,11 @@ impl<'a> Widget for FleetsTab<'a> {
         ]);
 
         let mut tx_table = comfy_table::Table::new();
-        tx_table.set_header(vec!["Fleet ID", "Last Txs", "Counter", "Errors"]);
+        tx_table.set_header(vec!["Fleet ID", "Last Txs", "Counter", "Errors", "Is Tx"]);
 
         for bot in self.bots {
+            let bot = bot.read().unwrap();
+
             table.add_row(vec![
                 format!("{}", bot.masked_fleet_id()),
                 format!("{}", bot.fleet_name()),
@@ -56,6 +60,7 @@ impl<'a> Widget for FleetsTab<'a> {
                 format!("{}", bot.last_txs()),
                 format!("{}", bot.txs_counter),
                 format!("{}", bot.txs_errors),
+                format!("{}", bot.is_tx),
             ]);
         }
 

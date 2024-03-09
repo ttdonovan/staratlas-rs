@@ -101,6 +101,8 @@ A CLI program to interact with SA Sage.
 cargo run -p sa-sage-cli -- --help
 ```
 
+See [clis/sage-cli/README.md](clis/sage-cli/README.md) for usage.
+
 ## Utils
 
 ### config

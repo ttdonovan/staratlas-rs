@@ -1,4 +1,9 @@
+use std::sync::mpsc::Sender;
+
 use super::*;
+
+use crate::txs;
+use txs::Event as TxEvent;
 
 fn get_and_set_fleet_state(bot: &mut MiningBot, sage: &sage::SageContext) -> anyhow::Result<()> {
     let (_, fleet_state) = sage.fleet_with_state_accts(&bot.fleet.0)?;
@@ -100,6 +105,7 @@ fn autoplay_is_idle_handler(bot: &mut MiningBot, sage: &sage::SageContext) -> an
 fn autoplay_start_mining_asteroid_handler(
     bot: &mut MiningBot,
     sage: &sage::SageContext,
+    sage_tx: &Sender<TxEvent>,
 ) -> anyhow::Result<()> {
     if bot.is_fleet_idle() {
         get_and_set_token_balances_for_fuel_ammo_and_cargo(bot, sage)?;
@@ -111,12 +117,15 @@ fn autoplay_start_mining_asteroid_handler(
                 "[{}] Prepare to start mining asteroid",
                 &bot.masked_fleet_id()
             );
+
+            bot.is_tx = true;
+            // sage_tx.send(TxEvent::StartMiningAsteroid(0))?;
             if txs::sage_start_mining_asteroid(bot, sage).is_ok() {
                 bot.autoplay = Autoplay::IsMiningAsteroid;
+                bot.is_tx = false;
 
-                // start our mining timer
-                bot.mining_timer.set_duration(bot.mine_asteroid_duraiton);
-                bot.mining_timer.reset();
+                // start (reset) our mining timer
+                bot.reset_mining_timer();
             };
         } else {
             bot.autoplay = Autoplay::IsIdle;
@@ -143,15 +152,20 @@ fn autoplay_is_mining_asteroid_handler(bot: &mut MiningBot) -> anyhow::Result<()
 fn autoplay_stop_mining_asteroid_handler(
     bot: &mut MiningBot,
     sage: &sage::SageContext,
+    sage_tx: &Sender<TxEvent>,
 ) -> anyhow::Result<()> {
     if bot.is_fleet_mining() {
         log::info!(
             "[{}] Prepare to stop mining asteroid",
             &bot.masked_fleet_id()
         );
+
+        bot.is_tx = true;
+        // sage_tx.send(TxEvent::StopMiningAsteroid(0))?;
         if txs::sage_stop_mining_asteroid(bot, sage).is_ok() {
             // FIXME: ideally the fleet would go back to idle and all logic is correct there...
             bot.autoplay = Autoplay::StarbaseDock;
+            bot.is_tx = false;
         };
     } else {
         bot.is_fleet_state_dirty = true;
@@ -163,11 +177,16 @@ fn autoplay_stop_mining_asteroid_handler(
 fn autoplay_starbase_dock_handler(
     bot: &mut MiningBot,
     sage: &sage::SageContext,
+    sage_tx: &Sender<TxEvent>,
 ) -> anyhow::Result<()> {
     if bot.is_fleet_idle() {
         log::info!("[{}] Prepare to dock to starbase", &bot.masked_fleet_id());
+
+        bot.is_tx = true;
+        // sage_tx.send(TxEvent::DockToStarbase(0))?;
         if txs::sage_dock_to_starbase(bot, sage).is_ok() {
             bot.autoplay = Autoplay::StarbaseHangarCargoWithdraw;
+            bot.is_tx = false;
         };
     } else {
         bot.is_fleet_state_dirty = true;
@@ -179,14 +198,19 @@ fn autoplay_starbase_dock_handler(
 fn autoplay_undock_starbase_dock_handler(
     bot: &mut MiningBot,
     sage: &sage::SageContext,
+    sage_tx: &Sender<TxEvent>,
 ) -> anyhow::Result<()> {
     if bot.is_fleet_at_starbase() {
         log::info!(
             "[{}] Prepare to undock from starbase",
             &bot.masked_fleet_id()
         );
+
+        bot.is_tx = true;
+        // sage_tx.send(TxEvent::UndockFromStarbase(0))?;
         if txs::sage_undock_from_starbase(bot, sage).is_ok() {
             bot.autoplay = Autoplay::IsIdle;
+            bot.is_tx = false;
         };
     } else {
         bot.is_fleet_state_dirty = true;
@@ -195,12 +219,17 @@ fn autoplay_undock_starbase_dock_handler(
     Ok(())
 }
 
-pub fn run_update(
+pub fn run_autoplay(
     bot: &mut MiningBot,
     dt: Duration,
     sage: &sage::SageContext,
+    sage_tx: &Sender<TxEvent>,
 ) -> anyhow::Result<()> {
     bot.tick(dt);
+
+    if bot.is_tx {
+        return Ok(());
+    }
 
     if bot.is_fleet_state_dirty {
         get_and_set_fleet_state(bot, sage)?;
@@ -232,26 +261,29 @@ pub fn run_update(
 
     match &bot.autoplay {
         Autoplay::IsIdle => autoplay_is_idle_handler(bot, sage)?,
-        Autoplay::StartMiningAsteroid => autoplay_start_mining_asteroid_handler(bot, sage)?,
+        Autoplay::StartMiningAsteroid => {
+            autoplay_start_mining_asteroid_handler(bot, sage, sage_tx)?
+        }
         Autoplay::IsMiningAsteroid => autoplay_is_mining_asteroid_handler(bot)?,
-        Autoplay::StopMiningAsteroid => autoplay_stop_mining_asteroid_handler(bot, sage)?,
-        Autoplay::StarbaseDock => autoplay_starbase_dock_handler(bot, sage)?,
-        Autoplay::StarbaseUndock => autoplay_undock_starbase_dock_handler(bot, sage)?,
+        Autoplay::StopMiningAsteroid => autoplay_stop_mining_asteroid_handler(bot, sage, sage_tx)?,
+        Autoplay::StarbaseDock => autoplay_starbase_dock_handler(bot, sage, sage_tx)?,
+        Autoplay::StarbaseUndock => autoplay_undock_starbase_dock_handler(bot, sage, sage_tx)?,
         Autoplay::StarbaseHangarCargoWithdraw => {
-            if let Some(starbase) = bot.starbase_id() {
+            if let Some(_starbase) = bot.starbase_id() {
                 log::info!("[{}] Prepare to widthraw mine item", &bot.masked_fleet_id());
-                let starbase = starbase.clone();
-                if txs::sage_mine_item_widthdraw_from_fleet(bot, &starbase, sage).is_ok() {
+
+                bot.is_tx = true;
+                // sage_tx.send(TxEvent::StarbaseHangarCargoWithdraw(0))?;
+                if txs::sage_mine_item_widthdraw_from_fleet(bot, sage).is_ok() {
                     bot.autoplay = Autoplay::StarbaseHangarCargoDeposit(CargoDeposit::Fuel);
+                    bot.is_tx = false;
                 };
             } else {
                 bot.is_fleet_state_dirty = true;
             }
         }
         Autoplay::StarbaseHangarCargoDeposit(deposit) => {
-            if let Some(starbase) = bot.starbase_id() {
-                let starbase = starbase.clone();
-
+            if let Some(_starbase) = bot.starbase_id() {
                 match deposit {
                     CargoDeposit::Fuel => {
                         // Fuel tank refuel
@@ -268,11 +300,13 @@ pub fn run_update(
 
                         if (*actual as f32 / *capacity as f32) < 0.5 {
                             log::info!("[{}] Prepare to refill fuel", &bot.masked_fleet_id());
-                            if txs::sage_deposit_to_fleet(
-                                bot, &starbase, fuel_tank, fuel_mint, amount, sage,
-                            )
-                            .is_ok()
+
+                            bot.is_tx = true;
+                            // sage_tx.send(TxEvent::StarbaseHangarDepositToFleet(0, CargoDeposit::Fuel))?;
+                            if txs::sage_deposit_to_fleet(bot, fuel_tank, fuel_mint, amount, sage)
+                                .is_ok()
                             {
+                                bot.is_tx = false;
                                 bot.autoplay =
                                     Autoplay::StarbaseHangarCargoDeposit(CargoDeposit::Ammo);
                             };
@@ -295,11 +329,13 @@ pub fn run_update(
 
                         if (*actual as f32 / *capacity as f32) < 0.5 {
                             log::info!("[{}] Prepare to rearm ammo", &bot.masked_fleet_id());
-                            if txs::sage_deposit_to_fleet(
-                                bot, &starbase, ammo_bank, ammo_mint, amount, sage,
-                            )
-                            .is_ok()
+
+                            bot.is_tx = true;
+                            // sage_tx.send(TxEvent::StarbaseHangarDepositToFleet(0, CargoDeposit::Ammo))?;
+                            if txs::sage_deposit_to_fleet(bot, ammo_bank, ammo_mint, amount, sage)
+                                .is_ok()
                             {
+                                bot.is_tx = false;
                                 bot.autoplay =
                                     Autoplay::StarbaseHangarCargoDeposit(CargoDeposit::Food);
                             };
@@ -322,11 +358,13 @@ pub fn run_update(
 
                         if (*actual as f32 / *capacity as f32) < 0.05 {
                             log::info!("[{}] Prepare to supply food", &bot.masked_fleet_id());
-                            if txs::sage_deposit_to_fleet(
-                                bot, &starbase, cargo_hold, food_mint, amount, sage,
-                            )
-                            .is_ok()
+
+                            bot.is_tx = true;
+                            // sage_tx.send(TxEvent::StarbaseHangarDepositToFleet(0, CargoDeposit::Food))?;
+                            if txs::sage_deposit_to_fleet(bot, cargo_hold, food_mint, amount, sage)
+                                .is_ok()
                             {
+                                bot.is_tx = false;
                                 bot.autoplay = Autoplay::StarbaseUndock;
                             };
                         } else {

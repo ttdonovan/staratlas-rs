@@ -5,7 +5,7 @@ fn ui_masked_pubkey(pubkey: &Pubkey) -> String {
     format!("{}...{}", &id[..4], &id[40..])
 }
 
-pub fn init_bots(
+pub fn init_mining_bots(
     sage: &sage::SageContext,
     fleet_ids: Vec<Pubkey>,
 ) -> anyhow::Result<Vec<MiningBot>> {
@@ -56,6 +56,7 @@ pub fn init_bots(
                         txs: None,
                         txs_counter: 0,
                         txs_errors: 0,
+                        is_tx: false,
                     });
                 }
             }
@@ -89,6 +90,7 @@ pub fn init_bots(
                     txs: None,
                     txs_counter: 0,
                     txs_errors: 0,
+                    is_tx: false,
                 });
             }
             FleetState::StarbaseLoadingBay(starbase_loading_bay) => {
@@ -128,6 +130,7 @@ pub fn init_bots(
                         txs: None,
                         txs_counter: 0,
                         txs_errors: 0,
+                        is_tx: false,
                     });
                 }
             }

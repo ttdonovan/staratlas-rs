@@ -11,10 +11,9 @@ mod bot;
 mod calc;
 mod init;
 mod run;
-mod txs;
 
 pub use bot::*;
 pub(crate) use calc::*;
 
-pub use init::init_bots;
-pub use run::run_update;
+pub use init::init_mining_bots;
+pub use run::run_autoplay;

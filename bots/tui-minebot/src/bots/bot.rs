@@ -43,13 +43,10 @@ pub struct MiningBot {
     pub txs: Option<Signature>,
     pub txs_counter: u32,
     pub txs_errors: u32,
+    pub is_tx: bool,
 }
 
 impl MiningBot {
-    pub fn fleet_id(&self) -> &Pubkey {
-        &self.fleet.0
-    }
-
     pub fn masked_fleet_id(&self) -> &str {
         &self.fleet.1
     }
@@ -135,5 +132,10 @@ impl MiningBot {
 
     pub fn tick(&mut self, dt: Duration) {
         self.mining_timer.tick(dt);
+    }
+
+    pub fn reset_mining_timer(&mut self) {
+        self.mining_timer.set_duration(self.mine_asteroid_duraiton);
+        self.mining_timer.reset();
     }
 }

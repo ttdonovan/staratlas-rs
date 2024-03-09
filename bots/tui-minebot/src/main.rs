@@ -7,8 +7,10 @@ mod app;
 mod bots;
 mod cli;
 mod errors;
-mod tabs;
 mod term;
+mod tui;
+mod txs;
+mod ui;
 
 fn main() -> anyhow::Result<()> {
     errors::init_hooks().unwrap();
@@ -21,10 +23,11 @@ fn main() -> anyhow::Result<()> {
     let (game_id, fleet_ids) = cli::init_sage_config(&cli);
 
     let sage = sage::SageContext::new(&client, &game_id)?;
-    let bots = bots::init_bots(&sage, fleet_ids)?;
+    let bots = bots::init_mining_bots(&sage, fleet_ids)?;
+    let app = app::init(sage, bots);
 
     let terminal = &mut term::init()?;
-    app::run(sage, bots, terminal)?;
+    tui::run(app, terminal)?;
     term::restore()?;
     Ok(())
 }
