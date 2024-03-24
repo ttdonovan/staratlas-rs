@@ -11,7 +11,7 @@ use anchor_client::{
 use spl_associated_token_account::get_associated_token_address;
 
 use staratlas_sage_sdk::{
-    derive, ixs,
+    derive, find, ixs,
     programs::{
         staratlas_cargo::ID as CARGO_ID,
         staratlas_sage::{state, ID as SAGE_ID},
@@ -23,7 +23,8 @@ use std::ops::Deref;
 use std::rc::Rc;
 use std::str::FromStr;
 
-pub use staratlas_sage_sdk::{Fleet, FleetState, MineItem, Resource, Starbase};
+pub use staratlas_sage_sdk;
+pub use staratlas_sage_sdk::{CargoPod, Fleet, FleetState, MineItem, Resource, Starbase};
 
 fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
@@ -37,7 +38,8 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
 
             // FIXME: this is a hack to set a the compute unit price for higher priority
             // Priority Fee added to each transaction in Lamports. Set to 0 (zero) to disable priority fees. 1 Lamport = 0.000000001 SOL
-            let i = ComputeBudgetInstruction::set_compute_unit_price(5000);
+            // https://solana.com/developers/guides/advanced/how-to-request-optimal-compute
+            let i = ComputeBudgetInstruction::set_compute_unit_price(150000);
             builder = builder.instruction(i);
             builder = ix.into_iter().fold(builder, |builder, i| builder.instruction(i));
 
@@ -83,11 +85,16 @@ impl SageContext {
         })
     }
 
-    pub fn get_token_account_balances_by_owner(&self, owner: &Pubkey) -> anyhow::Result<u32> {
+    pub fn get_token_accounts_by_owner(&self, owner: &Pubkey) -> anyhow::Result<Vec<anchor_client::solana_client::rpc_response::RpcKeyedAccount>> {
         let accounts = self.rpc.get_token_accounts_by_owner(
             owner,
             anchor_client::solana_client::rpc_request::TokenAccountsFilter::ProgramId(spl_token::id()),
         )?;
+        Ok(accounts)
+    }
+
+    pub fn get_token_account_balances_by_owner(&self, owner: &Pubkey) -> anyhow::Result<u32> {
+        let accounts = self.get_token_accounts_by_owner(owner)?;
 
         // TODO: refactor and fix me
         let amount =
@@ -122,6 +129,22 @@ impl SageContext {
         let starbase = derive::starbase_account(&self.sage_program, starbase_id)?;
         Ok((*starbase_id, starbase))
     
+    }
+
+    pub fn starbase_cargo_pod_acct(&self, starbase_id: &Pubkey, fleet: &Fleet) -> anyhow::Result<(Pubkey, CargoPod)> {
+        let player_profile = &fleet.0.owner_profile;
+        let (_, starbase_acct) = self.starbase_acct(starbase_id)?;
+
+        let (sage_player_profile, _) = find::sage_player_profile_address(&self.game_id, &player_profile);
+        let (starbase_player, _) =
+            find::starbase_player_address(&starbase_id, &sage_player_profile, starbase_acct.0.seq_id);
+
+        let cargo_pods = derive::cargo_pod_accounts(&self.cargo_program, &starbase_player)?;
+        let cargo_pod = cargo_pods
+            .first()
+            .expect("at least one cargo pod for starbase player");
+
+        Ok(*cargo_pod)
     }
 }
 
@@ -258,5 +281,33 @@ impl SageContext {
         } else {
             Ok(None)
         }
+    }
+}
+
+impl SageContext {
+    pub fn warp_to_coordinate(&self, fleet_id: &Pubkey, fleet: &Fleet, coordinate: [i64; 2]) -> anyhow::Result<Signature> {
+        let ixs = ixs::warp::warp_to_coordinate(
+            &self.sage_program,
+            &self.cargo_program,
+            (fleet_id, fleet),
+            (&self.game_id, &self.game_acct),
+            coordinate,
+        )?;
+
+        let signature = sign_and_send(&self.sage_program, ixs)?;
+
+        Ok(signature)
+
+    }
+
+    pub fn ready_to_exit_warp(&self, fleet_id: &Pubkey, fleet: &Fleet) -> anyhow::Result<Signature> {
+        let ixs = ixs::warp::ready_to_exit_warp(
+            &self.sage_program,
+            (fleet_id, fleet),
+        )?;
+
+        let signature = sign_and_send(&self.sage_program, ixs)?;
+
+        Ok(signature)
     }
 }

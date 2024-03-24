@@ -45,6 +45,10 @@ fn default_keypair() -> Keypair {
         .expect("Requires a keypair file")
 }
 
+pub fn cli_parse() -> Cli {
+    Cli::parse()
+}
+
 pub fn init_client(cli: &Cli) -> Result<Client<Rc<Keypair>>> {
     let payer = match &cli.provider_config.wallet {
         Some(wallet) => read_keypair_file(wallet).expect("Requires a keypair file"),

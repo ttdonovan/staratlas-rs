@@ -10,6 +10,7 @@ pub mod utils;
 use programs::staratlas_cargo;
 use programs::staratlas_sage::{state, typedefs};
 
+#[derive(Clone, Copy)]
 pub struct CargoPod(staratlas_cargo::state::CargoPod);
 
 impl fmt::Debug for CargoPod {
@@ -51,6 +52,7 @@ impl fmt::Debug for CargoType {
     }
 }
 
+#[derive(Clone, Copy)]
 pub struct Fleet(pub state::Fleet);
 
 impl Fleet {
@@ -79,7 +81,7 @@ impl fmt::Debug for Fleet {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Copy)]
 pub enum FleetState {
     StarbaseLoadingBay(typedefs::StarbaseLoadingBay),
     Idle(typedefs::Idle),
@@ -189,6 +191,8 @@ impl fmt::Debug for Starbase {
             .field("version", &self.0.version)
             .field("game_id", &self.0.game_id)
             .field("sector", &self.0.sector)
+            .field("crafting_facility", &self.0.crafting_facility)
+            .field("seq_id", &self.0.seq_id)
             .finish()
     }
 }

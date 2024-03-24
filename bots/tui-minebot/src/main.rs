@@ -1,15 +1,13 @@
-use clap::Parser;
-
+use shared_sage_cli as cli;
 use shared_sage_context as sage;
 use shared_time as time;
 
 mod app;
 mod bots;
-mod cli;
 mod errors;
+mod labs;
 mod term;
 mod tui;
-mod txs;
 mod ui;
 
 fn main() -> anyhow::Result<()> {
@@ -18,7 +16,7 @@ fn main() -> anyhow::Result<()> {
     tui_logger::set_default_level(log::LevelFilter::Info);
     log::info!(target: "App", "logging initialized");
 
-    let cli = cli::Cli::parse();
+    let cli = cli::cli_parse();
     let client = cli::init_client(&cli)?;
     let (game_id, fleet_ids) = cli::init_sage_config(&cli);
 

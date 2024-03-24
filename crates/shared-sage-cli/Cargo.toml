@@ -1,0 +1,10 @@
+[package]
+name = "shared-sage-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+anchor-client = "0.29"
+anyhow = "1.0"
+clap = { version = "4.5", features = ["derive", "env"] }
+shellexpand = "3.1"

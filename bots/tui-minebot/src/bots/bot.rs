@@ -12,7 +12,7 @@ pub enum Autoplay {
     StarbaseHangarCargoDeposit(CargoDeposit),
 }
 
-#[derive(Debug, PartialEq)]
+#[derive(Debug, Clone, Copy, PartialEq)]
 pub enum CargoDeposit {
     Fuel,
     Ammo,

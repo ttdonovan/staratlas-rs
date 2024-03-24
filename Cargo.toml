@@ -3,7 +3,7 @@ resolver = "2"
 
 members = [
     "bots/*",
-    "clis/*",
+    "clis/*", "crates/shared-sage-cli",
     "galaxy",
     "games/*",
     "program-sdks/*",

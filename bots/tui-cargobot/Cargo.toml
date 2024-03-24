@@ -1,21 +1,19 @@
 [package]
-name = "tui-minebot"
+name = "tui-cargobot"
 version = "0.1.0"
 edition = "2021"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
 anyhow = "1.0"
-anchor-client = "0.29"
+anchor-lang = "0.29"
 color-eyre = "0.6"
-comfy-table = "7.1"
-crossterm = "0.27"
+crossterm = { version = "0.27.0", features = ["event-stream"] }
+futures = "0.3"
 itertools = "0.12"
 log = "0.4"
 ratatui = "0.26"
 shared-sage-cli = { path = "../../crates/shared-sage-cli" }
 shared-sage-context = { path = "../../crates/shared-sage-context" }
 shared-time = { path = "../../crates/shared-time" }
-strum = "0.26"
+tokio = { version = "1.36", features = ["rt", "sync"] }
 tui-logger = "0.11"

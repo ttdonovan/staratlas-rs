@@ -1,14 +1,14 @@
 use std::sync::RwLock;
 use std::time::{Duration, Instant};
 
-use crate::{bots, sage, time, txs};
+use crate::{bots, labs, sage, time};
 
 pub struct App {
     mode: Mode,
     pub stopwatch: time::Stopwatch,
     dt: Duration,
     last_time: Instant,
-    pub sage_labs: txs::SageLabs,
+    pub sage_labs: labs::SageLabs,
 }
 
 #[derive(Default, PartialEq)]
@@ -24,7 +24,7 @@ pub fn init(context: sage::SageContext, bots: Vec<bots::MiningBot>) -> App {
 
 impl App {
     pub fn new(context: sage::SageContext, bots: Vec<bots::MiningBot>) -> Self {
-        let sage_labs = txs::SageLabs::new(context, bots);
+        let sage_labs = labs::SageLabs::new(context, bots);
 
         App {
             mode: Mode::default(),
@@ -53,7 +53,10 @@ impl App {
         self.stopwatch.tick(self.dt);
 
         // for each SAGE Labs bot run update
-        self.sage_labs.bots_run_update(self.dt)?;
+        self.sage_labs.run_bots(self.dt)?;
+
+        // poll for responses from SAGE Labs
+        self.sage_labs.poll_response();
 
         Ok(())
     }
