@@ -3,7 +3,10 @@ use anchor_client::{
     Program,
 };
 
-use staratlas_sage_sdk::{derive, Fleet, FleetState};
+use staratlas_sage_sdk::{
+    accounts::{Fleet, FleetState},
+    derive,
+};
 
 use std::convert::TryFrom;
 use std::rc::Rc;

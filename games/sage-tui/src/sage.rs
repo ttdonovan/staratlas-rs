@@ -10,11 +10,10 @@ use staratlas_player_profile_sdk::{
 use staratlas_sage_sdk::{
     derive,
     programs::{staratlas_cargo::ID as CARGO_ID, staratlas_sage::ID as SAGE_ID},
-    Game,
 };
 
 pub use anchor_client::solana_sdk::pubkey::Pubkey;
-pub use staratlas_sage_sdk::{Fleet, FleetState};
+pub use staratlas_sage_sdk::accounts::{Fleet, FleetState, Game};
 
 pub fn list_games(client: &Client<Rc<Keypair>>) -> Result<Vec<(Pubkey, Game)>> {
     let program = client.program(SAGE_ID)?;
@@ -29,13 +28,13 @@ pub fn list_player_profiles(client: &Client<Rc<Keypair>>) -> Result<Vec<(Pubkey,
 }
 
 pub struct SageContext {
-    client: Client<Rc<Keypair>>,
+    _client: Client<Rc<Keypair>>,
     sage_program: Program<Rc<Keypair>>,
-    cargo_program: Program<Rc<Keypair>>,
+    _cargo_program: Program<Rc<Keypair>>,
     pub game_id: Pubkey,
-    game: Game,
+    _game: Game,
     pub profile_id: Pubkey,
-    profile: Profile,
+    _profile: Profile,
 }
 
 impl SageContext {
@@ -48,13 +47,13 @@ impl SageContext {
         let cargo_program = client.program(CARGO_ID)?;
 
         Ok(Self {
-            client,
+            _client: client,
             sage_program,
-            cargo_program,
+            _cargo_program: cargo_program,
             game_id: game.0,
-            game: game.1,
+            _game: game.1,
             profile_id: profile.0,
-            profile: profile.1,
+            _profile: profile.1,
         })
     }
 

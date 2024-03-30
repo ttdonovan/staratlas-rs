@@ -1,11 +1,11 @@
 use super::*;
-use crate::{programs::staratlas_sage::state, Planet, Resource};
+use crate::{accounts, programs::staratlas_sage::state};
 
 pub fn planet_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     game_id: &Pubkey,
     sector_coordinates: [i64; 2],
-) -> anyhow::Result<Vec<(Pubkey, Planet)>> {
+) -> anyhow::Result<Vec<(Pubkey, accounts::Planet)>> {
     let accounts = program.accounts::<state::Planet>(vec![
         RpcFilterType::Memcmp(Memcmp::new_base58_encoded(73, game_id.as_ref())),
         RpcFilterType::Memcmp(Memcmp::new_base58_encoded(
@@ -20,7 +20,7 @@ pub fn planet_accounts<C: Deref<Target = impl Signer> + Clone>(
 
     let planet_accounts = accounts
         .iter()
-        .map(|(pubkey, account)| (*pubkey, Planet(account.clone())))
+        .map(|(pubkey, account)| (*pubkey, accounts::Planet::from(*account)))
         .collect();
 
     Ok(planet_accounts)
@@ -30,7 +30,7 @@ pub fn resource_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     game_id: &Pubkey,
     location: &Pubkey,
-) -> anyhow::Result<Vec<(Pubkey, Resource)>> {
+) -> anyhow::Result<Vec<(Pubkey, accounts::Resource)>> {
     let accounts = program.accounts::<state::Resource>(vec![
         RpcFilterType::Memcmp(Memcmp::new_base58_encoded(9, game_id.as_ref())),
         RpcFilterType::Memcmp(Memcmp::new_base58_encoded(41, location.as_ref())),
@@ -38,7 +38,7 @@ pub fn resource_accounts<C: Deref<Target = impl Signer> + Clone>(
 
     let resource_accounts = accounts
         .iter()
-        .map(|(pubkey, account)| (*pubkey, Resource(account.clone())))
+        .map(|(pubkey, account)| (*pubkey, accounts::Resource::from(*account)))
         .collect();
 
     Ok(resource_accounts)

@@ -1,14 +1,16 @@
-use std::sync::RwLock;
+use anchor_client::anchor_lang::prelude::Pubkey;
+
+use std::collections::HashMap;
 use std::time::{Duration, Instant};
 
-use crate::{bots, labs, sage, time};
+use crate::{bots, labs, time};
 
 pub struct App {
     mode: Mode,
     pub stopwatch: time::Stopwatch,
     dt: Duration,
     last_time: Instant,
-    pub sage_labs: labs::SageLabs,
+    sage: labs::SageLabsHandler,
 }
 
 #[derive(Default, PartialEq)]
@@ -18,25 +20,32 @@ enum Mode {
     Quit,
 }
 
-pub fn init(context: sage::SageContext, bots: Vec<bots::MiningBot>) -> App {
-    App::new(context, bots)
+pub fn init(game_id: Pubkey, fleet_ids: Vec<Pubkey>) -> anyhow::Result<App> {
+    let app = App::new(game_id, fleet_ids);
+    app.sage.refresh_fleet()?;
+
+    Ok(app)
 }
 
 impl App {
-    pub fn new(context: sage::SageContext, bots: Vec<bots::MiningBot>) -> Self {
-        let sage_labs = labs::SageLabs::new(context, bots);
+    pub fn new(game_id: Pubkey, fleet_ids: Vec<Pubkey>) -> Self {
+        let sage = labs::SageLabsHandler::new(game_id.clone(), fleet_ids.clone());
 
         App {
             mode: Mode::default(),
             stopwatch: time::Stopwatch::default(),
             dt: Duration::ZERO,
             last_time: Instant::now(),
-            sage_labs,
+            sage,
         }
     }
 
-    pub fn bots(&self) -> &Vec<RwLock<bots::MiningBot>> {
-        self.sage_labs.bots.as_ref()
+    pub fn bots(&self) -> &HashMap<Pubkey, bots::MiningBot> {
+        &self.sage.bots
+    }
+
+    pub fn game_id(&self) -> &Pubkey {
+        &self.sage.game_id
     }
 
     pub fn is_running(&self) -> bool {
@@ -53,10 +62,10 @@ impl App {
         self.stopwatch.tick(self.dt);
 
         // for each SAGE Labs bot run update
-        self.sage_labs.run_bots(self.dt)?;
+        self.sage.run_bots(self.dt)?;
 
         // poll for responses from SAGE Labs
-        self.sage_labs.poll_response();
+        self.sage.poll_response()?;
 
         Ok(())
     }

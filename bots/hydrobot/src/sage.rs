@@ -9,9 +9,9 @@ use anchor_client::{
 };
 
 use staratlas_sage_sdk::{
+    accounts::Game,
     derive, ixs,
     programs::{staratlas_cargo::ID as CARGO_ID, staratlas_sage::ID as SAGE_ID},
-    Game,
 };
 
 use std::convert::TryFrom;

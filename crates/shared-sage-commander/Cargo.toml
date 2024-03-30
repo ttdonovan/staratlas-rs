@@ -1,0 +1,13 @@
+[package]
+name = "shared-sage-commander"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anyhow = "1.0"
+anchor-lang = "0.29"
+borsh = { version = "1.4", features = ["derive"] }
+shared-sage-cli = { path = "../../crates/shared-sage-cli" }
+shared-sage-context = { path = "../../crates/shared-sage-context" }

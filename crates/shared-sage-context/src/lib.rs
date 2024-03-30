@@ -16,15 +16,13 @@ use staratlas_sage_sdk::{
         staratlas_cargo::ID as CARGO_ID,
         staratlas_sage::{state, ID as SAGE_ID},
     },
-    Game, Planet,
 };
 
 use std::ops::Deref;
 use std::rc::Rc;
 use std::str::FromStr;
 
-pub use staratlas_sage_sdk;
-pub use staratlas_sage_sdk::{CargoPod, Fleet, FleetState, MineItem, Resource, Starbase};
+pub use staratlas_sage_sdk::accounts::*;
 
 fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
@@ -39,7 +37,7 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
             // FIXME: this is a hack to set a the compute unit price for higher priority
             // Priority Fee added to each transaction in Lamports. Set to 0 (zero) to disable priority fees. 1 Lamport = 0.000000001 SOL
             // https://solana.com/developers/guides/advanced/how-to-request-optimal-compute
-            let i = ComputeBudgetInstruction::set_compute_unit_price(150000);
+            let i = ComputeBudgetInstruction::set_compute_unit_price(1000000);
             builder = builder.instruction(i);
             builder = ix.into_iter().fold(builder, |builder, i| builder.instruction(i));
 
@@ -122,8 +120,12 @@ impl SageContext {
     pub fn mine_item_acct(&self, mine_item_id: &Pubkey) -> anyhow::Result<(Pubkey, MineItem)> {
         let mine_item =
             derive::derive_account::<_, state::MineItem>(&self.sage_program, mine_item_id)?;
-        Ok((*mine_item_id, MineItem(mine_item)))
+        Ok((*mine_item_id, mine_item.into()))
     }
+
+    // pub fn starbase_address(&self, sector: [i64; 2]) -> anyhow::Result<Pubkey> {
+    //     find::starbase_address(&self.game_id, sector)
+    // }
 
     pub fn starbase_acct(&self, starbase_id: &Pubkey) -> anyhow::Result<(Pubkey, Starbase)> {
         let starbase = derive::starbase_account(&self.sage_program, starbase_id)?;
@@ -132,12 +134,12 @@ impl SageContext {
     }
 
     pub fn starbase_cargo_pod_acct(&self, starbase_id: &Pubkey, fleet: &Fleet) -> anyhow::Result<(Pubkey, CargoPod)> {
-        let player_profile = &fleet.0.owner_profile;
+        let player_profile = &fleet.owner_profile;
         let (_, starbase_acct) = self.starbase_acct(starbase_id)?;
 
         let (sage_player_profile, _) = find::sage_player_profile_address(&self.game_id, &player_profile);
         let (starbase_player, _) =
-            find::starbase_player_address(&starbase_id, &sage_player_profile, starbase_acct.0.seq_id);
+            find::starbase_player_address(&starbase_id, &sage_player_profile, starbase_acct.seq_id);
 
         let cargo_pods = derive::cargo_pod_accounts(&self.cargo_program, &starbase_player)?;
         let cargo_pod = cargo_pods
@@ -257,7 +259,7 @@ impl SageContext {
         let mut amount = match amount {
             Some(amount) => amount,
             None => {
-                let address = get_associated_token_address(&fleet.0.cargo_hold, mint);
+                let address = get_associated_token_address(&fleet.cargo_hold, mint);
                 get_balance(&self.rpc, &address) as u64
             },
         };

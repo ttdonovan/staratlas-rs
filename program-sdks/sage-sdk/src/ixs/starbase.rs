@@ -2,7 +2,10 @@ use super::*;
 
 use staratlas_sage::{instruction, state};
 
-use crate::{find, Fleet, FleetState, Game};
+use crate::{
+    accounts::{Fleet, FleetState, Game},
+    find,
+};
 
 pub fn dock_to_starbase<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
@@ -16,9 +19,9 @@ pub fn dock_to_starbase<C: Deref<Target = impl Signer> + Clone>(
     match fleet_state {
         FleetState::Idle(idle) => {
             let fleet_id = fleet_pubkey;
-            let player_profile = &fleet.0.owner_profile;
+            let player_profile = &fleet.owner_profile;
             let game_id = game_pubkey;
-            let game_state = &game.0.game_state;
+            let game_state = &game.game_state;
 
             let (starbase, _) = find::starbase_address(game_id, idle.sector);
             let starbase_acct = derive_account::<_, state::Starbase>(sage_program, &starbase)?;
@@ -70,9 +73,9 @@ pub fn undock_from_starbase<C: Deref<Target = impl Signer> + Clone>(
     match fleet_state {
         FleetState::StarbaseLoadingBay(starbase_loading_bay) => {
             let fleet_id = fleet_pubkey;
-            let player_profile = &fleet.0.owner_profile;
+            let player_profile = &fleet.owner_profile;
             let game_id = game_pubkey;
-            let game_state = &game.0.game_state;
+            let game_state = &game.game_state;
 
             let starbase = starbase_loading_bay.starbase;
             let starbase_acct = derive_account::<_, state::Starbase>(sage_program, &starbase)?;

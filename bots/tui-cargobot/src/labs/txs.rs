@@ -1,11 +1,10 @@
 use crate::{sage, time, Pubkey, MAX_CARGO_AMOUNT};
-use sage::staratlas_sage_sdk::programs::staratlas_sage::typedefs;
 
 pub fn is_cargo_hold_at_capacity(
     sage: &sage::SageContext,
     fleet: &sage::Fleet,
 ) -> anyhow::Result<bool> {
-    let cargo_hold = &fleet.0.cargo_hold;
+    let cargo_hold = &fleet.cargo_hold;
     let amount = sage.get_token_account_balances_by_owner(cargo_hold)?;
 
     Ok(amount as u64 >= MAX_CARGO_AMOUNT)
@@ -16,7 +15,7 @@ pub fn dock_to_starbase(
     fleet_id: &Pubkey,
     fleet: &sage::Fleet,
     state: &sage::FleetState,
-    idle: &typedefs::Idle,
+    idle: &sage::Idle,
 ) -> anyhow::Result<()> {
     log::info!("[Sage Labs] - Prepare dock to starbase {:?}", idle.sector);
     let signature = sage.dock_to_starbase(&fleet_id, &fleet, &state)?;
@@ -55,7 +54,7 @@ pub fn ready_to_exit_warp(
     sage: &sage::SageContext,
     fleet_id: &Pubkey,
     fleet: &sage::Fleet,
-    move_warp: &typedefs::MoveWarp,
+    move_warp: &sage::MoveWarp,
 ) -> anyhow::Result<bool> {
     let now = time::get_time() as i64;
     let warp_time = move_warp.warp_finish - move_warp.warp_start;
@@ -118,7 +117,7 @@ pub fn deposit_to_fleet_cargo_hold(
     //     dbg!(acct);
     // }
 
-    let cargo_hold = &fleet.0.cargo_hold;
+    let cargo_hold = &fleet.cargo_hold;
     let cargo_mint = mint;
 
     log::info!("[Sage Labs] - Prepare to deposit to fleet cargo hold");
@@ -141,13 +140,13 @@ pub fn deposit_to_fleet_fuel_tank(
     fleet: &sage::Fleet,
     starbase_id: &Pubkey,
 ) -> anyhow::Result<()> {
-    let fuel_tank = &fleet.0.fuel_tank;
-    let cargo_stats = &fleet.0.stats.cargo_stats;
+    let fuel_tank = &fleet.fuel_tank;
+    let cargo_stats = &fleet.stats.cargo_stats;
     let fuel_capacity = cargo_stats.fuel_capacity;
     let fuel_amount = sage.get_token_account_balances_by_owner(fuel_tank)?;
 
     if (fuel_amount as f32 / fuel_capacity as f32) < 0.5 {
-        let fuel_mint = &sage.game_acct.0.mints.fuel;
+        let fuel_mint = &sage.game_acct.mints.fuel;
         let amount = (fuel_capacity - fuel_amount) as u64;
 
         log::info!("[Sage Labs] - Prepare to refuel fleet");

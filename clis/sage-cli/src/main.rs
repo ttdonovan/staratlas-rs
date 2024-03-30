@@ -15,12 +15,12 @@ use staratlas_player_profile_sdk::{
     programs::staratlas_player_profile::program::PlayerProfile,
 };
 use staratlas_sage_sdk::{
+    accounts::FleetState,
     derive, ixs,
     programs::{staratlas_cargo::program::Cargo, staratlas_sage::program::Sage},
-    FleetState,
 };
 
-use std::io::{self, Write};
+// use std::io::{self, Write};
 use std::rc::Rc;
 
 /// Star Atlas: Sage CLI --> donations: 2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77 <--
@@ -180,12 +180,12 @@ fn main() -> anyhow::Result<()> {
                     let (fleet, fleet_state) =
                         derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
-                    let cargo_pod_to = if mint == &game.0.mints.fuel {
-                        &fleet.0.fuel_tank
-                    } else if mint == &game.0.mints.ammo {
-                        &fleet.0.ammo_bank
+                    let cargo_pod_to = if mint == &game.mints.fuel {
+                        &fleet.fuel_tank
+                    } else if mint == &game.mints.ammo {
+                        &fleet.ammo_bank
                     } else {
-                        &fleet.0.cargo_hold
+                        &fleet.cargo_hold
                     };
 
                     match fleet_state {
@@ -372,8 +372,8 @@ fn main() -> anyhow::Result<()> {
                 for (pubkey, game) in game_accounts {
                     table.add_row(vec![
                         pubkey.to_string(),
-                        game.0.version.to_string(),
-                        format!("{:#?}", game.0.mints),
+                        game.version.to_string(),
+                        format!("{:#?}", game.mints),
                     ]);
                 }
 
@@ -435,10 +435,10 @@ fn main() -> anyhow::Result<()> {
                         table.add_row(vec![
                             pubkey.to_string(),
                             fleet.fleet_label().to_string(),
-                            format!("{:#?}", fleet.0.ship_counts),
-                            format!("{:#?}", fleet.0.stats.movement_stats),
-                            format!("{:#?}", fleet.0.stats.cargo_stats),
-                            format!("{:#?}", fleet.0.stats.misc_stats),
+                            format!("{:#?}", fleet.ship_counts),
+                            format!("{:#?}", fleet.stats.movement_stats),
+                            format!("{:#?}", fleet.stats.cargo_stats),
+                            format!("{:#?}", fleet.stats.misc_stats),
                         ]);
                     }
 

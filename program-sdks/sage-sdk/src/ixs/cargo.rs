@@ -2,7 +2,10 @@ use super::*;
 
 use staratlas_sage::{instruction, state, typedefs};
 
-use crate::{derive, find, Fleet, Game};
+use crate::{
+    accounts::{Fleet, Game},
+    derive, find,
+};
 
 pub fn deposit_to_fleet<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
@@ -18,9 +21,9 @@ pub fn deposit_to_fleet<C: Deref<Target = impl Signer> + Clone>(
     let (fleet_id, fleet_acct) = fleet;
     let (game_id, game_acct) = game;
 
-    let game_state = &game_acct.0.game_state;
+    let game_state = &game_acct.game_state;
 
-    let player_profile = &fleet_acct.0.owner_profile;
+    let player_profile = &fleet_acct.owner_profile;
     let (profile_faction, _) = find_profile_faction_address(&player_profile)?;
 
     let starbase_acct = derive_account::<_, state::Starbase>(sage_program, &starbase)?;
@@ -45,8 +48,8 @@ pub fn deposit_to_fleet<C: Deref<Target = impl Signer> + Clone>(
         &spl_token::id(),
     );
 
-    let cargo_stats_def = &cargo_pod_acct.0.stats_definition;
-    let seq_id = cargo_pod_acct.0.seq_id;
+    let cargo_stats_def = &cargo_pod_acct.stats_definition;
+    let seq_id = cargo_pod_acct.seq_id;
     let (mint_cargo_type, _) = find::cargo_type_address(cargo_stats_def, mint, seq_id);
 
     let instr = instruction::DepositCargoToFleet {
@@ -105,9 +108,9 @@ pub fn withdraw_from_fleet<C: Deref<Target = impl Signer> + Clone>(
     let (fleet_id, fleet_acct) = fleet;
     let (game_id, game_acct) = game;
 
-    let game_state = &game_acct.0.game_state;
+    let game_state = &game_acct.game_state;
 
-    let player_profile = &fleet_acct.0.owner_profile;
+    let player_profile = &fleet_acct.owner_profile;
     let (profile_faction, _) = find_profile_faction_address(&player_profile)?;
 
     let starbase_acct = derive_account::<_, state::Starbase>(sage_program, &starbase)?;
@@ -121,7 +124,7 @@ pub fn withdraw_from_fleet<C: Deref<Target = impl Signer> + Clone>(
         .first()
         .expect("at least one cargo pod for starbase player");
 
-    let cargo_pod_from = &fleet_acct.0.cargo_hold;
+    let cargo_pod_from = &fleet_acct.cargo_hold;
     let cargo_pod_to = cargo_pod;
 
     let ata_token_from = get_associated_token_address(cargo_pod_from, mint);
@@ -133,8 +136,8 @@ pub fn withdraw_from_fleet<C: Deref<Target = impl Signer> + Clone>(
         &spl_token::id(),
     );
 
-    let cargo_stats_def = &cargo_pod_acct.0.stats_definition;
-    let seq_id = cargo_pod_acct.0.seq_id;
+    let cargo_stats_def = &cargo_pod_acct.stats_definition;
+    let seq_id = cargo_pod_acct.seq_id;
     let (mint_cargo_type, _) = find::cargo_type_address(cargo_stats_def, mint, seq_id);
 
     let instr = instruction::WithdrawCargoFromFleet {

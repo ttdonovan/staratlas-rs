@@ -5,9 +5,9 @@ pub(crate) fn calc_asteroid_mining_emission_rate(
     resource: &sage::Resource,
     mine_item: &sage::MineItem,
 ) -> f32 {
-    let mining_rate = fleet.0.stats.cargo_stats.mining_rate as f32;
-    let system_richness = resource.0.system_richness as f32;
-    let resource_harndess = mine_item.0.resource_hardness as f32;
+    let mining_rate = fleet.stats.cargo_stats.mining_rate as f32;
+    let system_richness = resource.system_richness as f32;
+    let resource_harndess = mine_item.resource_hardness as f32;
 
     (mining_rate / 10000.0) * (system_richness / resource_harndess)
 }

@@ -22,9 +22,9 @@ impl Bot {
         self.timers.warp_cool_down.finished()
     }
 
-    pub fn warp_cool_down_remaining_secs(&self) -> f32 {
-        self.timers.warp_cool_down.remaining_secs()
-    }
+    // pub fn warp_cool_down_remaining_secs(&self) -> f32 {
+    //     self.timers.warp_cool_down.remaining_secs()
+    // }
 }
 
 #[derive(Debug)]

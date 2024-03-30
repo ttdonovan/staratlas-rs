@@ -6,13 +6,13 @@ use std::thread::{self, JoinHandle};
 mod autoplay;
 mod txs;
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone)]
 pub enum SageRequest {
     FleetWithState(Pubkey),
     AutoplayCargoTransport((Pubkey, sage::Fleet, sage::FleetState, bots::BotArgs)),
 }
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Debug, Clone)]
 pub enum SageResponse {
     FleetWithState((sage::Fleet, sage::FleetState)),
     UpdateFleetState(sage::FleetState),
@@ -30,7 +30,7 @@ pub struct SageHandler {
 
 impl SageHandler {
     pub fn new(game_id: Pubkey) -> Self {
-        let (req_tx, mut req_rx) = mpsc::channel();
+        let (req_tx, req_rx) = mpsc::channel();
         let (resp_tx, resp_rx) = mpsc::channel();
 
         let _resp_tx = resp_tx.clone();

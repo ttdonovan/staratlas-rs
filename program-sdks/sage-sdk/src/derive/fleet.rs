@@ -2,13 +2,13 @@ use super::*;
 
 use staratlas_sage::{program::Sage, state, typedefs};
 
-use crate::{utils::str_to_u8_32, Fleet, FleetState};
+use crate::{accounts, utils::str_to_u8_32};
 
 pub fn fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     game_pubkey: &Pubkey,
     player_profile_pubkey: &Pubkey,
-) -> anyhow::Result<Vec<(Pubkey, Fleet)>> {
+) -> anyhow::Result<Vec<(Pubkey, accounts::Fleet)>> {
     let accounts = program.accounts::<state::Fleet>(vec![
         RpcFilterType::Memcmp(Memcmp::new_base58_encoded(9, game_pubkey.as_ref())),
         RpcFilterType::Memcmp(Memcmp::new_base58_encoded(
@@ -19,7 +19,7 @@ pub fn fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
 
     let fleet_accounts = accounts
         .iter()
-        .map(|(pubkey, account)| (*pubkey, Fleet(account.clone())))
+        .map(|(pubkey, account)| (*pubkey, accounts::Fleet::from(*account)))
         .collect();
 
     Ok(fleet_accounts)
@@ -28,20 +28,22 @@ pub fn fleet_accounts<C: Deref<Target = impl Signer> + Clone>(
 pub fn fleet_account<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     fleet_pubkey: &Pubkey,
-) -> anyhow::Result<Fleet> {
+) -> anyhow::Result<accounts::Fleet> {
     let account = program.account::<state::Fleet>(*fleet_pubkey)?;
-    Ok(Fleet(account))
+    Ok(account.into())
 }
 
 pub fn fleet_account_with_state<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     fleet_pubkey: &Pubkey,
-) -> anyhow::Result<(Fleet, FleetState)> {
+) -> anyhow::Result<(accounts::Fleet, accounts::FleetState)> {
     let account = get_fleet_account(program, fleet_pubkey)?;
     fleet_with_state(&account)
 }
 
-pub fn fleet_with_state(account: &Account) -> anyhow::Result<(Fleet, FleetState)> {
+pub fn fleet_with_state(
+    account: &Account,
+) -> anyhow::Result<(accounts::Fleet, accounts::FleetState)> {
     let account_data = account.data.as_slice();
 
     // let _ = account_data[..8]; // what are these 8 bytes?
@@ -57,34 +59,34 @@ pub fn fleet_with_state(account: &Account) -> anyhow::Result<(Fleet, FleetState)
         0 => {
             let starbase_loading_bay =
                 typedefs::StarbaseLoadingBay::deserialize(&mut remaining_data)?;
-            FleetState::StarbaseLoadingBay(starbase_loading_bay)
+            accounts::FleetState::StarbaseLoadingBay(starbase_loading_bay.into())
         }
         1 => {
             let idle = typedefs::Idle::deserialize(&mut remaining_data)?;
-            FleetState::Idle(idle)
+            accounts::FleetState::Idle(idle.into())
         }
         2 => {
             let mine_astriod = typedefs::MineAsteroid::deserialize(&mut remaining_data)?;
-            FleetState::MineAsteroid(mine_astriod)
+            accounts::FleetState::MineAsteroid(mine_astriod.into())
         }
         3 => {
             let move_warp = typedefs::MoveWarp::deserialize(&mut remaining_data)?;
-            FleetState::MoveWarp(move_warp)
+            accounts::FleetState::MoveWarp(move_warp.into())
         }
         4 => {
             let move_subwarp = typedefs::MoveSubwarp::deserialize(&mut remaining_data)?;
-            FleetState::MoveSubwarp(move_subwarp)
+            accounts::FleetState::MoveSubwarp(move_subwarp.into())
         }
         5 => {
             let respawn = typedefs::Respawn::deserialize(&mut remaining_data)?;
-            FleetState::Respawn(respawn)
+            accounts::FleetState::Respawn(respawn.into())
         }
         _ => {
             unreachable!("Fleet account has invalid FleetState discriminator")
         }
     };
 
-    Ok((Fleet(fleet), fleet_state))
+    Ok((fleet.into(), fleet_state))
 }
 
 pub fn fleet_address(

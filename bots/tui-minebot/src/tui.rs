@@ -1,14 +1,15 @@
-use crossterm::event::{Event, KeyCode, KeyEvent, KeyEventKind};
+use crossterm::event::{KeyCode, KeyEvent};
 use itertools::Itertools;
 use ratatui::{prelude::*, widgets::*};
 use strum::{Display, EnumIter, FromRepr, IntoEnumIterator};
 
-use std::time::Duration;
+use crate::{app, ui};
 
-use crate::{app, term, ui};
+mod events;
+use events::Event;
 
-pub fn run(app: app::App, terminal: &mut Terminal<impl Backend>) -> anyhow::Result<()> {
-    Tui::new(app).run(terminal)
+pub async fn run(app: app::App, terminal: &mut Terminal<impl Backend>) -> anyhow::Result<()> {
+    Tui::new(app).run(terminal).await
 }
 
 #[derive(Default, Clone, Copy, Display, EnumIter, FromRepr, PartialEq)]
@@ -19,6 +20,7 @@ enum Tab {
 }
 struct Tui {
     app: app::App,
+    events: events::EventHandler,
     tab: Tab,
 }
 
@@ -42,24 +44,39 @@ impl Tab {
 
 impl Tui {
     fn new(app: app::App) -> Self {
+        let events = events::EventHandler::new();
+
         Self {
             app,
+            events,
             tab: Tab::default(),
         }
     }
 
-    fn run(&mut self, terminal: &mut Terminal<impl Backend>) -> anyhow::Result<()> {
+    async fn run(&mut self, terminal: &mut Terminal<impl Backend>) -> anyhow::Result<()> {
         while self.app.is_running() {
-            self.update()?;
+            self.update().await?;
             self.draw(terminal)?;
-            self.handle_events()?;
         }
 
         Ok(())
     }
 
-    fn update(&mut self) -> anyhow::Result<()> {
-        self.app.tick()
+    async fn update(&mut self) -> anyhow::Result<()> {
+        let event = self.events.next().await?;
+        // log::info!("{:?}", event);
+
+        match event {
+            Event::Tick => {
+                self.app.tick()?;
+            }
+            Event::Key(key) => {
+                self.handle_key_press(key);
+            }
+            _ => {}
+        };
+
+        Ok(())
     }
 
     fn draw(&mut self, terminal: &mut Terminal<impl Backend>) -> anyhow::Result<()> {
@@ -70,16 +87,7 @@ impl Tui {
         Ok(())
     }
 
-    fn handle_events(&mut self) -> anyhow::Result<()> {
-        let timeout = Duration::from_secs_f64(1.0 / 100.0);
-
-        match term::next_event(timeout)? {
-            Some(Event::Key(key)) if key.kind == KeyEventKind::Press => self.handle_key_press(key),
-            _ => Ok(()),
-        }
-    }
-
-    fn handle_key_press(&mut self, key: KeyEvent) -> anyhow::Result<()> {
+    fn handle_key_press(&mut self, key: KeyEvent) {
         use KeyCode::*;
 
         match key.code {
@@ -87,9 +95,7 @@ impl Tui {
             Char('h') | Left => self.prev_tab(),
             Char('l') | Right => self.next_tab(),
             _ => {}
-        };
-
-        Ok(())
+        }
     }
 
     fn prev_tab(&mut self) {
@@ -115,7 +121,7 @@ impl Widget for &mut Tui {
         // render header
         Paragraph::new(Text::from(vec![
             Line::from(format!("Welcome to Minebot! Press 'q' to quit.")),
-            Line::from(format!("Game: {}", self.app.sage_labs.ctx.game_id)),
+            Line::from(format!("Game: {}", self.app.game_id())),
             Line::from(format!("Elapsed Time: {:?}", self.app.stopwatch.elapsed())),
         ]))
         .render(header, buf);

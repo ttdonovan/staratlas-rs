@@ -25,8 +25,6 @@ async fn main() -> anyhow::Result<()> {
     log::info!("[Logger] - logging initialized");
 
     let cli = cli::cli_parse();
-    let client = cli::init_client(&cli)?;
-
     let (game_id, fleet_ids) = cli::init_sage_config(&cli);
     // Only 1 fleet at this time...
     let fleet_id = fleet_ids[0];

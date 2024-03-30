@@ -3,7 +3,10 @@ use super::*;
 use staratlas_cargo::program::Cargo;
 use staratlas_sage::{instruction, state, typedefs};
 
-use crate::{derive, find, Fleet, FleetState, Game};
+use crate::{
+    accounts::{Fleet, FleetState, Game},
+    derive, find,
+};
 
 pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
@@ -17,10 +20,10 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     match fleet_state {
         FleetState::Idle(idle) => {
             let fleet_id = fleet_pubkey;
-            let player_profile = fleet.0.owner_profile;
+            let player_profile = fleet.owner_profile;
             let (profile_faction, _) = find_profile_faction_address(&player_profile)?;
             let game_id = game_pubkey;
-            let game_state = &game.0.game_state;
+            let game_state = &game.game_state;
 
             let (starbase, _) = find::starbase_address(game_id, idle.sector);
             let starbase_acct = derive_account::<_, state::Starbase>(sage_program, &starbase)?;
@@ -36,12 +39,12 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let planets = derive::planet_accounts(sage_program, game_id, starbase_acct.sector)?;
             let (planet, _) = planets
                 .into_iter()
-                .find(|(_, planet)| planet.0.num_resources == 1)
+                .find(|(_, planet)| planet.num_resources == 1)
                 .expect("planet with resources");
 
             let resources = derive::resource_accounts(sage_program, game_id, &planet)?;
             let (resource, resource_acct) = resources.first().expect("at least one resource");
-            let mine_item = &resource_acct.0.mine_item;
+            let mine_item = &resource_acct.mine_item;
 
             let instr = instruction::StartMiningAsteroid {
                 _input: typedefs::StartMiningAsteroidInput { key_index: 0 },
@@ -87,17 +90,17 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     match fleet_state {
         FleetState::MineAsteroid(mine_asteroid) => {
             let fleet_id = fleet_pubkey;
-            let player_profile = fleet.0.owner_profile;
+            let player_profile = fleet.owner_profile;
             let game_id = game_pubkey;
-            let game_state = &game.0.game_state;
+            let game_state = &game.game_state;
 
             // game mints
-            let ammo_mint = &game.0.mints.ammo;
-            let food_mint = &game.0.mints.food;
-            let fuel_mint = &game.0.mints.fuel;
+            let ammo_mint = &game.mints.ammo;
+            let food_mint = &game.mints.food;
+            let fuel_mint = &game.mints.fuel;
 
             // cargo stats definition
-            let cargo_stats_definition = &game.0.cargo.stats_definition;
+            let cargo_stats_definition = &game.cargo.stats_definition;
             // let cargo_stats_definition_acct = derive::cargo_stats_definition_account(cargo_program, cargo_stats_definition)?;
             // dbg!(&cargo_stats_definition_acct.0.seq_id);
             let seq_id = 1;
@@ -119,9 +122,9 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let resource = &mine_asteroid.resource;
 
             // fleet's cargo (food), ammo and fuel
-            let cargo_hold = &fleet.0.cargo_hold;
-            let ammo_bank = &fleet.0.ammo_bank;
-            let fuel_tank = &fleet.0.fuel_tank;
+            let cargo_hold = &fleet.cargo_hold;
+            let ammo_bank = &fleet.ammo_bank;
+            let fuel_tank = &fleet.fuel_tank;
 
             // ata for resource
             let ata_resource_from = get_associated_token_address(&mine_item, resource_mint);

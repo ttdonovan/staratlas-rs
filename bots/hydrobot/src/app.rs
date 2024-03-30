@@ -1,7 +1,7 @@
 use macroquad::prelude::*;
 use spl_associated_token_account::get_associated_token_address;
 
-use staratlas_sage_sdk::{derive, FleetState};
+use staratlas_sage_sdk::{accounts::FleetState, derive};
 
 use std::str::FromStr;
 use std::time::{Duration, Instant};
@@ -127,7 +127,7 @@ impl App {
                     bot.fleet_state = fleet_state;
                 }
 
-                match bot.fleet_state {
+                match &bot.fleet_state {
                     FleetState::Idle(idle) => match idle.sector {
                         [-40, 30] | [0, -39] | [40, 30] => {
                             ui::print_input(
@@ -188,13 +188,13 @@ impl App {
 
                             // calculate asteroid mining emission rate
                             args.emission_rate =
-                                (bot.fleet_acct.0.stats.cargo_stats.mining_rate as f32 / 10000.0)
+                                (bot.fleet_acct.stats.cargo_stats.mining_rate as f32 / 10000.0)
                                     * system_richness
                                     / resource_hardness;
 
                             // calculate resource amount to extract
                             let keyed_accounts = rpc_client.get_token_accounts_by_owner(
-                                &bot.fleet_acct.0.cargo_hold,
+                                &bot.fleet_acct.cargo_hold,
                                 anchor_client::solana_client::rpc_request::TokenAccountsFilter::ProgramId(spl_token::id()),
                             )?;
 
@@ -213,7 +213,7 @@ impl App {
                                     amount + ui_amount
                                 }) as u32;
 
-                            let cargo_capacity = bot.fleet_acct.0.stats.cargo_stats.cargo_capacity;
+                            let cargo_capacity = bot.fleet_acct.stats.cargo_stats.cargo_capacity;
                             let mining_time_elapsed = time::get_time() as i64 - mine_asteroid.start;
                             let amount_mined = mining_time_elapsed as f32 * args.emission_rate;
                             let mut est_held_cargo = held_amount + amount_mined as u32;
@@ -272,7 +272,7 @@ impl App {
                             // 1. Withdraw (Hydrogen) from fleet
                             {
                                 let pubkey = get_associated_token_address(
-                                    &bot.fleet_acct.0.cargo_hold,
+                                    &bot.fleet_acct.cargo_hold,
                                     &bot.resource,
                                 );
                                 if let Ok(balance) = rpc_client.get_token_account_balance(&pubkey) {
@@ -299,10 +299,10 @@ impl App {
                             // 2. Fuel tank refuel
                             {
                                 let fuel_capcity =
-                                    bot.fleet_acct.0.stats.cargo_stats.fuel_capacity as f64;
+                                    bot.fleet_acct.stats.cargo_stats.fuel_capacity as f64;
                                 let pubkey = get_associated_token_address(
-                                    &bot.fleet_acct.0.fuel_tank,
-                                    &game_handler.game_acct.0.mints.fuel,
+                                    &bot.fleet_acct.fuel_tank,
+                                    &game_handler.game_acct.mints.fuel,
                                 );
                                 let balance = rpc_client.get_token_account_balance(&pubkey)?;
                                 let amount = balance.ui_amount.unwrap_or(0.0);
@@ -311,8 +311,8 @@ impl App {
                                 debug!("Fuel Tank Usage: {}", tank_usage);
 
                                 if tank_usage < 0.5 {
-                                    let fuel_tank = &bot.fleet_acct.0.fuel_tank;
-                                    let fuel_mint = &game_handler.game_acct.0.mints.fuel;
+                                    let fuel_tank = &bot.fleet_acct.fuel_tank;
+                                    let fuel_mint = &game_handler.game_acct.mints.fuel;
                                     let fuel_amount = (fuel_capcity - amount) as u64;
 
                                     debug!("Fuel Amount (Refuel): {}", fuel_amount);
@@ -334,10 +334,10 @@ impl App {
                             // 3. Ammo bank rearm
                             {
                                 let ammo_capcity =
-                                    bot.fleet_acct.0.stats.cargo_stats.ammo_capacity as f64;
+                                    bot.fleet_acct.stats.cargo_stats.ammo_capacity as f64;
                                 let pubkey = get_associated_token_address(
-                                    &bot.fleet_acct.0.ammo_bank,
-                                    &game_handler.game_acct.0.mints.ammo,
+                                    &bot.fleet_acct.ammo_bank,
+                                    &game_handler.game_acct.mints.ammo,
                                 );
                                 let balance = rpc_client.get_token_account_balance(&pubkey)?;
                                 let amount = balance.ui_amount.unwrap_or(0.0);
@@ -346,8 +346,8 @@ impl App {
                                 debug!("Ammo Bank Usage: {}", bank_usage);
 
                                 if bank_usage < 0.5 {
-                                    let ammo_bank = &bot.fleet_acct.0.ammo_bank;
-                                    let ammo_mint = &game_handler.game_acct.0.mints.ammo;
+                                    let ammo_bank = &bot.fleet_acct.ammo_bank;
+                                    let ammo_mint = &game_handler.game_acct.mints.ammo;
                                     let ammo_amount = (ammo_capcity - amount) as u64;
 
                                     debug!("Ammo Amount (Rearm): {}", ammo_amount);
@@ -369,10 +369,10 @@ impl App {
                             // 4. Cargo hold supply
                             {
                                 let cargo_capcity =
-                                    bot.fleet_acct.0.stats.cargo_stats.cargo_capacity as f64;
+                                    bot.fleet_acct.stats.cargo_stats.cargo_capacity as f64;
                                 let pubkey = get_associated_token_address(
-                                    &bot.fleet_acct.0.cargo_hold,
-                                    &game_handler.game_acct.0.mints.food,
+                                    &bot.fleet_acct.cargo_hold,
+                                    &game_handler.game_acct.mints.food,
                                 );
                                 let balance = rpc_client.get_token_account_balance(&pubkey)?;
                                 let amount = balance.ui_amount.unwrap_or(0.0);
@@ -381,8 +381,8 @@ impl App {
                                 debug!("Cargo Hold Usage: {}", hold_usage);
 
                                 if hold_usage < 0.05 {
-                                    let cargo_hold = &bot.fleet_acct.0.cargo_hold;
-                                    let food_mint = &game_handler.game_acct.0.mints.food;
+                                    let cargo_hold = &bot.fleet_acct.cargo_hold;
+                                    let food_mint = &game_handler.game_acct.mints.food;
                                     let food_amount = (cargo_capcity * 0.05) as u64;
 
                                     debug!("Food Amount (Supply): {}", food_amount);

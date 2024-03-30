@@ -1,357 +1,201 @@
-use anchor_client::solana_sdk::signature::Signature;
-use std::sync::{mpsc, Arc, RwLock};
+use anchor_client::{anchor_lang::prelude::Pubkey, solana_sdk::signature::Signature};
+
+use std::collections::HashMap;
+use std::sync::mpsc;
 use std::thread::{self, JoinHandle};
 
-use crate::bots::CargoDeposit;
 use crate::{bots, cli, sage};
 
-pub enum Event {
-    StartMiningAsteroid(usize),
-    StopMiningAsteroid(usize),
-    DockToStarbase(usize),
-    UndockFromStarbase(usize),
-    StarbaseHangarCargoWithdraw(usize),
-    StarbaseHangarDepositToFleet(usize, bots::CargoDeposit),
+mod txs;
+
+pub enum SageRequest {
+    RefreshFleet(Pubkey),
+    StartMiningAsteroid((Pubkey, sage::Fleet, sage::FleetState)),
+    StopMiningAsteroid((Pubkey, sage::Fleet, sage::FleetState)),
+    DockToStarbase((Pubkey, sage::Fleet, sage::FleetState)),
+    UndockFromStarbase((Pubkey, sage::Fleet, sage::FleetState)),
+    StarbaseHangarCargoWithdraw((Pubkey, sage::Fleet, Pubkey, Pubkey)), // (fleet_id, fleet, starbase_id, mint)
+    StarbaseHangarDepositToFleet(Pubkey, sage::Fleet, Pubkey, Pubkey, bots::CargoDeposit, u64), // (fleet_id, fleet, starbase_id, cargo_pod_to, cargo_deposit, amount)
 }
 
-pub enum Response {
-    StartMiningAsteroid((usize, Result<Signature, anyhow::Error>)),
-    StopMiningAsteroid((usize, Result<Signature, anyhow::Error>)),
-    DockToStarbase((usize, Result<Signature, anyhow::Error>)),
-    UndockFromStarbase((usize, Result<Signature, anyhow::Error>)),
-    StarbaseHangarCargoWithdraw((usize, Result<Option<Signature>, anyhow::Error>)),
+pub enum SageResponse {
+    RefreshFleet(
+        Pubkey,
+        (
+            sage::Fleet,
+            sage::FleetState,
+            (u32, u32, u32),
+            Option<(Pubkey, sage::Resource)>,
+            Option<(Pubkey, sage::MineItem)>,
+        ),
+    ), // (fuel, ammo, cargo))
+    StartMiningAsteroid((Pubkey, Result<(Signature, sage::FleetState), anyhow::Error>)),
+    StopMiningAsteroid((Pubkey, Result<(Signature, sage::FleetState), anyhow::Error>)),
+    DockToStarbase(
+        (
+            Pubkey,
+            Result<(Signature, sage::FleetState, (u32, u32, u32)), anyhow::Error>,
+        ),
+    ), // (fuel, ammo, cargo)
+    UndockFromStarbase(
+        (
+            Pubkey,
+            Result<(Signature, sage::FleetState, (u32, u32, u32)), anyhow::Error>,
+        ),
+    ), // (fuel, ammo, cargo)
+    StarbaseHangarCargoWithdraw((Pubkey, Result<Option<Signature>, anyhow::Error>)),
     StarbaseHangarDepositToFleet(
         (
-            (usize, bots::CargoDeposit),
+            (Pubkey, bots::CargoDeposit), // (fleet_id, cargo_deposit)
             Result<Signature, anyhow::Error>,
         ),
     ),
 }
 
-pub struct SageLabs {
-    pub ctx: sage::SageContext,
-    pub bots: Arc<Vec<RwLock<bots::MiningBot>>>,
-    tx: mpsc::Sender<Event>,
-    rx: mpsc::Receiver<Response>,
-    _task: JoinHandle<()>,
+pub struct SageLabsHandler {
+    pub bots: HashMap<Pubkey, bots::MiningBot>,
+    pub game_id: Pubkey,
+    fleet_ids: Vec<Pubkey>,
+    tx: mpsc::Sender<SageRequest>,
+    rx: mpsc::Receiver<SageResponse>,
+    _task: JoinHandle<Result<(), anyhow::Error>>,
 }
 
-impl SageLabs {
-    pub fn new(ctx: sage::SageContext, bots: Vec<bots::MiningBot>) -> Self {
-        let (tx, rx) = mpsc::channel::<Event>();
-        let (tx_2, rx_2) = mpsc::channel::<Response>();
+impl SageLabsHandler {
+    pub fn new(game_id: Pubkey, fleet_ids: Vec<Pubkey>) -> Self {
+        let (tx, rx) = mpsc::channel::<SageRequest>();
+        let (tx_2, rx_2) = mpsc::channel::<SageResponse>();
 
-        let bots: Arc<Vec<RwLock<bots::MiningBot>>> =
-            Arc::new(bots.into_iter().map(RwLock::new).collect());
-        let bots_clone = Arc::clone(&bots);
-
-        let _task = thread::spawn(move || {
+        let _task = thread::spawn(move || -> Result<(), anyhow::Error> {
             // this 'task' thread needs it's own client and sage context
             let cli = cli::cli_parse();
-            let client = cli::init_client(&cli).unwrap();
+            let client = cli::init_client(&cli)?;
             let (game_id, _) = cli::init_sage_config(&cli);
-            let sage = sage::SageContext::new(&client, &game_id).unwrap();
+            let sage = sage::SageContext::new(&client, &game_id)?;
 
-            let bots = bots.as_ref();
-            while let Some(event) = rx.recv().ok() {
-                match event {
-                    Event::StartMiningAsteroid(index) => {
-                        let bot = bots[index].read().unwrap();
-
-                        log::info!(
-                            "SageLabs > Start Mining Asteroid ({}): {}",
-                            bot.masked_fleet_id(),
-                            &ctx.game_id
-                        );
-
-                        let (fleet_id, _, _, fleet, state) = &bot.fleet;
-                        let res = sage.start_mining_asteroid(fleet_id, fleet, state);
-
-                        tx_2.send(Response::StartMiningAsteroid((index, res)))
-                            .unwrap();
+            while let Some(request) = rx.recv().ok() {
+                let response = match request {
+                    SageRequest::RefreshFleet(fleet_id) => {
+                        txs::refresh_fleet_response(&sage, &fleet_id)?
                     }
-                    Event::StopMiningAsteroid(index) => {
-                        let bot = bots[index].read().unwrap();
-
-                        log::info!(
-                            "SageLabs > Stop Mining Asteroid ({}): {}",
-                            bot.masked_fleet_id(),
-                            &ctx.game_id
-                        );
-
-                        let (fleet_id, _, _, fleet, state) = &bot.fleet;
-                        let res = sage.stop_mining_asteroid(fleet_id, fleet, state);
-
-                        tx_2.send(Response::StopMiningAsteroid((index, res)))
-                            .unwrap();
+                    SageRequest::StartMiningAsteroid((fleet_id, fleet, state)) => {
+                        txs::start_mining_asteroid_response(&sage, &fleet_id, &fleet, &state)?
                     }
-                    Event::DockToStarbase(index) => {
-                        let bot = bots[index].read().unwrap();
-
-                        log::info!(
-                            "SageLabs > Dock to Starbase ({}): {}",
-                            bot.masked_fleet_id(),
-                            &ctx.game_id
-                        );
-
-                        let (fleet_id, _, _, fleet, state) = &bot.fleet;
-                        let res = sage.dock_to_starbase(fleet_id, fleet, state);
-
-                        tx_2.send(Response::DockToStarbase((index, res))).unwrap();
+                    SageRequest::StopMiningAsteroid((fleet_id, fleet, state)) => {
+                        txs::stop_mining_asteroid_response(&sage, &fleet_id, &fleet, &state)?
                     }
-                    Event::UndockFromStarbase(index) => {
-                        let bot = bots[index].write().unwrap();
-
-                        log::info!(
-                            "SageLabs > Undock from Starbase ({}): {}",
-                            bot.masked_fleet_id(),
-                            &ctx.game_id
-                        );
-
-                        let (fleet_id, _, _, fleet, state) = &bot.fleet;
-                        let res = sage.undock_from_starbase(fleet_id, fleet, state);
-
-                        tx_2.send(Response::UndockFromStarbase((index, res)))
-                            .unwrap();
+                    SageRequest::DockToStarbase((fleet_id, fleet, state)) => {
+                        txs::dock_to_starbase_response(&sage, &fleet_id, &fleet, &state)?
                     }
-                    Event::StarbaseHangarCargoWithdraw(index) => {
-                        let bot = bots[index].read().unwrap();
-
-                        log::info!(
-                            "SageLabs > Starbase Hangar Cargo Withdraw ({}): {}",
-                            bot.masked_fleet_id(),
-                            &ctx.game_id
-                        );
-
-                        let (fleet_id, _, _, fleet, _) = &bot.fleet;
-                        let starbase = bot.starbase_id().unwrap();
-                        let mine_item = &bot.mine_item.2;
-                        let mint = &mine_item.0.mint;
-
-                        let res = sage.withdraw_from_fleet(
-                            fleet_id, fleet, starbase, mint, None, // withdraw all (max)
-                        );
-
-                        tx_2.send(Response::StarbaseHangarCargoWithdraw((index, res)))
-                            .unwrap();
+                    SageRequest::UndockFromStarbase((fleet_id, fleet, state)) => {
+                        txs::undock_from_starbase_response(&sage, &fleet_id, &fleet, &state)?
                     }
-                    Event::StarbaseHangarDepositToFleet(index, deposit) => {
-                        let bot = bots[index].read().unwrap();
+                    SageRequest::StarbaseHangarCargoWithdraw((
+                        fleet_id,
+                        fleet,
+                        starbase_id,
+                        mint,
+                    )) => txs::starbase_hangar_cargo_withdraw_response(
+                        &sage,
+                        &fleet_id,
+                        &fleet,
+                        &starbase_id,
+                        &mint,
+                    )?,
+                    SageRequest::StarbaseHangarDepositToFleet(
+                        fleet_id,
+                        fleet,
+                        starbase_id,
+                        cargo_pod_to,
+                        cargo_deposit,
+                        amount,
+                    ) => txs::starbase_hangar_cargo_deposit_to_fleet_response(
+                        &sage,
+                        &fleet_id,
+                        &fleet,
+                        &starbase_id,
+                        &cargo_pod_to,
+                        cargo_deposit,
+                        amount,
+                    )?,
+                };
 
-                        log::info!(
-                            "SageLabs > Starbase Hangar Deposit to Fleet ({}): {:?}",
-                            bot.masked_fleet_id(),
-                            deposit
-                        );
-
-                        let (cargo_pod_to, mint, amount) = match deposit {
-                            bots::CargoDeposit::Fuel => {
-                                let (fuel_tank, actual, capacity) = bot.fuel_tank.clone();
-                                let fuel_mint = &sage.game_acct.0.mints.fuel;
-                                let amount = (capacity - actual) as u64;
-
-                                (fuel_tank, fuel_mint, amount)
-                            }
-                            bots::CargoDeposit::Ammo => {
-                                let (ammo_bank, actual, capacity) = bot.ammo_bank.clone();
-                                let ammo_mint = &sage.game_acct.0.mints.ammo;
-                                let amount = (capacity - actual) as u64;
-
-                                (ammo_bank, ammo_mint, amount)
-                            }
-                            bots::CargoDeposit::Food => {
-                                let (cargo_hold, _actual, capacity) = bot.cargo_hold.clone();
-                                let food_mint = &sage.game_acct.0.mints.food;
-                                let amount = (capacity as f32 * 0.05) as u64;
-
-                                (cargo_hold, food_mint, amount)
-                            }
-                        };
-
-                        let (fleet_id, _, _, fleet, _) = &bot.fleet;
-                        let starbase = bot.starbase_id().unwrap();
-
-                        let res = sage.deposit_to_fleet(
-                            fleet_id,
-                            fleet,
-                            starbase,
-                            &cargo_pod_to,
-                            mint,
-                            amount,
-                        );
-
-                        tx_2.send(Response::StarbaseHangarDepositToFleet((
-                            (index, deposit),
-                            res,
-                        )))
-                        .unwrap();
-                    }
-                }
+                tx_2.send(response)?;
             }
+
+            Ok(())
         });
 
         Self {
-            ctx,
-            bots: bots_clone,
+            bots: HashMap::new(),
+            game_id,
+            fleet_ids,
             tx,
             rx: rx_2,
             _task,
         }
     }
 
-    pub fn run_bots(&mut self, dt: std::time::Duration) -> anyhow::Result<()> {
-        for bot in self.bots.iter().enumerate() {
-            let (index, bot) = bot;
-            let mut bot = bot.write().unwrap();
-            bots::run_autoplay(&mut bot, index, dt, &self.ctx, &self.tx).unwrap();
+    pub fn refresh_fleet(&self) -> anyhow::Result<()> {
+        for fleet_id in self.fleet_ids.iter() {
+            self.tx.send(SageRequest::RefreshFleet(*fleet_id))?;
         }
 
         Ok(())
     }
 
-    pub fn poll_response(&self) {
-        if let Some(response) = self
-            .rx
-            .recv_timeout(std::time::Duration::from_millis(200))
-            .ok()
-        {
-            let bots = self.bots.as_ref();
+    pub fn run_bots(&mut self, dt: std::time::Duration) -> anyhow::Result<()> {
+        for (_, mut bot) in self.bots.iter_mut() {
+            bots::run::autoplay(&mut bot, dt, &self.tx)?;
+        }
 
+        Ok(())
+    }
+
+    pub fn poll_response(&mut self) -> anyhow::Result<()> {
+        if let Some(response) = self.rx.try_recv().ok() {
             match response {
-                Response::StartMiningAsteroid((index, res)) => {
-                    let mut bot = bots[index].write().unwrap();
-                    match res {
-                        Ok(signature) => {
-                            bot.autoplay = bots::Autoplay::IsMiningAsteroid;
-                            bot.is_fleet_state_dirty = true;
-                            bot.txs = Some(signature);
-                            bot.txs_counter += 1;
-                            bot.is_tx = false;
-
-                            // start our mining timer
-                            bot.reset_mining_timer();
-                        }
-                        Err(err) => {
-                            log::error!(
-                                "[{}] Start Mining Asteroid: {:?}",
-                                bot.masked_fleet_id(),
-                                err
-                            );
-                            bot.txs_errors += 1;
-                            bot.is_tx = false;
-                        }
-                    }
+                SageResponse::RefreshFleet(fleet_id, data) => {
+                    let bot = bots::process::refresh_fleet(fleet_id, data)?;
+                    self.bots.insert(fleet_id, bot);
                 }
-                Response::StopMiningAsteroid((index, res)) => {
-                    let mut bot = bots[index].write().unwrap();
-                    match res {
-                        Ok(signature) => {
-                            bot.autoplay = bots::Autoplay::StarbaseDock;
-                            bot.is_fleet_state_dirty = true;
-                            bot.txs = Some(signature);
-                            bot.txs_counter += 1;
-                            bot.is_tx = false;
-                        }
-                        Err(err) => {
-                            log::error!(
-                                "[{}] Stop Mining Asteroid: {:?}",
-                                bot.masked_fleet_id(),
-                                err
-                            );
-                            bot.txs_errors += 1;
-                            bot.is_tx = false;
-                        }
-                    }
+                SageResponse::StartMiningAsteroid((fleet_id, result)) => {
+                    if let Some(bot) = self.bots.get_mut(&fleet_id) {
+                        bots::process::start_mining_asteroid_result(bot, result);
+                    };
                 }
-                Response::DockToStarbase((index, res)) => {
-                    let mut bot = bots[index].write().unwrap();
-                    match res {
-                        Ok(signature) => {
-                            bot.autoplay = bots::Autoplay::StarbaseHangarCargoWithdraw;
-                            bot.is_fleet_state_dirty = true;
-                            bot.txs = Some(signature);
-                            bot.txs_counter += 1;
-                            bot.is_tx = false;
-                        }
-                        Err(err) => {
-                            log::error!("[{}] Dock to Starbase: {:?}", bot.masked_fleet_id(), err);
-                            bot.txs_errors += 1;
-                            bot.is_tx = false;
-                        }
-                    }
+                SageResponse::StopMiningAsteroid((fleet_id, result)) => {
+                    if let Some(bot) = self.bots.get_mut(&fleet_id) {
+                        bots::process::stop_mining_asteroid_result(bot, result);
+                    };
                 }
-                Response::UndockFromStarbase((index, res)) => {
-                    let mut bot = bots[index].write().unwrap();
-                    match res {
-                        Ok(signature) => {
-                            bot.autoplay = bots::Autoplay::IsIdle;
-                            bot.is_fleet_state_dirty = true;
-                            bot.txs = Some(signature);
-                            bot.txs_counter += 1;
-                            bot.is_tx = false;
-                        }
-                        Err(err) => {
-                            log::error!(
-                                "[{}] Undock from Starbase: {:?}",
-                                bot.masked_fleet_id(),
-                                err
-                            );
-                            bot.txs_errors += 1;
-                            bot.is_tx = false;
-                        }
-                    }
+                SageResponse::DockToStarbase((fleet_id, result)) => {
+                    if let Some(bot) = self.bots.get_mut(&fleet_id) {
+                        bots::process::dock_to_starbase_result(bot, result);
+                    };
                 }
-                Response::StarbaseHangarCargoWithdraw((index, res)) => {
-                    let mut bot = bots[index].write().unwrap();
-                    match res {
-                        Ok(signature) => {
-                            bot.autoplay = bots::Autoplay::StarbaseHangarCargoDeposit(
-                                bots::CargoDeposit::Fuel,
-                            );
-                            bot.is_fleet_state_dirty = true;
-                            bot.txs = signature;
-                            bot.txs_counter += 1;
-                            bot.is_tx = false;
-                        }
-                        Err(err) => {
-                            log::error!(
-                                "[{}] Widthdraw from Fleet: {:?}",
-                                bot.masked_fleet_id(),
-                                err
-                            );
-                            bot.txs_errors += 1;
-                            bot.is_tx = false;
-                        }
-                    }
+                SageResponse::UndockFromStarbase((fleet_id, result)) => {
+                    if let Some(bot) = self.bots.get_mut(&fleet_id) {
+                        bots::process::undock_from_starbase_result(bot, result);
+                    };
                 }
-                Response::StarbaseHangarDepositToFleet((value, res)) => {
-                    let (index, deposit) = value;
-                    let mut bot = bots[index].write().unwrap();
-                    match res {
-                        Ok(signature) => {
-                            bot.is_fleet_state_dirty = true;
-                            bot.txs = Some(signature);
-                            bot.txs_counter += 1;
-                            bot.is_tx = false;
-
-                            bot.autoplay = match deposit {
-                                CargoDeposit::Fuel => {
-                                    bots::Autoplay::StarbaseHangarCargoDeposit(CargoDeposit::Ammo)
-                                }
-                                CargoDeposit::Ammo => {
-                                    bots::Autoplay::StarbaseHangarCargoDeposit(CargoDeposit::Food)
-                                }
-                                CargoDeposit::Food => bots::Autoplay::StarbaseUndock,
-                            };
-                        }
-                        Err(err) => {
-                            log::error!("[{}] Deposit to Fleet: {:?}", bot.masked_fleet_id(), err);
-                            bot.txs_errors += 1;
-                            bot.is_tx = false;
-                        }
-                    }
+                SageResponse::StarbaseHangarCargoWithdraw((fleet_id, result)) => {
+                    if let Some(bot) = self.bots.get_mut(&fleet_id) {
+                        bots::process::starbase_hangar_cargo_withdraw_result(bot, result);
+                    };
+                }
+                SageResponse::StarbaseHangarDepositToFleet(((fleet_id, cargo_deposit), result)) => {
+                    if let Some(bot) = self.bots.get_mut(&fleet_id) {
+                        bots::process::starbase_hangar_deposit_to_fleet_result(
+                            bot,
+                            cargo_deposit,
+                            result,
+                        );
+                    };
                 }
             }
         }
+
+        Ok(())
     }
 }

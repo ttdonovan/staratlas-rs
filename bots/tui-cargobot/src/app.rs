@@ -69,7 +69,7 @@ impl App {
             // only send if not waiting for a response
             if !bot.is_tx && bot.is_warp_cool_down_finished() {
                 bot.is_tx = true;
-                let autoplay = (bot.fleet_id, bot.fleet, bot.fleet_state, self.bot_args);
+                let autoplay = (bot.fleet_id, bot.fleet, bot.fleet_state.clone(), self.bot_args);
                 let req = labs::SageRequest::AutoplayCargoTransport(autoplay);
                 self.send_sage_request(req);
             }
@@ -102,7 +102,7 @@ impl App {
                     None => {
                         // if there is none bot, create one
                         let warp_cool_down =
-                            Duration::from_secs(fleet.0.stats.movement_stats.warp_cool_down as u64);
+                            Duration::from_secs(fleet.stats.movement_stats.warp_cool_down as u64);
                         let mut warp_cool_down_timer = time::Timer::new(warp_cool_down);
                         warp_cool_down_timer.set_elapsed(warp_cool_down); // set to finished state
 
