@@ -1,6 +1,7 @@
 use super::*;
 
-use staratlas_cargo::program::Cargo;
+use staratlas_cargo::program::Cargo2 as Cargo;
+use staratlas_points::program::Points;
 use staratlas_sage::{instruction, state, typedefs};
 
 use crate::{
@@ -12,6 +13,7 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),
     game: (&Pubkey, &Game),
+    mine_item: Option<Pubkey>,
 ) -> anyhow::Result<Vec<Vec<Instruction>>> {
     let mut ixs = vec![];
     let (fleet_pubkey, (fleet, fleet_state)) = fleet;
@@ -24,6 +26,7 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let (profile_faction, _) = find_profile_faction_address(&player_profile)?;
             let game_id = game_pubkey;
             let game_state = &game.game_state;
+            let ata_fleet_fuel = get_associated_token_address(&fleet.fuel_tank, &game.mints.fuel);
 
             let (starbase, _) = find::starbase_address(game_id, idle.sector);
             let starbase_acct = derive_account::<_, state::Starbase>(sage_program, &starbase)?;
@@ -39,15 +42,21 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let planets = derive::planet_accounts(sage_program, game_id, starbase_acct.sector)?;
             let (planet, _) = planets
                 .into_iter()
-                .find(|(_, planet)| planet.num_resources == 1)
+                .find(|(_, planet)| planet.num_resources >= 1)
                 .expect("planet with resources");
 
             let resources = derive::resource_accounts(sage_program, game_id, &planet)?;
-            let (resource, resource_acct) = resources.first().expect("at least one resource");
+            let (resource, resource_acct) = match mine_item {
+                Some(mine_item) => resources
+                    .iter()
+                    .find(|(_, resource)| resource.mine_item == mine_item)
+                    .expect("resource with mine item"),
+                None => resources.first().expect("at least one resource"),
+            };
             let mine_item = &resource_acct.mine_item;
 
             let instr = instruction::StartMiningAsteroid {
-                _input: typedefs::StartMiningAsteroidInput { key_index: 0 },
+                _input: typedefs::KeyIndexInput { key_index: 0 },
             };
             let start_mining_asteroid_ix = Instruction::new_with_bytes(
                 sage_program.id(),
@@ -59,6 +68,7 @@ pub fn start_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
                     AccountMeta::new(*fleet_id, false),
                     AccountMeta::new_readonly(*game_id, false),
                     AccountMeta::new_readonly(*game_state, false),
+                    AccountMeta::new(ata_fleet_fuel, false),
                     AccountMeta::new_readonly(starbase, false),
                     AccountMeta::new_readonly(starbase_player, false),
                     AccountMeta::new_readonly(*mine_item, false),
@@ -103,7 +113,7 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let cargo_stats_definition = &game.cargo.stats_definition;
             // let cargo_stats_definition_acct = derive::cargo_stats_definition_account(cargo_program, cargo_stats_definition)?;
             // dbg!(&cargo_stats_definition_acct.0.seq_id);
-            let seq_id = 1;
+            let seq_id = 0;
 
             // player profile's faction
             let (profile_faction, _) = find_profile_faction_address(&player_profile)?;
@@ -171,13 +181,31 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
             let (resource_cargo_type, _) =
                 find::cargo_type_address(cargo_stats_definition, resource_mint, seq_id);
 
+            let pilot_points_category_pubkey = game.points.pilot_xp_category.category;
+            let pilot_points_modifer_pubkey = game.points.pilot_xp_category.modifier;
+            let (pilot_user_points, _) =
+                find::user_points_account_address(&pilot_points_category_pubkey, &player_profile);
+
+            let mining_points_category_pubkey = game.points.mining_xp_category.category;
+            let mining_points_modifier_pubkey = game.points.mining_xp_category.modifier;
+            let (mining_user_points, _) =
+                find::user_points_account_address(&mining_points_category_pubkey, &player_profile);
+
+            let council_rank_points_category_pubkey = game.points.council_rank_xp_category.category;
+            let council_rank_points_modifier_pubkey = game.points.council_rank_xp_category.modifier;
+            let (council_rank_user_points, _) = find::user_points_account_address(
+                &council_rank_points_category_pubkey,
+                &player_profile,
+            );
+
+            let (progress_config, _) = find::progression_config_address(&game_id);
+
             let instr = instruction::FleetStateHandler {};
             let fleet_state_handler_ix = Instruction::new_with_bytes(
                 sage_program.id(),
                 &instr.data(),
                 vec![
                     AccountMeta::new(*fleet_id, false),
-                    AccountMeta::new_readonly(profile_faction, false),
                     AccountMeta::new(*cargo_hold, false),
                     AccountMeta::new(*ammo_bank, false),
                     AccountMeta::new_readonly(*mine_item, false),
@@ -194,6 +222,7 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
                     AccountMeta::new_readonly(ammo_cargo_type, false),
                     AccountMeta::new_readonly(resource_cargo_type, false),
                     AccountMeta::new_readonly(*cargo_stats_definition, false),
+                    AccountMeta::new_readonly(*game_state, false),
                     AccountMeta::new_readonly(*game_id, false),
                     AccountMeta::new_readonly(Cargo::id(), false),
                     AccountMeta::new_readonly(spl_token::id(), false),
@@ -213,13 +242,25 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
                     AccountMeta::new(*fleet_id, false),
                     AccountMeta::new_readonly(*game_id, false),
                     AccountMeta::new_readonly(*game_state, false),
+                    AccountMeta::new_readonly(*mine_item, false),
                     AccountMeta::new(*resource, false),
                     AccountMeta::new(*planet, false),
                     AccountMeta::new(*fuel_tank, false),
                     AccountMeta::new_readonly(fuel_cargo_type, false),
                     AccountMeta::new_readonly(*cargo_stats_definition, false),
                     AccountMeta::new(ata_fleet_fuel, false),
-                    AccountMeta::new(*fuel_mint, false),
+                    AccountMeta::new(*fuel_mint, false), // good
+                    AccountMeta::new(pilot_user_points, false),
+                    AccountMeta::new_readonly(pilot_points_category_pubkey, false),
+                    AccountMeta::new_readonly(pilot_points_modifer_pubkey, false),
+                    AccountMeta::new(mining_user_points, false),
+                    AccountMeta::new_readonly(mining_points_category_pubkey, false),
+                    AccountMeta::new_readonly(mining_points_modifier_pubkey, false),
+                    AccountMeta::new(council_rank_user_points, false),
+                    AccountMeta::new(council_rank_points_category_pubkey, false),
+                    AccountMeta::new_readonly(council_rank_points_modifier_pubkey, false),
+                    AccountMeta::new_readonly(progress_config, false),
+                    AccountMeta::new_readonly(Points::id(), false),
                     AccountMeta::new_readonly(Cargo::id(), false),
                     AccountMeta::new_readonly(spl_token::id(), false),
                 ],

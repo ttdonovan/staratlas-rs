@@ -69,7 +69,12 @@ impl App {
             // only send if not waiting for a response
             if !bot.is_tx && bot.is_warp_cool_down_finished() {
                 bot.is_tx = true;
-                let autoplay = (bot.fleet_id, bot.fleet, bot.fleet_state.clone(), self.bot_args);
+                let autoplay = (
+                    bot.fleet_id,
+                    bot.fleet,
+                    bot.fleet_state.clone(),
+                    self.bot_args,
+                );
                 let req = labs::SageRequest::AutoplayCargoTransport(autoplay);
                 self.send_sage_request(req);
             }

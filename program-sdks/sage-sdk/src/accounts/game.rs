@@ -36,10 +36,10 @@ pub struct GameState {
     pub version: u8,
     pub update_id: u64,
     pub game_id: Pubkey,
-    pub fleet: types::FleetInfo,
-    pub levers: types::Levers,
-    pub misc: types::MiscVariables,
-    pub bump: u8,
+    // pub fleet: types::FleetInfo,
+    // pub levers: types::Levers,
+    // pub misc: types::MiscVariables,
+    // pub bump: u8,
 }
 
 impl From<state::GameState> for GameState {
@@ -48,10 +48,10 @@ impl From<state::GameState> for GameState {
             version: g.version,
             update_id: g.update_id,
             game_id: g.game_id,
-            fleet: g.fleet.into(),
-            levers: g.levers.into(),
-            misc: g.misc.into(),
-            bump: g.bump,
+            // fleet: g.fleet.into(),
+            // levers: g.levers.into(),
+            // misc: g.misc.into(),
+            // bump: g.bump,
         }
     }
 }

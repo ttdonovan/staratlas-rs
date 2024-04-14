@@ -43,3 +43,11 @@ pub fn resource_accounts<C: Deref<Target = impl Signer> + Clone>(
 
     Ok(resource_accounts)
 }
+
+pub fn mine_item_account<C: Deref<Target = impl Signer> + Clone>(
+    program: &Program<C>,
+    mine_item_pubkey: &Pubkey,
+) -> anyhow::Result<accounts::MineItem> {
+    let account = program.account::<state::MineItem>(*mine_item_pubkey)?;
+    Ok(account.into())
+}

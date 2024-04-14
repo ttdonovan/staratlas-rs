@@ -7,17 +7,19 @@ use anchor_client::{
     },
     Client, Cluster,
 };
-use anchor_lang::Id;
 use clap::{Parser, Subcommand};
 
 use staratlas_player_profile_sdk::{
     derive::profile_accounts as derive_profile_accounts,
-    programs::staratlas_player_profile::program::PlayerProfile,
+    programs::staratlas_player_profile::ID as PLAYER_PROFILE_ID,
 };
 use staratlas_sage_sdk::{
     accounts::FleetState,
     derive, ixs,
-    programs::{staratlas_cargo::program::Cargo, staratlas_sage::program::Sage},
+    programs::{
+        staratlas_cargo::ID as CARGO_ID, staratlas_points::ID as POINTS_ID,
+        staratlas_sage::ID as SAGE_ID,
+    },
 };
 
 // use std::io::{self, Write};
@@ -85,6 +87,7 @@ enum Actions {
     },
     StartMining {
         fleet_id: Pubkey,
+        mine_item: Option<Pubkey>,
     },
     StopMining {
         fleet_id: Pubkey,
@@ -107,6 +110,11 @@ enum Find {
         fleet_name: String,
     },
     PlayerProfile,
+    Planets {
+        x: i64,
+        y: i64,
+    },
+    PointsModifiers,
 }
 
 #[derive(Subcommand)]
@@ -118,6 +126,10 @@ enum Show {
         /// Show Fleet's State (default: false)
         #[arg(long, default_value_t = false)]
         with_state: bool,
+    },
+    Game {
+        /// Game's Pubkey
+        game_id: Pubkey,
     },
 }
 
@@ -157,15 +169,15 @@ fn main() -> anyhow::Result<()> {
         CommitmentConfig::confirmed(),
     );
 
-    let sage_program = client.program(Sage::id())?;
-    let player_profile_program = client.program(PlayerProfile::id())?;
+    let sage_program = client.program(SAGE_ID)?;
+    let player_profile_program = client.program(PLAYER_PROFILE_ID)?;
+    let cargo_program = client.program(CARGO_ID)?;
+    let points_program = client.program(POINTS_ID)?;
+
+    let (game_id, player_profile) = parse_sage_config(&cli.sage_config);
 
     match &cli.command {
         Commands::Actions(action) => {
-            let (game_id, _) = parse_sage_config(&cli.sage_config);
-
-            let cargo_program = client.program(Cargo::id())?;
-
             let game = derive::game_account(&sage_program, &game_id)?;
 
             let ixs = match action {
@@ -262,7 +274,10 @@ fn main() -> anyhow::Result<()> {
 
                     Some(ixs)
                 }
-                Actions::StartMining { fleet_id } => {
+                Actions::StartMining {
+                    fleet_id,
+                    mine_item,
+                } => {
                     let (fleet, fleet_state) =
                         derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
@@ -270,6 +285,7 @@ fn main() -> anyhow::Result<()> {
                         &sage_program,
                         (fleet_id, (&fleet, &fleet_state)),
                         (&game_id, &game),
+                        *mine_item,
                     )?;
 
                     Some(ixs)
@@ -308,7 +324,11 @@ fn main() -> anyhow::Result<()> {
                     let (fleet, _fleet_state) =
                         derive::fleet_account_with_state(&sage_program, &fleet_id)?;
 
-                    let ixs = ixs::warp::ready_to_exit_warp(&sage_program, (fleet_id, &fleet))?;
+                    let ixs = ixs::warp::ready_to_exit_warp(
+                        &sage_program,
+                        (fleet_id, &fleet),
+                        (&game_id, &game),
+                    )?;
 
                     Some(ixs)
                 }
@@ -328,35 +348,17 @@ fn main() -> anyhow::Result<()> {
             //     dbg!(tx);
             // }
 
-            // Compute Budget Instruction Checklist
-            // [x] - Dock Startbase
-            //       - [v1.labs]    https://solscan.io/tx/5MFSxc7UJA6AYBzC3mfyk1VuscTs3jvjtCdqZsDnus6PCZ6FBquJQeZo8XUzKZw1E3ohyP1Y47FXSdR9sCNHxiDQ
-            //       - [command]    cargo run -p sa-sage-cli -- actions starbase-dock 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
-            //       - [sage-cli]   https://solscan.io/tx/3rfzSVWeptRLHeaZe1Xgyq59nvGj39KWC2sEqa9W1Ef23jAVspqgpnY6sJQmRLJRDrzW1abMNPUT95hoSMXZ4ro8
-            // [x] - Undock Startbase
-            //       - [v1.labs]    https://solscan.io/tx/4dwTqBGDs4P3MboNZUppt2HYGgVh6iREWHcDVoYqCD8f4v3jtMp3qZLBjg52nErjJwgbLF4TzTiyLjBUYrAEqc7G
-            //       - [command]    cargo run -p sa-sage-cli -- actions starbase-undock 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
-            //       - [sage-cli]   https://solscan.io/tx/2BzQ7pfACSFNDZqbuZPubSD3SeL9hGzY7jXaodatNdvxWXnmAky1a6DvQTGwJn23JR5geN1psSQBv7zvXRJBYHMj
-            // [x] - Start Mining
-            //       - [v1.labs]    https://solscan.io/tx/2oxUVzSgX9jGk4H8jLRuTinQENygXMLiTXkgpyM8dXvGKLyH1X6xeYnFi8pP4yr445YDE36iEYUfTY9YNB5doJb2
-            //       - [command]    cargo run -p sa-sage-cli -- actions start-mining 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
-            //       - [sage-cli]   https://solscan.io/tx/5KyfzD7bpqteQRGJbLm5tLdjbmU4oLvSGzdoeG2frAzxdQWtXzZvBxzn4Yn3GEw1d59xFvXAuypyqhCoPcXdvZC4
-            // [ ] - Stop Mining
-            //       - [v1.labs]    https://solscan.io/tx/2ZhustmWRvFFFBcdXDSk7pwC8CxUkAghAHumA2S5Bjri85eQTKxvAN97kXA6ZGFzwJ8DdKCFM3zbs8yfSoyCZ9n3
-            //       - [command]    cargo run -p sa-sage-cli -- actions stop-mining 771Sgp2yb1h3XsCrQjFLRq5L74ZX6qD8wzbZmjGeMxtF
-            //       - [sage-cli]   Error: RPC response error -32602: base64 encoded solana_sdk::transaction::versioned::VersionedTransaction too large: 1696 bytes (max: encoded/raw 1644/1232)
-            //       - [no compute] https://solscan.io/tx/5t3h2sUhGxFqx8zCs3jLVhkxAjvc8Q4nTgyCvRZXjmHVTqPMbT27RjceQs3vrHuXB93jUfB23BcF6PX4gabkbv3Z
-
             // `ixs` either [] (0 txs), [ix] (1 txs) or [ix, ix] (2 txs)
             if let Some(ixs) = ixs {
                 for ix in ixs {
                     let mut builder = sage_program.request();
-                    let i = ComputeBudgetInstruction::set_compute_unit_price(5000);
+                    let i = ComputeBudgetInstruction::set_compute_unit_price(2_000_000);
                     builder = builder.instruction(i);
                     builder = ix
                         .into_iter()
                         .fold(builder, |builder, i| builder.instruction(i));
 
+                    dbg!("Sending transaction");
                     let signature = builder.send()?;
                     println!("{}", signature);
                 }
@@ -370,6 +372,7 @@ fn main() -> anyhow::Result<()> {
                 table.set_header(vec!["Game ID", "Version", "Mints"]);
 
                 for (pubkey, game) in game_accounts {
+                    dbg!(&game.points);
                     table.add_row(vec![
                         pubkey.to_string(),
                         game.version.to_string(),
@@ -380,8 +383,6 @@ fn main() -> anyhow::Result<()> {
                 println!("{table}");
             }
             Find::Fleet { fleet_name } => {
-                let (game_id, player_profile) = parse_sage_config(&cli.sage_config);
-
                 let (fleet_pubkey, _) =
                     derive::fleet_address(&game_id, &player_profile, fleet_name.as_str());
 
@@ -412,10 +413,36 @@ fn main() -> anyhow::Result<()> {
 
                 println!("{table}");
             }
+            Find::Planets { x, y } => {
+                let planets = derive::planet_accounts(&sage_program, &game_id, [*x, *y])?;
+                let (pubkey, planet) = planets
+                    .into_iter()
+                    .find(|(_, planet)| planet.num_resources >= 1)
+                    .expect("planet with resources");
+
+                dbg!(&planet);
+                let resources = derive::resource_accounts(&sage_program, &game_id, &pubkey)?;
+
+                for (pubkey, resource) in resources {
+                    dbg!(pubkey);
+                    dbg!(&resource);
+
+                    let mine_item = derive::mine_item_account(&sage_program, &resource.mine_item)?;
+                    let name = mine_item.name();
+
+                    dbg!(name);
+                    dbg!(mine_item);
+                }
+            }
+            Find::PointsModifiers => {
+                let accounts = points_program.accounts::<staratlas_sage_sdk::programs::staratlas_points::state::PointsModifier>(vec![])?;
+
+                for (pubkey, account) in accounts {
+                    println!("{:#?}", (pubkey, account.version, account.point_category));
+                }
+            }
         },
         Commands::Show(show) => {
-            let (game_id, player_profile) = parse_sage_config(&cli.sage_config);
-
             match show {
                 Show::AllFleets => {
                     let fleet_accounts =
@@ -463,6 +490,10 @@ fn main() -> anyhow::Result<()> {
                         // )?;
                         // dbg!(keyed_accounts);
                     }
+                }
+                Show::Game { game_id } => {
+                    let game = derive::game_account(&sage_program, &game_id)?;
+                    println!("{:#?}", game);
                 }
             }
         }

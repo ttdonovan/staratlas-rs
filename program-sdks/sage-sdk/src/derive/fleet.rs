@@ -1,6 +1,6 @@
 use super::*;
 
-use staratlas_sage::{program::Sage, state, typedefs};
+use staratlas_sage::{state, typedefs, ID};
 
 use crate::{accounts, utils::str_to_u8_32};
 
@@ -101,7 +101,7 @@ pub fn fleet_address(
             player_profile_pubkey.as_ref(),
             &str_to_u8_32(fleet_label),
         ],
-        &Sage::id(),
+        &ID,
     )
 }
 

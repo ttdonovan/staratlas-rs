@@ -8,7 +8,7 @@ use anchor_client::{
     },
     Program,
 };
-use anchor_lang::{AnchorDeserialize, Id};
+use anchor_lang::AnchorDeserialize;
 use solana_account_decoder::UiAccountEncoding;
 
 use std::ops::Deref;

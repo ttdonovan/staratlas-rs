@@ -2,4 +2,4 @@ anchor_gen::generate_cpi_crate!("idl.json");
 
 use anchor_lang::declare_id;
 
-declare_id!("SAGE2HAwep459SNq61LHvjxPk4pLPEJLoMETef7f7EE");
+declare_id!("Point2iBvz7j5TMVef8nEgpmz4pDr7tU7v3RjAfkQbM");

@@ -117,6 +117,7 @@ impl GameHandler {
             &self.sage_program,
             (fleet.fleet_id(), (fleet.fleet_acct(), fleet.fleet_state())),
             (&self.game_id, &self.game_acct),
+            None,
         )?;
 
         let signature = sign_and_send(&self.sage_program, ixs)?;

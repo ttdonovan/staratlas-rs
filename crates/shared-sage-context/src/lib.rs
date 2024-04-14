@@ -24,6 +24,9 @@ use std::str::FromStr;
 
 pub use staratlas_sage_sdk::accounts::*;
 
+// Priority Fee added to each transaction in Lamports. Set to 0 (zero) to disable priority fees. 1 Lamport = 0.000000001 SOL
+const MICRO_LAMPORTS: u64 = 1_500_000; // 1_000_000
+
 fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
     ixs: Vec<Vec<Instruction>>,
@@ -35,17 +38,18 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
             let mut builder = program.request();
 
             // FIXME: this is a hack to set a the compute unit price for higher priority
-            // Priority Fee added to each transaction in Lamports. Set to 0 (zero) to disable priority fees. 1 Lamport = 0.000000001 SOL
             // https://solana.com/developers/guides/advanced/how-to-request-optimal-compute
-            let i = ComputeBudgetInstruction::set_compute_unit_price(1000000);
+            let i = ComputeBudgetInstruction::set_compute_unit_price(MICRO_LAMPORTS);
             builder = builder.instruction(i);
             builder = ix.into_iter().fold(builder, |builder, i| builder.instruction(i));
 
-            // retry once on error
-            signature = match builder.send() {
-                Ok(signature) =>  { signature },
-                Err(_err) => builder.send()?,
-            };
+            // // retry once on error
+            // signature = match builder.send() {
+            //     Ok(signature) =>  { signature },
+            //     Err(_err) => builder.send()?,
+            // };
+
+            signature = builder.send()?;
         }
 
         Ok(signature)
@@ -161,6 +165,7 @@ impl SageContext {
             &self.sage_program,
             (fleet_id, (fleet, state)),
             (&self.game_id, &self.game_acct),
+            None,
         )?;
 
         let signature = sign_and_send(&self.sage_program, ixs)?;
@@ -306,6 +311,7 @@ impl SageContext {
         let ixs = ixs::warp::ready_to_exit_warp(
             &self.sage_program,
             (fleet_id, fleet),
+            (&self.game_id, &self.game_acct),
         )?;
 
         let signature = sign_and_send(&self.sage_program, ixs)?;

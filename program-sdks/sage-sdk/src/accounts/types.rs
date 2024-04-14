@@ -1,31 +1,31 @@
 use super::*;
 
-#[derive(Debug, Clone, Copy, BorshSerialize, BorshDeserialize)]
-pub struct BaseEmissionsBySizeUtil {
-    pub xx_small: u64,
-    pub x_small: u64,
-    pub small: u64,
-    pub medium: u64,
-    pub large: u64,
-    pub capital: u64,
-    pub commander: u64,
-    pub titan: u64,
-}
+// #[derive(Debug, Clone, Copy, BorshSerialize, BorshDeserialize)]
+// pub struct BaseEmissionsBySizeUtil {
+//     pub xx_small: u64,
+//     pub x_small: u64,
+//     pub small: u64,
+//     pub medium: u64,
+//     pub large: u64,
+//     pub capital: u64,
+//     pub commander: u64,
+//     pub titan: u64,
+// }
 
-impl From<typedefs::BaseEmissionsBySizeUtil> for BaseEmissionsBySizeUtil {
-    fn from(b: typedefs::BaseEmissionsBySizeUtil) -> Self {
-        BaseEmissionsBySizeUtil {
-            xx_small: b.xx_small,
-            x_small: b.x_small,
-            small: b.small,
-            medium: b.medium,
-            large: b.large,
-            capital: b.capital,
-            commander: b.commander,
-            titan: b.titan,
-        }
-    }
-}
+// impl From<typedefs::BaseEmissionsBySizeUtil> for BaseEmissionsBySizeUtil {
+//     fn from(b: typedefs::BaseEmissionsBySizeUtil) -> Self {
+//         BaseEmissionsBySizeUtil {
+//             xx_small: b.xx_small,
+//             x_small: b.x_small,
+//             small: b.small,
+//             medium: b.medium,
+//             large: b.large,
+//             capital: b.capital,
+//             commander: b.commander,
+//             titan: b.titan,
+//         }
+//     }
+// }
 
 #[derive(Debug, Clone, Copy, BorshSerialize, BorshDeserialize)]
 pub struct Cargo {
@@ -49,6 +49,8 @@ pub struct CargoStats {
     pub food_consumption_rate: u32,
     pub mining_rate: u32,
     pub upgrade_rate: u32,
+    pub cargo_transfer_rate: u32,
+    pub tractor_beam_gather_rate: u32,
 }
 
 impl From<typedefs::CargoStats> for CargoStats {
@@ -61,6 +63,8 @@ impl From<typedefs::CargoStats> for CargoStats {
             food_consumption_rate: c.food_consumption_rate,
             mining_rate: c.mining_rate,
             upgrade_rate: c.upgrade_rate,
+            cargo_transfer_rate: c.cargo_transfer_rate,
+            tractor_beam_gather_rate: c.tractor_beam_gather_rate,
         }
     }
 }
@@ -93,78 +97,78 @@ impl From<typedefs::FactionsStarbaseLevelInfo> for FactionsStarbaseLevelInfo {
     }
 }
 
-#[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
-pub struct FleetInfo {
-    starbase_levels: FactionsStarbaseLevelInfo,
-    fleets_lp_modifier: FleetsPointModifier,
-    fleets_xp_modifier: FleetsPointModifier,
-    max_fleet_size: u32,
-}
+// #[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
+// pub struct FleetInfo {
+//     starbase_levels: FactionsStarbaseLevelInfo,
+//     fleets_lp_modifier: FleetsPointModifier,
+//     fleets_xp_modifier: FleetsPointModifier,
+//     max_fleet_size: u32,
+// }
 
-impl From<typedefs::FleetInfo> for FleetInfo {
-    fn from(f: typedefs::FleetInfo) -> Self {
-        FleetInfo {
-            starbase_levels: f.starbase_levels.into(),
-            fleets_lp_modifier: f.fleets_lp_modifier.into(),
-            fleets_xp_modifier: f.fleets_xp_modifier.into(),
-            max_fleet_size: f.max_fleet_size,
-        }
-    }
-}
+// impl From<typedefs::FleetInfo> for FleetInfo {
+//     fn from(f: typedefs::FleetInfo) -> Self {
+//         FleetInfo {
+//             starbase_levels: f.starbase_levels.into(),
+//             fleets_lp_modifier: f.fleets_lp_modifier.into(),
+//             fleets_xp_modifier: f.fleets_xp_modifier.into(),
+//             max_fleet_size: f.max_fleet_size,
+//         }
+//     }
+// }
 
-#[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
-pub struct FleetsPointModifier {
-    pub pubkey: Pubkey,
-    pub bump: u8,
-}
+// #[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
+// pub struct FleetsPointModifier {
+//     pub pubkey: Pubkey,
+//     pub bump: u8,
+// }
 
-impl From<typedefs::FleetsPointModifier> for FleetsPointModifier {
-    fn from(f: typedefs::FleetsPointModifier) -> Self {
-        FleetsPointModifier {
-            pubkey: f.pubkey,
-            bump: f.bump,
-        }
-    }
-}
+// impl From<typedefs::FleetsPointModifier> for FleetsPointModifier {
+//     fn from(f: typedefs::FleetsPointModifier) -> Self {
+//         FleetsPointModifier {
+//             pubkey: f.pubkey,
+//             bump: f.bump,
+//         }
+//     }
+// }
 
-#[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
-pub struct Levers {
-    pub l0_resources_scalar_multiplication: u64,
-    pub l1_emissions_main_breaker: u64,
-    pub l2_system_richness_emissions: u64,
-    pub l3_ship_size_weight: u64,
-    pub l4_resource_hardness: u64,
-    pub l5_fuel_warp_breaker: u64,
-    pub l6_fuel_planet_breaker: u64,
-    pub l7_fuel_refinement_efficiency: u64,
-    pub l8_mining_food_breaker: u64,
-    pub l10_food_refinement_efficiency: u64,
-    pub l11_organics_scalar_multiplication: u64,
-    pub l16_fuel_combat_breaker: u64,
-    pub l21_fuel_subwarp_breaker: u64,
-    pub base_emissions_by_size_util: BaseEmissionsBySizeUtil,
-}
+// #[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
+// pub struct Levers {
+//     pub l0_resources_scalar_multiplication: u64,
+//     pub l1_emissions_main_breaker: u64,
+//     pub l2_system_richness_emissions: u64,
+//     pub l3_ship_size_weight: u64,
+//     pub l4_resource_hardness: u64,
+//     pub l5_fuel_warp_breaker: u64,
+//     pub l6_fuel_planet_breaker: u64,
+//     pub l7_fuel_refinement_efficiency: u64,
+//     pub l8_mining_food_breaker: u64,
+//     pub l10_food_refinement_efficiency: u64,
+//     pub l11_organics_scalar_multiplication: u64,
+//     pub l16_fuel_combat_breaker: u64,
+//     pub l21_fuel_subwarp_breaker: u64,
+//     pub base_emissions_by_size_util: BaseEmissionsBySizeUtil,
+// }
 
-impl From<typedefs::Levers> for Levers {
-    fn from(l: typedefs::Levers) -> Self {
-        Levers {
-            l0_resources_scalar_multiplication: l.l0_resources_scalar_multiplication,
-            l1_emissions_main_breaker: l.l1_emissions_main_breaker,
-            l2_system_richness_emissions: l.l2_system_richness_emissions,
-            l3_ship_size_weight: l.l3_ship_size_weight,
-            l4_resource_hardness: l.l4_resource_hardness,
-            l5_fuel_warp_breaker: l.l5_fuel_warp_breaker,
-            l6_fuel_planet_breaker: l.l6_fuel_planet_breaker,
-            l7_fuel_refinement_efficiency: l.l7_fuel_refinement_efficiency,
-            l8_mining_food_breaker: l.l8_mining_food_breaker,
-            l10_food_refinement_efficiency: l.l10_food_refinement_efficiency,
-            l11_organics_scalar_multiplication: l.l11_organics_scalar_multiplication,
-            l16_fuel_combat_breaker: l.l16_fuel_combat_breaker,
-            l21_fuel_subwarp_breaker: l.l21_fuel_subwarp_breaker,
-            base_emissions_by_size_util: l.base_emissions_by_size_util.into(),
-        }
-    }
-}
+// impl From<typedefs::Levers> for Levers {
+//     fn from(l: typedefs::Levers) -> Self {
+//         Levers {
+//             l0_resources_scalar_multiplication: l.l0_resources_scalar_multiplication,
+//             l1_emissions_main_breaker: l.l1_emissions_main_breaker,
+//             l2_system_richness_emissions: l.l2_system_richness_emissions,
+//             l3_ship_size_weight: l.l3_ship_size_weight,
+//             l4_resource_hardness: l.l4_resource_hardness,
+//             l5_fuel_warp_breaker: l.l5_fuel_warp_breaker,
+//             l6_fuel_planet_breaker: l.l6_fuel_planet_breaker,
+//             l7_fuel_refinement_efficiency: l.l7_fuel_refinement_efficiency,
+//             l8_mining_food_breaker: l.l8_mining_food_breaker,
+//             l10_food_refinement_efficiency: l.l10_food_refinement_efficiency,
+//             l11_organics_scalar_multiplication: l.l11_organics_scalar_multiplication,
+//             l16_fuel_combat_breaker: l.l16_fuel_combat_breaker,
+//             l21_fuel_subwarp_breaker: l.l21_fuel_subwarp_breaker,
+//             base_emissions_by_size_util: l.base_emissions_by_size_util.into(),
+//         }
+//     }
+// }
 
 #[derive(Debug, Clone, Copy, BorshSerialize, BorshDeserialize)]
 pub struct Mints {
@@ -194,7 +198,11 @@ pub struct MiscStats {
     pub crew: u64,
     pub respawn_time: u16,
     pub scan_cool_down: u16,
-    pub scan_repair_kit_amount: u32,
+    pub sdu_per_scan: u32,
+    pub scan_cost: u32,
+    pub placeholder: u32,
+    pub placeholder2: u32,
+    pub placeholder3: u32,
 }
 
 impl From<typedefs::MiscStats> for MiscStats {
@@ -203,14 +211,18 @@ impl From<typedefs::MiscStats> for MiscStats {
             crew: m.crew,
             respawn_time: m.respawn_time,
             scan_cool_down: m.scan_cool_down,
-            scan_repair_kit_amount: m.scan_repair_kit_amount,
+            sdu_per_scan: m.sdu_per_scan,
+            scan_cost: m.scan_cost,
+            placeholder: m.placeholder,
+            placeholder2: m.placeholder2,
+            placeholder3: m.placeholder3,
         }
     }
 }
 
 #[derive(Debug, Clone, BorshSerialize, BorshDeserialize)]
 pub struct MiscVariables {
-    pub warp_lane_fuel_cost_reduction: i32,
+    pub warp_lane_fuel_cost_reduction: i16,
     pub respawn_fee: u64,
 }
 
@@ -263,15 +275,23 @@ impl From<typedefs::MovementStats> for MovementStats {
 
 #[derive(Debug, Clone, Copy, BorshSerialize, BorshDeserialize)]
 pub struct Points {
-    pub xp_points_category: Pubkey,
-    pub lp_points_category: Pubkey,
+    pub lp_category: SagePointsCategory,
+    pub council_rank_xp_category: SagePointsCategory,
+    pub pilot_xp_category: SagePointsCategory,
+    pub data_running_xp_category: SagePointsCategory,
+    pub mining_xp_category: SagePointsCategory,
+    pub crafting_xp_category: SagePointsCategory,
 }
 
 impl From<typedefs::Points> for Points {
     fn from(p: typedefs::Points) -> Self {
         Points {
-            xp_points_category: p.xp_points_category,
-            lp_points_category: p.lp_points_category,
+            lp_category: p.lp_category.into(),
+            council_rank_xp_category: p.council_rank_xp_category.into(),
+            pilot_xp_category: p.pilot_xp_category.into(),
+            data_running_xp_category: p.data_running_xp_category.into(),
+            mining_xp_category: p.mining_xp_category.into(),
+            crafting_xp_category: p.crafting_xp_category.into(),
         }
     }
 }
@@ -308,6 +328,23 @@ impl From<typedefs::RiskZonesData> for RiskZonesData {
             ustur_security_zone: r.ustur_security_zone.into(),
             high_risk_zone: r.high_risk_zone.into(),
             medium_risk_zone: r.medium_risk_zone.into(),
+        }
+    }
+}
+
+#[derive(Debug, Clone, Copy, BorshSerialize, BorshDeserialize)]
+pub struct SagePointsCategory {
+    pub category: Pubkey,
+    pub modifier: Pubkey,
+    pub modifier_bump: u8,
+}
+
+impl From<typedefs::SagePointsCategory> for SagePointsCategory {
+    fn from(s: typedefs::SagePointsCategory) -> Self {
+        SagePointsCategory {
+            category: s.category,
+            modifier: s.modifier,
+            modifier_bump: s.modifier_bump,
         }
     }
 }

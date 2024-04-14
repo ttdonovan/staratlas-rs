@@ -14,4 +14,5 @@ spl-associated-token-account = "2.3"
 spl-token = "4.0"
 solana-account-decoder = "1.18"
 staratlas-cargo = { path = "../../programs/cargo", features = ["no-entrypoint"]  }
+staratlas-points = { path = "../../programs/points", features = ["no-entrypoint"]  }
 staratlas-sage = { path = "../../programs/sage", features = ["no-entrypoint"]  }

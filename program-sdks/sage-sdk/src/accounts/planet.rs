@@ -6,7 +6,6 @@ pub struct MineItem {
     pub game_id: Pubkey,
     pub name: [u8; 64],
     pub mint: Pubkey,
-    pub mine_item_update_id: u64,
     pub resource_hardness: u16,
     pub num_resource_accounts: u64,
     pub bump: u8,
@@ -27,7 +26,6 @@ impl From<state::MineItem> for MineItem {
             game_id: m.game_id,
             name: m.name,
             mint: m.mint,
-            mine_item_update_id: m.mine_item_update_id,
             resource_hardness: m.resource_hardness,
             num_resource_accounts: m.num_resource_accounts,
             bump: m.bump,
@@ -82,8 +80,6 @@ pub struct Resource {
     pub system_richness: u16,
     pub amount_mined: u64,
     pub num_miners: u64,
-    pub mine_item_update_id: u64,
-    pub resource_update_id: u64,
     pub bump: u8,
 }
 
@@ -98,8 +94,6 @@ impl From<state::Resource> for Resource {
             system_richness: r.system_richness,
             amount_mined: r.amount_mined,
             num_miners: r.num_miners,
-            mine_item_update_id: r.mine_item_update_id,
-            resource_update_id: r.resource_update_id,
             bump: r.bump,
         }
     }
