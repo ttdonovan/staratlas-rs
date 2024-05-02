@@ -4,6 +4,7 @@
 * https://github.com/mercurial-finance/vault-sdk
 
 * https://github.com/ImGroovin/Lab-Assistant/tree/main/Freelance_System_Core
+* https://docs.google.com/document/d/1FQZl7UOXdj64vgc5rCVicPtDG7R2gl-lHEX3_bnWvKU/edit?pli=1
 
 ## Phantom Wallet Address with Solana CLI
 

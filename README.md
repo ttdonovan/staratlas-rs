@@ -23,6 +23,10 @@ $ cargo doc --no-deps
 # see 'target/doc'
 ```
 
+## Bots
+
+A collection of various bots to interact with Star Atlas programs.
+
 ## Programs
 
 ### cargo
@@ -61,7 +65,7 @@ Solana IDL to work with SA sage.
 
 Solana IDL to work with SA score.
 
-# Program SDKs
+## Program SDKs
 
 These are extended SDKs around SA Programs.
 

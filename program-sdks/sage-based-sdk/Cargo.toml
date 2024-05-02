@@ -1,0 +1,17 @@
+[package]
+name = "staratlas-sage-based-sdk"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+anchor-client = "0.29"
+borsh = { version = "1.4", features = ["derive"] }
+log = "0.4"
+spl-associated-token-account = "3.0"
+spl-token = "4.0"
+solana-account-decoder = "1.18"
+staratlas-cargo = { path = "../../programs/cargo", features = ["no-entrypoint"]  }
+staratlas-points = { path = "../../programs/points", features = ["no-entrypoint"]  }
+staratlas-sage = { path = "../../programs/sage", features = ["no-entrypoint"]  }

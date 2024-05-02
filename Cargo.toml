@@ -5,12 +5,11 @@ members = [
     "bots/*",
     "clis/*",
     "galaxy",
-    "games/*",
     "program-sdks/*",
     "programs/*",
     "utils/*",
 ]
 
 exclude = [
-    "crates",
+    "_archived", "crates",
 ]

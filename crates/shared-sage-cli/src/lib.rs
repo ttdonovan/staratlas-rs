@@ -11,7 +11,7 @@ use clap::Parser;
 
 use std::rc::Rc;
 
-#[derive(Parser)]
+#[derive(Debug, Parser)]
 #[command(about, long_about = None)]
 pub struct Cli {
     #[clap(flatten)]
@@ -20,7 +20,7 @@ pub struct Cli {
     sage_config: SageConfig,
 }
 
-#[derive(Default, Parser)]
+#[derive(Debug, Default, Parser)]
 struct ProviderConfig {
     /// RPC URL for the Solana cluster.
     #[clap(long = "provider.cluster", env = "PROVIDER_CLUSTER")]
@@ -30,7 +30,7 @@ struct ProviderConfig {
     wallet: Option<String>,
 }
 
-#[derive(Default, Parser)]
+#[derive(Debug, Default, Parser)]
 struct SageConfig {
     /// Sage Game's Pubkey
     #[clap(long = "sage.game_id", env = "SAGE_GAME_ID")]

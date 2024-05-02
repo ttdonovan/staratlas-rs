@@ -1,6 +1,6 @@
 use std::time::Duration;
 
-#[derive(Debug, Default)]
+#[derive(Debug, Default, Clone, Copy)]
 pub struct Stopwatch {
     elapsed: Duration,
     paused: bool,

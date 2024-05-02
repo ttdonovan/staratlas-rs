@@ -1,11 +1,13 @@
 use anchor_client::{
+    solana_client::rpc_response::{Response, RpcSimulateTransactionResult},
     solana_sdk::{
         commitment_config::CommitmentConfig,
         compute_budget::ComputeBudgetInstruction,
         pubkey::Pubkey,
         signature::{read_keypair_file, Keypair, Signer},
+        transaction::Transaction,
     },
-    Client, Cluster,
+    Client, Cluster, Program, RequestBuilder,
 };
 use clap::{Parser, Subcommand};
 
@@ -23,10 +25,11 @@ use staratlas_sage_sdk::{
 };
 
 // use std::io::{self, Write};
+use std::ops::Deref;
 use std::rc::Rc;
 
 /// Star Atlas: Sage CLI --> donations: 2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77 <--
-#[derive(Parser)]
+#[derive(Debug, Parser)]
 #[command(about, long_about = None)]
 struct Cli {
     #[clap(flatten)]
@@ -37,7 +40,7 @@ struct Cli {
     command: Commands,
 }
 
-#[derive(Default, Parser)]
+#[derive(Debug, Default, Parser)]
 struct ProviderConfig {
     /// RPC URL for the Solana cluster.
     #[clap(long = "provider.cluster", env = "PROVIDER_CLUSTER")]
@@ -47,7 +50,7 @@ struct ProviderConfig {
     wallet: Option<String>,
 }
 
-#[derive(Default, Parser)]
+#[derive(Debug, Default, Parser)]
 struct SageConfig {
     /// Sage Game's Pubkey
     #[clap(long = "sage.game_id", env = "SAGE_GAME_ID")]
@@ -57,7 +60,7 @@ struct SageConfig {
     profile_id: Option<Pubkey>,
 }
 
-#[derive(Subcommand)]
+#[derive(Debug, Subcommand)]
 enum Commands {
     #[command(subcommand)]
     Actions(Actions),
@@ -67,7 +70,7 @@ enum Commands {
     Show(Show),
 }
 
-#[derive(Subcommand, PartialEq)]
+#[derive(Debug, Subcommand, PartialEq)]
 enum Actions {
     CargoDeposit {
         fleet_id: Pubkey,
@@ -102,7 +105,7 @@ enum Actions {
     },
 }
 
-#[derive(Subcommand)]
+#[derive(Debug, Subcommand)]
 enum Find {
     Games,
     Fleet {
@@ -117,7 +120,7 @@ enum Find {
     PointsModifiers,
 }
 
-#[derive(Subcommand)]
+#[derive(Debug, Subcommand)]
 enum Show {
     AllFleets,
     Fleet {
@@ -152,6 +155,7 @@ fn parse_sage_config(sage_config: &SageConfig) -> (Pubkey, Pubkey) {
 
 fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
+    // dbg!(&cli);
 
     let payer = match cli.provider_config.wallet {
         Some(wallet) => read_keypair_file(wallet).expect("Requires a keypair file"),
@@ -348,15 +352,58 @@ fn main() -> anyhow::Result<()> {
             //     dbg!(tx);
             // }
 
+            pub fn simulate_transaction<C: Deref<Target = impl Signer> + Clone>(
+                builder: &RequestBuilder<C>,
+                program: &Program<C>,
+                signers: &Vec<&dyn Signer>,
+            ) -> Result<Response<RpcSimulateTransactionResult>, Box<dyn std::error::Error>>
+            {
+                let instructions = builder.instructions()?;
+                let rpc_client = program.rpc();
+                let recent_blockhash = rpc_client.get_latest_blockhash()?;
+                let tx = Transaction::new_signed_with_payer(
+                    &instructions,
+                    Some(&program.payer()),
+                    signers,
+                    recent_blockhash,
+                );
+                let simulation = rpc_client.simulate_transaction(&tx)?;
+                Ok(simulation)
+            }
+
             // `ixs` either [] (0 txs), [ix] (1 txs) or [ix, ix] (2 txs)
             if let Some(ixs) = ixs {
                 for ix in ixs {
+                    // let mut simulated = sage_program.request();
+
+                    // simulated = ix
+                    //     .clone()
+                    //     .into_iter()
+                    //     .fold(simulated, |simulated, i| simulated.instruction(i));
+
+                    // let simulation =
+                    //     simulate_transaction(&simulated, &sage_program, &vec![&payer]).unwrap();
+                    // dbg!(&simulation);
+
+                    // let units_consumed = simulation.value.units_consumed;
+                    // dbg!(&units_consumed);
+
                     let mut builder = sage_program.request();
-                    let i = ComputeBudgetInstruction::set_compute_unit_price(2_000_000);
+
+                    // if let Some(units) = units_consumed {
+                    //     let units = (units + 100) as u32; // some margin of error...
+                    //     let i = ComputeBudgetInstruction::set_compute_unit_limit(units);
+                    //     builder = builder.instruction(i);
+                    // }
+
+                    let i = ComputeBudgetInstruction::set_compute_unit_price(5000);
                     builder = builder.instruction(i);
+
                     builder = ix
                         .into_iter()
                         .fold(builder, |builder, i| builder.instruction(i));
+
+                    // dbg!(&builder.instructions());
 
                     dbg!("Sending transaction");
                     let signature = builder.send()?;

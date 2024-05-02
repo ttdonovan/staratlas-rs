@@ -25,7 +25,7 @@ use std::str::FromStr;
 pub use staratlas_sage_sdk::accounts::*;
 
 // Priority Fee added to each transaction in Lamports. Set to 0 (zero) to disable priority fees. 1 Lamport = 0.000000001 SOL
-const MICRO_LAMPORTS: u64 = 1_500_000; // 1_000_000
+const MICRO_LAMPORTS: u64 = 25_000; // 1_000_000
 
 fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
     program: &Program<C>,
@@ -43,13 +43,13 @@ fn sign_and_send<C: Deref<Target = impl Signer> + Clone>(
             builder = builder.instruction(i);
             builder = ix.into_iter().fold(builder, |builder, i| builder.instruction(i));
 
-            // // retry once on error
-            // signature = match builder.send() {
-            //     Ok(signature) =>  { signature },
-            //     Err(_err) => builder.send()?,
-            // };
+            // signature = builder.send()?;
 
-            signature = builder.send()?;
+            // retry once on error
+            signature = match builder.send() {
+                Ok(signature) =>  { signature },
+                Err(_err) => builder.send()?,
+            };
         }
 
         Ok(signature)

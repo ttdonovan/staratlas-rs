@@ -1,12 +1,8 @@
-use anyhow::Result;
-use crossterm::{
-    event::{self, Event},
-    execute, terminal,
-};
+use color_eyre::Result;
+use crossterm::{execute, terminal};
 use ratatui::prelude::*;
 
 use std::io;
-use std::time::Duration;
 
 pub fn init() -> Result<Terminal<impl Backend>> {
     terminal::enable_raw_mode()?;
@@ -22,13 +18,4 @@ pub fn restore() -> Result<()> {
     terminal::disable_raw_mode()?;
 
     Ok(())
-}
-
-pub fn next_event(timeout: Duration) -> Result<Option<Event>> {
-    if !event::poll(timeout)? {
-        return Ok(None);
-    }
-
-    let event = event::read()?;
-    Ok(Some(event))
 }

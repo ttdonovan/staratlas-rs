@@ -60,7 +60,6 @@ pub fn dock_to_starbase<C: Deref<Target = impl Signer> + Clone>(
     Ok(ixs)
 }
 
-// https://solscan.io/tx/5jeoFmZ7krmdYraqxz6ea8pFPoPs1HmuQmXLgFPxtjJDdsA6PjtnHXKniizJoy958srK8G8shMC1saQQLxTqmBFT
 pub fn undock_from_starbase<C: Deref<Target = impl Signer> + Clone>(
     sage_program: &Program<C>,
     fleet: (&Pubkey, (&Fleet, &FleetState)),

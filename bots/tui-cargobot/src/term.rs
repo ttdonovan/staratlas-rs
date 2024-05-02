@@ -6,7 +6,11 @@ use std::io;
 
 pub fn init() -> Result<Terminal<impl Backend>> {
     terminal::enable_raw_mode()?;
-    execute!(io::stdout(), terminal::EnterAlternateScreen)?;
+    execute!(
+        io::stdout(),
+        terminal::Clear,
+        terminal::EnterAlternateScreen
+    )?;
     let mut terminal = Terminal::new(CrosstermBackend::new(io::stdout()))?;
     terminal.hide_cursor()?;
 
