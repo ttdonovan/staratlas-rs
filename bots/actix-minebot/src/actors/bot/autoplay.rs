@@ -5,43 +5,43 @@ use crate::{
     timers,
 };
 
-#[derive(Debug)]
-pub(crate) enum BotOps {
+#[derive(Debug, Clone, Deserialize, Serialize)]
+pub enum BotOps {
     Idle(IdleOps),
     Mining(MiningOps),
     StarbaseLoadingBay(StarbaseLoadingBayOps),
     TxsSageBased(TxsSageBasedOps),
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) enum IdleActions {
     DockeToStarbase,
     MineAsteroid,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) struct IdleOps {
     pub(crate) sector: [i64; 2],
     cargo_capacity_fraction: f64,
-    pub(crate) stop_watch: timers::Stopwatch,
+    pub(crate) stopwatch: timers::Stopwatch,
     pub(crate) next_action: IdleActions,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) struct MiningOps {
-    mining_location: String,
-    currently_mining: String,
-    resource_mining_rate_per_second: f32,
-    amount_mined: f32,
+    pub(crate) mining_location: String,
+    pub(crate) currently_mining: String,
+    pub(crate) resource_mining_rate_per_second: f32,
+    pub(crate) amount_mined: f32,
     pub(crate) timer: timers::Timer,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) struct TxsSageBasedOps {
-    pub(crate) stop_watch: timers::Stopwatch,
+    pub(crate) stopwatch: timers::Stopwatch,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) enum StarbaseActions {
     CargoDeposit(Pubkey, Pubkey, u64), // (CargoPodTo, Mint, Amount)
     CargoWithdraw(Pubkey, u64),        // (Mint, Amount)
@@ -51,10 +51,10 @@ pub(crate) enum StarbaseActions {
     UndockFromStarbase,
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) struct StarbaseLoadingBayOps {
     pub(crate) starbase: Pubkey,
-    pub(crate) stop_watch: timers::Stopwatch,
+    pub(crate) stopwatch: timers::Stopwatch,
     pub(crate) next_action: StarbaseActions,
 }
 
@@ -132,7 +132,7 @@ impl Bot {
         IdleOps {
             sector: idle.sector.clone(),
             cargo_capacity_fraction,
-            stop_watch: timers::Stopwatch::new(),
+            stopwatch: timers::Stopwatch::new(),
             next_action,
         }
     }
@@ -264,16 +264,16 @@ impl Bot {
             }
         };
 
-        let stop_watch = match &self.operation {
+        let stopwatch = match &self.operation {
             Some(BotOps::StarbaseLoadingBay(starbase_loading_bay_ops)) => {
-                starbase_loading_bay_ops.stop_watch.clone()
+                starbase_loading_bay_ops.stopwatch.clone()
             }
             _ => timers::Stopwatch::new(),
         };
 
         StarbaseLoadingBayOps {
             starbase: starbase_loading_bay.starbase.clone(),
-            stop_watch,
+            stopwatch,
             next_action,
         }
     }

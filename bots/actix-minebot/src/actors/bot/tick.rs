@@ -8,16 +8,30 @@ impl Handler<Tick> for Bot {
     type Result = ();
 
     fn handle(&mut self, msg: Tick, ctx: &mut Context<Self>) {
-        log::info!("Tick {:?}", msg.0);
+        // log::info!("Tick {:?}", msg.0);
+
+        {
+            if let (Some(db), Some(data)) = (
+                self.db.lock().ok(),
+                serde_json::to_string(&self.operation).ok(),
+            ) {
+                db.conn
+                    .execute(
+                        "INSERT OR REPLACE INTO bot_ops (pubkey, data) VALUES (?1, ?2)",
+                        rusqlite::params![self.fleet_id.to_string(), data],
+                    )
+                    .ok();
+            }
+        }
 
         match &mut self.operation {
             Some(operation) => match operation {
                 autoplay::BotOps::TxsSageBased(txs_sage_based_ops) => {
-                    txs_sage_based_ops.stop_watch.tick(msg.0);
+                    txs_sage_based_ops.stopwatch.tick(msg.0);
                     log::info!("{:#?}", &txs_sage_based_ops);
                 }
                 autoplay::BotOps::Idle(idle_ops) => {
-                    idle_ops.stop_watch.tick(msg.0);
+                    idle_ops.stopwatch.tick(msg.0);
                     log::info!("{:#?}", &idle_ops);
 
                     let fleet = self.fleet.as_ref().expect("Fleet not found");
@@ -33,7 +47,7 @@ impl Handler<Tick> for Bot {
 
                             let operation =
                                 autoplay::BotOps::TxsSageBased(autoplay::TxsSageBasedOps {
-                                    stop_watch: timers::Stopwatch::new(),
+                                    stopwatch: timers::Stopwatch::new(),
                                 });
                             self.operation = Some(operation);
                         }
@@ -53,7 +67,7 @@ impl Handler<Tick> for Bot {
 
                             let operation =
                                 autoplay::BotOps::TxsSageBased(autoplay::TxsSageBasedOps {
-                                    stop_watch: timers::Stopwatch::new(),
+                                    stopwatch: timers::Stopwatch::new(),
                                 });
                             self.operation = Some(operation);
                         }
@@ -84,13 +98,13 @@ impl Handler<Tick> for Bot {
                         ));
 
                         let operation = autoplay::BotOps::TxsSageBased(autoplay::TxsSageBasedOps {
-                            stop_watch: timers::Stopwatch::new(),
+                            stopwatch: timers::Stopwatch::new(),
                         });
                         self.operation = Some(operation);
                     }
                 }
                 autoplay::BotOps::StarbaseLoadingBay(starbase_loading_bay_ops) => {
-                    starbase_loading_bay_ops.stop_watch.tick(msg.0);
+                    starbase_loading_bay_ops.stopwatch.tick(msg.0);
                     log::info!("{:#?}", &starbase_loading_bay_ops);
 
                     let fleet = self.fleet.as_ref().expect("Fleet not found");
@@ -108,7 +122,7 @@ impl Handler<Tick> for Bot {
 
                             let operation =
                                 autoplay::BotOps::TxsSageBased(autoplay::TxsSageBasedOps {
-                                    stop_watch: timers::Stopwatch::new(),
+                                    stopwatch: timers::Stopwatch::new(),
                                 });
                             self.operation = Some(operation);
                         }
@@ -123,7 +137,7 @@ impl Handler<Tick> for Bot {
 
                             let operation =
                                 autoplay::BotOps::TxsSageBased(autoplay::TxsSageBasedOps {
-                                    stop_watch: timers::Stopwatch::new(),
+                                    stopwatch: timers::Stopwatch::new(),
                                 });
                             self.operation = Some(operation);
                         }
@@ -154,7 +168,7 @@ impl Handler<Tick> for Bot {
 
                             let operation =
                                 autoplay::BotOps::TxsSageBased(autoplay::TxsSageBasedOps {
-                                    stop_watch: timers::Stopwatch::new(),
+                                    stopwatch: timers::Stopwatch::new(),
                                 });
                             self.operation = Some(operation);
                         }

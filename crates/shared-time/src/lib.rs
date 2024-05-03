@@ -1,7 +1,12 @@
+use serde::{Deserialize, Serialize};
+use serde_with::{serde_as, DurationSeconds};
+
 use std::time::Duration;
 
-#[derive(Debug, Default, Clone, Copy)]
+#[serde_as]
+#[derive(Debug, Default, Clone, Copy, Deserialize, Serialize)]
 pub struct Stopwatch {
+    #[serde_as(as = "DurationSeconds")]
     elapsed: Duration,
     paused: bool,
 }
@@ -50,9 +55,11 @@ impl Stopwatch {
     }
 }
 
-#[derive(Debug, Default)]
+#[serde_as]
+#[derive(Debug, Default, Clone, Copy, Deserialize, Serialize)]
 pub struct Timer {
     stopwatch: Stopwatch,
+    #[serde_as(as = "DurationSeconds")]
     duration: Duration,
     finished: bool,
 }

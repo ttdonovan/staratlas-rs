@@ -20,6 +20,7 @@ pub fn init(app: app::App) -> Tui {
 enum Tab {
     #[default]
     Logs,
+    BotOps,
     Game,
     Fleets,
 }
@@ -73,7 +74,7 @@ impl Tui {
 
         match event {
             Event::Tick => {
-                self.app.tick();
+                self.app.tick()?;
             }
             Event::Key(key) => self.handle_key_press(key),
             _ => {}
@@ -148,6 +149,10 @@ impl Widget for &mut Tui {
         match self.tab {
             Tab::Logs => {
                 TuiLoggerWidget::default().render(content, buf);
+            }
+            Tab::BotOps => {
+                let table = self.app.data.bot_ops.table();
+                Paragraph::new(Text::raw(format!("{table}"))).render(content, buf);
             }
             Tab::Game => {
                 let table = self.app.data.game_ui.table();

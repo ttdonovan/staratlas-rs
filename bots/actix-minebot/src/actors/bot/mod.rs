@@ -1,6 +1,9 @@
 use super::*;
 
+use std::sync::{Arc, Mutex};
+
 mod autoplay;
+pub use autoplay::BotOps;
 
 mod tick;
 pub use tick::*;
@@ -24,6 +27,7 @@ pub struct Bot {
     clock: Option<Clock>,
     pub(crate) addr_sage: Addr<SageBased>,
     pub(crate) operation: Option<autoplay::BotOps>,
+    db: Arc<Mutex<db::MinebotDB>>,
 }
 
 impl Bot {
@@ -31,6 +35,7 @@ impl Bot {
         fleet_id: Pubkey,
         mine_args: (Pubkey, Pubkey, Pubkey), // (Planet, MineItem, Mint)
         addr_sage: Addr<SageBased>,
+        db: Arc<Mutex<db::MinebotDB>>,
     ) -> Self {
         Self {
             fleet_id,
@@ -49,6 +54,7 @@ impl Bot {
             clock: None,
             addr_sage,
             operation: None,
+            db,
         }
     }
 }

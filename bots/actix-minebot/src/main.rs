@@ -9,12 +9,14 @@ use tokio::time;
 use staratlas_sage_based_sdk::{program::SAGE_ID, state, Fleet, Game};
 
 use std::str::FromStr;
+use std::sync::{Arc, Mutex};
 
 use shared_time as timers;
 
 mod actors;
 mod app;
 mod config;
+mod db;
 mod errors;
 mod term;
 mod tui;
@@ -44,6 +46,10 @@ async fn main() -> Result<()> {
     let mut bot_addrs = vec![];
     let mut fleets = vec![];
 
+    // in-memory database for bot operations
+    let db = db::MinebotDB::open()?;
+    let db = Arc::new(Mutex::new(db));
+
     for bot_cfg in &cfg.sage_bot_cfg.bots {
         let fleet_id = Pubkey::from_str(&bot_cfg.fleet_id).unwrap();
         let planet_id = Pubkey::from_str(&bot_cfg.planet_id).unwrap();
@@ -58,6 +64,7 @@ async fn main() -> Result<()> {
             fleet_id.clone(),
             (planet_id, mine_item_id, mine_item_mint),
             sage_addr.clone(),
+            db.clone(),
         )
         .start();
 
@@ -98,14 +105,15 @@ async fn main() -> Result<()> {
     sage_addr.send(actors::ClockTime).await?;
 
     // wait a few seconds as bot actors warm-up and initalize state
-    tokio::time::sleep(time::Duration::from_secs(3)).await;
+    // FIXME: if not waiting long enough, the bot actors will panic
+    tokio::time::sleep(time::Duration::from_secs(5)).await;
 
     let mut interval = time::interval(time::Duration::from_secs(10));
     let mut delta = time::Instant::now();
 
     let terminal = &mut term::init()?;
 
-    let app = app::init((game_id, game), fleets);
+    let app = app::init(db, (game_id, game), fleets);
     let mut tui = tui::init(app);
 
     loop {
