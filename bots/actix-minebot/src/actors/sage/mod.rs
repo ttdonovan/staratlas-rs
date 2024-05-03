@@ -6,7 +6,7 @@ pub use action::*;
 mod request;
 pub use request::*;
 
-pub struct SageBased {
+pub struct SageBasedActor {
     client: Client<Rc<Keypair>>,
     payer: Rc<Keypair>,
     game_id: Pubkey,
@@ -14,14 +14,14 @@ pub struct SageBased {
     subscribers: Vec<Recipient<ClockTimeUpdate>>,
 }
 
-impl SageBased {
+impl SageBasedActor {
     pub fn new(
         client: Client<Rc<Keypair>>,
         payer: Rc<Keypair>,
         game_id: Pubkey,
         game: Game,
     ) -> Self {
-        SageBased {
+        SageBasedActor {
             client,
             payer,
             game_id,
@@ -31,7 +31,7 @@ impl SageBased {
     }
 }
 
-impl Actor for SageBased {
+impl Actor for SageBasedActor {
     type Context = Context<Self>;
 
     fn started(&mut self, _ctx: &mut Self::Context) {
@@ -43,7 +43,7 @@ impl Actor for SageBased {
 #[rtype(result = "()")]
 pub struct BlockHeight;
 
-impl Handler<BlockHeight> for SageBased {
+impl Handler<BlockHeight> for SageBasedActor {
     type Result = ();
 
     fn handle(&mut self, _: BlockHeight, ctx: &mut Context<Self>) -> Self::Result {
@@ -65,7 +65,7 @@ impl Handler<BlockHeight> for SageBased {
 #[rtype(result = "()")]
 pub struct SubscribeClockTime(pub Recipient<ClockTimeUpdate>);
 
-impl Handler<SubscribeClockTime> for SageBased {
+impl Handler<SubscribeClockTime> for SageBasedActor {
     type Result = ();
 
     fn handle(&mut self, msg: SubscribeClockTime, _: &mut Self::Context) {
@@ -78,7 +78,7 @@ impl Handler<SubscribeClockTime> for SageBased {
 #[rtype(result = "()")]
 pub struct ClockTime;
 
-impl Handler<ClockTime> for SageBased {
+impl Handler<ClockTime> for SageBasedActor {
     type Result = ();
 
     fn handle(&mut self, _: ClockTime, ctx: &mut Context<Self>) -> Self::Result {
@@ -105,9 +105,9 @@ impl Handler<ClockTime> for SageBased {
 
 #[derive(Debug, Message)]
 #[rtype(result = "()")]
-pub struct ClockTimeRequest(pub Addr<Bot>);
+pub struct ClockTimeRequest(pub Addr<BotActor>);
 
-impl Handler<ClockTimeRequest> for SageBased {
+impl Handler<ClockTimeRequest> for SageBasedActor {
     type Result = ();
 
     fn handle(&mut self, msg: ClockTimeRequest, ctx: &mut Context<Self>) -> Self::Result {

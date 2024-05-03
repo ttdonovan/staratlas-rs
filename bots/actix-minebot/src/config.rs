@@ -26,7 +26,6 @@ pub struct BotCfg {
     pub fleet_id: String,
     pub planet_id: String,
     pub mine_item_id: String,
-    pub mine_item_mint: String,
 }
 
 pub fn init_config() -> Result<Config> {

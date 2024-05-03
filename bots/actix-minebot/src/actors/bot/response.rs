@@ -1,6 +1,6 @@
 use super::*;
 
-impl Handler<SageResponse> for Bot {
+impl Handler<SageResponse> for BotActor {
     type Result = ();
 
     fn handle(&mut self, msg: SageResponse, ctx: &mut Context<Self>) {
@@ -74,16 +74,6 @@ impl Handler<SageResponse> for Bot {
                     }
                     _ => {}
                 }
-            }
-            SageResponse::Planet(planet) => {
-                self.planet = Some(planet);
-            }
-            SageResponse::MineItem(mine_item) => {
-                self.mine_item = Some(mine_item);
-            }
-            SageResponse::Resource(pubkey, resource) => {
-                self.resource_id = Some(pubkey);
-                self.resource = Some(resource);
             }
         }
     }

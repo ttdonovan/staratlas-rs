@@ -10,47 +10,45 @@ pub use tick::*;
 
 mod response;
 
-pub struct Bot {
-    fleet_id: Pubkey,
-    pub(crate) mine_args: (Pubkey, Pubkey, Pubkey), // (Planet, MineItem, Mint)
-    pub(crate) fleet: Option<Fleet>,
+pub struct BotActor {
+    fleet: (Pubkey, Fleet),
+    pub(crate) planet: (Pubkey, Planet),
+    pub(crate) mine_item: (Pubkey, MineItem),
+    pub(crate) resource: (Pubkey, Resource),
+
+    // pub(crate) fleet: Option<Fleet>,
     pub(crate) fleet_state: Option<FleetState>,
+
     pub(crate) fleet_cargo_hold: Vec<(String, u64)>,
     pub(crate) fleet_fuel_tank: Vec<(String, u64)>,
     pub(crate) fleet_ammo_bank: Vec<(String, u64)>,
     pub(crate) fleet_food_cargo: Vec<(String, u64)>,
-    pub(crate) planet: Option<Planet>,
-    resource_id: Option<Pubkey>,
-    pub(crate) resource: Option<Resource>,
-    pub(crate) mine_item: Option<MineItem>,
-    pub(crate) mine_item_mint: Option<Pubkey>,
+
     clock: Option<Clock>,
-    pub(crate) addr_sage: Addr<SageBased>,
+    pub(crate) addr_sage: Addr<SageBasedActor>,
     pub(crate) operation: Option<autoplay::BotOps>,
     db: Arc<Mutex<db::MinebotDB>>,
 }
 
-impl Bot {
+impl BotActor {
     pub fn new(
-        fleet_id: Pubkey,
-        mine_args: (Pubkey, Pubkey, Pubkey), // (Planet, MineItem, Mint)
-        addr_sage: Addr<SageBased>,
+        fleet: (Pubkey, Fleet),
+        planet: (Pubkey, Planet),
+        mine_item: (Pubkey, MineItem),
+        resource: (Pubkey, Resource),
+        addr_sage: Addr<SageBasedActor>,
         db: Arc<Mutex<db::MinebotDB>>,
     ) -> Self {
         Self {
-            fleet_id,
-            mine_args,
-            fleet: None,
+            fleet,
+            planet,
+            mine_item,
+            resource,
             fleet_state: None,
             fleet_cargo_hold: vec![],
             fleet_fuel_tank: vec![],
             fleet_ammo_bank: vec![],
             fleet_food_cargo: vec![],
-            planet: None,
-            resource_id: None,
-            resource: None,
-            mine_item: None,
-            mine_item_mint: None,
             clock: None,
             addr_sage,
             operation: None,
@@ -59,7 +57,7 @@ impl Bot {
     }
 }
 
-impl Actor for Bot {
+impl Actor for BotActor {
     type Context = Context<Self>;
 }
 
@@ -67,7 +65,7 @@ impl Actor for Bot {
 #[rtype(result = "()")]
 pub struct Ping(pub Option<Signature>);
 
-impl Handler<Ping> for Bot {
+impl Handler<Ping> for BotActor {
     type Result = ();
 
     fn handle(&mut self, msg: Ping, _ctx: &mut Context<Self>) {
@@ -80,7 +78,7 @@ impl Handler<Ping> for Bot {
 #[rtype(result = "()")]
 pub struct ClockTimeUpdate(pub Clock);
 
-impl Handler<ClockTimeUpdate> for Bot {
+impl Handler<ClockTimeUpdate> for BotActor {
     type Result = ();
 
     fn handle(&mut self, msg: ClockTimeUpdate, _: &mut Context<Self>) {

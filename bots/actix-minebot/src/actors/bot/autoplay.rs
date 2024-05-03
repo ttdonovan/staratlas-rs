@@ -1,7 +1,7 @@
 use super::*;
 
 use crate::{
-    actors::{Bot, ClockTimeRequest, SageRequest},
+    actors::{BotActor, ClockTimeRequest, SageRequest},
     timers,
 };
 
@@ -58,27 +58,21 @@ pub(crate) struct StarbaseLoadingBayOps {
     pub(crate) next_action: StarbaseActions,
 }
 
-impl Bot {
+impl BotActor {
     pub(crate) fn autoplay_fleet_with_state_update(
         &mut self,
         fleet_with_state: FleetWithState,
-        addr: Addr<Bot>,
+        addr: Addr<BotActor>,
     ) {
-        if self.fleet.is_none() {
-            let fleet = fleet_with_state.fleet;
-            self.fleet = Some(fleet);
-        }
-
         // let previous = &self.fleet_state;
         // dbg!(previous);
 
         let fleet_state = fleet_with_state.state;
         match &fleet_state {
             FleetState::Idle(_idle) => {
-                if let Some(fleet) = &self.fleet {
-                    self.addr_sage
-                        .do_send(SageRequest::FleetCargoHold(fleet.cargo_hold.clone(), addr));
-                }
+                let fleet = self.fleet.1;
+                self.addr_sage
+                    .do_send(SageRequest::FleetCargoHold(fleet.cargo_hold, addr));
             }
             FleetState::MineAsteroid(_mine_asteroid) => {
                 match &self.operation {
@@ -102,12 +96,9 @@ impl Bot {
                     }
                     _ => {
                         // Request an update on the fleet's cargo hold to kick-off the starbase loading bay operation
-                        if let Some(fleet) = &self.fleet {
-                            self.addr_sage.do_send(SageRequest::FleetCargoHold(
-                                fleet.cargo_hold.clone(),
-                                addr,
-                            ));
-                        }
+                        let fleet = self.fleet.1;
+                        self.addr_sage
+                            .do_send(SageRequest::FleetCargoHold(fleet.cargo_hold, addr));
                     }
                 }
             }
@@ -118,7 +109,7 @@ impl Bot {
     }
 
     pub(crate) fn autoplay_idle(&self, idle: &Idle) -> IdleOps {
-        let fleet = self.fleet.as_ref().expect("Fleet not found");
+        let fleet = &self.fleet.1;
         let current_capacity = self.fleet_cargo_hold.iter().fold(0, |x, (_, v)| x + v);
         let cargo_capacity_fraction =
             current_capacity as f64 / fleet.stats.cargo_stats.cargo_capacity as f64;
@@ -142,10 +133,10 @@ impl Bot {
         mine_asteroid: &MineAsteroid,
         clock: &Clock,
     ) -> MiningOps {
-        let fleet = self.fleet.as_ref().expect("Fleet not found");
-        let planet = self.planet.as_ref().expect("Planet not found");
-        let resource = self.resource.as_ref().expect("Resource not found");
-        let mine_item = self.mine_item.as_ref().expect("MineItem not found");
+        let fleet = &self.fleet.1;
+        let planet = &self.planet.1;
+        let mine_item = &self.mine_item.1;
+        let resource = &self.resource.1;
 
         let mining_location = planet.name();
         let currently_mining = mine_item.name();
@@ -181,7 +172,7 @@ impl Bot {
         &self,
         starbase_loading_bay: &StarbaseLoadingBay,
     ) -> StarbaseLoadingBayOps {
-        let mine_item_mint = &self.mine_args.2;
+        let mine_item_mint = &self.mine_item.1.mint;
 
         let cargo_withdraw_amount = self
             .fleet_cargo_hold
@@ -207,7 +198,7 @@ impl Bot {
                 Some(BotOps::StarbaseLoadingBay(starbase_loading_bay_ops)) => {
                     match starbase_loading_bay_ops.next_action {
                         StarbaseActions::CheckFuelStatus => {
-                            let fleet = self.fleet.as_ref().expect("Fleet not found");
+                            let fleet = &self.fleet.1;
                             let (fuel_mint, fuel_amount) = &self.fleet_fuel_tank[0];
                             let fuel_tank_fraction =
                                 *fuel_amount as f32 / fleet.stats.cargo_stats.fuel_capacity as f32;
@@ -227,7 +218,7 @@ impl Bot {
                             }
                         }
                         StarbaseActions::CheckAmmoStatus => {
-                            let fleet = self.fleet.as_ref().expect("Fleet not found");
+                            let fleet = &self.fleet.1;
                             let (ammo_mint, ammo_amount) = &self.fleet_ammo_bank[0];
                             let ammo_bank_fraction =
                                 *ammo_amount as f32 / fleet.stats.cargo_stats.ammo_capacity as f32;
@@ -243,7 +234,7 @@ impl Bot {
                             }
                         }
                         StarbaseActions::CheckFoodStatus => {
-                            let fleet = self.fleet.as_ref().expect("Fleet not found");
+                            let fleet = &self.fleet.1;
                             let (food_mint, food_amount) = &self.fleet_food_cargo[0];
                             let min_food =
                                 (fleet.stats.cargo_stats.cargo_capacity as f32 * 0.075) as u64;

@@ -3,11 +3,18 @@ use super::*;
 #[derive(Debug, Message)]
 #[rtype(result = "()")]
 pub enum SageAction {
-    CargoDeposit((Pubkey, Fleet), Pubkey, Pubkey, Pubkey, u64, Addr<Bot>), // ((FleetId, Fleet), Starbase, CargoPodTo, Mint, Amount, Addr<Bot>)
-    CargoWithdraw((Pubkey, Fleet), Pubkey, Pubkey, u64, Addr<Bot>), // ((FleetId, Fleet), Starbase, Mint, Amount, Addr<Bot>)
-    StarbaseDock((Pubkey, Fleet), [i64; 2], Addr<Bot>), // ((FleetId, Fleet), Sector, Addr<Bot>)
-    StarbaseUndock((Pubkey, Fleet), Pubkey, Addr<Bot>), // ((FleetId, Fleet), Starbase, Addr<Bot>)
-    StartMining((Pubkey, Fleet), Pubkey, Pubkey, Pubkey, [i64; 2], Addr<Bot>), // ((FleetId, Fleet), MineItem, Resource, Planet, Sector, Addr<Bot>)
+    CargoDeposit((Pubkey, Fleet), Pubkey, Pubkey, Pubkey, u64, Addr<BotActor>), // ((FleetId, Fleet), Starbase, CargoPodTo, Mint, Amount, Addr<Bot>)
+    CargoWithdraw((Pubkey, Fleet), Pubkey, Pubkey, u64, Addr<BotActor>), // ((FleetId, Fleet), Starbase, Mint, Amount, Addr<Bot>)
+    StarbaseDock((Pubkey, Fleet), [i64; 2], Addr<BotActor>), // ((FleetId, Fleet), Sector, Addr<Bot>)
+    StarbaseUndock((Pubkey, Fleet), Pubkey, Addr<BotActor>), // ((FleetId, Fleet), Starbase, Addr<Bot>)
+    StartMining(
+        (Pubkey, Fleet),
+        Pubkey,
+        Pubkey,
+        Pubkey,
+        [i64; 2],
+        Addr<BotActor>,
+    ), // ((FleetId, Fleet), MineItem, Resource, Planet, Sector, Addr<Bot>)
     StopMining(
         (Pubkey, Fleet),
         Pubkey,
@@ -15,11 +22,11 @@ pub enum SageAction {
         Pubkey,
         Pubkey,
         [i64; 2],
-        Addr<Bot>,
+        Addr<BotActor>,
     ), // ((FleetId, Fleet), MineItem, MineItemMint, Resource, Planet, Sector, Addr<Bot>)
 }
 
-impl Handler<SageAction> for SageBased {
+impl Handler<SageAction> for SageBasedActor {
     type Result = ();
 
     fn handle(&mut self, msg: SageAction, ctx: &mut Context<Self>) -> Self::Result {

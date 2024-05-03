@@ -6,7 +6,7 @@ use anchor_client::{
 use color_eyre::Result;
 use tokio::time;
 
-use staratlas_sage_based_sdk::{program::SAGE_ID, state, Fleet, Game};
+use staratlas_sage_based_sdk::{program::SAGE_ID, state, Game, SageBasedGameHandler};
 
 use std::str::FromStr;
 use std::sync::{Arc, Mutex};
@@ -40,7 +40,7 @@ async fn main() -> Result<()> {
     let game = Game::from(account);
 
     // create a new Sage Based actor (take "ownership" of the client, payer, game_id, and game)
-    let sage_addr = actors::SageBased::new(client, payer, game_id, game).start();
+    let sage_addr = actors::SageBasedActor::new(client, payer, game_id, game).start();
     sage_addr.send(actors::BlockHeight).await?;
 
     let mut bot_addrs = vec![];
@@ -54,15 +54,22 @@ async fn main() -> Result<()> {
         let fleet_id = Pubkey::from_str(&bot_cfg.fleet_id).unwrap();
         let planet_id = Pubkey::from_str(&bot_cfg.planet_id).unwrap();
         let mine_item_id = Pubkey::from_str(&bot_cfg.mine_item_id).unwrap();
-        let mine_item_mint = Pubkey::from_str(&bot_cfg.mine_item_mint).unwrap();
 
-        let account = program.account::<state::Fleet>(fleet_id).await?;
-        let fleet = Fleet::from(account);
+        let (fleet_id, fleet_with_state) =
+            SageBasedGameHandler::get_fleet_with_state(&program, &fleet_id).await?;
+
+        let mine_item = SageBasedGameHandler::get_mine_item(&program, &mine_item_id).await?;
+        let planet = SageBasedGameHandler::get_planet(&program, &planet_id).await?;
+        let resource =
+            SageBasedGameHandler::find_resource(&program, &game_id, &planet_id, &mine_item_id)
+                .await?;
 
         // create a new bot actor
-        let bot_addr = actors::Bot::new(
-            fleet_id.clone(),
-            (planet_id, mine_item_id, mine_item_mint),
+        let bot_addr = actors::BotActor::new(
+            (fleet_id, fleet_with_state.fleet),
+            planet,
+            mine_item,
+            resource,
             sage_addr.clone(),
             db.clone(),
         )
@@ -70,24 +77,6 @@ async fn main() -> Result<()> {
 
         // warm-up the bot actor
         {
-            sage_addr
-                .send(actors::SageRequest::MineItem(
-                    mine_item_id,
-                    bot_addr.clone(),
-                ))
-                .await?;
-
-            sage_addr
-                .send(actors::SageRequest::Planet(planet_id, bot_addr.clone()))
-                .await?;
-
-            sage_addr
-                .send(actors::SageRequest::Resource(
-                    (planet_id, mine_item_id),
-                    bot_addr.clone(),
-                ))
-                .await?;
-
             sage_addr
                 .send(actors::SubscribeClockTime(bot_addr.clone().recipient()))
                 .await?;
@@ -98,7 +87,7 @@ async fn main() -> Result<()> {
         }
 
         bot_addrs.push(bot_addr);
-        fleets.push((fleet_id, fleet));
+        fleets.push((fleet_id, fleet_with_state.fleet));
     }
 
     // request the current clock time

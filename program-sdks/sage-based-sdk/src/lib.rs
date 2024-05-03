@@ -2,6 +2,7 @@ use anchor_client::{
     anchor_lang::prelude::Pubkey,
     solana_client::{
         nonblocking::rpc_client::RpcClient,
+        rpc_filter::{Memcmp, RpcFilterType},
         rpc_request::TokenAccountsFilter,
         rpc_response::{Response, RpcSimulateTransactionResult},
     },
@@ -31,18 +32,65 @@ const MICRO_LAMPORTS: u64 = 100;
 
 pub struct SageBasedGameHandler {}
 
+// MineItem
+impl SageBasedGameHandler {
+    pub async fn get_mine_item<C: Deref<Target = impl Signer> + Clone>(
+        program: &Program<C>,
+        mine_item_id: &Pubkey,
+    ) -> Result<(Pubkey, MineItem), ClientError> {
+        let account = program.account::<state::MineItem>(*mine_item_id).await?;
+        let mine_item = MineItem::from(account);
+        Ok((*mine_item_id, mine_item))
+    }
+}
+
+// Planet
+impl SageBasedGameHandler {
+    pub async fn get_planet<C: Deref<Target = impl Signer> + Clone>(
+        program: &Program<C>,
+        planet_id: &Pubkey,
+    ) -> Result<(Pubkey, Planet), ClientError> {
+        let account = program.account::<state::Planet>(*planet_id).await?;
+        let planet = Planet::from(account);
+        Ok((*planet_id, planet))
+    }
+}
+
+// Resource
+impl SageBasedGameHandler {
+    pub async fn find_resource<C: Deref<Target = impl Signer> + Clone>(
+        program: &Program<C>,
+        game_id: &Pubkey,
+        location: &Pubkey, // planet
+        mine_item: &Pubkey,
+    ) -> Result<(Pubkey, Resource), ClientError> {
+        let accounts = program
+            .accounts::<state::Resource>(vec![
+                RpcFilterType::Memcmp(Memcmp::new_base58_encoded(9, game_id.as_ref())),
+                RpcFilterType::Memcmp(Memcmp::new_base58_encoded(41, location.as_ref())),
+                RpcFilterType::Memcmp(Memcmp::new_base58_encoded(73, mine_item.as_ref())),
+            ])
+            .await
+            .unwrap();
+
+        let (pubkey, account) = accounts[0];
+        let resource = Resource::from(account);
+        Ok((pubkey, resource))
+    }
+}
+
 // Fleet (and State)
 impl SageBasedGameHandler {
     pub async fn get_fleet_with_state<C: Deref<Target = impl Signer> + Clone>(
         program: &Program<C>,
         fleet_id: &Pubkey,
-    ) -> Result<FleetWithState, ClientError> {
+    ) -> Result<(Pubkey, FleetWithState), ClientError> {
         let rpc = program.async_rpc();
         let account = rpc.get_account(&fleet_id).await?;
         let mut account_data = account.data.as_slice();
 
         let fleet_with_state = FleetWithState::deserialize(&mut account_data)?;
-        Ok(fleet_with_state)
+        Ok((*fleet_id, fleet_with_state))
     }
 }
 
