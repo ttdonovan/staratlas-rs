@@ -64,14 +64,19 @@ async fn main() -> Result<()> {
             SageBasedGameHandler::find_resource(&program, &game_id, &planet_id, &mine_item_id)
                 .await?;
 
-        // create a new bot actor
-        let bot_addr = actors::BotActor::new(
-            (fleet_id, fleet_with_state.clone()),
+        // create a role assignment for the bot
+        let role = actors::BotRole::MineAsteroid {
             planet,
             mine_item,
             resource,
-            sage_addr.clone(),
+        };
+
+        // create a new bot actor
+        let bot_addr = actors::BotActor::new(
             db.clone(),
+            sage_addr.clone(),
+            (fleet_id, fleet_with_state.clone()),
+            role,
         )
         .start();
 

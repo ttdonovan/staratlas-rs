@@ -4,9 +4,9 @@ pub(crate) mod mine_asteroid;
 
 pub enum BotRole {
     MineAsteroid {
-        // pub(crate) planet: (Pubkey, Planet),
-        // pub(crate) mine_item: (Pubkey, MineItem),
-        // pub(crate) resource: (Pubkey, Resource),
+        planet: (Pubkey, Planet),
+        mine_item: (Pubkey, MineItem),
+        resource: (Pubkey, Resource),
         // pub(crate) fleet_cargo_hold: Vec<(String, u64)>,
         // pub(crate) fleet_fuel_tank: Vec<(String, u64)>,
         // pub(crate) fleet_ammo_bank: Vec<(String, u64)>,

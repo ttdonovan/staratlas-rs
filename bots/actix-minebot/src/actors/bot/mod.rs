@@ -10,17 +10,11 @@ pub use roles::*;
 
 pub struct BotActor {
     db: Arc<Mutex<db::MinebotDB>>,
-    fleet: (Pubkey, FleetWithState),
     clock: Option<Clock>,
     pub(crate) operation: Option<BotOps>,
     pub(crate) addr_sage: Addr<SageBasedActor>,
     role: BotRole,
-
-    // mining related...
-    // pub(crate) fleet: (Pubkey, FleetWithState),
-    pub(crate) planet: (Pubkey, Planet),
-    pub(crate) mine_item: (Pubkey, MineItem),
-    pub(crate) resource: (Pubkey, Resource),
+    fleet: (Pubkey, FleetWithState),
     pub(crate) fleet_cargo_hold: Vec<(String, u64)>,
     pub(crate) fleet_fuel_tank: Vec<(String, u64)>,
     pub(crate) fleet_ammo_bank: Vec<(String, u64)>,
@@ -29,27 +23,30 @@ pub struct BotActor {
 
 impl BotActor {
     pub fn new(
-        fleet: (Pubkey, FleetWithState),
-        planet: (Pubkey, Planet),
-        mine_item: (Pubkey, MineItem),
-        resource: (Pubkey, Resource),
-        addr_sage: Addr<SageBasedActor>,
         db: Arc<Mutex<db::MinebotDB>>,
+        addr_sage: Addr<SageBasedActor>,
+        fleet: (Pubkey, FleetWithState),
+        role: BotRole,
+        // planet: (Pubkey, Planet),
+        // mine_item: (Pubkey, MineItem),
+        // resource: (Pubkey, Resource),
     ) -> Self {
         Self {
-            role: BotRole::MineAsteroid {},
+            db,
+            addr_sage,
             fleet,
-            planet,
-            mine_item,
-            resource,
+            role,
+            // role: BotRole::MineAsteroid {
+            //     planet,
+            //     mine_item,
+            //     resource,
+            // },
             fleet_cargo_hold: vec![],
             fleet_fuel_tank: vec![],
             fleet_ammo_bank: vec![],
             fleet_food_cargo: vec![],
             clock: None,
-            addr_sage,
             operation: None,
-            db,
         }
     }
 }
@@ -87,7 +84,7 @@ impl Handler<ClockTimeUpdate> for BotActor {
 
     fn handle(&mut self, msg: ClockTimeUpdate, _: &mut Context<Self>) {
         match &self.role {
-            BotRole::MineAsteroid {} => {
+            BotRole::MineAsteroid { .. } => {
                 roles::mine_asteroid::clock_time_update(self, msg);
             }
             _ => todo!(),
@@ -100,7 +97,7 @@ impl Handler<SageResponse> for BotActor {
 
     fn handle(&mut self, msg: SageResponse, ctx: &mut Context<Self>) {
         match &self.role {
-            BotRole::MineAsteroid {} => {
+            BotRole::MineAsteroid { .. } => {
                 let addr = ctx.address();
                 roles::mine_asteroid::sage_response(self, msg, addr);
             }
@@ -134,7 +131,7 @@ impl Handler<Tick> for BotActor {
         }
 
         match &self.role {
-            BotRole::MineAsteroid {} => {
+            BotRole::MineAsteroid { .. } => {
                 let addr = ctx.address();
                 roles::mine_asteroid::tick(self, msg, addr);
             }

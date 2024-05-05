@@ -2,12 +2,23 @@ use super::*;
 
 pub(crate) fn clock_time_update(bot: &mut BotActor, msg: ClockTimeUpdate) {
     match &bot.role {
-        BotRole::MineAsteroid {} => {
+        BotRole::MineAsteroid {
+            planet,
+            mine_item,
+            resource,
+        } => {
             let clock = msg.0;
 
             match &bot.fleet_state() {
                 FleetState::MineAsteroid(mine_asteroid) => {
-                    let mining_ops = autoplay_mine_asteroid(&bot, &mine_asteroid, &clock);
+                    let mining_ops = autoplay_mine_asteroid(
+                        &bot,
+                        &mine_asteroid,
+                        &clock,
+                        &planet,
+                        &mine_item,
+                        &resource,
+                    );
                     let operation = autoplay::BotOps::Mining(mining_ops);
                     bot.operation = Some(operation);
                 }
@@ -22,7 +33,7 @@ pub(crate) fn clock_time_update(bot: &mut BotActor, msg: ClockTimeUpdate) {
 
 pub(crate) fn sage_response(bot: &mut BotActor, msg: SageResponse, addr: Addr<BotActor>) {
     match &bot.role {
-        BotRole::MineAsteroid {} => match msg {
+        BotRole::MineAsteroid { mine_item, .. } => match msg {
             SageResponse::Fleet(fleet_with_state) => {
                 autoplay_fleet_with_state_update(bot, fleet_with_state, addr);
             }
@@ -32,7 +43,7 @@ pub(crate) fn sage_response(bot: &mut BotActor, msg: SageResponse, addr: Addr<Bo
                 match bot.fleet_state() {
                     FleetState::StarbaseLoadingBay(starbase_loading_bay) => {
                         let starbase_loading_bay_ops =
-                            autoplay_starbase_loading(&bot, starbase_loading_bay);
+                            autoplay_starbase_loading(&bot, starbase_loading_bay, mine_item);
 
                         let operation =
                             autoplay::BotOps::StarbaseLoadingBay(starbase_loading_bay_ops);
@@ -54,7 +65,7 @@ pub(crate) fn sage_response(bot: &mut BotActor, msg: SageResponse, addr: Addr<Bo
                     }
                     FleetState::StarbaseLoadingBay(starbase_loading_bay) => {
                         let starbase_loading_bay_ops =
-                            autoplay_starbase_loading(&bot, starbase_loading_bay);
+                            autoplay_starbase_loading(&bot, starbase_loading_bay, mine_item);
                         let operation =
                             autoplay::BotOps::StarbaseLoadingBay(starbase_loading_bay_ops);
 
@@ -69,7 +80,7 @@ pub(crate) fn sage_response(bot: &mut BotActor, msg: SageResponse, addr: Addr<Bo
                 match bot.fleet_state() {
                     FleetState::StarbaseLoadingBay(starbase_loading_bay) => {
                         let starbase_loading_bay_ops =
-                            autoplay_starbase_loading(&bot, starbase_loading_bay);
+                            autoplay_starbase_loading(&bot, starbase_loading_bay, mine_item);
                         let operation =
                             autoplay::BotOps::StarbaseLoadingBay(starbase_loading_bay_ops);
 
@@ -84,7 +95,7 @@ pub(crate) fn sage_response(bot: &mut BotActor, msg: SageResponse, addr: Addr<Bo
                 match &bot.fleet_state() {
                     FleetState::StarbaseLoadingBay(starbase_loading_bay) => {
                         let starbase_loading_bay_ops =
-                            autoplay_starbase_loading(&bot, starbase_loading_bay);
+                            autoplay_starbase_loading(&bot, starbase_loading_bay, mine_item);
                         let operation =
                             autoplay::BotOps::StarbaseLoadingBay(starbase_loading_bay_ops);
 
@@ -100,7 +111,11 @@ pub(crate) fn sage_response(bot: &mut BotActor, msg: SageResponse, addr: Addr<Bo
 
 pub(crate) fn tick(bot: &mut BotActor, msg: Tick, addr: Addr<BotActor>) {
     match &bot.role {
-        BotRole::MineAsteroid {} => {
+        BotRole::MineAsteroid {
+            planet,
+            mine_item,
+            resource,
+        } => {
             let (fleet_id, FleetWithState(fleet, _)) = bot.fleet;
             let fleet = (fleet_id, fleet);
 
@@ -128,9 +143,9 @@ pub(crate) fn tick(bot: &mut BotActor, msg: Tick, addr: Addr<BotActor>) {
                                 bot.operation = Some(operation);
                             }
                             autoplay::IdleActions::MineAsteroid => {
-                                let planet = bot.planet.0;
-                                let mine_item = bot.mine_item.0;
-                                let resource = bot.resource.0;
+                                let planet = planet.0;
+                                let mine_item = mine_item.0;
+                                let resource = resource.0;
 
                                 bot.addr_sage.do_send(SageAction::StartMining(
                                     fleet, mine_item, resource, planet, sector, addr,
@@ -149,18 +164,18 @@ pub(crate) fn tick(bot: &mut BotActor, msg: Tick, addr: Addr<BotActor>) {
                         log::info!("{:#?}", &mining_ops);
 
                         if mining_ops.timer.finished() {
-                            let planet = bot.planet.0;
-                            let mine_item = bot.mine_item.0;
-                            let mine_item_mint = bot.mine_item.1.mint;
-                            let resource = bot.resource.0;
-                            let sector = bot.planet.1.sector;
+                            let planet_id = planet.0;
+                            let mine_item_id = mine_item.0;
+                            let mine_item_mint = mine_item.1.mint;
+                            let resource = resource.0;
+                            let sector = planet.1.sector;
 
                             bot.addr_sage.do_send(SageAction::StopMining(
                                 fleet,
-                                mine_item,
+                                mine_item_id,
                                 mine_item_mint,
                                 resource,
-                                planet,
+                                planet_id,
                                 sector,
                                 addr,
                             ));
@@ -316,23 +331,26 @@ fn autoplay_mine_asteroid(
     bot: &BotActor,
     mine_asteroid: &MineAsteroid,
     clock: &Clock,
+    planet: &(Pubkey, Planet),
+    mine_item: &(Pubkey, MineItem),
+    resource: &(Pubkey, Resource),
 ) -> MiningOps {
     let (_, FleetWithState(fleet, _)) = &bot.fleet;
-    let planet = &bot.planet.1;
-    let mine_item = &bot.mine_item.1;
-    let resource = &bot.resource.1;
+    // let planet = &bot.planet.1;
+    // let mine_item = &bot.mine_item.1;
+    // let resource = &bot.resource.1;
 
-    let mining_location = planet.name();
-    let currently_mining = mine_item.name();
+    let mining_location = planet.1.name();
+    let currently_mining = mine_item.1.name();
 
-    let mining_rate = calc::asteroid_mining_emission_rate(&fleet.stats, mine_item, resource);
+    let mining_rate = calc::asteroid_mining_emission_rate(&fleet.stats, &mine_item.1, &resource.1);
 
     let cargo_space = fleet.stats.cargo_stats.cargo_capacity;
 
     let mining_duration = calc::asteroid_mining_resource_extraction_duration(
         &fleet.stats,
-        mine_item,
-        resource,
+        &mine_item.1,
+        &resource.1,
         cargo_space,
     );
 
@@ -355,8 +373,9 @@ fn autoplay_mine_asteroid(
 fn autoplay_starbase_loading(
     bot: &BotActor,
     starbase_loading_bay: &StarbaseLoadingBay,
+    mine_item: &(Pubkey, MineItem),
 ) -> StarbaseLoadingBayOps {
-    let mine_item_mint = &bot.mine_item.1.mint;
+    let mine_item_mint = mine_item.1.mint;
 
     let cargo_withdraw_amount = bot
         .fleet_cargo_hold
@@ -376,7 +395,7 @@ fn autoplay_starbase_loading(
         .unwrap_or(0 as u64);
 
     let next_action = if cargo_withdraw_amount > 0 {
-        StarbaseActions::CargoWithdraw(*mine_item_mint, cargo_withdraw_amount)
+        StarbaseActions::CargoWithdraw(mine_item_mint, cargo_withdraw_amount)
     } else {
         match &bot.operation {
             Some(BotOps::StarbaseLoadingBay(starbase_loading_bay_ops)) => {
