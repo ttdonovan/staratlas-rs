@@ -66,7 +66,7 @@ async fn main() -> Result<()> {
 
         // create a new bot actor
         let bot_addr = actors::BotActor::new(
-            (fleet_id, fleet_with_state.fleet),
+            (fleet_id, fleet_with_state.clone()),
             planet,
             mine_item,
             resource,
@@ -75,27 +75,17 @@ async fn main() -> Result<()> {
         )
         .start();
 
-        // warm-up the bot actor
-        {
-            sage_addr
-                .send(actors::SubscribeClockTime(bot_addr.clone().recipient()))
-                .await?;
-
-            sage_addr
-                .send(actors::SageRequest::Fleet(fleet_id, bot_addr.clone()))
-                .await?;
-        }
+        // subscribe to the clock time
+        sage_addr
+            .send(actors::SubscribeClockTime(bot_addr.clone().recipient()))
+            .await?;
 
         bot_addrs.push(bot_addr);
-        fleets.push((fleet_id, fleet_with_state.fleet));
+        fleets.push((fleet_id, fleet_with_state.0));
     }
 
-    // request the current clock time
+    // request the current clock time to kick-off the bot actors
     sage_addr.send(actors::ClockTime).await?;
-
-    // wait a few seconds as bot actors warm-up and initalize state
-    // FIXME: if not waiting long enough, the bot actors will panic
-    tokio::time::sleep(time::Duration::from_secs(5)).await;
 
     let mut interval = time::interval(time::Duration::from_secs(10));
     let mut delta = time::Instant::now();

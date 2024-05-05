@@ -3,36 +3,33 @@ use super::*;
 use std::sync::{Arc, Mutex};
 
 mod autoplay;
-pub use autoplay::BotOps;
+pub use autoplay::*;
 
-mod tick;
-pub use tick::*;
-
-mod response;
+mod roles;
+pub use roles::*;
 
 pub struct BotActor {
-    fleet: (Pubkey, Fleet),
+    db: Arc<Mutex<db::MinebotDB>>,
+    fleet: (Pubkey, FleetWithState),
+    clock: Option<Clock>,
+    pub(crate) operation: Option<BotOps>,
+    pub(crate) addr_sage: Addr<SageBasedActor>,
+    role: BotRole,
+
+    // mining related...
+    // pub(crate) fleet: (Pubkey, FleetWithState),
     pub(crate) planet: (Pubkey, Planet),
     pub(crate) mine_item: (Pubkey, MineItem),
     pub(crate) resource: (Pubkey, Resource),
-
-    // pub(crate) fleet: Option<Fleet>,
-    pub(crate) fleet_state: Option<FleetState>,
-
     pub(crate) fleet_cargo_hold: Vec<(String, u64)>,
     pub(crate) fleet_fuel_tank: Vec<(String, u64)>,
     pub(crate) fleet_ammo_bank: Vec<(String, u64)>,
     pub(crate) fleet_food_cargo: Vec<(String, u64)>,
-
-    clock: Option<Clock>,
-    pub(crate) addr_sage: Addr<SageBasedActor>,
-    pub(crate) operation: Option<autoplay::BotOps>,
-    db: Arc<Mutex<db::MinebotDB>>,
 }
 
 impl BotActor {
     pub fn new(
-        fleet: (Pubkey, Fleet),
+        fleet: (Pubkey, FleetWithState),
         planet: (Pubkey, Planet),
         mine_item: (Pubkey, MineItem),
         resource: (Pubkey, Resource),
@@ -40,11 +37,11 @@ impl BotActor {
         db: Arc<Mutex<db::MinebotDB>>,
     ) -> Self {
         Self {
+            role: BotRole::MineAsteroid {},
             fleet,
             planet,
             mine_item,
             resource,
-            fleet_state: None,
             fleet_cargo_hold: vec![],
             fleet_fuel_tank: vec![],
             fleet_ammo_bank: vec![],
@@ -54,6 +51,13 @@ impl BotActor {
             operation: None,
             db,
         }
+    }
+}
+
+impl BotActor {
+    pub fn fleet_state(&self) -> &FleetState {
+        let (_, FleetWithState(_, state)) = &self.fleet;
+        state
     }
 }
 
@@ -82,17 +86,59 @@ impl Handler<ClockTimeUpdate> for BotActor {
     type Result = ();
 
     fn handle(&mut self, msg: ClockTimeUpdate, _: &mut Context<Self>) {
-        let clock = msg.0;
-
-        match &self.fleet_state {
-            Some(FleetState::MineAsteroid(mine_asteroid)) => {
-                let mining_ops = self.autoplay_mine_asteroid(&mine_asteroid, &clock);
-                let operation = autoplay::BotOps::Mining(mining_ops);
-                self.operation = Some(operation);
+        match &self.role {
+            BotRole::MineAsteroid {} => {
+                roles::mine_asteroid::clock_time_update(self, msg);
             }
-            _ => {}
+            _ => todo!(),
+        }
+    }
+}
+
+impl Handler<SageResponse> for BotActor {
+    type Result = ();
+
+    fn handle(&mut self, msg: SageResponse, ctx: &mut Context<Self>) {
+        match &self.role {
+            BotRole::MineAsteroid {} => {
+                let addr = ctx.address();
+                roles::mine_asteroid::sage_response(self, msg, addr);
+            }
+            _ => todo!(),
+        }
+    }
+}
+
+#[derive(Message)]
+#[rtype(result = "()")]
+pub struct Tick(pub tokio::time::Duration);
+
+impl Handler<Tick> for BotActor {
+    type Result = ();
+
+    fn handle(&mut self, msg: Tick, ctx: &mut Context<Self>) {
+        // log::info!("Tick {:?}", msg.0);
+
+        {
+            if let (Some(db), Some(data)) = (
+                self.db.lock().ok(),
+                serde_json::to_string(&self.operation).ok(),
+            ) {
+                db.conn
+                    .execute(
+                        "INSERT OR REPLACE INTO bot_ops (pubkey, data) VALUES (?1, ?2)",
+                        rusqlite::params![self.fleet.0.to_string(), data],
+                    )
+                    .ok();
+            }
         }
 
-        self.clock = Some(clock);
+        match &self.role {
+            BotRole::MineAsteroid {} => {
+                let addr = ctx.address();
+                roles::mine_asteroid::tick(self, msg, addr);
+            }
+            _ => todo!(),
+        }
     }
 }

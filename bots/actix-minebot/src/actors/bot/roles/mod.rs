@@ -1,0 +1,18 @@
+use super::*;
+
+pub(crate) mod mine_asteroid;
+
+pub enum BotRole {
+    MineAsteroid {
+        // pub(crate) planet: (Pubkey, Planet),
+        // pub(crate) mine_item: (Pubkey, MineItem),
+        // pub(crate) resource: (Pubkey, Resource),
+        // pub(crate) fleet_cargo_hold: Vec<(String, u64)>,
+        // pub(crate) fleet_fuel_tank: Vec<(String, u64)>,
+        // pub(crate) fleet_ammo_bank: Vec<(String, u64)>,
+        // pub(crate) fleet_food_cargo: Vec<(String, u64)>,
+    },
+    CargoTransport {
+        // TODO...
+    },
+}

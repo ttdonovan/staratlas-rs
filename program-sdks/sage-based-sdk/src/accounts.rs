@@ -28,11 +28,8 @@ pub use resource::*;
 
 pub mod types;
 
-#[derive(Debug)]
-pub struct FleetWithState {
-    pub fleet: Fleet,
-    pub state: FleetState,
-}
+#[derive(Debug, Clone)]
+pub struct FleetWithState(pub Fleet, pub FleetState);
 
 impl borsh::de::BorshDeserialize for FleetWithState {
     fn deserialize_reader<R: Read>(reader: &mut R) -> borsh::io::Result<Self> {
@@ -78,6 +75,6 @@ impl borsh::de::BorshDeserialize for FleetWithState {
             }
         };
 
-        Ok(FleetWithState { fleet, state })
+        Ok(FleetWithState(fleet, state))
     }
 }
