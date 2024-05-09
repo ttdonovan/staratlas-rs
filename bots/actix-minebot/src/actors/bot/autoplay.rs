@@ -8,6 +8,7 @@ pub enum BotOps {
     Mining(MiningOps),
     StarbaseLoadingBay(StarbaseLoadingBayOps),
     TxsSageBased(TxsSageBasedOps),
+    Warp(WarpOps),
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -34,12 +35,19 @@ pub(crate) struct MiningOps {
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
+pub(crate) struct WarpOps {
+    pub(crate) sector: [i64; 2],
+    pub(crate) timer: timers::Timer,
+}
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) struct TxsSageBasedOps {
     pub(crate) stopwatch: timers::Stopwatch,
 }
 
 #[derive(Debug, Clone, Deserialize, Serialize)]
 pub(crate) enum StarbaseActions {
+    IdleHangar,
     CargoDeposit(Pubkey, Pubkey, u64), // (CargoPodTo, Mint, Amount)
     CargoWithdraw(Pubkey, u64),        // (Mint, Amount)
     CheckFuelStatus,

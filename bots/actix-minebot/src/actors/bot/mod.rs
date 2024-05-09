@@ -87,7 +87,9 @@ impl Handler<ClockTimeUpdate> for BotActor {
             BotRole::MineAsteroid { .. } => {
                 roles::mine_asteroid::clock_time_update(self, msg);
             }
-            _ => todo!(),
+            BotRole::CargoTransport { .. } => {
+                roles::cargo_transport::clock_time_update(self, msg);
+            }
         }
     }
 }
@@ -96,12 +98,14 @@ impl Handler<SageResponse> for BotActor {
     type Result = ();
 
     fn handle(&mut self, msg: SageResponse, ctx: &mut Context<Self>) {
+        let addr = ctx.address();
         match &self.role {
             BotRole::MineAsteroid { .. } => {
-                let addr = ctx.address();
                 roles::mine_asteroid::sage_response(self, msg, addr);
             }
-            _ => todo!(),
+            BotRole::CargoTransport { .. } => {
+                roles::cargo_transport::sage_response(self, msg, addr);
+            }
         }
     }
 }
@@ -130,12 +134,14 @@ impl Handler<Tick> for BotActor {
             }
         }
 
+        let addr = ctx.address();
         match &self.role {
             BotRole::MineAsteroid { .. } => {
-                let addr = ctx.address();
                 roles::mine_asteroid::tick(self, msg, addr);
             }
-            _ => todo!(),
+            BotRole::CargoTransport { .. } => {
+                roles::cargo_transport::tick(self, msg, addr);
+            }
         }
     }
 }

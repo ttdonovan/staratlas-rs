@@ -24,8 +24,24 @@ pub struct SageBotCfg {
 #[derive(Deserialize)]
 pub struct BotCfg {
     pub fleet_id: String,
-    pub planet_id: String,
-    pub mine_item_id: String,
+    pub role: RoleCfg,
+}
+
+#[derive(Deserialize)]
+pub struct RoleCfg(pub BotRoleArgs);
+
+#[derive(Deserialize)]
+pub enum BotRoleArgs {
+    MineAsteroid {
+        planet_id: String,
+        mine_item_id: String,
+    },
+    CargoTransport {
+        cargo_mint: String,
+        cargo_amount: u64,
+        from_sector: [i64; 2],
+        to_sector: [i64; 2],
+    },
 }
 
 pub fn init_config() -> Result<Config> {

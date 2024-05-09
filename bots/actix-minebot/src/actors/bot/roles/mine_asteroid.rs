@@ -192,6 +192,9 @@ pub(crate) fn tick(bot: &mut BotActor, msg: Tick, addr: Addr<BotActor>) {
                         log::info!("{:#?}", &starbase_loading_bay_ops);
 
                         match starbase_loading_bay_ops.next_action {
+                            autoplay::StarbaseActions::IdleHangar => {
+                                unimplemented!("{:?}", starbase_loading_bay_ops.next_action)
+                            }
                             autoplay::StarbaseActions::CargoDeposit(cargo_pod_to, mint, amount) => {
                                 bot.addr_sage.do_send(SageAction::CargoDeposit(
                                     fleet,
@@ -252,6 +255,7 @@ pub(crate) fn tick(bot: &mut BotActor, msg: Tick, addr: Addr<BotActor>) {
                             }
                         }
                     }
+                    _ => unimplemented!("{:?}", operation),
                 }
             } else {
                 bot.addr_sage.do_send(SageRequest::Fleet(fleet_id, addr));

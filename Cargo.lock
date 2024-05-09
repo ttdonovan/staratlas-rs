@@ -4019,14 +4019,13 @@ name = "sa-sage-cli"
 version = "0.1.0"
 dependencies = [
  "anchor-client 0.29.0",
- "anchor-lang 0.29.0",
  "anyhow",
  "clap 4.5.0",
  "comfy-table",
  "shellexpand",
  "spl-token",
- "staratlas-player-profile-sdk",
- "staratlas-sage-sdk",
+ "staratlas-sage-based-sdk",
+ "tokio",
 ]
 
 [[package]]
