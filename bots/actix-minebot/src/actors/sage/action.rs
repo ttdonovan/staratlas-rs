@@ -24,6 +24,8 @@ pub enum SageAction {
         [i64; 2],
         Addr<BotActor>,
     ), // ((FleetId, Fleet), MineItem, MineItemMint, Resource, Planet, Sector, Addr<Bot>)
+    Warp((Pubkey, Fleet), [i64; 2], Addr<BotActor>),         // ((FleetId, Fleet), Sector, Addr<Bot>
+    WarpExit((Pubkey, Fleet), Addr<BotActor>),               // ((FleetId, Fleet), Addr<Bot>)
 }
 
 impl Handler<SageAction> for SageBasedActor {
@@ -276,6 +278,81 @@ impl Handler<SageAction> for SageBasedActor {
                     };
 
                     addr_bot.do_send(Ping(signature));
+                });
+
+                let actor_future = fut.into_actor(self);
+
+                ctx.spawn(actor_future);
+            }
+            SageAction::Warp(fleet, sector, addr_bot) => {
+                let program = self.client.program(SAGE_ID).unwrap();
+                let payer = self.payer.clone();
+
+                let game_id = self.game_id.clone();
+                let game = self.game.clone();
+
+                let (fleet_id, fleet) = fleet;
+
+                let fut = Box::pin(async move {
+                    let result = SageBasedGameHandler::warp_to_coordinate(
+                        &program,
+                        &payer,
+                        (&game_id, &game),
+                        (&fleet_id, &fleet),
+                        sector,
+                    )
+                    .await;
+
+                    let signature = match result {
+                        Some(Ok(signature)) => Some(signature),
+                        Some(Err(err)) => {
+                            log::error!("{:?}", &err);
+                            None
+                        }
+                        None => {
+                            log::error!("Simulation failed?");
+                            None
+                        }
+                    };
+
+                    addr_bot.do_send(Ping(signature));
+                });
+
+                let actor_future = fut.into_actor(self);
+
+                ctx.spawn(actor_future);
+            }
+            SageAction::WarpExit(fleet, add_bot) => {
+                let program = self.client.program(SAGE_ID).unwrap();
+                let payer = self.payer.clone();
+
+                let game_id = self.game_id.clone();
+                let game = self.game.clone();
+
+                let (fleet_id, fleet) = fleet;
+
+                let fut = Box::pin(async move {
+                    let result = SageBasedGameHandler::warp_ready_to_exit(
+                        &program,
+                        &payer,
+                        (&game_id, &game),
+                        (&fleet_id, &fleet),
+                    )
+                    .await;
+
+                    let signature = match result {
+                        Some(Ok(signature)) => Some(signature),
+                        Some(Err(err)) => {
+                            log::error!("{:?}", &err);
+                            None
+                        }
+                        None => {
+                            log::error!("Simulation failed?");
+                            None
+                        }
+                    };
+
+                    add_bot.do_send(Ping(signature));
                 });
 
                 let actor_future = fut.into_actor(self);

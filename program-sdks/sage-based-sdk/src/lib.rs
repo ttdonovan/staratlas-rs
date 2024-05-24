@@ -23,14 +23,28 @@ mod accounts;
 pub mod addr;
 pub mod calc;
 pub mod derive;
+pub mod filter;
 pub mod ixs;
 pub mod program;
+pub(crate) mod utils;
 
 pub use accounts::*;
 
 const MICRO_LAMPORTS: u64 = 100;
 
 pub struct SageBasedGameHandler {}
+
+// Game
+impl SageBasedGameHandler {
+    pub async fn get_game<C: Deref<Target = impl Signer> + Clone>(
+        program: &Program<C>,
+        game_id: &Pubkey,
+    ) -> Result<(Pubkey, Game), ClientError> {
+        let account = program.account::<state::Game>(*game_id).await?;
+        let game = Game::from(account);
+        Ok((*game_id, game))
+    }
+}
 
 // MineItem
 impl SageBasedGameHandler {
@@ -260,6 +274,32 @@ impl SageBasedGameHandler {
         }
 
         return last_signature;
+    }
+}
+
+// Warp
+impl SageBasedGameHandler {
+    pub async fn warp_to_coordinate<C: Deref<Target = impl Signer> + Clone>(
+        program: &Program<C>,
+        payer: &Keypair,
+        game: (&Pubkey, &Game),
+        fleet: (&Pubkey, &Fleet),
+        sector: [i64; 2],
+    ) -> Option<Result<Signature, ClientError>> {
+        let ix = ixs::warp_to_coordinate(program, game, fleet, sector);
+
+        Self::simulate_and_send_transaction(program, payer, &vec![ix]).await
+    }
+
+    pub async fn warp_ready_to_exit<C: Deref<Target = impl Signer> + Clone>(
+        program: &Program<C>,
+        payer: &Keypair,
+        game: (&Pubkey, &Game),
+        fleet: (&Pubkey, &Fleet),
+    ) -> Option<Result<Signature, ClientError>> {
+        let ix = ixs::warp_ready_to_exit(program, game, fleet);
+
+        Self::simulate_and_send_transaction(program, payer, &vec![ix]).await
     }
 }
 

@@ -6,12 +6,11 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-anchor-client = "0.29"
-anchor-lang = "0.29"
+anchor-client = { version = "0.29", features = ["async"] }
 anyhow = "1.0"
 clap = { version = "4.4", features = ["derive", "env"] }
 comfy-table = "7.1"
 shellexpand = "3.1"
 spl-token = "4.0"
-staratlas-player-profile-sdk = { path = "../../program-sdks/player-profile-sdk" }
-staratlas-sage-sdk = { path = "../../program-sdks/sage-sdk" }
+staratlas-sage-based-sdk = { path = "../../program-sdks/sage-based-sdk" }
+tokio = { version = "1.37", features = ["rt"] }

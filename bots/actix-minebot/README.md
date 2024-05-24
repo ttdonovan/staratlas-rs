@@ -19,6 +19,35 @@ export PROVIDER_WALLET='path/to/id.json'
 cargo run --release -p actix-minebot -- path/to/minebot-config.json
 ```
 
+### Example of Bot Roles
+
+```
+{
+    "fleet_id": "11111111111111111111111111111111111111111111",
+    "role": {
+        "MineAsteroid": {
+            "planet_id": "7jWrQYjfuHyQXVWfMyLireeukSpva99FvCLLxERCvT4U",
+            "mine_item_id": "FpTUZKuviuGaww6ijjXdoeuJtFeEjabEXnzxRYHukhMx"
+        }
+    }
+}
+```
+
+
+```
+{
+    "fleet_id": "11111111111111111111111111111111111111111111",
+    "role": {
+        "CargoTransport": {
+            "cargo_mint": "MASS9GqtJz6ABisAxcUn3FeR4phMqH1XfG6LPKJePog",
+            "cargo_amount": 1000,
+            "from_sector": [42, 35],
+            "to_sector": [40, 30]
+        }
+    }
+}
+```
+
 ## Solana Program Requests
 
 See `sage-based-sdk` for the Solana Program requests (and audit of usage).

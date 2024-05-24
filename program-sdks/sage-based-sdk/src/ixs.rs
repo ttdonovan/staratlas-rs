@@ -423,3 +423,92 @@ pub fn stop_mining_asteroid<C: Deref<Target = impl Signer> + Clone>(
         ],
     )
 }
+
+pub fn warp_to_coordinate<C: Deref<Target = impl Signer> + Clone>(
+    sage_program: &Program<C>,
+    game: (&Pubkey, &Game),
+    fleet: (&Pubkey, &Fleet),
+    coordinate: [i64; 2],
+) -> Instruction {
+    let (game_id, game) = game;
+    let game_state_id = game.game_state;
+    let cargo_stats_definition = game.cargo.stats_definition;
+
+    let (fleet_id, fleet) = fleet;
+    let player_profile = fleet.owner_profile;
+
+    let (profile_faction, _) = addr::profile_faction_address(&player_profile);
+
+    let ata_fleet_fuel = get_associated_token_address(&fleet.fuel_tank, &game.mints.fuel);
+
+    let seq_id = 0;
+    let (fuel_cargo_type, _) =
+        addr::cargo_type_address(&cargo_stats_definition, &game.mints.fuel, seq_id);
+
+    let instr = instruction::WarpToCoordinate {
+        _input: typedefs::WarpToCoordinateInput {
+            key_index: 0,
+            to_sector: coordinate,
+        },
+    };
+
+    Instruction::new_with_bytes(
+        sage_program.id(),
+        &instr.data(),
+        vec![
+            AccountMeta::new(sage_program.payer(), true),
+            AccountMeta::new_readonly(player_profile, false),
+            AccountMeta::new_readonly(profile_faction, false),
+            AccountMeta::new(*fleet_id, false),
+            AccountMeta::new_readonly(*game_id, false),
+            AccountMeta::new_readonly(game_state_id, false),
+            AccountMeta::new(fleet.fuel_tank, false),
+            AccountMeta::new_readonly(fuel_cargo_type, false),
+            AccountMeta::new_readonly(cargo_stats_definition, false),
+            AccountMeta::new(ata_fleet_fuel, false),
+            AccountMeta::new(game.mints.fuel, false),
+            AccountMeta::new_readonly(CARGO_ID, false),
+            AccountMeta::new_readonly(spl_token::id(), false),
+        ],
+    )
+}
+
+pub fn warp_ready_to_exit<C: Deref<Target = impl Signer> + Clone>(
+    sage_program: &Program<C>,
+    game: (&Pubkey, &Game),
+    fleet: (&Pubkey, &Fleet),
+) -> Instruction {
+    let (fleet_id, fleet_acct) = fleet;
+    let (game_id, game) = game;
+
+    let player_profile = fleet_acct.owner_profile;
+
+    let (pilot_user_points, _) =
+        addr::user_points_account_address(&game.points.pilot_xp_category.category, &player_profile);
+    let (council_rank_user_points, _) = addr::user_points_account_address(
+        &game.points.council_rank_xp_category.category,
+        &player_profile,
+    );
+
+    let (progress_config, _) = addr::progression_config_address(game_id);
+
+    let instr = instruction::FleetStateHandler {};
+
+    Instruction::new_with_bytes(
+        sage_program.id(),
+        &instr.data(),
+        vec![
+            AccountMeta::new(*fleet_id, false),
+            AccountMeta::new(pilot_user_points, false),
+            AccountMeta::new_readonly(game.points.pilot_xp_category.category, false),
+            AccountMeta::new_readonly(game.points.pilot_xp_category.modifier, false),
+            AccountMeta::new(council_rank_user_points, false),
+            AccountMeta::new(game.points.council_rank_xp_category.category, false),
+            AccountMeta::new_readonly(game.points.council_rank_xp_category.modifier, false),
+            AccountMeta::new_readonly(player_profile, false),
+            AccountMeta::new_readonly(progress_config, false),
+            AccountMeta::new_readonly(*game_id, false),
+            AccountMeta::new_readonly(POINTS_ID, false),
+        ],
+    )
+}

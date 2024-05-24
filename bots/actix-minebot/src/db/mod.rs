@@ -11,6 +11,7 @@ impl MinebotDB {
         conn.execute(
             "CREATE TABLE IF NOT EXISTS bot_ops (
                 pubkey TEXT PRIMARY KEY,
+                state TEXT NOT NULL,
                 data TEXT NOT NULL
             )",
             (),

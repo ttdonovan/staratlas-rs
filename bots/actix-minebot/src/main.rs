@@ -6,7 +6,7 @@ use anchor_client::{
 use color_eyre::Result;
 use tokio::time;
 
-use staratlas_sage_based_sdk::{program::SAGE_ID, state, Game, SageBasedGameHandler};
+use staratlas_sage_based_sdk::{addr, program::SAGE_ID, state, Game, SageBasedGameHandler};
 
 use std::str::FromStr;
 use std::sync::{Arc, Mutex};
@@ -52,57 +52,82 @@ async fn main() -> Result<()> {
 
     for bot_cfg in &cfg.sage_bot_cfg.bots {
         let fleet_id = Pubkey::from_str(&bot_cfg.fleet_id).unwrap();
-        let planet_id = Pubkey::from_str(&bot_cfg.planet_id).unwrap();
-        let mine_item_id = Pubkey::from_str(&bot_cfg.mine_item_id).unwrap();
 
         let (fleet_id, fleet_with_state) =
             SageBasedGameHandler::get_fleet_with_state(&program, &fleet_id).await?;
 
-        let mine_item = SageBasedGameHandler::get_mine_item(&program, &mine_item_id).await?;
-        let planet = SageBasedGameHandler::get_planet(&program, &planet_id).await?;
-        let resource =
-            SageBasedGameHandler::find_resource(&program, &game_id, &planet_id, &mine_item_id)
+        // create a role assignment for the bot
+        let role = match &bot_cfg.role.0 {
+            config::BotRoleArgs::MineAsteroid {
+                planet_id,
+                mine_item_id,
+            } => {
+                let planet_id = Pubkey::from_str(planet_id).unwrap();
+                let mine_item_id = Pubkey::from_str(mine_item_id).unwrap();
+
+                let mine_item =
+                    SageBasedGameHandler::get_mine_item(&program, &mine_item_id).await?;
+                let planet = SageBasedGameHandler::get_planet(&program, &planet_id).await?;
+                let resource = SageBasedGameHandler::find_resource(
+                    &program,
+                    &game_id,
+                    &planet_id,
+                    &mine_item_id,
+                )
                 .await?;
+
+                actors::BotRole::MineAsteroid {
+                    planet,
+                    mine_item,
+                    resource,
+                }
+            }
+            config::BotRoleArgs::CargoTransport {
+                cargo_mint,
+                cargo_amount,
+                from_sector,
+                to_sector,
+            } => {
+                let (from_starbase, _) = addr::starbase_address(&game_id, *from_sector);
+                let (to_starbase, _) = addr::starbase_address(&game_id, *to_sector);
+
+                actors::BotRole::CargoTransport {
+                    cargo_mint: Pubkey::from_str(cargo_mint).unwrap(),
+                    cargo_amount: *cargo_amount,
+                    from_sector: *from_sector,
+                    from_starbase,
+                    to_sector: *to_sector,
+                    to_starbase,
+                }
+            }
+        };
 
         // create a new bot actor
         let bot_addr = actors::BotActor::new(
-            (fleet_id, fleet_with_state.fleet),
-            planet,
-            mine_item,
-            resource,
-            sage_addr.clone(),
             db.clone(),
+            sage_addr.clone(),
+            (fleet_id, fleet_with_state.clone()),
+            role,
         )
         .start();
 
-        // warm-up the bot actor
-        {
-            sage_addr
-                .send(actors::SubscribeClockTime(bot_addr.clone().recipient()))
-                .await?;
-
-            sage_addr
-                .send(actors::SageRequest::Fleet(fleet_id, bot_addr.clone()))
-                .await?;
-        }
+        // subscribe to the clock time
+        sage_addr
+            .send(actors::SubscribeClockTime(bot_addr.clone().recipient()))
+            .await?;
 
         bot_addrs.push(bot_addr);
-        fleets.push((fleet_id, fleet_with_state.fleet));
+        fleets.push((fleet_id, fleet_with_state.0));
     }
 
-    // request the current clock time
+    // request the current clock time to kick-off the bot actors
     sage_addr.send(actors::ClockTime).await?;
-
-    // wait a few seconds as bot actors warm-up and initalize state
-    // FIXME: if not waiting long enough, the bot actors will panic
-    tokio::time::sleep(time::Duration::from_secs(5)).await;
 
     let mut interval = time::interval(time::Duration::from_secs(10));
     let mut delta = time::Instant::now();
 
-    let terminal = &mut term::init()?;
-
     let app = app::init(db, (game_id, game), fleets);
+    let terminal = &mut term::init()?;
     let mut tui = tui::init(app);
 
     loop {

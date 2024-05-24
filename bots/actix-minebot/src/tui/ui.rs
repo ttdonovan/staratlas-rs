@@ -83,21 +83,22 @@ impl FleetsUI {
     }
 }
 
-pub(crate) struct BotOpsUI(Vec<(String, Option<actors::BotOps>, BotOpsData)>);
+pub(crate) struct BotOpsUI(Vec<(String, String, Option<actors::BotOps>, BotOpsData)>);
 
 #[derive(Default)]
 pub(crate) struct BotOpsData {
-    mining_location: String,
-    currently_mining: String,
     timer: Option<timers::Timer>,
     stopwatch: Option<timers::Stopwatch>,
+    cooldown: Option<timers::Timer>,
 }
 
-impl From<Vec<(String, Option<actors::BotOps>)>> for BotOpsUI {
-    fn from(bot_ops: Vec<(String, Option<actors::BotOps>)>) -> Self {
+impl From<Vec<(String, String, Option<actors::BotOps>)>> for BotOpsUI {
+    fn from(bot_ops: Vec<(String, String, Option<actors::BotOps>)>) -> Self {
         let bot_ops = bot_ops
             .into_iter()
-            .map(|(pubkey_str, operation)| (pubkey_str, operation, BotOpsData::default()))
+            .map(|(pubkey_str, state_str, operation)| {
+                (pubkey_str, state_str, operation, BotOpsData::default())
+            })
             .collect();
 
         BotOpsUI(bot_ops)
@@ -106,52 +107,59 @@ impl From<Vec<(String, Option<actors::BotOps>)>> for BotOpsUI {
 
 impl BotOpsUI {
     pub fn tick(&mut self, dt: Duration) {
-        for (_, _, data) in self.0.iter_mut() {
-            if let Some(stopwatch) = &mut data.stopwatch {
-                stopwatch.tick(dt);
-            }
-
-            if let Some(timer) = &mut data.timer {
-                timer.tick(dt);
-            }
+        for (_, _, _, data) in self.0.iter_mut() {
+            data.timer.as_mut().map(|timer| timer.tick(dt));
+            data.stopwatch.as_mut().map(|stopwatch| stopwatch.tick(dt));
+            data.cooldown.as_mut().map(|cooldown| cooldown.tick(dt));
         }
     }
 
-    pub fn update(&mut self, ops: &[(String, Option<actors::BotOps>)]) {
-        for (pubkey_str, operation) in ops {
-            let entry = self.0.iter_mut().find(|(key, _, _)| key == pubkey_str);
+    pub fn update(&mut self, ops: &[(String, String, Option<actors::BotOps>)]) {
+        for (pubkey_str, state_str, operation) in ops {
+            let entry = self.0.iter_mut().find(|(key, _, _, _)| key == pubkey_str);
 
             match entry {
-                Some((_, ops, data)) => {
+                Some((_, state, ops, data)) => {
                     match operation {
                         Some(actors::BotOps::Idle(o)) => {
-                            data.stopwatch = Some(o.stopwatch);
                             data.timer = None;
+                            data.stopwatch = Some(o.stopwatch);
+                            data.cooldown = None;
                         }
                         Some(actors::BotOps::Mining(o)) => {
-                            data.mining_location = o.mining_location.to_string();
-                            data.currently_mining = o.currently_mining.to_string();
                             data.timer = Some(o.timer);
+                            data.stopwatch = None;
+                            data.cooldown = None;
+                        }
+                        Some(actors::BotOps::Warp(o)) => {
+                            data.stopwatch = None;
+                            data.timer = Some(o.timer);
+                            data.cooldown = Some(o.cooldown);
                         }
                         Some(actors::BotOps::StarbaseLoadingBay(o)) => {
-                            data.stopwatch = Some(o.stopwatch);
                             data.timer = None;
+                            data.stopwatch = Some(o.stopwatch);
+                            data.cooldown = None;
                         }
                         Some(actors::BotOps::TxsSageBased(o)) => {
-                            data.stopwatch = Some(o.stopwatch);
                             data.timer = None;
+                            data.stopwatch = Some(o.stopwatch);
+                            data.cooldown = None;
                         }
                         _ => {
                             data.stopwatch = None;
                             data.timer = None;
+                            data.cooldown = None;
                         }
                     }
 
+                    *state = state_str.to_string();
                     *ops = operation.clone();
                 }
                 _ => {
                     self.0.push((
                         pubkey_str.to_string(),
+                        state_str.to_string(),
                         operation.clone(),
                         BotOpsData::default(),
                     ));
@@ -164,21 +172,21 @@ impl BotOpsUI {
         let mut table = Table::new();
         table.set_header(vec![
             "Fleet ID",
-            "Mining Location",
-            "Currently Mining",
+            "Fleet State",
             "dbg!",
             "Timer",
             "Stopwatch",
+            "Cooldown",
         ]);
 
-        for (pubkey_str, bot_ops, data) in self.0.iter() {
+        for (pubkey_str, state_str, bot_ops, data) in self.0.iter() {
             table.add_row(vec![
                 format!("{}", ui_pubkey_str(pubkey_str)),
-                format!("{}", data.mining_location),
-                format!("{}", data.currently_mining),
+                format!("{}", state_str),
                 format!("{:#?}", bot_ops),
                 format!("{:#?}", data.timer),
                 format!("{:#?}", data.stopwatch),
+                format!("{:#?}", data.cooldown),
             ]);
         }
 

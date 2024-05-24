@@ -4019,14 +4019,13 @@ name = "sa-sage-cli"
 version = "0.1.0"
 dependencies = [
  "anchor-client 0.29.0",
- "anchor-lang 0.29.0",
  "anyhow",
  "clap 4.5.0",
  "comfy-table",
  "shellexpand",
  "spl-token",
- "staratlas-player-profile-sdk",
- "staratlas-sage-sdk",
+ "staratlas-sage-based-sdk",
+ "tokio",
 ]
 
 [[package]]
@@ -4271,28 +4270,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "f40ca3c46823713e0d4209592e8d6e826aa57e928f09752619fc696c499637f6"
 dependencies = [
  "lazy_static",
-]
-
-[[package]]
-name = "shared-sage-cli"
-version = "0.1.0"
-dependencies = [
- "anchor-client 0.29.0",
- "anyhow",
- "clap 4.5.0",
- "shellexpand",
-]
-
-[[package]]
-name = "shared-sage-context"
-version = "0.1.0"
-dependencies = [
- "anchor-client 0.29.0",
- "anyhow",
- "spl-associated-token-account 2.3.0",
- "spl-token",
- "staratlas-player-profile-sdk",
- "staratlas-sage-sdk",
 ]
 
 [[package]]
@@ -5706,22 +5683,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "staratlas-sage-sdk"
-version = "0.1.0"
-dependencies = [
- "anchor-client 0.29.0",
- "anchor-lang 0.29.0",
- "anyhow",
- "borsh 1.4.0",
- "solana-account-decoder",
- "spl-associated-token-account 2.3.0",
- "spl-token",
- "staratlas-cargo",
- "staratlas-points",
- "staratlas-sage",
-]
-
-[[package]]
 name = "staratlas-score"
 version = "0.1.0"
 dependencies = [
@@ -6210,25 +6171,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3528ecfd12c466c6f163363caf2d02a71161dd5e1cc6ae7b34207ea2d42d81ed"
 
 [[package]]
-name = "tui-cargobot"
-version = "0.1.0"
-dependencies = [
- "anchor-lang 0.29.0",
- "anyhow",
- "color-eyre",
- "crossterm",
- "futures",
- "itertools 0.12.1",
- "log",
- "ratatui",
- "shared-sage-cli",
- "shared-sage-context",
- "shared-time",
- "tokio",
- "tui-logger",
-]
-
-[[package]]
 name = "tui-logger"
 version = "0.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6240,27 +6182,6 @@ dependencies = [
  "log",
  "parking_lot",
  "ratatui",
-]
-
-[[package]]
-name = "tui-minebot"
-version = "0.1.0"
-dependencies = [
- "anchor-client 0.29.0",
- "anyhow",
- "color-eyre",
- "comfy-table",
- "crossterm",
- "futures",
- "itertools 0.12.1",
- "log",
- "ratatui",
- "shared-sage-cli",
- "shared-sage-context",
- "shared-time",
- "strum 0.26.1",
- "tokio",
- "tui-logger",
 ]
 
 [[package]]

@@ -1,5 +1,7 @@
 use anchor_client::anchor_lang::prelude::Pubkey;
 
+use crate::utils::str_to_u8_32;
+
 use std::str::FromStr;
 
 use staratlas_cargo::ID as CARGO_ID;
@@ -15,6 +17,18 @@ pub fn cargo_type_address(stats_definition: &Pubkey, mint: &Pubkey, seq_id: u16)
             mint.as_ref(),
         ],
         &CARGO_ID,
+    )
+}
+
+pub fn fleet_address(game: &Pubkey, player_profile: &Pubkey, fleet_label: &str) -> (Pubkey, u8) {
+    Pubkey::find_program_address(
+        &[
+            b"Fleet",
+            game.as_ref(),
+            player_profile.as_ref(),
+            &str_to_u8_32(fleet_label),
+        ],
+        &SAGE_ID,
     )
 }
 

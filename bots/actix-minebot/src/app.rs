@@ -76,13 +76,14 @@ impl App {
         // query db for new bot operations
         if self.db_timer.finished() {
             if let Some(db) = self.db.lock().ok() {
-                let mut stmt = db.conn.prepare("SELECT pubkey, data FROM bot_ops")?;
+                let mut stmt = db.conn.prepare("SELECT pubkey, state, data FROM bot_ops")?;
                 let bot_ops_iter = stmt.query_map([], |row| {
                     let pubkey: String = row.get(0)?;
-                    let data: String = row.get(1)?;
+                    let state: String = row.get(1)?;
+                    let data: String = row.get(2)?;
 
                     let operation: Option<actors::BotOps> = serde_json::from_str(&data).ok();
-                    Ok((pubkey, operation))
+                    Ok((pubkey, state, operation))
                 })?;
 
                 let bot_ops: Vec<_> = bot_ops_iter.filter_map(Result::ok).collect();
