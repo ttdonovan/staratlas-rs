@@ -8,27 +8,29 @@ https://solscan.io/token/CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
 Crew Creator:
 https://solscan.io/account/CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj
 
+## Usage
+
+```
+$ cat tmp/crew.txt
+4208
+4433
+5779
+
+$ cat ./tmp/crew.txt | cargo run -p crew-utils --example galaxy > ./tmp/crew.csv
+```
+
 ## Development
 
 ### DuckDB
 
 https://duckdb.org/
 
-### SPL-Token
+Example usage with `tmp/crew.csv`:
 
 ```
-solana --version
-solana-cli 1.18.18 (src:83047136; feat:4215500110, client:SolanaLabs)
-```
+summarize select * from 'tmp/crew.csv';
 
-```
-spl-token --version
-spl-token-cli 3.4.1
-```
+select * from 'tmp/crew.csv' where neuroticism > 0.8;
 
-```
-solana config set --keypair ./path/to/key.json
-spl-token accounts --owner ./path/to/key.json
-
-spl-token account-info CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
+select id, rarity, name, faction, sex from 'tmp/crew.csv';
 ```
