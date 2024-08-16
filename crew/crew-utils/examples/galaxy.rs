@@ -161,6 +161,9 @@ impl From<Crew> for CsvRow {
 
 /*
     Usgae:
+    $ cd crew
+    $ pwd .
+    /path/to/staratlas-rs/crew
 
     $ cat tmp/crew.txt
     4208
