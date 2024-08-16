@@ -16,6 +16,7 @@ enum Faction {
     MUD,
     ONI,
     Ustur,
+    Unaligned,
 }
 
 #[derive(Debug, serde::Deserialize, serde::Serialize)]
