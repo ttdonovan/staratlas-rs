@@ -160,7 +160,8 @@ impl From<Crew> for CsvRow {
 }
 
 /*
-    Usgae:
+    Usage:
+
     $ cd crew
     $ pwd .
     /path/to/staratlas-rs/crew
