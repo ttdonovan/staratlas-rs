@@ -3,7 +3,7 @@ resolver = "2"
 
 members = [
     "bots/*",
-    "clis/*",
+    "clis/*", "crew/crew-utils",
     "galaxy",
     "program-sdks/*",
     "programs/*",
@@ -11,5 +11,5 @@ members = [
 ]
 
 exclude = [
-    "_archived", "crates",
+    "_archived", "crates", "crew"
 ]

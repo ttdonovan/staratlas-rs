@@ -77,6 +77,10 @@ Rust data types defined/built from galaxy.staratlas.com/nfts JSON.
 
 See [galaxy/README.md](galaxy/README.md) for more details.
 
+## Crew
+
+All things "crew" related.
+
 ## CLIs
 
 ### sa-market-cli: Star Atlas Marketplace CLI

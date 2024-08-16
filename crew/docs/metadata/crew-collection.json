@@ -1,0 +1,16 @@
+{
+    "name": "Crew Collection",
+    "symbol": "SACREW",
+    "description": "Star Atlas crew is a collection of 7.5 million unique characters from a diverse cast of species that come with their own personalities and rolled aptitudes. Simply put, they're essential to Star Atlas and the in-game economy. These crew members offer unmatched utility, such as acting as your game avatar, slotting in your ship's Crew as NPCs, playing an essential role in our future mobile app, being used in the game as crafting personnel, and, of course, representing yourself as your PFP. Explore the inhabitants of the Galia Expanse and assemble the ultimate team across six tiers of rarity ranks. Join thousands of other players in exploring the Star Atlas universe today!",
+    "mint": "CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB",
+    "image": "https://cdn.staratlas.com/crew.png",
+    "properties": {
+        "files": [
+            {
+                "uri": "https://cdn.staratlas.com/crew.png",
+                "type": "image/png"
+            }
+        ],
+        "category": "image"
+    }
+}

@@ -1,0 +1,28 @@
+{
+    "key": 4,
+    "updateAuthority": "CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj",
+    "mint": "CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB",
+    "data": {
+      "name": "Star Atlas Crew",
+      "symbol": "SACREW",
+      "uri": "https://galaxy.staratlas.com/crew-collection",
+      "sellerFeeBasisPoints": 450,
+      "creators": [
+        {
+          "address": "CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj",
+          "verified": 1,
+          "share": 100
+        }
+      ]
+    },
+    "primarySaleHappened": 0,
+    "isMutable": 1,
+    "editionNonce": 255,
+    "tokenStandard": 0,
+    "type": "metaplex",
+    "edition": {
+      "type": "MasterEdition",
+      "maxSupply": "0",
+      "supply": "0"
+    }
+  }

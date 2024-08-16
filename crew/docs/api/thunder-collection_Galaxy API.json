@@ -1,0 +1,62 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Galaxy API",
+    "collectionId": "3033634b-0846-4b01-b20b-6f97cf3647b5",
+    "dateExported": "2024-08-16T17:27:21.775Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "6a424e19-d12d-4eec-a4da-4a0e40332a7a",
+            "colId": "3033634b-0846-4b01-b20b-6f97cf3647b5",
+            "containerId": "",
+            "name": "Crew: Inventory from Wallet",
+            "url": "https://galaxy.staratlas.com/crew/inventory/2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-16T17:21:28.329Z",
+            "modified": "2024-08-16T17:27:00.133Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "page",
+                    "value": "100",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "74fff34e-f589-432b-9018-bc4769753671",
+            "colId": "3033634b-0846-4b01-b20b-6f97cf3647b5",
+            "containerId": "",
+            "name": "Crew: Find By MintOffset",
+            "url": "https://galaxy.staratlas.com/crew?mintOffset=4433",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-16T17:22:16.117Z",
+            "modified": "2024-08-16T17:23:29.723Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "mintOffset",
+                    "value": "4433",
+                    "isPath": false
+                }
+            ]
+        },
+        {
+            "_id": "208b5b92-fbcd-4a8f-aa46-e746a1d0035c",
+            "colId": "3033634b-0846-4b01-b20b-6f97cf3647b5",
+            "containerId": "",
+            "name": "Crew: Find By Hash",
+            "url": "https://galaxy.staratlas.com/crew/AFERAAA4OTI4ODM1NGFlMzQ2YWE4AAACAAEAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAA",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-08-16T17:24:00.975Z",
+            "modified": "2024-08-16T17:24:37.414Z",
+            "headers": []
+        }
+    ],
+    "ref": "c8d7HA_8CAETrbjkx_MA1dfzuvKzXqn2lcLhxhoWhodNcDLpN-Sn_rW5zxc9AE5Ynu6UDjcNOuYrtPOKAsQ54A"
+}

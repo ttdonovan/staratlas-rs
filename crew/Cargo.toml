@@ -1,0 +1,5 @@
+[workspace]
+members = [
+    "crew-utils",
+]
+resolver = "2"
