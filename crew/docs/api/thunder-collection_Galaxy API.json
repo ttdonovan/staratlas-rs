@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "Galaxy API",
     "collectionId": "3033634b-0846-4b01-b20b-6f97cf3647b5",
-    "dateExported": "2024-08-16T17:27:21.775Z",
+    "dateExported": "2024-08-21T03:19:46.290Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -15,7 +15,7 @@
             "method": "GET",
             "sortNum": 10000,
             "created": "2024-08-16T17:21:28.329Z",
-            "modified": "2024-08-16T17:27:00.133Z",
+            "modified": "2024-08-16T22:20:07.011Z",
             "headers": [],
             "params": [
                 {
@@ -56,7 +56,19 @@
             "created": "2024-08-16T17:24:00.975Z",
             "modified": "2024-08-16T17:24:37.414Z",
             "headers": []
+        },
+        {
+            "_id": "ffbace7e-d745-4e88-946b-df57f1717c3a",
+            "colId": "3033634b-0846-4b01-b20b-6f97cf3647b5",
+            "containerId": "",
+            "name": "Crew: Find By MintOffset (Detailed)",
+            "url": "https://galaxy.staratlas.com/crew/mintoffset/4433",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-08-21T03:19:00.510Z",
+            "modified": "2024-08-21T03:19:26.430Z",
+            "headers": []
         }
     ],
-    "ref": "c8d7HA_8CAETrbjkx_MA1dfzuvKzXqn2lcLhxhoWhodNcDLpN-Sn_rW5zxc9AE5Ynu6UDjcNOuYrtPOKAsQ54A"
+    "ref": "c8d7HA_8CAETrbjkx_MA1Rv6VCPC1encfd2_URyHBv--IgeWr4em9Rdb4A7-ANus-eXWZqmULHAWgGaeVJgGag"
 }

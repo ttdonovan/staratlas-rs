@@ -10,6 +10,8 @@
 * docs.rs/mpl-token-metadata
 * docs.rs/metaplex
 
+* https://developers.metaplex.com/core/fetch
+
 ## APIs
 
 ```
@@ -25,3 +27,7 @@ https://galaxy.staratlas.com/crew?mintOffset=4433
 * Crew program: https://solana.fm/address/CREWiq8qbxvo4SKkAFpVnc6t7CRQC4tAAscsNAENXgrJ
     * See Acccounts `UserRedemption`
     * Nevermind, account is closed and rent is refunded
+
+## Star Atlas
+
+* https://github.com/Swift42/staratlascrew

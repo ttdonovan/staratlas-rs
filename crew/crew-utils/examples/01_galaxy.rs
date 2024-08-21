@@ -171,7 +171,7 @@ impl From<Crew> for CsvRow {
     4433
     5779
 
-    $ cat ./tmp/crew.txt | cargo run -p crew-utils --example galaxy > ./tmp/crew.csv
+    $ cat ./tmp/crew.txt | cargo run -p crew-utils --example 01_galaxy > ./tmp/crew.csv
 */
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {

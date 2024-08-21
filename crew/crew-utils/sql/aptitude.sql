@@ -1,4 +1,4 @@
-SELECT COUNT(*) as freq, perk, gain, bar(freq, 0, 10, 10)
+SELECT COUNT(*) as freq, perk, gain, bar(freq, 0, 10, 10) as plot
 FROM (
     SELECT aptitude_perk_1 AS perk, aptitude_gain_1 AS gain FROM 'tmp/private/crew.csv'
     UNION ALL
