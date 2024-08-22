@@ -1,29 +1,46 @@
 # Crew
 
-https://play.staratlas.com/crew
+A collection of scripts and utilities for managing Star Atlas crew data.
 
-Crew Collection:
-https://solscan.io/token/CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
+## Dependencies
 
-Crew Creator:
-https://solscan.io/account/CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj
+* https://bun.sh
+* https://duckdb.org
+* https://rustup.rs
 
 ## Usage
 
+### 1. Crew-Scripts (Typescript)
+
+Collect a list of crew numbers:
+
 ```
-$ cat tmp/crew.txt
-4208
-4433
-5779
+$ cp .env.sample crew-scripts/.env
+$ cd crew-scripts
+# edit .env
 
-$ cat ./tmp/crew.txt | cargo run -p crew-utils --example galaxy > ./tmp/crew.csv
+$ bun install
+
+$ bun run examples/00_metaplex.ts > ../tmp/crew.txt
+- or -
+$ bun run examples/00_metaplex.ts --owner 2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77 > ../tmp/crew.txt
+
+$ cd ..
 ```
 
-## Development
+### 2. Crew-Utils (Rust)
 
-### DuckDB
+Download crew data:
 
-https://duckdb.org/
+```
+$ cp .env.sample .env
+# edit .env
+$ cargo run -p crew-utils --example 01_galaxy -- .tmp/crew.txt > ./tmp/crew.csv
+```
+
+## Data Analysis
+
+### Basic
 
 Example usage with `tmp/crew.csv`:
 
@@ -34,3 +51,19 @@ select * from 'tmp/crew.csv' where neuroticism > 0.8;
 
 select id, rarity, name, faction, sex from 'tmp/crew.csv';
 ```
+
+### Crew Relational Database
+
+```
+# see `sql/00_setup.sql` edit the path to `tmp/crew.csv`
+$ duckdb
+$ .read sql/00_setup.sql
+$ .read sql/01_views.sql
+$ export database 'tmp/my_crew.db';
+```
+
+## Resources
+
+Star Atlas Crew: https://play.staratlas.com/crew
+Crew Collection: https://solscan.io/token/CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
+Crew Creator: https://solscan.io/account/CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj

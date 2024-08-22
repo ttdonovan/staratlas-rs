@@ -1,10 +1,8 @@
-use anchor_lang::{prelude::Pubkey, pubkey};
 use csv_async::AsyncSerializer;
-use tokio::io::{self, AsyncBufReadExt, BufReader};
+use tokio::{io::{AsyncBufReadExt, BufReader} ,fs::File};
 
 use std::collections::HashMap;
-
-const WALLET: Pubkey = pubkey!("2yodqKtkdNJXxJv21s5YMVG8bjscaezLVFRfnWra5D77");
+use std::env;
 
 const GALAXY_API: &str = "https://galaxy.staratlas.com";
 
@@ -171,21 +169,35 @@ impl From<Crew> for CsvRow {
     4433
     5779
 
-    $ cat ./tmp/crew.txt | cargo run -p crew-utils --example 01_galaxy > ./tmp/crew.csv
+    $ cargo run -p crew-utils --example 01_galaxy -- ./tmp/crew.txt > ./tmp/crew.csv
 */
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    let mut wtr = AsyncSerializer::from_writer(vec![]);
+    // get the file path from the command line arguments
+    let args: Vec<String> = env::args().collect();
+    if args.len() < 2 {
+        eprintln!("Usage: {} <file_path>", args[0]);
+        std::process::exit(1);
+    }
+    let file_path = &args[1];
 
-    // read from stdin
-    let reader = BufReader::new(io::stdin());
+    // open the file and create a buffered reader
+    let file = File::open(file_path).await?;
+    let reader = BufReader::new(file);
     let mut lines = reader.lines();
+
+    let mut wtr = AsyncSerializer::from_writer(vec![]);
 
     let client = reqwest::Client::new();
     let uri = format!("{}/crew", GALAXY_API);
 
     while let Some(line) = lines.next_line().await? {
         let mint_offset = line.trim();
+
+        if mint_offset.len() == 0 {
+            continue;
+        }
+
         let json: serde_json::Value = client
             .get(&uri)
             .query(&[("mintOffset", mint_offset)])

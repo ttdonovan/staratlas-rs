@@ -25,8 +25,9 @@ https://galaxy.staratlas.com/crew?mintOffset=4433
 ## Solana
 
 * Crew program: https://solana.fm/address/CREWiq8qbxvo4SKkAFpVnc6t7CRQC4tAAscsNAENXgrJ
-    * See Acccounts `UserRedemption`
-    * Nevermind, account is closed and rent is refunded
+    * https://solana.fm/address/CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
+    * https://solana.fm/address/BhK3zqFngtpcuQf8eEuwe8Eg6BdcaTDngKJmxmX5NnUq
+    * See Acccounts `UserRedemption` - nevermind, account is closed and rent is refunded
 
 ## Star Atlas
 
