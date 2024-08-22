@@ -64,6 +64,6 @@ $ export database 'tmp/my_crew.db';
 
 ## Resources
 
-Star Atlas Crew: https://play.staratlas.com/crew
-Crew Collection: https://solscan.io/token/CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
-Crew Creator: https://solscan.io/account/CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj
+* Star Atlas Crew: https://play.staratlas.com/crew
+* Crew Collection: https://solscan.io/token/CREWSAACJTKHKhZi96pLRJXsxiGbdZaQHdFW9r7qGJkB
+* Crew Creator: https://solscan.io/account/CrEWxSu2zBz4TwutmK3jRjQVP9FJQyXAFBmq3EqKaAFj
