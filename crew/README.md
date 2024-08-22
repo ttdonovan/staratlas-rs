@@ -57,9 +57,24 @@ select id, rarity, name, faction, sex from 'tmp/crew.csv';
 ```
 # see `sql/00_setup.sql` edit the path to `tmp/crew.csv`
 $ duckdb
-$ .read sql/00_setup.sql
-$ .read sql/01_views.sql
-$ export database 'tmp/my_crew.db';
+D .read sql/00_setup.sql
+D .read sql/01_views.sql
+D export database 'tmp/my_crew.db';
+D .quit
+```
+
+```
+$ duckdb
+D import database 'tmp/my_crew.db';
+D .tables
+aptitude_gains      rarities            v_engineering_crew  v_operator_crew
+aptitude_perks      skills              v_fitness_crew      v_science_crew
+aptitudes           species             v_flight_crew
+crew_members        universities        v_hospitality_crew
+factions            v_command_crew      v_medical_crew
+D describe crew_members;
+D select * from crew_members;
+D .quit
 ```
 
 ## Resources
