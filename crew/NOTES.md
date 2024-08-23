@@ -31,4 +31,5 @@ https://galaxy.staratlas.com/crew?mintOffset=4433
 
 ## Star Atlas
 
+* https://cdn.staratlas.com/crew.json
 * https://github.com/Swift42/staratlascrew

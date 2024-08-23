@@ -1,5 +1,8 @@
 use csv_async::AsyncSerializer;
-use tokio::{io::{AsyncBufReadExt, BufReader} ,fs::File};
+use tokio::{
+    fs::File,
+    io::{AsyncBufReadExt, BufReader},
+};
 
 use std::collections::HashMap;
 use std::env;

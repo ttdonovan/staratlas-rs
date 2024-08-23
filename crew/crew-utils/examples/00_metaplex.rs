@@ -77,7 +77,8 @@ pub async fn fetch_assets_by_owner(
 async fn main() -> anyhow::Result<()> {
     dotenv().ok();
 
-    let rpc_url = dotenv::var("SOLANA_RPC_ENDPOINT").unwrap_or_else(|_| "https://api.devnet.solana.com".into());
+    let rpc_url = dotenv::var("SOLANA_RPC_ENDPOINT")
+        .unwrap_or_else(|_| "https://api.devnet.solana.com".into());
     // dbg!(&rpc_url);
 
     let rpc_client = rpc_client::RpcClient::new(rpc_url);
