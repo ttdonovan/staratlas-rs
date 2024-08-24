@@ -33,3 +33,17 @@ https://galaxy.staratlas.com/crew?mintOffset=4433
 
 * https://cdn.staratlas.com/crew.json
 * https://github.com/Swift42/staratlascrew
+
+## WASM
+
+* https://sparkgeo.com/blog/a-duckdb-wasm-web-mapping-experiment-with-parquet/
+* https://github.com/hyparam/hyparquet
+
+### Windows
+
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+scoop install main/python
+scoop install main/pipx
+```
