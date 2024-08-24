@@ -1,5 +1,6 @@
 [workspace]
 members = [
+    "crew-polars",
     "crew-utils",
 ]
 resolver = "2"
