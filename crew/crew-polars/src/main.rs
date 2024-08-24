@@ -14,18 +14,18 @@ fn main() -> anyhow::Result<()> {
     let mut file = File::open(parquet_path)?;
     let df = ParquetReader::new(&mut file).finish()?;
 
-    let out = df
-        .clone()
-        .lazy()
-        .select([
-            col("mint_offset"),
-            col("rarity"),
-            col("name"),
-            col("aptitudes"),
-        ])
-        .collect()?;
+    // let out = df
+    //     .clone()
+    //     .lazy()
+    //     .select([
+    //         col("mint_offset"),
+    //         col("rarity"),
+    //         col("name"),
+    //         col("aptitudes"),
+    //     ])
+    //     .collect()?;
 
-    println!("{}", out);
+    // println!("{}", out);
 
     let overall_mean = df
         .clone()
@@ -100,6 +100,25 @@ fn main() -> anyhow::Result<()> {
             ])
             .collect()?
     );
+
+    let attributes_df = df
+        .clone()
+        .lazy()
+        .group_by(["rarity"])
+        .agg([
+            len().alias("freq"),
+            col("is_command").sum().alias("command_count"),
+            col("is_flight").sum().alias("flight_count"),
+            col("is_engineering").sum().alias("engineering_count"),
+            col("is_medical").sum().alias("medical_count"),
+            col("is_science").sum().alias("science_count"),
+            col("is_operator").sum().alias("operator_count"),
+            col("is_hospitality").sum().alias("hospitality_count"),
+            col("is_fitness").sum().alias("fitness_count"),
+        ])
+        .collect()?;
+
+    println!("{}", &attributes_df);
 
     Ok(())
 }
