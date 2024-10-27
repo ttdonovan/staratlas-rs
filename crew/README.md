@@ -38,7 +38,7 @@ $ cp .env.sample .env
 $ cargo run -p crew-utils --example 01_galaxy -- .tmp/crew.txt > ./tmp/crew.csv
 ```
 
-### 3. Crew-Utils - CDN Crew (e.g. crew.json)
+### 3. Crew-Utils - CDN Crew (e.g. the all crew.json)
 
 ```
 $ curl -o tmp/crew.json https://cdn.staratlas.com/crew.json
