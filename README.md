@@ -23,6 +23,10 @@ $ cargo doc --no-deps
 # see 'target/doc'
 ```
 
+## APIs and Data
+
+A collection of utiltiy scripts for fetch data from Star Atlas APIs.
+
 ## Bots
 
 A collection of various bots to interact with Star Atlas programs.

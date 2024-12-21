@@ -39,6 +39,14 @@ enum Commands {
         #[arg(short, long, value_parser = clap::value_parser!(u8).range(1..10), default_value = "3")]
         depth: u8,
     },
+    /// Dump all open orders to a CSV file (Galactic and Local Marketplaces)
+    DumpAllOpen {
+        /// The path to the CSV file to write
+        output: String,
+        /// Solana RCP URL, if none is provided the cli will attempt to read from the SOLANA_RPC_URL environment variable
+        #[arg(long, value_name = "SOLANA_RPC_URL")]
+        rpc_url: Option<String>,
+    },
 }
 
 #[derive(Debug, Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
@@ -61,15 +69,34 @@ pub fn get_open_orders_for_asset<C: Deref<Target = impl Signer> + Clone>(
     Ok(orders)
 }
 
-fn run(output: &str, currency: &Currency, rpc_url: &str, depth: &u8) -> anyhow::Result<()> {
+pub fn get_all_open_orders<C: Deref<Target = impl Signer> + Clone>(
+    client: &Client<C>,
+) -> anyhow::Result<Vec<(Pubkey, OrderAccount)>> {
+    let program = client.program(PROGRAM_ID);
+
+    // Only really care about the ATLAS orders (currency mint) for Galactic/Local Marketplace data
+    let orders = program.accounts::<OrderAccount>(vec![
+        RpcFilterType::DataSize(201),
+        RpcFilterType::Memcmp(Memcmp::new_base58_encoded(
+            40,
+            &Pubkey::from_str("ATLASXmbPQxBUYbxPsV97usA3fPQYEqzQBUHgiFCUsXx")
+                .unwrap()
+                .to_bytes(),
+        )),
+    ])?;
+
+    Ok(orders)
+}
+
+fn run_dump(output: &str, currency: &Currency, rpc_url: &str, depth: &u8) -> anyhow::Result<()> {
     // Create a new wallet and payer
     let wallet = Pubkey::new_unique();
-    let payer = NullSigner::new(&wallet);
+    let null_signer = NullSigner::new(&wallet);
 
     // Create a new Anchor client
     let client = Client::new(
         Cluster::Custom(rpc_url.to_string(), rpc_url.to_string()),
-        &payer,
+        &null_signer,
     );
 
     // Create a new CSV writer
@@ -168,6 +195,60 @@ fn run(output: &str, currency: &Currency, rpc_url: &str, depth: &u8) -> anyhow::
     Ok(())
 }
 
+fn run_dump_all_open(output: &str, rpc_url: &str) -> anyhow::Result<()> {
+    // Create a new wallet and payer
+    let wallet = Pubkey::new_unique();
+    let null_signer = NullSigner::new(&wallet);
+
+    // Create a new Anchor client
+    let client = Client::new(
+        Cluster::Custom(rpc_url.to_string(), rpc_url.to_string()),
+        &null_signer,
+    );
+
+    // Create a new CSV writer
+    let file = File::create(output)?;
+    let mut wtr = csv::Writer::from_writer(file);
+
+    // Write the header row to the CSV file
+    wtr.write_record(&[
+        "account",
+        "order_initializer",
+        "asset_mint",
+        "order_side",
+        "price",
+        "order_origination_qty",
+        "order_remaining_qty",
+        "created_at",
+    ])?;
+
+    // Get all open orders
+    let entries = get_all_open_orders(&client)?;
+
+    // Write all orders
+    for (pubkey, order_account) in entries {
+        let order_side = match order_account.order_side {
+            OrderSide::Buy => "Buy",
+            OrderSide::Sell => "Sell",
+        };
+
+        wtr.write_record(&[
+            pubkey.to_string(),
+            order_account.order_initializer_pubkey.to_string(),
+            order_account.asset_mint.to_string(),
+            order_side.to_string(),
+            order_account.price.to_string(),
+            order_account.order_origination_qty.to_string(),
+            order_account.order_remaining_qty.to_string(),
+            order_account.created_at_timestamp.to_string(),
+        ])?;
+    }
+
+    wtr.flush()?;
+
+    Ok(())
+}
+
 fn main() -> anyhow::Result<()> {
     let cli = Cli::parse();
 
@@ -183,7 +264,15 @@ fn main() -> anyhow::Result<()> {
                 dotenv::var("SOLANA_RPC_URL").expect("SOLANA_RPC_URL must be set")
             });
 
-            run(&output, currency, &rpc_url, depth)?;
+            run_dump(&output, currency, &rpc_url, depth)?;
+        }
+        Commands::DumpAllOpen { output, rpc_url } => {
+            let rpc_url = rpc_url.clone().unwrap_or_else(|| {
+                dotenv().ok();
+                dotenv::var("SOLANA_RPC_URL").expect("SOLANA_RPC_URL must be set")
+            });
+
+            run_dump_all_open(&output, &rpc_url)?;
         }
     };
 

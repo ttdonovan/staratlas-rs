@@ -1,1 +1,1 @@
-{ "dependencies": { "@staratlas/sage": "^1.0.0" } }
+{ "dependencies": { "@staratlas/galactic-marketplace": "^0.12.3", "@staratlas/sage": "^1.8.4" } }

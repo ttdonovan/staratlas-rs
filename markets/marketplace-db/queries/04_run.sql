@@ -1,0 +1,66 @@
+-- select
+--     o.faction,
+--     o.cargo_type,
+--     o.mean_price,
+--     o.mean_price / 100000000 as atlas_l_mean_price,
+--     g.mean_price,
+--     g.mean_price / 100000000 as atlas_g_mean_price,
+--     o.mean_price - g.mean_price,
+--     (o.mean_price - g.mean_price) / 100000000 as as_atlas_diff,
+--     g.min_price / 100000000 as atlas_g_min_price
+-- from v_overall as o
+-- join v_galactic_sell_stats as g
+-- on o.cargo_type = g.cargo_type
+-- where o.order_side = 'Sell'
+-- and o.faction = 'Ustur'
+-- and as_atlas_diff > -0.001
+-- order by o.cargo_type, o.faction;
+
+-- select
+--     o.*,
+--     g.min_price,
+--     (g.min_price - o.price) / 100000000 as profits
+-- from v_galactic_sell_stats as g
+-- join v_ustur_sell_orders as o on o.cargo_type = g.cargo_type
+-- where o.price < g.min_price
+-- and profits > 0.001;
+
+-- select
+--     s.account as seller_account,
+--     b.account as buyer_account,
+--     s.cargo_type,
+--     s.x as sell_x,
+--     s.y as sell_y,
+--     b.x as buy_x,
+--     b.y as buy_y,
+--     s.price as sell_price,
+--     b.price as buy_price,
+--     b.price - s.price as profit_per_unit,
+--     s.order_remaining_qty as sell_order_qty,
+--     b.order_remaining_qty as buy_order_qty,
+--     s.price / 100000000 as atlas_sell_price_per_unit,
+--     b.price / 100000000 as atlas_buy_price_per_unit,
+--     case
+--         when s.order_remaining_qty < b.order_remaining_qty then s.order_remaining_qty
+--         else b.order_remaining_qty
+--     end as fill_order_qty,
+--     (s.price * fill_order_qty) / 100000000 as atlas_cost_to_fill_buy,
+--     (b.price - s.price) * fill_order_qty / 100000000 as atlas_total_profit
+-- from v_ustur_sell_orders as s
+-- join v_ustur_buy_orders as b on b.cargo_type = s.cargo_type
+-- and abs(cast(s.x as INT) - cast(b.x as INT)) <= 20
+-- and abs(cast(s.y as INT) - cast(b.y as INT)) <= 20
+-- where profit_per_unit > 0
+-- order by atlas_total_profit desc
+-- limit 10;
+
+-- select o.order_initializer, o.cargo_type, o.price, o.atlas_per_unit, o.order_remaining_qty, s.atlas_mean_price, b.lower_bound, b.upper_bound
+-- from v_galactic_sell_orders as o
+-- join galactic_mints as g
+-- on g.cargo_type = o.cargo_type
+-- join v_galactic_sell_stats as s
+-- on s.cargo_type = o.cargo_type
+-- join v_galactic_iqr_bounds as b
+-- on b.cargo_type = o.cargo_type and b.order_side = 'Sell'
+-- where o.price < (select lower_bound from v_galactic_iqr_bounds where cargo_type = g.cargo_type and order_side = 'Sell')
+-- order by o.cargo_type, o.price asc;

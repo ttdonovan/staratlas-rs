@@ -1,4 +1,6 @@
 .env
+.vscode
+data
 node_modules
 target
 tmp

@@ -14,12 +14,17 @@ pub enum Category {
     CraftingStation,
     Crew,
     Currency,
+    Emergence,
     Equipment,
     #[serde(rename = "landing pad")]
     LandingPad,
     Memories,
     Mining,
+    Mud,
+    Oni,
+    Pack,
     Paint,
+    Pet,
     Rebirth,
     Residential,
     Resource,
@@ -28,6 +33,7 @@ pub enum Category {
     Solarpunk,
     Story,
     Structure,
+    Ustur,
     #[serde(rename = "yard item")]
     YardItem,
 }
@@ -37,6 +43,7 @@ pub enum Category {
 pub enum ItemType {
     Access,
     Collectible,
+    Crew,
     Currency,
     Memories,
     Resource,
@@ -50,7 +57,7 @@ struct Nfts(Vec<Nft>);
 
 #[derive(Debug, Deserialize)]
 pub struct Nft {
-    pub id: String,
+    pub id: Option<String>,
     pub name: String,
     pub symbol: String,
     pub mint: String,
@@ -164,7 +171,7 @@ impl Galaxy {
     /// let galaxy = Galaxy::new();
     /// let resources = galaxy.filter_nft(ItemType::Resource, Some(Category::Resource));
     /// ```
-    fn filter_nft(&self, item_type: ItemType, category: Option<Category>) -> Vec<&Nft> {
+    pub fn filter_nft(&self, item_type: ItemType, category: Option<Category>) -> Vec<&Nft> {
         self.nfts
             .0
             .iter()

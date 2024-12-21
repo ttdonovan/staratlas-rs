@@ -2,14 +2,15 @@
 resolver = "2"
 
 members = [
+    # "apis-data/*",
     "bots/*",
     "clis/*",
-    "galaxy",
+    "galaxy", "markets/marketplace-slint-ui",
     "program-sdks/*",
     "programs/*",
     "utils/*",
 ]
 
 exclude = [
-    "_archived", "crates",
+    "_archived", "apis-data", "crates",
 ]

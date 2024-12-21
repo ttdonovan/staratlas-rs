@@ -1,0 +1,2194 @@
+faction,x,y,asset_mint,cargo_type
+Ustur,44,10,FTZDszKrfwutW8EjVCcZxLjG4RcwNbuMdY9L1VbDfWoV,Particle Accelerator
+Ustur,44,10,8s8Dk8aspu72jJZ8DdwZb8xKVV3yTEmNRuUgk1Y8BG1b,Fuel
+Ustur,44,10,7yBzmnMQZLZAgFHoPSUY3wEiBZZknXQdyckqC8eT1jDS,Strange Emitter
+Ustur,44,10,GoQJVWbZnMAuJ6vWtpPz71Q3XgkpZmZFX4Zr2VL8cv72,Biomass
+Ustur,44,10,CLnYYYZaXuyLZguX5JYAZKBFfWfRE93CGyFGDCqtnVFw,Honeyland Explorer Badge
+Ustur,44,10,Ddi3aBcbbXrpnG7Adcghddt1ZjnvdXeUC8ymQjQSnxXo,Titanium
+Ustur,44,10,CQcTFUDdckYG3dBZ94FNwjudgifYL9ZEHZPbp3byVaVM,Hydrocarbon
+Ustur,44,10,EHHKKtNB5wzqPon21bqXrwvW1NGBAvGjmAkhvmnP4iVY,Iron Ore
+Ustur,44,10,CCu8j8k2CtyFvYd6FSbxkMLxHRF8Su5q17nF8SGXLyPE,Golden Ticket 2624
+Ustur,44,10,ChCJxrD52KDdJogLyGFw9YkzrsTMWq8oV27r5kuQHwYP,Nitrogen
+Ustur,44,10,HAQ5VsFemfeSTdgouQMt2RPBLvU5yXQvwqjpbb2fbEmf,The Edge of Paradise
+Ustur,44,10,Dt6tYeQ5gmfkvgkzoAKPs4LB1umX6AgGQdsy6UPX8JWd,Rochinol
+Ustur,44,10,6CT9ChUxdjXG9J9oLAuQqqknhaqtmBJ8oYrdCyKtNX4k,Copper Wire
+Ustur,44,10,7TtNzFzdaKdBQ8QzT9m66CoQyeHEEMPxGTc5Mb88V9VU,Energy Substrate
+Ustur,44,10,7rDFCkwJHD8F6p556Knm3JbwYUR4io2odg8UW4pU5kEE,Crystal Lattice
+Ustur,44,10,4kCxgaTfvFk1j9rVWyPfmRPXVC9fou2DMnnmQQa1dCwH,Survey Data Unit
+Ustur,44,10,5UNSTe8xMVYfXz52iNrTZuoiQjw6PWVrzkoQ2S8xePPQ,Radiation Absorber
+Ustur,44,10,5UvMLTPjdx5njRFUGta4QZfuRnwkuyNsK9enrC1B4mVr,Food
+Ustur,44,10,8h4prtAnUkyeEEh7sEw4z9kTX3c3QgZuP4gdEFt7QnTb,Power Source
+Ustur,44,10,8nZ49fiD1Y4aGvr5kLnacpot41hkD3e62V9diZtJKJbN,Iron
+Ustur,44,10,CyP63jMmysZGyeeYSvwBW1W956gZqTrDCtPhsem7jKyk,Titanium Ore
+Ustur,44,10,BvVXL1WVamJpnvrLyWfqf17wcKc8FdoYasJwLvbxYN6C,Electronics
+Ustur,44,10,7WkzE9EKQTxKAbhGakXdwKUei5KbaWBD3xyZbuZu1BJq,Framework
+Ustur,44,10,VoW1VNJg2Lfbq8wStDP8rsLXpP3aLNgm4paJ4fLALsv,Hydrogen
+Ustur,44,10,56Xr3bCM9Z7EYaae5AeuN3d9hsWhLtJi31gupG6NyZRV,Field Stabilizer
+Ustur,44,10,7FQ566fRErcQ5fwopL4zCH9FZ6GQ81zNU8sKwWUnGnfW,Steel
+Ustur,44,10,6jjVgfir3RXKbPCB2SbY9ZJ79Di55De2xNc87hTKcRXD,Toolkit
+Ustur,44,10,9E5jPUGswzg7cUP1sTHXFpmoK5fohYSbJGpPKWuf3aVW,Polymer
+Ustur,44,10,ApC1Ero8wVEmzEDY5o6rYPQ1oRgJyXozeaN1rJPpfg2g,Aerogel
+Ustur,44,10,B3Tu6keAzknHquEr511fx5s1FCWJE2ZYfsYu9NT6NazT,Carbon
+Ustur,44,10,BuTDXseer8xfLhJgKKdMFP6aAm7eux3Lv37HHdeAfT27,Calico Maxhog
+Ustur,44,10,81ibx2HELdZbmEFcg1VUgN4RLN99JjT9m6qCcmepWrgu,Copper Ore
+Ustur,44,10,37xu313Ykh28FmuXivXkXEdicU4Zu2jMx2mhWmmUnYn7,Diamond
+Ustur,44,10,HhyM14cubeWMgfNeRX3fYBUPdA25YzoUJY2dYjs49HPz,Super Conductor
+Ustur,44,10,Fv5utTeouz2FeACssiBpQYHLj2af2ZPf8cvMDaYa4Wuc,Arco
+Ustur,44,10,6m4ZTVyAtdCr7p9PsqZ16sn4qZJ3fpTHzuRn2ZkeHkB9,Graphene
+Ustur,44,10,ENCFJrpRDJu7DrGznJYJ7ufo6QxcBEKRkLcUHGtJP2w,Fimbul Mamba EX
+Ustur,44,10,HaaSHaekq8UvrKL5jx2pAe8FSN7tyUEyAePPsNKP3c3e,Magnet
+Ustur,44,10,BFAvTqgJRxGSdBAXepbWhN5kSjXGAKYPZLAKtj3zuSrT,Electromagnet
+Ustur,44,10,DyBBMoMCpLi8LCgHq8VrkZaPGgn5pkhHPg3nygjAGBdo,Lumanite
+Ustur,44,10,4H6ZKYebtERU8UEEu9tdk1TabchoiCRmLV1Hz3QuDQtH,Copper
+Ustur,44,10,9Z1985dUii4JqY4Nqa7bjkgMAsAbQ6siJzAvY3zvQgY5,Silica
+Ustur,44,10,BYiNihyKWaYgW6x4zmZcavyQf8WDk833c3kWXN2THGz3,Ammunition
+MUD,11,-16,7Nc1xMAdU4W836C4ByCjeF9JmWcdY3ztgLSm2JLtFW2,Particle Accelerator
+MUD,11,-16,7ek8mV98tAmGSYKmP2jss35kLS86kw7JVdSh31MVr1Tz,Fuel
+MUD,11,-16,2F9fMUChH7wxVvSUn5E6G7eeg4RmaU7RUA4jKcHuJ3WD,Strange Emitter
+MUD,11,-16,DpCX5VdCThBYv44CGjhMujHUExUp6k3Y2rz46cqBj8Ny,Biomass
+MUD,11,-16,FhgsEa4kaoBX7RV9VP4ytsHc4NFBbSd6VJ15CwBFJTPu,Honeyland Explorer Badge
+MUD,11,-16,98MKh2Lo5k2xzqAM2s5K7EfVgNuuV2oLDZPrTPwf46EZ,Titanium
+MUD,11,-16,CuAnq3Ae7WgSamwoFrxA2VZBagqDqTPv5scYfo6Eonib,Hydrocarbon
+MUD,11,-16,HHkudAT4ZpLQ26Y1kCgme2peFb9iFpMyyRUQ1LMy1Cwv,Iron Ore
+MUD,11,-16,BV9k5FV9SWxhSL7Z6pLq5pSeMXJaPsusGMTcH2viz4ko,Golden Ticket 2624
+MUD,11,-16,HC9Hy64GvMpaCRDXXsSQzKWdsBqdgiJ1mx9abVv7NB4A,Nitrogen
+MUD,11,-16,64ia8YqkoC2R5wCu3GTtTnRxYZSDmS7yGn76XCLsyGHx,The Edge of Paradise
+MUD,11,-16,8SSFAMr8ogdAB4qX2KaVCbJreJTwC6gysZrNLSNMGbBK,Rochinol
+MUD,11,-16,oAZWvSGqmzeQLHtgSMm1qYQ2MH8JAA1yDhdRvaWt2rf,Copper Wire
+MUD,11,-16,HifVhiJaf28MqdFiLx9rwb5qFNRLwYi5umcND2rXWciv,Energy Substrate
+MUD,11,-16,9RpNby4b3vE7XWwjDxuNqzAMYHNsbULPMKTnyswxQB6j,Crystal Lattice
+MUD,11,-16,5giPNNRHhrhQubv1ZeksfRvuT5B67HvZXewu51auyGsv,Survey Data Unit
+MUD,11,-16,CJwR8qZzdrtBdvweZ2AwEvKXGJJUTvLgdZ7zpSJYE1vq,Radiation Absorber
+MUD,11,-16,34SZLtg8p5Dp5mwuNuS8dGwxomEFryMJgWExHPv4JkV4,Food
+MUD,11,-16,BwCfjAcjE6Ki6p7Mk2wZahru4GLwCD7mKEweRxkT8XM5,Power Source
+MUD,11,-16,94So2mfMSj9Pki1WtbzV6ZV9hkApEX9596SCtBZwz9vJ,Iron
+MUD,11,-16,6ka3EqoFtim1Tytdoc4aXfDML7ywWiE2TF3wi4mSWgr7,Titanium Ore
+MUD,11,-16,9QahMhmv8tinKkoH2eZ98adZv2BxbNgNER8oSi46PS8u,Electronics
+MUD,11,-16,ChB9fhvSj713mazg6yMESgkUGJHt9QUwyA71UDJGd3yz,Framework
+MUD,11,-16,Dp74qNk91tqdyP238RNDdWP1MtR9gVG7CqfWHXr5aU1p,Hydrogen
+MUD,11,-16,DjsF32owVk2neDPSkUNdaUTtVva3X89R2CezfYDAh6G6,Field Stabilizer
+MUD,11,-16,2F2qiA2mzi1eK6DbxPjuAQ5mQhNwB2swMxyaYBQUieM1,Steel
+MUD,11,-16,5yXUSUBK244inCcJvruaYLjGMcHdEFRXbmbe5LzTceEj,Toolkit
+MUD,11,-16,CNJnyC4SLELkSE2P5f5HbnHyfBvESUEyqV8PLQjd5NgW,Polymer
+MUD,11,-16,8LPsrfXmvovZ2iZj7azKjVBbxkCrzPtcTWe3frbJE5c7,Aerogel
+MUD,11,-16,J7zcz1VdMVrShgQcGZKaogMQwGxz4cptWiNZgRhiisHj,Carbon
+MUD,11,-16,7zmsPjdJH28fj5FYFsEDyYtJr5ZYi8aaaKLjYRJVnxPK,Calico Maxhog
+MUD,11,-16,68DgUoLGA4jJThoLh1H9VD7YRj7eu1PqdSKHGBknjbBd,Copper Ore
+MUD,11,-16,8u3yPQkmjPjjmC1DKeijgjcv4AuqCV1GZSxvNYgPHVP,Diamond
+MUD,11,-16,DKpU3qJCv6m46wFdmZRFzTFuntr9pmzGxNQRacNvG6qR,Super Conductor
+MUD,11,-16,6vY9qNwnwDyded2TWVnySsqTmNMg6MYzNY4J3dne86ks,Arco
+MUD,11,-16,5fhfjaWudVxog59bvQV2U5xyc1uuHoWTZDXZ16D4v5Hg,Graphene
+MUD,11,-16,7Qu75HmjUnrnAfniU89ep2gTbgge9sM2eQV4PHYjhfxc,Fimbul Mamba EX
+MUD,11,-16,12AR5yihid9wxUHDf5xKqLpPkRX4nyaSKiAD7LXmLBu,Magnet
+MUD,11,-16,23GTZQ6wA3BSZZJbYGzeUwV4fSMEz2qaxY85L6R9SRgZ,Electromagnet
+MUD,11,-16,CvSevhoS6ZuU7sxdc51ZTYPt9LtaDD1JoBMTiHMuCnfJ,Lumanite
+MUD,11,-16,4iDwLz5tx5Ko2cX9TKBbsCXMUmyZcfpMA2evHgCR6z66,Copper
+MUD,11,-16,YMk3N9LZDnaqDkctCKpRkJrtRkQjVrCojr7SGkkY63D,Silica
+MUD,11,-16,EqXFCQHVoo89UjSUqPbLLt1T6zRKhT3E13AzF3unUs9G,Ammunition
+ONI,-23,4,9i8B2SMze7RkHwd3264tn6GLCCTGdtPGL9qmA6jgxHq6,Particle Accelerator
+ONI,-23,4,A661YE7pYneH3tbWgNEJkL3xg8xyn8D96uuHESDKfQx8,Fuel
+ONI,-23,4,6rSdh2i8wNPxDS6tu9BtHfpDQHGJjpXkZEdg4sytc9LG,Strange Emitter
+ONI,-23,4,FqvVMpn4fFoYZYpCYZynC9VMNr9LjUhkGfjHS5ubh6Wk,Biomass
+ONI,-23,4,2zFx3FXD8tsG1enK5gfKuJrHbUA1v5kw76HjtXuGq5My,Honeyland Explorer Badge
+ONI,-23,4,DWX5MwXFCBKRqiYJmJsf9LjdcZfeF87aua2g1zBBqCEd,Titanium
+ONI,-23,4,GGJKk43KYBB5iuMeMcxf8nHQiYrVMZQkQGhRy7h1mekD,Hydrocarbon
+ONI,-23,4,GJJfnkJDKsXRDmJakNsTeZ8Gt7yc8KvUBPUVQdsD8ieW,Iron Ore
+ONI,-23,4,8w39GD8N3Dfw1UK9UjkMW15kPJueRoGvfpgSUDUujMEA,Golden Ticket 2624
+ONI,-23,4,5LiUbNnZ2XkfVaUqiffP5QDq4WJFq5oJr3himBe9B8hC,Nitrogen
+ONI,-23,4,8T826jF9rkbUMtS5CRNjTejqLMC88Li5cYAoExZwpihC,The Edge of Paradise
+ONI,-23,4,HZ14wdgRxJZYT6iiJbxSwez4QZSJvadEyyw5PJN2hbcy,Rochinol
+ONI,-23,4,7Ec3ijTriQgZ1JFhu6qy5c3gFtjPhgCNHahAnuHTcMBt,Copper Wire
+ONI,-23,4,5WHJvNxhxQT9sDY5kef3Ncoiy627fAMadDK1wrujdhQV,Energy Substrate
+ONI,-23,4,2cwRZVcH8jt4QB218HcUzbhuxTdqxUxJz3cNJ1rRTVe7,Crystal Lattice
+ONI,-23,4,rtyJC5YVwseRY2afrf3uR5oCYbPDa5D4vyw3rcJgJVp,Survey Data Unit
+ONI,-23,4,CNUJHh4tQtuFCDp6q2uWydauuo1RNKkayXw3hb4f46B8,Radiation Absorber
+ONI,-23,4,37VRrYuowPLVnwss8wVgwoTxjyG5sW8f6YGPoPP6AT1s,Food
+ONI,-23,4,AU8Q99GwgpxNbsF6VBQrD56241K3kdTAJzJckojcW8LD,Power Source
+ONI,-23,4,FUWAn7wYonsoEQm36HJBaxUrriX5ZQoaG11qhY51wqL3,Iron
+ONI,-23,4,APR1pmBXWLDZWBR9GfDJ8pjwKKKfEWQZviJHAo93Pd2W,Titanium Ore
+ONI,-23,4,12EHy6AVJqjxK2ptUu2rYWUSTzFvu4aAeDRN7cLDJzNE,Electronics
+ONI,-23,4,HMcNb5seEiwbo9VvhVc7LiewGhWhBDZQ9V6TS8DNJPHk,Framework
+ONI,-23,4,4jJ7GxQDd8SqxYFEVyiSxRSd31ZUrnEVb6Qx3iqt2igE,Hydrogen
+ONI,-23,4,HzxnbiUYN5NMCBtDiGcydwctpGL6tp9WGfCHp9PENtBN,Field Stabilizer
+ONI,-23,4,AZpdjpzVmZDyZY1gDaGwp7ZBJ3xJqQVPcBz4xVKCmvC5,Steel
+ONI,-23,4,EXxRuDLeV7hnGbtT2tjCAY6BaEWAN1V4gAysi1RcTCP5,Toolkit
+ONI,-23,4,GiPVyFAXdvHZmGk6Sr8sAaJ1XWmXQ1a6WqudNdrVvDwk,Polymer
+ONI,-23,4,AEW2PxK4bVdU9kf3znNu65T6upnE9P4FX9nQTq5s4fyv,Aerogel
+ONI,-23,4,9rjm7C4cqZkJ7YY72jLTD4DQBpj2GmXs6yX46QS7CcmR,Carbon
+ONI,-23,4,9DMbeYf2qhEDozaQqbwkN9NbasSwyiyYwkrpwNAVK2M9,Calico Maxhog
+ONI,-23,4,Gcqz1bm7uDCSwrmKEC11TcHaUjkdq4M8dSnBBEAwicnb,Copper Ore
+ONI,-23,4,HyN7TqazaaoTAMSqLRchwBrnaPEKsthcTz66dKUzW41F,Diamond
+ONI,-23,4,HFBtMPFLEi5B65dMrwCGUq4Qz3HEHxkcMFtaE5FwVsFg,Super Conductor
+ONI,-23,4,FZmGya3jvCkc8QWYBEZeAJCFJDRrJoUop5GXbbzNRUeY,Arco
+ONI,-23,4,AT5B5iXxbjMbGNmB27Pg98SKMh4RLfy4Pmqv62SD3jLH,Graphene
+ONI,-23,4,GGkdWuhF3AndCfzBQNv3sBvJHrXbEL7ML3jje9Js4rCe,Fimbul Mamba EX
+ONI,-23,4,7wvgaXkwEsp2SdfD2jmPmfCWQDcTe5xt86dqvdkcJj62,Magnet
+ONI,-23,4,F3hY6DsK2oBW8XAC4p7Sn3NJbMeLu9h1pMwRwrTBR3WY,Electromagnet
+ONI,-23,4,FwLEFCNP8u2WkeeaMPkVDpwe3RuRWfAmeUDZ3v92jkUc,Lumanite
+ONI,-23,4,C1ZFTw2zLzxcMgNgqtswomH88vjEjUZTXfgezZkgpkkY,Copper
+ONI,-23,4,HKNRUdMd1X1X2k9Nd4b2Ts5LjVtkfAJoqX5TujZff9Qp,Silica
+ONI,-23,4,9iFMTJA1kGZqKsCdFmNot9aaBCcuCHcST87yZhLV2ptb,Ammunition
+ONI,0,16,4uxKR4imdY8AV994Nyk66HJWsfic3iXakYPCEGh99P5F,Particle Accelerator
+ONI,0,16,Go4DQP32FbuDDCpcLWbsubUKqCGt5adGosndhQzVHMX8,Fuel
+ONI,0,16,HUnLjBdYF3sseGEANTF27AykogyVDd3NLX9YJqqaFi19,Strange Emitter
+ONI,0,16,FoEAjEZ6eFmMPKkE6eLn4cSzL6Twu6Yd4hGYhrVHFKfb,Biomass
+ONI,0,16,6fUwydgh5k27EX3sN2x3T97JtNY2UbB2hLAb89tgWZik,Honeyland Explorer Badge
+ONI,0,16,HSQAuJFgQ6qXvzhfCdsvPVRESrFPMi87p9maXVPcAU8B,Titanium
+ONI,0,16,ABus2sn4jWxnH3Pt3pvMkWQQnUvwfJSbw8txoLhJdPxR,Hydrocarbon
+ONI,0,16,BstUHZxW1L16JZx3NmCqGT4YwToz5BkZ26fNEFRCB5Cn,Iron Ore
+ONI,0,16,AaRX5JuPpwZ4DfdHUP9HszSJNHTD9GUETcUtaHjEu2QX,Golden Ticket 2624
+ONI,0,16,Anr9asW4iFu8r7F88L1ERzVmAi9qfziVbeFxE557vJAR,Nitrogen
+ONI,0,16,7rJKGsnMijmurWxCskJYcWfWnJ2KpKtNd5oqWi9HYy2h,The Edge of Paradise
+ONI,0,16,CZfo8pYTgszt7TQYJ7NkLVUwVz5yF6WHQNzgvyPTiC4n,Rochinol
+ONI,0,16,BE2k6V8J9WBBkGHc75V8tkGa14PyEDTaavSrMFSs3B4V,Copper Wire
+ONI,0,16,6niYy93H5J5eoiHDDc24x8omgpTk7ygSCFoL3rHqgkMo,Energy Substrate
+ONI,0,16,GcGphsRJtAfyFNCL2dWdiGupHX97SFNjWWbM7E6EfGLA,Crystal Lattice
+ONI,0,16,DbDJNMx8af9QcgAin7H9ZTapq4uezLMtFtPrRUtydT5Z,Survey Data Unit
+ONI,0,16,QJiSk84fmNjRZHK7v5oErjwLAyudXpkHWcB7YUCRQQZ,Radiation Absorber
+ONI,0,16,HpjPjeX2jm7mRrUjQjatktsHFKE2tVoqSx2gXbADvL7n,Food
+ONI,0,16,Dp1HqYUC5dbSZQR82cj2uGxhzVHiQWsRrvGytJoZwjqg,Power Source
+ONI,0,16,CPCHfNW3iSxWHsYF7JRRtUKWQnnjQueYxADDEaEW2iLZ,Iron
+ONI,0,16,4kBzFwRNUta44ePy7aAaZuxc3r3T67w3mpfuqyFHz9dt,Titanium Ore
+ONI,0,16,GNLXjftgnrAktPMw9Cot6C72FYKsAQzDkaLyWfr72UFu,Electronics
+ONI,0,16,GWY4eWcuMBncpQk6fvhQgKeYAVD77gPqHtnauhZuNYAL,Framework
+ONI,0,16,9jtW4mtqajDBTB7rFc4tYaPGLyH7muDyUsc9Kr7kEZyg,Hydrogen
+ONI,0,16,HjRTARkdGUruRrZzoxyA2HpDLsu5U2pPWbagaKAMsWfs,Field Stabilizer
+ONI,0,16,3i6WECTPhfZGo1HyfSwdFWsHbNSwMx7nN5j2LPUxipL8,Steel
+ONI,0,16,B9fkBXp9CP9J8zpF3vZ7mJHiFeHJPKrnY5mHmuBBxrfD,Toolkit
+ONI,0,16,4LN1ET9pRcKc52TijMhuar7yZ2iYARPuamong2bZLxUJ,Polymer
+ONI,0,16,4jxqQ8atodjKyo8wazgVaqFSErV41CqpocmBtpi1M76o,Aerogel
+ONI,0,16,EzWoHwoWJrPncEQpBpnSJv7oCKCeYEMi5pcJDwC49ctb,Carbon
+ONI,0,16,B5KFf94VAY97J9svbqoaT5VPoUT1abd1fo5YkWq7FJue,Calico Maxhog
+ONI,0,16,EfQSDyNe3uEfnAyCQXbtEPUPWcA8mmkGqdBXxHQxL6bx,Copper Ore
+ONI,0,16,FV3ANDaWsDBTSqnuddU75sjAqXSoUQEpkRMTM5mfdSTW,Diamond
+ONI,0,16,4f9D215HJzJRsghGC8dqPX28GLYMFBJrEiReTTLN6HC9,Super Conductor
+ONI,0,16,AJCfor6U1p2xfxqFdBeCZeGxeiEyPxqRLwGAWo3Yn7wG,Arco
+ONI,0,16,34iavjdwVxCQjR3ML25afdGZNgguPxdpcVBSX9MVz2Nc,Graphene
+ONI,0,16,GXNKpWTXzLutVojZszVNofkEQBUSNjCwNdyYWYbE4eHW,Fimbul Mamba EX
+ONI,0,16,6tbB7wYLbWWRNVvTsogT3eknqKpXBPJYQV3H78ZUhgwN,Magnet
+ONI,0,16,EUvGcFs3j4NQL4A2jPe3W5GTBCWHY8FUSzhHU89ChagF,Electromagnet
+ONI,0,16,7gFqXqZBNVq5nywQ5mqRJ4njnPjPsZUqTf7s3kAdyGpg,Lumanite
+ONI,0,16,6iJFMyFUyiv5QSDJAXFCcqEW3VfjHuo5SHRXBBr2TfLa,Copper
+ONI,0,16,132w68X72yiVvSHzHjmdvFAEjyhpELNGNx9MrqL8Qtd7,Silica
+ONI,0,16,A7nzNpLxSquAyoTp48Tc1ybYAhdTfpw3HkyNb51RLhQE,Ammunition
+Ustur,22,5,9QpQyXnvvUrDR1NTYQCaSEiWwBcbFpecXadQWZQmx3Qk,Particle Accelerator
+Ustur,22,5,3R1fiZWNeHXTLJPVfWYQbehnxZ1cRhDqYmzr1GGtcZTy,Fuel
+Ustur,22,5,DSCdWqHiEUxCYwsxVKQrGBERNnBbQmLn6bihRpHnnuFH,Strange Emitter
+Ustur,22,5,7ra5phxAh9ntSCUXxSiWhtdv6QP7fvs9UvNWxMbSmYqr,Biomass
+Ustur,22,5,9NAWZvZLHzShM5sDxCiEti1QFtvW9uCMLtPefspU7z5u,Honeyland Explorer Badge
+Ustur,22,5,EA8g9hzoVvQTXdEiEaKjUqvniwQaKWYnV4BuXEHy2zoP,Titanium
+Ustur,22,5,8JMiMQbb9w9ngeodXfS3rPpYeEa9GnZUSsZ7YA7psG72,Hydrocarbon
+Ustur,22,5,GoHKosKRHTrhU22EkRUi63i8egk4yTYwPkvF3jSRZs8R,Iron Ore
+Ustur,22,5,HaYN8XoXVJubaac4Y2vcRxYDW8MiJmstV88b6ibcxxuC,Golden Ticket 2624
+Ustur,22,5,2TS8kPbqon9HnwuudQypx5n4JhhCHbBnGUApHz9LZYsH,Nitrogen
+Ustur,22,5,FSdeUycatmFHjn84hb3PhCKvsmta3N4NrCa6DkTmKikW,The Edge of Paradise
+Ustur,22,5,BZnayh7dzaaQMKZrxMxj48N6Md1piMjbphbzUVwMzzyp,Rochinol
+Ustur,22,5,273QmG6jZHvnqwoZWN6ico4xhTafZJnUXhSDxLwvDgUa,Copper Wire
+Ustur,22,5,FcKLtWXmodkLKBkfpn1e8TVB28BNsedUmBbCHk11DP3n,Energy Substrate
+Ustur,22,5,YWfN3yN7EfZnN6TTR8HkaD5juWiXbEDpfTsixPHTnb6,Crystal Lattice
+Ustur,22,5,GgWNnNtwwZzDQRcRc4a3MZdSiDPhcSRcWZhQaSq4r4ui,Survey Data Unit
+Ustur,22,5,ETfv4dKgZkGnjyt6n3ezipCEe4KNAZN6AFMx463Us2Ya,Radiation Absorber
+Ustur,22,5,5f5zEkdkqwxXYAzKscXUoxsgo71qYDX9EgQoW2QQbmQG,Food
+Ustur,22,5,4YeSJiAjSE59nu7TNAB2U3i5WRBWiR3uo8uWqC2h8JnQ,Power Source
+Ustur,22,5,3NYKwXtJyVhHER45YMYF3DMMag4p4ocFQZ9Dq6XnWYrH,Iron
+Ustur,22,5,41oXRRhPHmCx9KZV4ez5uqiYVXbaAEAKLkzQhMGyoAZF,Titanium Ore
+Ustur,22,5,B7FzZz5yL9AoPNaqjjyyvcMR82bEAfNtH1nLuNyFKHhX,Electronics
+Ustur,22,5,J1dqKoFVkKNMpPtwVRnTMmmLjxrktYPLiCGy9LigjRPV,Framework
+Ustur,22,5,CEf6cJkj64DhFeRdDDeJgYgj9BLcpL3XE4Euuuqz61i5,Hydrogen
+Ustur,22,5,DhynC6eaRJ9UHztpEfuyPbrZdb4rG8dpWvkRUxgbkbL5,Field Stabilizer
+Ustur,22,5,4WgyM2Xhn7GD253fBMZeYUnbBRZ229yttMibZWVZbCsc,Steel
+Ustur,22,5,5BLuhrXk3ZAqsxvU4QYeuGepVAQjLVa3Qf6vnDgt3666,Toolkit
+Ustur,22,5,HkKNnMAadwyuUhmHQqsUE8C7vU3ZjLSGHxixYvh9Euz3,Polymer
+Ustur,22,5,6dWEHpHa5WbgVS5YJk8qDLhHUdEKWiZrFNzCFUviYgRj,Aerogel
+Ustur,22,5,6nR9LNdHjubrB1jBvkh2yGnBkzxgfZ7A8MQaTyHgBanH,Carbon
+Ustur,22,5,FBtwHQD5AoxaYyof1hs29qZMm6oBpzVF8PuVQLt5ncNL,Calico Maxhog
+Ustur,22,5,5x5yRZ8WunZqZm6DfCLuJEKwb65MSWSVPJggUiPuKQ8R,Copper Ore
+Ustur,22,5,EY6UNwFrMKsY2hrtGDz1kcKSyGnpoKnFx4TEJSYXsgY5,Diamond
+Ustur,22,5,H5sx8YAoCc445bUKRQfbiQCewsc87HsGYBaTqkBKk86w,Super Conductor
+Ustur,22,5,DDre47rh2DMeY3HPFozgL2Ce3qqoANeWEkMxWKwuzqAo,Arco
+Ustur,22,5,2Q3oFviaPUsu7c3aaU5Jvu5FjUZyJ8XMeieNfc9JWBnz,Graphene
+Ustur,22,5,2KboTXdBuJGXJMgGn6CNwWSyxrmgrkawyqQcgAxKYNGU,Fimbul Mamba EX
+Ustur,22,5,Aa3YktkaYE21KYvLo1WtwhbDzR1ouujUg1ojbtY5cDZP,Magnet
+Ustur,22,5,5kE9QNnQUL1xNm41FDjWp33scCP3a1h879Vf2P6VUoMx,Electromagnet
+Ustur,22,5,5S2LngkRu9rrjKqaNdXcmZEXtHBB7thVq2MfRFEWT9ds,Lumanite
+Ustur,22,5,2bQvCnL1HpaRvSd6koQC8xZcB3FdghU8jc8kgRvoNDjk,Copper
+Ustur,22,5,L7x9M2rKZDBxer9UZgsg3AmhUWknKwE4Li86Vfb58dX,Silica
+Ustur,22,5,9R3axu1fZEcBgoirPy5HAcbmiKto7C4jk5AzdECtXodj,Ammunition
+MUD,10,-41,7N85x3uc9M7edPtD2GCZaFXHwMxDNoXDwp283Hkzvyta,Particle Accelerator
+MUD,10,-41,9E34c1ot2MmYw9DJjU2o9L8qB4bKRx6j4bJLptprR5Hv,Fuel
+MUD,10,-41,4fzpneEdpiMqn6rHVvNNsMBUWoXGMHMGTmYhG2UKy2FJ,Strange Emitter
+MUD,10,-41,7hEPTx3xHWUzWTWD1RxaYCawdokrgqz7sKZH1rJv5av8,Biomass
+MUD,10,-41,GuHs5y34ZV1grjK7wNuG4RSqVRekxCeDoHrteMkDsmGh,Honeyland Explorer Badge
+MUD,10,-41,2qaBzgxa46UzWEzzaUABnvZ2SHN1ASa24ZvmA6y5LpgZ,Titanium
+MUD,10,-41,BwV2hbbsXc885q4Xsp8He5fFaR73fXPUZeHoZzPxTv8F,Hydrocarbon
+MUD,10,-41,G225hqhaAD371xspRoAV7Bjcvpfo9BKHgip9ho6pK7qd,Iron Ore
+MUD,10,-41,58Tbsej5oSgwM7wvBBm2q1ggigoUwoUxad1J5RYP3GN2,Golden Ticket 2624
+MUD,10,-41,9nTTePhP6J76kJgapbwdRgDV58itXnfDuzkndzHciqxx,Nitrogen
+MUD,10,-41,6sCZaQ6HkDTGQ2ZLgaM9KvaxwkK3p63RyBoFkwNu7JJe,The Edge of Paradise
+MUD,10,-41,75giNrha4cY7H331ZaxtUBcBFahqWTtomY1Q96EqDJsX,Rochinol
+MUD,10,-41,5Ucb3G5KQE1Pn14GMDWz6DYkJvFAiCLdxzYsatetDkZ,Copper Wire
+MUD,10,-41,J7vFfeFKfoFGEiscKiMdF2LwfeDJTQEvGaicd7dKiNh3,Energy Substrate
+MUD,10,-41,7NBo2gGtUW5nqUMR4RZzrCYgVvzNxgte9axsVvohwLHU,Crystal Lattice
+MUD,10,-41,4JRPYEhRysKe5Fka6ycLKxuE9FFNDpRJ1LT9pbJyGhva,Survey Data Unit
+MUD,10,-41,7yHDe2t2XV9UcpTozC1U7ST5pF5id7Wn3qLsy1CaC9yu,Radiation Absorber
+MUD,10,-41,HbEarX4yLNHTCPzuaoQXiStKjkpYCcWA8gE7tp7ZE7Vw,Food
+MUD,10,-41,FmEkpmmFBtGU6oHZYS9kEtrMrXaSwFvLnBKJk3W8qcr,Power Source
+MUD,10,-41,6JS53G9xcubMZxwUdwPPZr1UZLxfoCP2Hsm2Syzkya8n,Iron
+MUD,10,-41,6FPqUDYziDefiuxUC6T6AkjdvqmF7gue5sy7egDTeyMC,Titanium Ore
+MUD,10,-41,9F2JUdSg84zcYpFq1LLdxxXxxKr4b3RNTzUvjwtBaCaT,Electronics
+MUD,10,-41,A6iPMiC1e9wmpsnBzdMEsrUsBET4XF3FRpXJvz3UZm98,Framework
+MUD,10,-41,9gEkHbuevrcNDdm9aVaUXP81H71iM2qQiPDcBF88kf9a,Hydrogen
+MUD,10,-41,4MaYjD4wnZARsKf19e3vKGccHvgfCjy18LkjrGMohJp7,Field Stabilizer
+MUD,10,-41,Cqj9dWNPyAoVwvPiPrT4CoYC5FNUJkeY5FhXB26R9Zz,Steel
+MUD,10,-41,BMzd8QLpxofMmuwBt7Fb2T8HidXuvWRcwoWNkue26dBL,Toolkit
+MUD,10,-41,9SSMvVNaFxMYkYQgHkCGHnaYM2NvkV4hjdfRWWJNnGqR,Polymer
+MUD,10,-41,CP5QgwvtZXGkPirPYr9rRTyNc3kyK1h7BXcNozkSWfZK,Aerogel
+MUD,10,-41,F8cK8VLtVBQCrksMpZsK1Abd7GDRvC3nsURSFGHWmSzk,Carbon
+MUD,10,-41,C2UHzDCWWSaJQHsGQcVjwNCfay9VGM5jNVEDvFaj1v6H,Calico Maxhog
+MUD,10,-41,Ct7oBi8JJsDS2cwYbnXWThKDn2aEXtiT9wEuQ9XK6HJL,Copper Ore
+MUD,10,-41,37FdBtAQnTJvNZzSpLRjEth37P8UtMENBK4LsEU1518Z,Diamond
+MUD,10,-41,83KjS1TVs9YmRP8QrwXq6T8YBmPdSxFDG5a3BoiyKb4k,Super Conductor
+MUD,10,-41,Hxe3Kg3Jrsj7sWX1or1DTELar6cqeQpAJfcu7bmQaMUS,Arco
+MUD,10,-41,EEMx98pECuPaFXEPQeZCpiP3Hnn5ENaPRosWcrSmvPbw,Graphene
+MUD,10,-41,2Sth3rFDMNHCL5ZQqd44scB5457VTTL1AAarPFADhdSP,Fimbul Mamba EX
+MUD,10,-41,Er2XHb1Cp1Qn1TaBLy9PUzzLZPDx9v2bWQESiXEY8rGf,Magnet
+MUD,10,-41,2nr6WUT3eLBKvXWaRqzaimWxxPiqFGDEPbTyTTWd7U9n,Electromagnet
+MUD,10,-41,DfKds8rBkTt6pzLqhVRLbbyKWpc5NvmJRe4p15tN9HVo,Lumanite
+MUD,10,-41,EwvYtXdNiVSLQsRq7btWXkseKxJfCyAbyGFUJJe8Vexb,Copper
+MUD,10,-41,DT9PAfAvGJFeXYy9R9o2oZTDCnoxX3MEB9cxNehZuh31,Silica
+MUD,10,-41,24TFBKSS2QXj3hQ3fvFDonVNFdd6nAetNhEFpyT9bgbR,Ammunition
+ONI,-8,35,4DwRDiffMuEbLYvW6Qxqy1xpw1aEZLQdoqKUHB4VWvFk,Particle Accelerator
+ONI,-8,35,9E8DHrgjn8jPmEMpUvsFSLtefq5Y7Z73mzWwow67Ef88,Fuel
+ONI,-8,35,9qsjjBGDooNT1i3gyfmKyF662BepdYUCErKt33FzbaNM,Strange Emitter
+ONI,-8,35,AxszevoJKH9VKmcQxSWwGxj34SYscpoe4wciFxWbXjYr,Biomass
+ONI,-8,35,CaLyK78gZmrvsy2PuvWq3DdtY8i55b2A8WLhSLYag9GC,Honeyland Explorer Badge
+ONI,-8,35,H7rzUsA98j1tMPWjUhFV7P32B4hei3ZGMu3mf5yHYmVh,Titanium
+ONI,-8,35,GeUMTRQCLdtnXTNDVVwohvUmAJtPUMdWdtT7YG7ai3CG,Hydrocarbon
+ONI,-8,35,BiyK5p7fux3wvG3JN1Y8zPC6oU37PDp55qhapzRfu3Ex,Iron Ore
+ONI,-8,35,7NxTKFVozNtTzh5K4eRYehv7BEFtQ8CACeSqrCaDU66g,Golden Ticket 2624
+ONI,-8,35,38cDx45CMRh8h1LGDxiucBtuxQFz6WChjSdmP2MS65gA,Nitrogen
+ONI,-8,35,6Q6mok3nqsnmBiupWX3qR5xU2U35MJUy42RLJ5coyzC,The Edge of Paradise
+ONI,-8,35,6cttBMumezCw7h8jSJVUPBmEaNjxS4kQGbWdwdUZKPPs,Rochinol
+ONI,-8,35,2ce6yf9penCirkzS6TurM5n2qbvV5xLHfcz5dosrspw3,Copper Wire
+ONI,-8,35,hPieJFTPfbUhiNhXH8hfKgRiXHrEyL7Xegug9cbHSf3,Energy Substrate
+ONI,-8,35,AY5VmLLb8KdcqoRAQ2fXH53ZtyQUDuvuqNFi7cyneeLn,Crystal Lattice
+ONI,-8,35,DVRV7KPJqTB2ZgYAT9FvqYJuLaCYHpfThRaCmA1xX12F,Survey Data Unit
+ONI,-8,35,HLR4sjpq7AjpT6WpWZruvuh86vtigjrEwPLMSnnJSb3G,Radiation Absorber
+ONI,-8,35,BpiV9VsygoAqHTFywsJGS8hXTXUgPuESjG2Bs7yS8Gnr,Food
+ONI,-8,35,5p7aYWWQTKWC2mQh9bVg5V59TzwH8kBUbKw2npNaEPoT,Power Source
+ONI,-8,35,A2kB77L1xWorbzNZQB48gaE7MKPE5YdMghTxwi3bHPLz,Iron
+ONI,-8,35,CmNnbpDHsTB154tHbQ6GN3aTd7FXFSeEHyXKEwZ2Z3Ba,Titanium Ore
+ONI,-8,35,6BtHZtvKhKXicr7CJjRaCAbnxtDs58SAmZRvD2g6RDQj,Electronics
+ONI,-8,35,6YJhjR7emdigQchnDTCuawwhZkkn4GM4vLSVwh1iTvZ5,Framework
+ONI,-8,35,7sXUvh6vMxbo9NdxMCqM2W8XUR2n9zJ3ULaunS4nLBgZ,Hydrogen
+ONI,-8,35,5dPsHRsecjWUUd8G6X2Fg7CdZybQT29CdipXj7cexXhS,Field Stabilizer
+ONI,-8,35,9ddDTMtE9Kn8SU4uJecdTR7BF9do2btXsnC9WYj8uns8,Steel
+ONI,-8,35,FAJUdaUszqYv5aA5QpwvRPD1SNmRTPDGjQkUnii9nUog,Toolkit
+ONI,-8,35,AH3bSK6F3wAgGxgXziiPzHBKV4sPdF3QKckKk8byw5ro,Polymer
+ONI,-8,35,F49PvBZgxNtNYHcdgoTW4mEwmKkvoWP4bpiPuV894UyX,Aerogel
+ONI,-8,35,6TATQuxhN55a1HHQfBe7tDXtAcnT8iRpn1f6e6tHXmJb,Carbon
+ONI,-8,35,6j8z2wwYgVR4DTWttxNBnJcHq2T4gMm3iAq1ij38MYZm,Calico Maxhog
+ONI,-8,35,CsLd8WjLZST8akFDDg6h9jYEmjKZxYaNGbU6A9CZN3Hs,Copper Ore
+ONI,-8,35,cwPhvqB6ycYqo64aeb1RbkiuGHKGZ6FLMuAWFaUdL3C,Diamond
+ONI,-8,35,Eh9VQrRZ3JNv5Y2x7TSzEHKkXtnLz44ZqSVoAuL95bcU,Super Conductor
+ONI,-8,35,Fh9iYFGMbjmPsAHBmwHWUfcKpxVReu2r9Ur4aVQ32Wfe,Arco
+ONI,-8,35,Bihoui8n4wfJ1Zhk32kVLFxMPQu7cKTYTzpjfXTdtRmy,Graphene
+ONI,-8,35,8vFrw113cCKzH7sA3XTfbcN16Wq12g2JkqYN4U4KY8UH,Fimbul Mamba EX
+ONI,-8,35,4mq8iqWfroEL5KAiciqDTov67RPKW9Ho2p4DevNc2PB2,Magnet
+ONI,-8,35,3u6dszFyVURBJisfRN5CXFmmhPRd7eLRn1YcTZwcD4eQ,Electromagnet
+ONI,-8,35,DQ36vgvbpJnbFk7vLfRVk9Tr7LhFyN7N3UjTxY1RrhEZ,Lumanite
+ONI,-8,35,DnBAHaoqGoYE3dwA2CHQzYiWvtBYUhTgc3PmQjquR5jY,Copper
+ONI,-8,35,3gy1Zgj22Zm1VY5HjkoHj7LU4HXo4NzRVQwjospx5gVW,Silica
+ONI,-8,35,FJfGXysfaJWxnXhG8bq9GyPqAkiGymPsZZLggZ9iAz9z,Ammunition
+ONI,-35,12,AbtsDG4ZHRyrg6VkGRvAQ2SEDWoGYfGSetS3hHo6e5RS,Particle Accelerator
+ONI,-35,12,E3UcZLZJhPJX4YuxAiS1mzQuTvWKdFUTDE4KFeAujmuz,Fuel
+ONI,-35,12,9ZY3axPiZMhPYu3Jp7buXRqrUwkEaAXCbG6yBy4npDiX,Strange Emitter
+ONI,-35,12,CLw9KTTuB5ELYmAjb13uEGAotj8iuNuf7zxpygCNVSwb,Biomass
+ONI,-35,12,FjQz1GHjxjgMyXjcEgGRdAF9ne8uXwipn7TRzeGZT19W,Honeyland Explorer Badge
+ONI,-35,12,6hUfbjE71NJmHb44zxxtLhpzsByQPkN1ibfv7BhMWDCz,Titanium
+ONI,-35,12,FkZeBt6znKSoePhYBybxzdoWZymdQkbZa3wAZVQiJoDa,Hydrocarbon
+ONI,-35,12,FHYfkiGnvqAucd5okb4fY6Q6TBsKgvUkZ1b7WaPm88vt,Iron Ore
+ONI,-35,12,BrKDSVPL9dQ4ZSQw9MWe2FhrTycmSQABz4qRVx26iWqn,Golden Ticket 2624
+ONI,-35,12,78ogipaBLi6MfT5P6rLVMUGCDbiJXHQLwWHb8AH6cEXA,Nitrogen
+ONI,-35,12,CFHDvQRHHtUVwbyqmPFUyFiPSGAox1Vbe8K4yfTwCpQf,The Edge of Paradise
+ONI,-35,12,GrRFL4HiyuQZMBfF4nyxoPdUAYLDh4P5EkHtBND6Pgqt,Rochinol
+ONI,-35,12,EGUAP7vFRqPKirzt3UrcfNAuoqFzqhfoaz5JYCG435f1,Copper Wire
+ONI,-35,12,ERb97ncvJSjpaPUzuR9LVBABdVZQF5S7QSudAs6f8MAF,Energy Substrate
+ONI,-35,12,5PN9u1tYoGwzKbQcCfUYyKkCnkT5afaMC5iCqTxidj9F,Crystal Lattice
+ONI,-35,12,5Uczf1H8dXHCgJNFLAifuzcBxHHVGkLpgxvofcTf2CSp,Survey Data Unit
+ONI,-35,12,8ozCmtu1MeQxF5CG4G6TeVmWUcGwc4wr11zjmQYRXvHx,Radiation Absorber
+ONI,-35,12,EBWJdNvvbEX2UdPc9M5L27iTm31gNccM9jkdN8D7j1bv,Food
+ONI,-35,12,7h6KEfSBKrSHKBQRpud1dC94EDfngCj4zgfVH3LG3E9i,Power Source
+ONI,-35,12,BBnBCTWxcDfjstGbh3Rdg6jBzbhsukDKdqZ5pgb1GtCA,Iron
+ONI,-35,12,2PZ7chMZauhcAM1rqN6TBPSUicxM6VqGkxbasoVtBwSR,Titanium Ore
+ONI,-35,12,6P5uZx6gBuRjQ7LxPJKFGbzxBrKLTv9zDSxGb8M3ahsw,Electronics
+ONI,-35,12,DD4JK2Y9cmRBxTrg8kGF2pvfj7tZKgjmWB6qTrEuxwrA,Framework
+ONI,-35,12,jpcPs9ix6BJKegwejA8ZgFpBdVSvaUN6bSyuDyVeTPE,Hydrogen
+ONI,-35,12,2fUpZsmPL47DLvao7t7Bu4b5jwmiU5rMvAdMJDdUYWx8,Field Stabilizer
+ONI,-35,12,27sqMCRM29k2CYVMLfqrStjtncVFr5xQYY3LUYJBvr3C,Steel
+ONI,-35,12,9jLiBDV63GHxHgV8vUti4SQL6DLSMwoJE3qnzchfet3g,Toolkit
+ONI,-35,12,HcEo6S7Xru3xU5MrcwurMAmWcP7Dt1YhoR78VtYHXVuz,Polymer
+ONI,-35,12,HuDaRJvunqb6fsvLMBVeQk3PhomekgKPMTtzgx7dsBXu,Aerogel
+ONI,-35,12,AEokhBYfQ5ALLqwQebjCrt3N42HvqmhFufqbUogN5jB3,Carbon
+ONI,-35,12,E98xgvdwFPE51WYpL3t1uWNxPkT9Ejmq3fYLE81ZYy3r,Calico Maxhog
+ONI,-35,12,CwAauUK7gzxZVmq3HwPRoeTpxzixKBMBs23bnPTfnWo2,Copper Ore
+ONI,-35,12,6tXqtWCho6u3mEXFTifY5C9mcxpMW8PGznuqhMBfRh89,Diamond
+ONI,-35,12,j9XU2829y8jQPo9mNz6Ch4SbD2PTZVGytf6FrhZVMPx,Super Conductor
+ONI,-35,12,GJ8eREYomVLQxwsRfT153Wq7ZztyEj8AqqASLSV8LsZk,Arco
+ONI,-35,12,UNwbWMhRTuRHTHRVTDUdKzPxr58AsB2Ur68TtRqSGp1,Graphene
+ONI,-35,12,Ho89cZr3a49URDhJ4iDXf7QYoMoZtNMdtHWvnktcVbCJ,Fimbul Mamba EX
+ONI,-35,12,9V6dMQtMjdZaR2kyCE56QrganPJ2TQEPuwHJAcHqcrKH,Magnet
+ONI,-35,12,EN2iySb8y7gKaaoky8yQ74SgBZ4jNx7Ms2YH7tL2zM91,Electromagnet
+ONI,-35,12,zzUZcto7rzAb2qoqKocWJNHvbEvFpQbPzDDg5knqgcQ,Lumanite
+ONI,-35,12,Gwy9nPu2hDFd7MmqM1PxBCSWyJMpmmb3G29utzV4jTbm,Copper
+ONI,-35,12,G9SakpLAWWr27qPnqdPrUHwFrUrnC3umeU47zBpfcy84,Silica
+ONI,-35,12,5357SSvsThRS4LutWhLUj3NYAgu3tSXkHaxSkoRVt4mx,Ammunition
+"","","",F3DaHWJVe6jHdLfyxzrM2wEzz2n5s6ntKKekb5ZPd7TN,Particle Accelerator
+"","","",5yrQdgRMnEu4VkiBPxmVhwH19jx8hMkXnEEnNkzDXH3c,Fuel
+"","","",DEvQ3XQgp9WmC6iMgnpsMwmksSCy7HqkNcR1qEjWN2Rn,Strange Emitter
+"","","",54zxxNQyDJuEVhnMdVv9Pw5C6bBKvNFkJC8k6TGiFA1T,Biomass
+"","","",14hXMK7qk3jcpw6AGQh6gajvCe2gpd8tzDF2TyhFpKuH,Honeyland Explorer Badge
+"","","",7tGAk8u34d3cPTmRk86KRPGUf7Fty7oDEGZaVfv96ATc,Titanium
+"","","",7DqbfVraiU2sM1yaFqpWdKjB9DnVZMFi5kH1QiftKoCz,Hydrocarbon
+"","","",8kSuVpt7VnbQHYuJBPdCWeyUtJSQcNaFfYq7qBkyUsJM,Iron Ore
+"","","",3iYxymi9n39VGny7JMqRPmuBngYwHf71jBAanfyuFzur,Golden Ticket 2624
+"","","",5dE9esY2T8PSbFAkmY2Fof9QniCJwHauHCnDg9uRp38T,Nitrogen
+"","","",E6e1UiuXAtqNkRTGanRJmwmN5hTDiTMva6jC3JtB4UTw,The Edge of Paradise
+"","","",H95g8Mn9pVGVrQZ6h7yk5hc8T5Ep57N5F22SmE4QkrLL,Rochinol
+"","","",7TuXQMfy26K4CZzKmaN3uQsWFrJiC95FayTaYQMUDkNu,Copper Wire
+"","","",EKKP419fuev2xgDq2qTmHjBsWHnLdpJDgT9fVz4xNbzQ,Energy Substrate
+"","","",DH21K9frf8LNGNsdQVQRHCgXuh4soHe6CunM5fxGPzwV,Crystal Lattice
+"","","",BafvsxUpSPgun6ENHzuNKtH8ySftFQFS5RzrW7E3ZFBu,Survey Data Unit
+"","","",D9dPc9mAMiX81CvYxxbRVvaS3stgVTGbMSNXyjN8Je7F,Radiation Absorber
+"","","",21uD7858usLzaB3duK3MWbxi1rA6nmKXUVpYcVNLuD3m,Food
+"","","",FSdHK3yYXSre7wRVvk9c5zmzwRmvefRd9EHYxU6jic3x,Power Source
+"","","",2jFEaYHNZLMfPpCWZAMs1KGYjhpBGR2JkXuZEnX5Emtw,Iron
+"","","",FvVteBx3iGL9q8vLzXH33JJnc5yq8ZbnTBYihum7yK5D,Titanium Ore
+"","","",HWCYNmAJVQrRfs3CZ3jjPMi1TnaQD333VGwsYi5wEnf2,Electronics
+"","","",C7mSTqsYp7msUhnG7pCDtbguCo9m3JYmuysCdG4fNCHr,Framework
+"","","",AqZsRfkugfLqkDxyACrnFwndwYboL3VyyEM7jr6Je21X,Hydrogen
+"","","",5WY6cj3tpDuAshAn7GPBFtgmEJxdBP2tv3kjbaWatQ9Z,Field Stabilizer
+"","","",6CFrGo2Lv1aUrv7idPrxyMiQMy9u4wJQbSnLZqRV155x,Steel
+"","","",5tJ3WU4W8XDJoHPkdKFc8K4tMq5jzxdu3nCJ6AwSvVH8,Toolkit
+"","","",212evqEwuHnRnE7oPNaP4rWFEPiJ1rw97C8LfHXHKWXx,Polymer
+"","","",GVAVFZTN1pxk2r1AjRDy8WtoBn2rmBDmC1v8mWdqYeXP,Aerogel
+"","","",A9GgjFV1LNAqhTg4qaKqfU8vhEgPacKW6W9dNnqXdYds,Carbon
+"","","",CRxbQd2vHLKXcnhFBFnmc2B5iitmGd4QejeVEt9ikY4d,Calico Maxhog
+"","","",7MSQEXepywgqVeTg9Q3w3vkZe99c9kTHh3BHoaJWZK1o,Copper Ore
+"","","",BK7ZYipGyTfcKa7XMkVJ4R6ftA8BA8Wg6ZSCKdtobzkz,Diamond
+"","","",DwHPqtWcBoqc6wyBtFQZeYQUQChs3zjLtg3Q4cLQbEUu,Super Conductor
+"","","",2HiD4n1sREPtYcNQ5q93N8pME3naQR72Pi2JMRQsX2uj,Arco
+"","","",EWaXbm6AfBgDc5JvFC7K8CM8NpVVQ6CvQzNetGNepuuY,Graphene
+"","","",HDQPixDLnHaAPPms3nupZto6sNjmfct5crPJkAhNkJoK,Fimbul Mamba EX
+"","","",5Gnuf5hsSYxhdZshEgvGt6gfM2JsacqJaETUULgiGYvK,Magnet
+"","","",6afqLDWmJAxSQK2bNkpNstimwHvqmva5k9CgwjGwwRaH,Electromagnet
+"","","",Ah9Kr25KEZB51zSxQRbjt8iSsHhxior6znXLseCtExXm,Lumanite
+"","","",58fXEiaJXAn8RMU7hMyDPkDHgMd6eMXXxrsWit7aM3Zh,Copper
+"","","",7tobFqpJZip4XJD3wiCjmpPTxadXMwKyKkPUVQS3d5ai,Silica
+"","","",Bf4FCDyZpYa1AJMAySA5chL26zUz1Zh93crqmeiy4a1k,Ammunition
+Ustur,13,37,7iYzhcmpAg9U3LPwwuYYJ9KLEpRQDLfPbiFCsHnZrVEB,Particle Accelerator
+Ustur,13,37,14PjM9GKAXCYiDRaKrBRWJEDtnnah5Mt624kisJfCzgU,Fuel
+Ustur,13,37,7oZ119h9Z8k73qZC7W1Z74ip2cnEiBcPfv7fTy5XNNxr,Strange Emitter
+Ustur,13,37,3kwtrBQgbofzCrt5mjvbAcVJ5h5TZdPrd2QjibVbZjfY,Biomass
+Ustur,13,37,7hRpreLjkPduMUaB7Fvm4vBjb5HarmhE5Z2kt4JmSwKy,Honeyland Explorer Badge
+Ustur,13,37,4sQj3Joth9RHBbhE8VE8WNueJhtMEYnSQhsS2eB4bQpd,Titanium
+Ustur,13,37,Cm3N3qvFdvhrKZwXgA6w97ZvKXUyFF2C4jFX2V2a8fwU,Hydrocarbon
+Ustur,13,37,GSaVZqs9mXtgoQHVak8bJ5gWSr2RB9foGhYi2ZPYnnNf,Iron Ore
+Ustur,13,37,9xQwVbAgpgDL7Ut8mV4SqxT7EKJ2A27Q7tDU22sjbJKj,Golden Ticket 2624
+Ustur,13,37,BUEWbyfojhSwacrdGxwKEp3vtrUVa2P3SdDpr9i3mJug,Nitrogen
+Ustur,13,37,AgGxn42vZWvEPe9LrQG4FtFtm6rtbDZ6GHNomcTaud41,The Edge of Paradise
+Ustur,13,37,7jsnNHCojVm1yG8BDKLuJaHVqcK8CsX8hvmBdiaB5NNE,Rochinol
+Ustur,13,37,C3fcMaDaNDbNY9NWL1xLHXw7mmzNAnGGx7Au9f8phWSP,Copper Wire
+Ustur,13,37,BYRE7Ra7GRf313UxBSjDP7SX3mM84vGygBemmgHMZBRp,Energy Substrate
+Ustur,13,37,JD1NehFLkrWFpM4FPZaLacmz3tis6HJJPmmW6kCRC4GV,Crystal Lattice
+Ustur,13,37,HsBaHEMA7NEkbSNDtiKcKi9usiAHjU8XuVyx2YviqA2Y,Survey Data Unit
+Ustur,13,37,8ejRcBVx6tKDwECC7eU2VPKH2ajtFJQzhSdxHwSb4Pq5,Radiation Absorber
+Ustur,13,37,GLdJ4Lrs8JvZb4r6xU9hgR4719rFJxMMgwah9JoZ9MfN,Food
+Ustur,13,37,8oQMHAs7oajQtSntgHLpNPPtidc2B2y98J84zvihVuCs,Power Source
+Ustur,13,37,J8jqDXZ4R8QNVsqgP3FeMHRLEtRJ8gdfAtgyYQuZtk8e,Iron
+Ustur,13,37,2Q9tgstSseeb9pBKqmwoRGPhXMiXjCchJn2S6fkcug78,Titanium Ore
+Ustur,13,37,9DaqyEZ3SKbUx7YbciFbCGR8FWMc4BHxf4Z5TZhcs6J9,Electronics
+Ustur,13,37,6kK3BeJyF86HCs5T16wsQZinxqP5j8CjJtLARabMW2ns,Framework
+Ustur,13,37,8Ascn8cejeyAEKWR99f2Mdp4vqe9449FAAi4pryHTKnQ,Hydrogen
+Ustur,13,37,6ZLtdAm6h2kwxqcoUdtfZ4eeXyhwYmcHLoEtCQ3fhmw2,Field Stabilizer
+Ustur,13,37,68Km2VnsHjZRGRbnPj4HSDdePfzJW9NEhrwVzMsUgesh,Steel
+Ustur,13,37,2xp4g9o4fEwpTgjV8vuftawEJcE9YvCqRxFQxKKwQ18h,Toolkit
+Ustur,13,37,55UQe5AscKtbY5HEMfUAYj3Nysxxa5oYCtu7JiB2dS7p,Polymer
+Ustur,13,37,GxL478DnLrBtVfWNnTKHttCkvuX2f2RgyjpyWHmZF1CF,Aerogel
+Ustur,13,37,EzWCmqaB51Rmup7kwwmFfAUKmCPMY71sWwidxDeDRE7j,Carbon
+Ustur,13,37,48TQ8ZfBb4EbYr9hMb193QW9C7Tm3AvhMjs72LTRxzms,Calico Maxhog
+Ustur,13,37,6NtmzSYTNFeGi2u1UcVKR4mVdyL9koaVUrAvwvN3Q5bq,Copper Ore
+Ustur,13,37,2HP5FHJtA94AdEam25RTxHrciCNqeJh6ZwZuVvN11C9z,Diamond
+Ustur,13,37,CdA6c257hvoDk8mESQFKYHpt3zWuES23CUMDBiyS1K8R,Super Conductor
+Ustur,13,37,3Q48WPLQB46Zccsh4mHjVqPTkY3Sp5prsKVRPEieHkuZ,Arco
+Ustur,13,37,CQhvtTFNAKZyKsEWdfjhLwcqxDGHvuFmZFzm14P4jiCM,Graphene
+Ustur,13,37,5jsaer3CcR19ZGfyfRzbPDxEZvepXMRYdYZCmAiXThaX,Fimbul Mamba EX
+Ustur,13,37,H4iPDB3jyhXvxhF6QUHNy1zLwfp87EpqGSa6DBv6QWxY,Magnet
+Ustur,13,37,BLJQsk9so5XogNE1E8b4nB88a8JLstiv5n86Z9dGts5g,Electromagnet
+Ustur,13,37,J522m3mrUA2bCoPL6rKiVQ2TBA6N62gehfXgoWYuFmoR,Lumanite
+Ustur,13,37,9cWxkMgdQ66mejPtG2JWbfgFjiqYDwCJXhBy1oQSJo1m,Copper
+Ustur,13,37,LuuMu8YozcLDnCVpuLxTZs3eXFcf8PTTnKwfXLn5ERP,Silica
+Ustur,13,37,CxTJ5M1FHJ7o4JBy7D6FmYVdqoPYpGYN52AucFXnLWhu,Ammunition
+ONI,-25,15,2utQ1S4KbxMaQFSznFWoZF4p1T5NYMYovsMAFym86piT,Particle Accelerator
+ONI,-25,15,GbnpYifv1QX44PTxYynnB2v9RA9zMz5eZSSm7x2FBvSr,Fuel
+ONI,-25,15,CtMhMMyYssce8C9xdarXYBqxmezCcfz714EGSDRwbRdq,Strange Emitter
+ONI,-25,15,AA9Teh5MdFNGpVC4JzgPpv9B9eQEWPqvkMeyu8564ENT,Biomass
+ONI,-25,15,2k2JTZiCjQEPVwLas2jigEhmavF2AkcGFhA9Wqyt6Zpy,Honeyland Explorer Badge
+ONI,-25,15,GYyuddL2xoDqjbCF8niZKgwXGX5d2uqaXj9upehSWozD,Titanium
+ONI,-25,15,3HeNUtfftLf6UDg76E7Gn75MvSris2LyFBG1o2WJYxzi,Hydrocarbon
+ONI,-25,15,6L81YidFqT9VK9eKQRCZ6kAPNTMQ6jcWjordm8dY9ohd,Iron Ore
+ONI,-25,15,FXYWif6o7PYFLC11gAE4eebBvDEUUqk7U6T8hCeNfLgt,Golden Ticket 2624
+ONI,-25,15,Bfmj1vWpnoAs8nKruJ5VdwQFmPwTKtpQniE9opUXTu4V,Nitrogen
+ONI,-25,15,i3VeU4LH2y4btVkGNArc7b7gZrnLu3ZvSuQG46uohfa,The Edge of Paradise
+ONI,-25,15,4GZbwbAP9tMdDCP6upnpNMG4Wrd5Tz3CfjC1GpC9hSpM,Rochinol
+ONI,-25,15,EmFjdxrNYW78Xp9m9v9pUKDUQ4JUfKe2x9tu9noPvDWE,Copper Wire
+ONI,-25,15,4RmEaoUF5KzeENLjMB58RrSi4cgupyA4TLHaWD38iTYe,Energy Substrate
+ONI,-25,15,3M4xtaHg3HQZj6ZgncNVW8uftGXZZV1ku9AobAuVhL5E,Crystal Lattice
+ONI,-25,15,3qiBPBqYpQdcZZovqT9ioPwpcM3qX4f16TE1VzCs48Tg,Survey Data Unit
+ONI,-25,15,4iim9XTCYhD43SKLjy3f8hByeiLPGsGfRmnB6pNRrXHD,Radiation Absorber
+ONI,-25,15,FNUq2GMmKrjxZVQMNLdBmMC5s2q96u2nnTtqeTGfm1os,Food
+ONI,-25,15,CY2jAToGEgWBnn78fmb62EU8Xyukiy53u9j4EPDKWXPw,Power Source
+ONI,-25,15,4ZtUJS2BrVt5LsRAtEyTHfANbAoXjYzZVcvEJmcMxg7Y,Iron
+ONI,-25,15,GZFFaAn8kCKcaEUrP1k2gPgqChbqvwTxu7xa9y31bwdu,Titanium Ore
+ONI,-25,15,2ReYp68xqtnWT2fBeJmiuXDgwLgWPG1mjRhYHU2QBZrg,Electronics
+ONI,-25,15,EKXkEezdzzq4jsKjX3Mw4seJWAk2U3arKxGUeXwbSqdA,Framework
+ONI,-25,15,FDb899KHUn4REQssZQtEr3N6UeeXVEnCpmW1aP5r2hoK,Hydrogen
+ONI,-25,15,6P2ZxW1NsqUXDG42YPYt8byfC3ZimeLJE9YP5mA9mvvC,Field Stabilizer
+ONI,-25,15,Ekfbfcumvuyz7LsNT1A7YQaa9iwcGC4wbq2Jb7vMSJPB,Steel
+ONI,-25,15,5n1EwJNzB45LPfUu6jUu3WLZ8fybiq1wPBeMn3rM6ZQJ,Toolkit
+ONI,-25,15,8nh5AQsZU7rf6VdVTuYSakNY5HukTV88fmQtGGRcSm4G,Polymer
+ONI,-25,15,FcFdi39bRb8XUG4mJVbFWpXqBV8XNQPavd4dar6GpJBK,Aerogel
+ONI,-25,15,D3ashrcb3izVPfnSTUky6MRmNBJmjYx9oXhm5rb9k5SL,Carbon
+ONI,-25,15,7aNftR8eRJbc1LmkYxDJJGsKwGHHiJ7jH9Z5x7RiCQEj,Calico Maxhog
+ONI,-25,15,861h8623yB1C7mk2xC1GnxxofEt1HqpVoGqAuCwQxAbT,Copper Ore
+ONI,-25,15,4EnMZJCJmsWRcRzqYdn5f9kf14kYcJZm6qDRjtnrPhzj,Diamond
+ONI,-25,15,HvtY8sforasjMhKXsxGRXgCTgFuqu6m2TX35JpVLsuzT,Super Conductor
+ONI,-25,15,GWVLkqoeeyZ7QAr6keuMGZPm5boGCCKJJxn973V1XNWQ,Arco
+ONI,-25,15,CFcwaVr4PdQgMDj3tWvH1jwg8545NvMagwPxeo2y5aPp,Graphene
+ONI,-25,15,D6ZzAP8AA9HGcWLcjCXtTkxRJpBcPxkeYsK88WLELQNW,Fimbul Mamba EX
+ONI,-25,15,DKjaUp33drqUEVZTyqFL5cTYyEGMRyk89nTQcKpev8xP,Magnet
+ONI,-25,15,APAFKszcszRcB4CSnGMnPmWtLr1JiW4i6jcnGzKcnzyh,Electromagnet
+ONI,-25,15,F4XTzWTGhwSZA8j8FgwPhFPFKuww2qGiw4U7B39U4Hnn,Lumanite
+ONI,-25,15,6rAjHB9ayQFz9okNFFpKhzRjxLvYbZUir2zYkwBKNeiU,Copper
+ONI,-25,15,5Em4BguizEAQKwC3crnj6VCF8FW6Y5WkqTwwdgZpEjE1,Silica
+ONI,-25,15,3NMu6Qqvi761sxsuH1VVmCVSuAZB7ASyimn49fpMTUr4,Ammunition
+MUD,-30,-16,6d2BygzDQfPRFK6od4H9poFWxn71FuCu73ERfXuvCMM1,Particle Accelerator
+MUD,-30,-16,Hd745HksPKTHdX8jF7LeWVVBXJ4SbQanF2eK8sHMwmBi,Fuel
+MUD,-30,-16,7Ybm24xZKYAX8B5P6bHztbCHphktWTNwZwDEySeE9zQA,Strange Emitter
+MUD,-30,-16,D8EWZft8v4TAPTbB7NpJbGrqe2KVV7DRAzufVpmBUki2,Biomass
+MUD,-30,-16,23QbV6EvVWe2NMRmf7PW8KXbGU5AUkh2TKjozuWvyrMU,Honeyland Explorer Badge
+MUD,-30,-16,BwV59hXkaWNPjHpzsEcqraDU4z51GTYjbzXZKBUWhPGh,Titanium
+MUD,-30,-16,7sWZSc6Nda7BnnrRosrHzF6a8CtqKpExeu68i4hFe7PM,Hydrocarbon
+MUD,-30,-16,DGAi8kSyyDpjR3xBWjD1BJDc2ZotYbRGjs5WdUMp1kc3,Iron Ore
+MUD,-30,-16,9Vm98how67q63FY3UdS1kgxXw3mm5DkBj8vJ9arTWoYF,Golden Ticket 2624
+MUD,-30,-16,6yp5MQjxt9Rr15kWZpFp2DkVbFBgJfyGVeCbCX4wbY8P,Nitrogen
+MUD,-30,-16,Hhxe9PWGqssdcY6sMfHHHo3iw4u63E6mjc5Bz3sq66GG,The Edge of Paradise
+MUD,-30,-16,3LuaWwVQK5yXSgSZBMUpkrN4uzSjAr8vm7yrMFCbgmH4,Rochinol
+MUD,-30,-16,7163SMMxN3jLgMtMJ5WnFkgZ8gtrcRp9wAF8HUMWQ7u9,Copper Wire
+MUD,-30,-16,5xhkBq7gYpjBMH38etvW8J3gpEhsWFB4w4cmvWnHYq7d,Energy Substrate
+MUD,-30,-16,43L1KjgVfKNyhHr9REruwnch8zm9kHqfQvam2TKx2sC5,Crystal Lattice
+MUD,-30,-16,BG4GYUgmESCBBBuS6ZQv4psKyUpgZskmx6a7DSXTGPTb,Survey Data Unit
+MUD,-30,-16,8mngE1Ds7tudo2c41UxM9sksMqGjBBhcRzdSyrVZTG4G,Radiation Absorber
+MUD,-30,-16,Aa6eM8qiYqKaWpH3JT9CsURaqaRSy2oh3tUF1uk2NQ97,Food
+MUD,-30,-16,4sCKhLUFbnGztmFgESCoahdNPx1iQV9cR1HhfvonA47K,Power Source
+MUD,-30,-16,2SWYg6mAge6mboixhvKuerGLACdCCdCbnUbY3gP4pqB7,Iron
+MUD,-30,-16,4y62Z5Trq2SrTd2pm1SUHCjLRV2MgykVT1vy1D1Nj5Ya,Titanium Ore
+MUD,-30,-16,G2Rhfyr4vmSxapd2yGvGTx11QELUG8jQW5AdPiyVYuFg,Electronics
+MUD,-30,-16,5SP9RegsnDXXRPrxuLULZ933CfSZyKLMbEc82SwQyJrM,Framework
+MUD,-30,-16,7JRBQt3E6iQfiP2nM7qek5R8vKb3aP6aY4N1E6H87YFi,Hydrogen
+MUD,-30,-16,2HtWdvWRmqTtX2A3EfMazYLhTMw4P2yg3SvgKzUdd1fE,Field Stabilizer
+MUD,-30,-16,BpEvLRQRQMB5nshARVQ5ifpm4EbFoQciwjHeQh9LVVkf,Steel
+MUD,-30,-16,EwVcGMUnEZc9bpS3XMbwfiHB3iEmFYC1WTXLjC3CgoSb,Toolkit
+MUD,-30,-16,HGgbdmjtiDWs34exXW26TV8Ak1q1Qikuk3HzpyVxydLm,Polymer
+MUD,-30,-16,HNFWmerZEiq7iTH6QVpScvpcfEqCghqEKAz7tCLBATta,Aerogel
+MUD,-30,-16,FfbPtr7iv8Q5HgE9ykQrx1Bad4DFogh8vHNWw79KUQg9,Carbon
+MUD,-30,-16,F631VdND24Uc3phZzUkku1ruRz27AcFDW3jM1cLzBTUM,Calico Maxhog
+MUD,-30,-16,J2qczVqgb6qgdKETUeqc3owNvdF1oC3psLDU551WLSF4,Copper Ore
+MUD,-30,-16,EWVYzWMGpMtkRV6FCCZkHzRev55hx7UKt5M7cqVkGmqT,Diamond
+MUD,-30,-16,B2WSx1Rqmt2JQHrzLFLYhxu1qCRcKSByhXGr3LDsFj5p,Super Conductor
+MUD,-30,-16,C94AaQJ2Nk6af2bCSA4hdDx9dUrvwK3JBav1Emq4zcxV,Arco
+MUD,-30,-16,H9yJp99ehcjXKgh5k6QBW7cZnyrxoiea4exBYvSiL851,Graphene
+MUD,-30,-16,8dwLumKcPv2LUX4d3BCJG6BGN5MyvyuT83Gt57mPMb2H,Fimbul Mamba EX
+MUD,-30,-16,5HqPeMVF4w1GFJNvyoAynNVEnsT4coycpZTbTqARiFDi,Magnet
+MUD,-30,-16,4G2sxb5eKzusZmQ163mbGUyjRCtVgU33vEhdhxJjJUuE,Electromagnet
+MUD,-30,-16,D5QVisWJjTKFxdsVbWGYXLrjnAWGYL97zKGQcfnFW66p,Lumanite
+MUD,-30,-16,3auvRNz7HdNaz9kvcsYud5yYz49fktMRdajCLgQ9HZtU,Copper
+MUD,-30,-16,FSBYzz2Uea2pCzGzHDjciRKnPo9SxAhPUk9NjacGq1tG,Silica
+MUD,-30,-16,43romTHwfD3TD8n9Bneu6LSoWTtvE8nDdkxYrXMxaqDQ,Ammunition
+MUD,2,-34,JCrEkZqn8scpzcNWLcRdRmApB2AB2d6xdbkvxMcQVR2a,Particle Accelerator
+MUD,2,-34,8pbBwqniQv23ZC6UngxeZMiaAWiv9G2N8ydKJquNRZ8E,Fuel
+MUD,2,-34,DsKJZk4jJ39k4sd9J2KAh1bxdyPa1QrEJfNYU7LURZ2v,Strange Emitter
+MUD,2,-34,3t9QHnDVXqyz3wSTQuUzUS5FtX8CmnkYtMX4T3io2FcP,Biomass
+MUD,2,-34,3Aosd8zT16hpzMZa5Xj9FexxFh1nswU2aSkNmc13K3MV,Honeyland Explorer Badge
+MUD,2,-34,45UUZ6zpGVGGnxeyd3rAfNtn8jfJSmHqoTLPXachLAyc,Titanium
+MUD,2,-34,FCRmj7GFUnDQArwvPw7gxfFeisnjiYCR4wG2ktWy8Rwf,Hydrocarbon
+MUD,2,-34,9pk8VgYXZtfLHyCHbndM8vqnULuRdHtihxVvSJm3jsk7,Iron Ore
+MUD,2,-34,GMD4iPFjPt4QxfJoj55zMgwNRvwY2R5oYjxbWzv1GZL1,Golden Ticket 2624
+MUD,2,-34,4W8FQ2KFTSFCQkNE7QzyB6YSJeX3pyh9s2UuaCVoVuLw,Nitrogen
+MUD,2,-34,AjTahJQKnVsUvaJajp19EG36dw7jdGVzEu3XrFeL3UH7,The Edge of Paradise
+MUD,2,-34,HveUH2UZArjSkqJwGrQ5Di1bLCQBfKuzdwRxHtvGASot,Rochinol
+MUD,2,-34,HuXZC3EXPEfrdFREdy7Ue1vDoPKe4mSvyFnvAXxpV3R8,Copper Wire
+MUD,2,-34,4G5KCDDaiXHDpmGyfWLmSFkiMqsRmAitm2LSe7DWc3dJ,Energy Substrate
+MUD,2,-34,AoNhx3zBMP9RcduV5pkGFHK8pk9wGCEsXSt2cS4MjkaU,Crystal Lattice
+MUD,2,-34,G7yviikSihxe7zoTaMNfjXtt71woUdPsTfyT4d2GfvVr,Survey Data Unit
+MUD,2,-34,2Nisfez9faXCoYBRdRnoRu91aKLAF2WEnY9ngzh4JSo2,Radiation Absorber
+MUD,2,-34,3XygGs1VeMfyNAiP8tGWwCKoCRbd8sSGitFkK7jQWiZK,Food
+MUD,2,-34,8gAuW3aDYhpiL9pWvtTEAU4tXdaGRUKTpW7vm8eqd1eF,Power Source
+MUD,2,-34,F6Y92Xbe8Ex85miYTXWLvsdoVf6GuVQKNWrigurwrx6X,Iron
+MUD,2,-34,CQ6S4whbDY9KjLUhoAVud7DUkeyCJhpy6C9ryY4aAHsc,Titanium Ore
+MUD,2,-34,AYLmjmmebpUaQiPS2ENRa48134fiY1xhmgXxJiuQoBPG,Electronics
+MUD,2,-34,AwysxegKAV344hgontDfEGp2fVU12EuvEYyAZ7YBUnaL,Framework
+MUD,2,-34,9GEY9wWzw2qD2xhkKssZqTV99gCvM7L5g4S9JKNKa7Lu,Hydrogen
+MUD,2,-34,BPsCrpA4LjwV9CvpddGL95nFdV3aSy4dWyrd9SKAS4gf,Field Stabilizer
+MUD,2,-34,6xxw9QJmc4dy1hb54UGj6wGjC4UCCycjwmscMryyw4dr,Steel
+MUD,2,-34,E8zBd7pHZb2ZLFbFkiYLXrNXiZJS322TQ37AnT2HxVvt,Toolkit
+MUD,2,-34,BaqHuxoY8qtNFWuoABQWHeQJh3ShctPSUVXRbszC4EDH,Polymer
+MUD,2,-34,AtXgJoTV1vUoa1qJ56L6XhPExFw34wZvD9sgHNVukSfa,Aerogel
+MUD,2,-34,BJMq4Nn8AX7RmoCGkHDpwosBxuGxjLWVzWJykY1tNFv5,Carbon
+MUD,2,-34,DmfYWseEVy2jNQs7TGGfwWxTfBuxGz4g1xviTqrCRcVh,Calico Maxhog
+MUD,2,-34,HRqhLS818MakR6samoMYqJffyoBX9NcpyqWhoujunFqE,Copper Ore
+MUD,2,-34,8fyqUqmw67VnhPFB58UbEiem8o2n41Ew7L9164ZhQR79,Diamond
+MUD,2,-34,Fynpd87Zx3nmogJ7XbgCgByhPfkwoXYN6qtDeaCe4BuK,Super Conductor
+MUD,2,-34,An79gTg9jz3uthT8BzL6281u4oRT9W9oRrxSStiH6KLv,Arco
+MUD,2,-34,2Pvr68vEMRa8bNVvzqveB86bgpg6Kvh7TkdZfcyjRv1M,Graphene
+MUD,2,-34,9KMqSEdfBUKBKGScMR39b56zTBTFXN2yNh4AQfG5VmW2,Fimbul Mamba EX
+MUD,2,-34,xkkD1Yx3XF2hadvoAfUonxZYwS6bqdyWxrBCh1os1TJ,Magnet
+MUD,2,-34,BNEbuRroAZxjBdANXRKrs1aJWWM44igFvD3oTm2enhCU,Electromagnet
+MUD,2,-34,GTBmEKj5dNvEHAzWo1qsP4cSchahRmmv34cctzPq9dyu,Lumanite
+MUD,2,-34,2red5vdwyco7dfM7F7Dqz2KMTMWSuAyjXconQ21tXG1v,Copper
+MUD,2,-34,4z8YYCGUvP5DKEQ4BAxZ5zYjJvBurUjzK2VjvXw17XPm,Silica
+MUD,2,-34,HDUfLvHq1TkbnPJb8dCpE43zkTvxTC5aLmg1beypm1AU,Ammunition
+"","","",5CSNr7cvfyTfTCUhdtA3zR32p4iNkZqtmSyjSp6T8NLv,Particle Accelerator
+"","","",HrgRpaNF8k2SC7r1q1JzJep11otfuTxLQn8YTwMqjuMD,Fuel
+"","","",33QxKCqmXKg7joFMsQPBknxJeLRTy5R5hRSa9xGpm8mJ,Strange Emitter
+"","","",d2DVUem6Acf5Lu6a5EVtLU8vbMs36eN8AyDtfqdQWeP,Biomass
+"","","",6SoMs5QVJe3d2joiBqMjHUjGQGC94zxS1dU41tXFhS6y,Honeyland Explorer Badge
+"","","",5R1MUJqNE6jjagHJfMUcbdVgrBZyvZhpJ6rtrfJwGg5R,Titanium
+"","","",HeJzXYoYtQJj4mPXWTVYmdJDKXo5Vu86LCS38jHdikvy,Hydrocarbon
+"","","",Bj6iqnk5wmsCub7Wupe2vzRL35BnHDSCv2PGLMbUzhTp,Iron Ore
+"","","",J2SkzsH5QBsc58kdZSUTSBfTZGDxH9Nrgsu3szoC4Kwh,Golden Ticket 2624
+"","","",uKq1Aryww1WcSNp9MrzdDSjmyKcHGeFvB2BoYSgPfaH,Nitrogen
+"","","",JAYCKR5s9ZQwwtCQuAChngXcrH8pyuMVGzsLs9zTRtQx,The Edge of Paradise
+"","","",7RvL28d8XuLYyqAMEGDAD8FtXR7SM94aXtC9gdQHUtQG,Rochinol
+"","","",GKBPSK7j9Jr9xfpJtyVTUSe98xf8qHB61mHyWXGrPaUf,Copper Wire
+"","","",6chorzArFQbq9D9df9f46PwJpBtKcGSpjZb9o87ykCca,Energy Substrate
+"","","",85b3NAYcvUNsGpf5B8L94PeCwZ4Dq8ZxznuC8zHbtWdW,Crystal Lattice
+"","","",HNguAyGfzpdhu7pPKNUcBWZQpbmX1oUrhGPVePb5DZeZ,Survey Data Unit
+"","","",9Zj8dWqvJwmBzzjb863LPrURd7AJ2VZgnt4S1aQvkmqf,Radiation Absorber
+"","","",Fd5vJq5fRwd7NSmF6WNgvJCdoW6L6AUtyZng2vc7oDgB,Food
+"","","",8vrnbLp1bNYFNmJgz3cCoUJtBwq8adhxt1YaoeVTuK3Y,Power Source
+"","","",E4ACsoF3yutQPk3re4uvdthjKY2tATms9VJtvoFL7E4d,Iron
+"","","",DCUwFLkV2kbukMVH369gjJanwZT1uFCE1RYrDuVc42db,Titanium Ore
+"","","",7swiKiQPdM7TJYWZkWDEh5HFKR4L6tQAwx712SjW3cwr,Electronics
+"","","",JDKDU5eoqLmS6e2ae5stzQbAdXxb6nk9ShUxgaAEzycv,Framework
+"","","",GarVZ5A7MaDULCWktrxCHJfpXf9zdHFuhE7Tjcud2SYz,Hydrogen
+"","","",7Sn3deFGzqamf7abwEsvdNGHieXuMaEsaVCntbwfix2W,Field Stabilizer
+"","","",BCPg7yjq7eYwRvLQ5HEhnbtapT1DbqEE4CsYSvnFxxbM,Steel
+"","","",B13AC6Vc7n8Kfuq73hJYtxLAigG7vZJY6y7DcmR1uus,Toolkit
+"","","",63Xeg3G4tcEUnuhLh3Rgk4QQJd8N8jqQqUt87FsEZD6D,Polymer
+"","","",CzQrhQm1dARXeavQZSNoBzAEU4EbxmDE4CWPpBfv24Ak,Aerogel
+"","","",5iaSJnGsXSJkAH9RQn95984V17ej6597uWvkwN5iWCRu,Carbon
+"","","",B4YK4ZdSv6MbXMPhr9XoNwRd7cP2cKtvrdqdfWxoyMhF,Calico Maxhog
+"","","",GCDoeVqL3nFNSs15cCzHC2uGbD4MRYdVkGsGoKyR7mGS,Copper Ore
+"","","",Ax7u7y2Eo4H3bq3sKsnagA9CgUTzctAbw24ganMhu68B,Diamond
+"","","",J6RgqBBuXLAdUhFrA6fNej8n9zWCHETTyoAyT33xD46,Super Conductor
+"","","",73QsRucuwxQH9GQp7qV79zChwPY9gQP4Wh6TXgKgGA3x,Arco
+"","","",9gcR4yMyq6mNCsmpBft7VAMgHgiCRR5wH4vKjKcfPQA6,Graphene
+"","","",J55UhUXMXu6X3DtGWxhc5CQGzKFK31ifAtV9tpJ7Z2r8,Fimbul Mamba EX
+"","","",DLWSYSK98PGaJHhFJUxMxBeQFqTjs3A62jfBSSE8YFTk,Magnet
+"","","",FwidtuSHekyJ78xpcHGM8PdBTaxwXrSBtC8yZZZFQv3T,Electromagnet
+"","","",Bpt81FdFZbHfhgYZgL8DA6m3D47PzJS6a8od3b7Rg3vD,Lumanite
+"","","",CG4tusYkoCn9yvY5toNZsBo8Yjrpag1AmGk1KesXJAAS,Copper
+"","","",8gNoziN69wX8qK8xphWRYYbLPRDUtAgJKJMoqscuVweE,Silica
+"","","",7ezdw9Rw9J1P8QU8xq9LSt9EcUKKNxmVzWQphwz3Gany,Ammunition
+MUD,23,-12,GX3B3cDUvRs7myLjbUVN8dypuyeoS6W8pKrzWgT9z3SR,Particle Accelerator
+MUD,23,-12,DAhNgRKubTxuM3zJb7cEorwME32TBbqLGjUhbUtNrCjj,Fuel
+MUD,23,-12,5ZKBzu96bPnfRNTsBrSmjnmvmiND6ndwNLPAAE1HGMY3,Strange Emitter
+MUD,23,-12,AoMiq615DdWTy1vGJ78ZNLMFLdpauPJJPv8QqLYwWy3n,Biomass
+MUD,23,-12,VDGr7zvAjshpMaX9XJAkqm1X18rbBQ3KymHBoDUhkTD,Honeyland Explorer Badge
+MUD,23,-12,3E7NjfUkkCjGBKJ2E46UqT5mR8HF5Peo5xaRALcfkUMs,Titanium
+MUD,23,-12,Ehf67oXUBRLivT4fg7xmmZVYDT8eoWkMoazZVXHsKRJs,Hydrocarbon
+MUD,23,-12,2CaGptFUgPJiGHKgN274J21CFBHybV4P3gY6rynDA5Nv,Iron Ore
+MUD,23,-12,87M54bpDST1gwv3jKWXxMAvfAewZswbZ1zsS8S6krDfr,Golden Ticket 2624
+MUD,23,-12,GqqwJLZeYpyqQaDRLRto7dV7yMwK2NHtegkdwuaoTEvC,Nitrogen
+MUD,23,-12,81H8Yygiwri1JPqRxG9zwysTdisPG1pVwTzRW7pHJ2fB,The Edge of Paradise
+MUD,23,-12,A1VLPVAesbBwGHgGQVEnUzJjiSTMkftvN9utGf4tjtnW,Rochinol
+MUD,23,-12,AnAZ8AnNu4B8kjCkYBAwNr6AcdB7vbnEQKCdE4YGQ5zF,Copper Wire
+MUD,23,-12,AxvCtK7fxvoDpJVJtWK6pSxvMgLo2KQNzmXAFFQyM8cU,Energy Substrate
+MUD,23,-12,AAQUGao9syACUWtig8wXn3aKevdDh1Twj4Dd6Jk6MkYJ,Crystal Lattice
+MUD,23,-12,74MawURbNo8Hvd5a1zjZpfxWJJDRivq5LvG3ZxBePAL4,Survey Data Unit
+MUD,23,-12,4jjXVmBbTqSTCQtKcA4G8VARgzXoFT1Kiigjszz3o4Yo,Radiation Absorber
+MUD,23,-12,JCCUvtdWufVCawoFS8wQvLNzbTd8oBG3EhNNG5EmARgf,Food
+MUD,23,-12,9kmeJP2nZ789siF3EqMRjhRTUXNDwBmLoSnP238c7beb,Power Source
+MUD,23,-12,GESFCMoT7ZWFZVQEfn3hQZsTHrA7qyJxFGEAeDWeDPwi,Iron
+MUD,23,-12,5rmxDBQWdby4TngRydLia6FdB4BykXjU7nQ26krvNmw6,Titanium Ore
+MUD,23,-12,BoLKi7kjGZrqiWnMi1pnhtQvuV7DK3rzjN8msuiSpDjo,Electronics
+MUD,23,-12,BKwLXuwy4XmGG7mMcQuZ52D6xj5ag6octYNiwRrscojz,Framework
+MUD,23,-12,Fg2gwBj96wRHVumiRHwYasoHL4VtPWfwujBMCPgawrt2,Hydrogen
+MUD,23,-12,ZhAbG6BZBABVPaCYxmL44j4z4BtGsn69LXdTj2bRmv5,Field Stabilizer
+MUD,23,-12,4LLBongKDbsXpLeDj9pzm9teh8Pco7gmtZvfYmbaKLEp,Steel
+MUD,23,-12,EnjeubyACwA9ELqqh4yRSbnXET2KKJJEbmfzGiHXA6iX,Toolkit
+MUD,23,-12,8QXVFuRCqA6NFBe9Wvqt6N4CkojE7uzH5NKQqeCRzSh,Polymer
+MUD,23,-12,FDYVN7if5MduSrWRzbzwXF2EZHqYmf5WpMjRvjPrUR93,Aerogel
+MUD,23,-12,HNeCAFWTX4dcZbZmWBeLJ1Kg8EMmmo1QrzuntFXPfEva,Carbon
+MUD,23,-12,8DBQpAh2yh8RWLsfMHAVYDT4a97AhLFm8gnQYdrJ8r2i,Calico Maxhog
+MUD,23,-12,B2LY9Yoc1hSeKtsKyUGeH7ojuSWTFVuW7eYeSHPoeryZ,Copper Ore
+MUD,23,-12,FdpMWTvdbRCnDYKbApcivBLDbE67dh7WTjZkGmEufaGZ,Diamond
+MUD,23,-12,DydF2hynWrc98dYLryJZBr4gLD8nftd7R8WNu2mo2C7R,Super Conductor
+MUD,23,-12,5jArDUm4VvkdNQF8mM3gtxdhfi47qPXGzqv6kZwy13dd,Arco
+MUD,23,-12,EAXMet1QjYiRwyn2SpKi2F9PuhsU3FdHWiXKEY8UtR7b,Graphene
+MUD,23,-12,2qfhmi92y26REigBoaLqHiXGiWHiXV58m1mgKzmnarAt,Fimbul Mamba EX
+MUD,23,-12,95EgCr3yB34xF6TcRhM7BxovvpzWS3gvafdka3ZmTsj3,Magnet
+MUD,23,-12,APCV1FFzEHd7Xsx3wYNjHTvW4Ta1vK1aCeag4vgFdi99,Electromagnet
+MUD,23,-12,Hi9JjUs2tLxQ736APKmhfFybzuuvy4BwHrWdV67pJNfs,Lumanite
+MUD,23,-12,6VoM7yKgsqB6nH6WVGdVnU2AHSvvmVcszFvpfNZKBxXT,Copper
+MUD,23,-12,AqvRFtnF7GdAkDS66RcA3VKMbXcDBtVgdX4MX8Fxa2uM,Silica
+MUD,23,-12,AC629VhgUDaJNemqeuP4F41ahMLcxcthErUgPJXS9zWN,Ammunition
+MUD,-15,-33,EGHdii4xkWYe3ALn51r9fDK7tpxAsVnh9jZYg1ovHv1A,Particle Accelerator
+MUD,-15,-33,A2BoRpwRPc919xsPFjPbrpZ7GdYNXwoBGEds2p3pd474,Fuel
+MUD,-15,-33,Fk2wGV5gWtnxghSb4A2Fw1L7hbLgus5zeDK5g6YycWLJ,Strange Emitter
+MUD,-15,-33,3ccte4moqCsN3DYVCS5D5SNQtsgj48tqDKKR2HMrGWmh,Biomass
+MUD,-15,-33,DyryP51yMDW7d1sfVAW3ZeUA96JDRMKo3TdzqKMxLatB,Honeyland Explorer Badge
+MUD,-15,-33,83d1241VTvS3D536e3qaVNHbUmxhp3J9ZC8QYqvhkNjq,Titanium
+MUD,-15,-33,9wKSNQbZXnJExXCmuozJzx5FSsR6HVaq84usRU4mVwvV,Hydrocarbon
+MUD,-15,-33,6rCcrsKynRjuC5c14X6qdEVgVzRbGtvVyPPaJbiosate,Iron Ore
+MUD,-15,-33,EAzjQLtuHUjpDLeQ4iPQzcZL2Ft9C7VBCiwgzdmX9gAX,Golden Ticket 2624
+MUD,-15,-33,qJhACcVEJeNMeVxVjmmTgMsaXFpeLY9gWYaL8rHBBph,Nitrogen
+MUD,-15,-33,5GPNZiDmF3yZAJYtC4p3iKwdTvfasgPkt6NzeqNv4Hsc,The Edge of Paradise
+MUD,-15,-33,9j5mthsZsqycCZNBU9C6VSrmbvag5YiUwZsUz9ZURsMk,Rochinol
+MUD,-15,-33,F6YPCmNNbSSzK6FRkBTyiYnLnmoxxdQcj2stdDYpGLzp,Copper Wire
+MUD,-15,-33,3cS34kRJJyMx5PEgw9ySNcDgN47PKvhvdjpbXFGihE62,Energy Substrate
+MUD,-15,-33,33VWJTzDYdffRZK5WHhJUxAPkWfjdsQq9WmXuApdPAfP,Crystal Lattice
+MUD,-15,-33,5Dqw6QnPRQqLMFMzvPD83dbPTrVs28a8EE4NJNELgkFT,Survey Data Unit
+MUD,-15,-33,3p6cARyrXR5ghswUzP371fMnumXFWJS9iuUNRZBKj1tH,Radiation Absorber
+MUD,-15,-33,7ugSMb73r6Nnfa1Jx1QGDbzcbLt99DUsUwvfcxdvfAm9,Food
+MUD,-15,-33,Qp4SM5CyynNpv6ffwjzw5YikffY4oYECvUuxioio84z,Power Source
+MUD,-15,-33,EVaSDeLYjHE5WTuofc4LEqJUqkJj3Lj7bSgop5zeNwSj,Iron
+MUD,-15,-33,DvSdQtjrquLmkPCeTBSKDfRKbEyMpMqH7brf1dwroU9s,Titanium Ore
+MUD,-15,-33,J8Lhga4z94C1PHLoBes4G16JCXGGQ8L3PmSiteam7gJc,Electronics
+MUD,-15,-33,3fQ9K4SwHGkPcSedpeUTfEZij4Y26LEbHsed6Bhxwbm8,Framework
+MUD,-15,-33,GUnCH5CdDFWy4PvZdcMLbDEMsfnJGyvuDRw41kCKZeFH,Hydrogen
+MUD,-15,-33,C4fNxwKvXHmS2fN1RAaSmHPqLjenjnK7Ez2gkFA2mUx5,Field Stabilizer
+MUD,-15,-33,E3G3MV7bRB2wohRrU4XCSnY6n9Wgua8cYrF7gW3ACpS7,Steel
+MUD,-15,-33,9XEjbuHTBGu8ufPh45MbvK3H9iyYZZisuECrjKaJVJLm,Toolkit
+MUD,-15,-33,FBwWYASrWiJoANwgVgjnruzzkMFpWtEG6GFkTE9XbD6f,Polymer
+MUD,-15,-33,AwCdXacadJhHWC4sBgkkb4i6jNquiZbo6tqbsnAt4FX4,Aerogel
+MUD,-15,-33,D6YqTzFikxjYE6Xc4y6dAWfpkAHtTb9tz9hqaQS3ms6W,Carbon
+MUD,-15,-33,AgAofrtaPdfFtZhTwDhdKDh1jJxxqrUpQNHhcJ9tGzS6,Calico Maxhog
+MUD,-15,-33,CNqDuFG3K7v8WTKUHyyDGmiRwQLZbB6qdmaAZDauybgm,Copper Ore
+MUD,-15,-33,Ci5rL22gWJBMPKVHJSZLdpCbgq4yr1kwaRqeh61QdhAn,Diamond
+MUD,-15,-33,C6uWxwc42MyqTypCKiVLhhTxk9sJhRsL4FZAMzsnHzi8,Super Conductor
+MUD,-15,-33,GRKHiPgxpPSC3G1ALxthsi8Q5FdMno7MeeLTw7aFfi9V,Arco
+MUD,-15,-33,UyZY6gfD8MRbu4BRHM5Q7x9wdipruDiAmh5d2ZDa1mj,Graphene
+MUD,-15,-33,7Uds8jMuffSN7RaF26hFKmxZc18DH5vE3mzrqTSyubuE,Fimbul Mamba EX
+MUD,-15,-33,BfVCNy1wGnoXTUZFJLtXzhnigtpKTwTkN93fH5mgidA2,Magnet
+MUD,-15,-33,5qKx9tyBmbAx6QVPU6iHStR3k2m9kYbGGa4wTxeUTgcV,Electromagnet
+MUD,-15,-33,J9jKZj7sBwMq8GHR6aYuqjNNR3ZkuSpZ97bTeiv5yNdb,Lumanite
+MUD,-15,-33,E6sxyzbXvBBuof94k9oygm5DFG5rQqGiMJ2xKLqDt4Xo,Copper
+MUD,-15,-33,G8GiJCNTuBhhsZbqqEEjzpbFfiwpWVXjPgriCQp9exX,Silica
+MUD,-15,-33,B5N9ex7fRHi6mWHmv8S4e7ZC7biLx2kFqXTZmtxbLN1Z,Ammunition
+Ustur,17,21,DhkCFHDCFkLDkaFWjAQv8M1aX4t23qM9BtozMJ61oWMz,Particle Accelerator
+Ustur,17,21,8eQZfBMQS4U5NV7jRoTnK4CHPtuy9q6sHccPQmgtsaY1,Fuel
+Ustur,17,21,48HXcmiNYcJXnydJJ1Bhee5oujPNFVPVyaB99hcUt5kf,Strange Emitter
+Ustur,17,21,66SKLGHfbYNyJaMEfy7PofFsx3G1tbZdQSM3deZCjJAQ,Biomass
+Ustur,17,21,9Co7mJoayRgMJazMWips85hf39kMBfbuvewPrt9Ca8Y1,Honeyland Explorer Badge
+Ustur,17,21,JEK7NuVRLwQvpFxkfZGC6V5uPrKngfHXN25t9AiR88DS,Titanium
+Ustur,17,21,55vmvLsVyfyzHn7BUUMacZT2xrczeqimTsPNcwFFCq7a,Hydrocarbon
+Ustur,17,21,GjBEujNhWVktrjpHETvzPqRNW1diYpfvKE5zPVKKd8nf,Iron Ore
+Ustur,17,21,2aXyNsUzsUHw7KBFxqcgguipfSy5Vt8eY8w1ejsMofWW,Golden Ticket 2624
+Ustur,17,21,5zdWF96hx7prtjE6xBcK8KnnmAivYEGLtshkXoqskeTG,Nitrogen
+Ustur,17,21,DLGECQ3LhmVVJnwjJnj1UAhkLiwMbnzsGRYo92a2iUnM,The Edge of Paradise
+Ustur,17,21,ASUGs29RgBsqmc7Zf8dBN6jYRQ9dhB62H6eBJDsx1Ure,Rochinol
+Ustur,17,21,Foggmf65XgSeyxUqPTqysczujo3QJPR1voHn1TMWWKf9,Copper Wire
+Ustur,17,21,H56WrBQpSYRynDD4WntGWr21xvpeULvfYaiwpUrguTMH,Energy Substrate
+Ustur,17,21,C9wprrT4oimjgXSVj3Bgt15B4kYhVzDKaSNRbqf9SwYF,Crystal Lattice
+Ustur,17,21,9UjxbA4WvFBCQswJHzPsRHSaaZbspq8otKL369MxvRVD,Survey Data Unit
+Ustur,17,21,2oa4Gz11KY8agyK2WnSKcPY6LWBJyBXRLJtWMUm6U6Hj,Radiation Absorber
+Ustur,17,21,4v6zTj5NVsLqawNNmAGkzTop8h9U5CvbANypqAwy91Vj,Food
+Ustur,17,21,3Di9Jt6jmgyUvVdejUN5YRa9vbLSPtkviGaNuDvbuVXt,Power Source
+Ustur,17,21,CPoKHASgEQL6QdFSpFYWJn4ETmAZ9BHwZXWrFssmDZbe,Iron
+Ustur,17,21,Cye8wdbhKNKX4LKS19ZXNeJtFqHAzFSybSEverqH59eF,Titanium Ore
+Ustur,17,21,JE2rjx5mZASfSiekMo9DSrF8CTL5swLypDdasFSao7Ya,Electronics
+Ustur,17,21,2GV8C8eaFf99vxym5bRaLqtahW2nKYUxA4jf7DYASZe3,Framework
+Ustur,17,21,Cgkec8qNEwbhQ5GWGdodmZA4S9icbwtbSp45zMWo6eVL,Hydrogen
+Ustur,17,21,2MQHK7NC6XXY5e4rUkQ1KSpewHQrtD1HSe7a89KazMBH,Field Stabilizer
+Ustur,17,21,rhwbegL8miCRuKJwhPjmL2yJLCGygJyUZrwwiiHh67e,Steel
+Ustur,17,21,m6kWkC3wkuAWuZiPGRsbWReQkbEbEmmsUghVPARzWLd,Toolkit
+Ustur,17,21,FTfcAYJrBTMNVoBqBm2VFAymBtDNYnVZXC8nHPP3ha3w,Polymer
+Ustur,17,21,D6AXPFLg323597hvpRVnkH2Qu4gxzQDG6ehu32RCwrwp,Aerogel
+Ustur,17,21,G2HTKYdi9YHrSd7KeaD5Tutm5xPkkCd23SYxFLZJB7fm,Carbon
+Ustur,17,21,CZnU7RiYRz4NgPRybK5jUcf91wuK1zHvz2Pwik4TrDNH,Calico Maxhog
+Ustur,17,21,ANCbb7XdugHT6QW1diKCHPz7Md8hnH8TaruGTjCP2mPy,Copper Ore
+Ustur,17,21,3sj9MSpmjvWf9x7hV2uRDi3pdWN9VRs2hqd7dmDp3h7e,Diamond
+Ustur,17,21,DFQvF8mGEddzyjb91GzKJ5fWfpbU8eu9uPS2MonKCZ15,Super Conductor
+Ustur,17,21,EXt68vEf7h9ZMvNLzsh5b67TPa7yozxeQyopqnaZ27nc,Arco
+Ustur,17,21,78X1nf5payvpXmVE4jLhC5JfMvmEMZC75pPX5MFoRMnm,Graphene
+Ustur,17,21,HcnvymGEKzPDvcw2TsiW8QwE3bt4bCrEmVELwGgQj7oz,Fimbul Mamba EX
+Ustur,17,21,6DGVzRnbRd51RN5pJXZoi7BwnpPgRWKUCXgfRy1SrQAA,Magnet
+Ustur,17,21,BjiC53HooVWdYNu3zMfy5UT9p6WbWGxt3rkfuj4dkFPM,Electromagnet
+Ustur,17,21,E4qs8tUGu9MkLE4aKc4JJtXdmenUsHXBkLvXMXRUZ7Ge,Lumanite
+Ustur,17,21,wCp2Wceeq2L9KtCRrmxBAMeJXpNWkLYjAF3pTnStXLG,Copper
+Ustur,17,21,AAWQdVYAjQ94iBWhabNuHJdCnFi4n4ZkGchBm8qshPLQ,Silica
+Ustur,17,21,6a7TpmWcy9kuuD5cJbRTKLvuytpreosjX8AqXSKKEAfo,Ammunition
+Ustur,38,25,9aZwDvFS11S2yXL8QSChJsyRV3px5i29QsHxf2r7om8,Particle Accelerator
+Ustur,38,25,Gw5xwqPG6sD5nKtv25AwhZdQLzjaqCqMU9bFuiiHpTr4,Fuel
+Ustur,38,25,8HxwvjRkGfiKkoSev7QM7viPqgwi57GwjhviHt5HBfQi,Strange Emitter
+Ustur,38,25,3UX7V1sFMDJZ8c6feaoVpWwnWHetXtpjgQu2orRPGxc1,Biomass
+Ustur,38,25,Gu3Xt54nzAoM2Ciph9xjjDEDwkzK8gNNpNmuoG7vu67j,Honeyland Explorer Badge
+Ustur,38,25,3N2F9eS4irNzJJ4yURecuED1ANNcXtVZj7BzYa4iwJ3q,Titanium
+Ustur,38,25,AP6T4CT3xbPMiEMTntwDoB5QK2MUUmLw3LV2LAjJg8Ro,Hydrocarbon
+Ustur,38,25,9ksTVg2DRrfkvTvDk8hfxME4ZtYG2FSsNNYHXpruiNkP,Iron Ore
+Ustur,38,25,Enc3sbvP7wT269gvxGnxtaXkJPYrW1cEAuK27CJHjvSy,Golden Ticket 2624
+Ustur,38,25,2mbZXFzo2F7wb8qar3sAHtUijULHvF4L1EEXaPpdz9VK,Nitrogen
+Ustur,38,25,DM9LAvMMKJ9bsN1bUKKFMppGUNuNwmycR7Gd57De6zF3,The Edge of Paradise
+Ustur,38,25,CFQfzojcmLUk42rQoy1bwV6W9KzvUrwZkYuvisQwAT9D,Rochinol
+Ustur,38,25,EQPc6kUHmUCSM4wxM9moza8tff5b4reyteyzwe1RGmCN,Copper Wire
+Ustur,38,25,Fzg6Cerb1XxQ4gtSaMNAvHAh2ovLbiQevR6Y7qdXFepg,Energy Substrate
+Ustur,38,25,Cc9AAWcRYSX8u37JPLuDB1eNHApCc17yEzvBMXQ86s1c,Crystal Lattice
+Ustur,38,25,EvSigttCFHwsdDDKu6y3jDdx8uWh7WNYxJoi2EBmiCYo,Survey Data Unit
+Ustur,38,25,J6N8mGbQJHjfDgdVVVwc5SEcVwsYH9xH9UQG5mfopVSz,Radiation Absorber
+Ustur,38,25,3nAhaMmrFmSjdRh6ZDhqivJJjQNJpUXtPvpFjtHvMBdm,Food
+Ustur,38,25,g61ChWcJ32KhNqvT7XbHdYSetpFZSbB4LBUW1SLLnHr,Power Source
+Ustur,38,25,4idBTGdJMfwquY1RiwfJVNoKgBF6r6cMTHg67Z8zMFzb,Iron
+Ustur,38,25,DAXxvpbqihAL5jZKwiFCVTEmARxhvUCtwwePNybjsq41,Titanium Ore
+Ustur,38,25,899yuiR7uPTAqNccC5fVwXPjbY6GGXVb6wKGzY5vCC7u,Electronics
+Ustur,38,25,NVJ34hnxZ5maBAWwNxJ8TsuWMLBwoVeVSeiqs95BodK,Framework
+Ustur,38,25,F8aZHF7MDvhJqUDvCoHCgTfk4E65eGw7Q23yu15DPtFE,Hydrogen
+Ustur,38,25,FY2U4rdzxANFoak4d6JUf7AjHuBVPt8ud2nPY3GbfgYi,Field Stabilizer
+Ustur,38,25,Cv8dFerkhTHnx6JBoZ1waox2oT5hBxJcJqkTq56voduV,Steel
+Ustur,38,25,Ebw9BmwGSUKcYYs1vNyN3nfv1LApdpFpuPeQAKZ46r97,Toolkit
+Ustur,38,25,3WLLJ2faGVc4dbR577DvmRfjtEuUu6N5giEi8s7Mgs9Y,Polymer
+Ustur,38,25,H4j6Ey6DEfrrqvpGYmKhea6gGBEETrtc1ggBZKXMEVio,Aerogel
+Ustur,38,25,CNgpR4SZgLw1LXBoKufo4WYA6iYat7UU7gwELM8QrCJm,Carbon
+Ustur,38,25,F8RFoFawDsnk8N14VDZTRCRm3iWUrfdTqgReX7rt7qSy,Calico Maxhog
+Ustur,38,25,FCgvFNqHSpvxjxBobBvA1yrdNaka5CkkqhQLxwEun93f,Copper Ore
+Ustur,38,25,G2h3VPvEbghE4dNoRoQay7hSq6BqhtsWA6GG5ju56Mmd,Diamond
+Ustur,38,25,iDmV2iwMwDkb4LQN4g8P4WA6NqsN5vsXiD2whFMLPPN,Super Conductor
+Ustur,38,25,Exew9Kvto5KqbLT3Xg21Rd7chtVgN5ghS4xubPdMvesf,Arco
+Ustur,38,25,AR9wTGnBf78xN2EeFtLnZoHBDMBXRLGqmLfAYNTpV1wS,Graphene
+Ustur,38,25,4qRw7q5ZVG41UDGM1SExZmBsc9RFtvho8Rt8FWJLxAmz,Fimbul Mamba EX
+Ustur,38,25,345qcnBRWfuvJ8HuvKBb3TfemkNLVif9h1snuSHzLLSX,Magnet
+Ustur,38,25,G5TopxshpaMkvcgGa3JhYf14NrmaJuXrqCQTycNjV5G2,Electromagnet
+Ustur,38,25,89UAuPg1Qd5TgtpbyBxLQqDJJVg86HbXJTVb8FvPMET2,Lumanite
+Ustur,38,25,9Ad694KjKfkAkpLNeUGn3ya5CXgePYavdUWEwm86SKWQ,Copper
+Ustur,38,25,7PFHbWAPQmXzKjkF6WFfgCBoVa9jt5WbTZdRWtWkNt2L,Silica
+Ustur,38,25,2v3vychgMZf9dcsuKuMytLuw5PnZPnB3oFFQqfoUDyiZ,Ammunition
+Ustur,22,31,6FFDLekDRPEA2hDWJDEso1TiWsZqPY5cDcU2JMPiitnj,Particle Accelerator
+Ustur,22,31,FUUDQCQ5cWgTC8agCwnwFbPuZJpWUcLQdiRicSWZZkut,Fuel
+Ustur,22,31,87CGewoD5gas5kuvE3QwxYuky5RfCpVHvz1WCJj9oPSh,Strange Emitter
+Ustur,22,31,4zsEcr7KoTcuYNXQtihLFMc51iN7Ve4s8i8axzsEDRqq,Biomass
+Ustur,22,31,5xXALLKeNSpdkCHWK1aeXJv5YKmSf5LPYYUtnP7EeNUW,Honeyland Explorer Badge
+Ustur,22,31,35awwioNFo2F5AJFa3mtN6mF4zmw3NcdffAnPBHRyDrs,Titanium
+Ustur,22,31,Hr96Ajyf2ESLAEjsuGJ9tVtdouyDw2Qd47Ysn4mUw8Ed,Hydrocarbon
+Ustur,22,31,FBYtBAbJ95JNTwdwuvNm2rEwQeWxJZCFaAKKTbbCCxsZ,Iron Ore
+Ustur,22,31,EVi9FQc5YeyotLsjbzfkqTX3J6wUSixhqTQeUEDZREPp,Golden Ticket 2624
+Ustur,22,31,5gCKY49RFn2F5NfoNba89EkYbSrNEbVBRWhLwhZaAqVG,Nitrogen
+Ustur,22,31,H2rNC4Fa2vJCssvBTYFrWQwCbCwbgAcRVCdF965pSvie,The Edge of Paradise
+Ustur,22,31,J99VRjSZTbBkURzysQdKk2TsgbW9TFCGbFY2zSpWAVP2,Rochinol
+Ustur,22,31,CXWZV3CX1P1eQNifLSf68dYaNUDRfFZEp46bMRncWAhC,Copper Wire
+Ustur,22,31,9XjUEe6WdizX3H8m7hM83dUdNxFNJVMytMDzjBHdc5GG,Energy Substrate
+Ustur,22,31,94zkKpGtGYXXNGB2tpyF1VhhweouLerXbk7LrcneLk2s,Crystal Lattice
+Ustur,22,31,MairRc7tx4DoQQPu4zoJCB2U79ZSMxgScZkgvg43xUS,Survey Data Unit
+Ustur,22,31,GjqxXYbeHuXmRkgsNwJXdRjgBeMrM4nr1kMDEMeAhULN,Radiation Absorber
+Ustur,22,31,4qk5pvfSjphqc87m6FJXHEZJXDGGeiaD7dczPydA3PZF,Food
+Ustur,22,31,5ps39GTgtA4gCaAAPbSd6SPXSzwaucKdmzDruBTkeSk,Power Source
+Ustur,22,31,2FtvZjxAMN6btb6GTPXYe1QDnR8fDedRhYhmbvsSp73N,Iron
+Ustur,22,31,HnLPhBm7ANGXfnrA2BjphRHdRVYAjCL7idWfqNsJ2xB6,Titanium Ore
+Ustur,22,31,HS95UThTj2SJvhCnDL59JthzJbS8DtX8PSVvKPbELD7E,Electronics
+Ustur,22,31,G3LPjLmwqM9FmL3vpXYR25RKH2LeUL59sdsjiZqYZhr3,Framework
+Ustur,22,31,85GGcjSawsxoybfQdDpobfSdFWSVH72mSL5mQxRyRr2A,Hydrogen
+Ustur,22,31,7AeAB9u5XtRCXtP3mm8HkobKCjr4WSa51hH7uxCgWArq,Field Stabilizer
+Ustur,22,31,5CB9Mjrwsn5KMjm2FaFzzNXQebDRfJCAVjaVA9oBxemK,Steel
+Ustur,22,31,2ahmzk3BSS63Bk7wzUrqAQS1pWSAsK34xheP28rJuyau,Toolkit
+Ustur,22,31,3Gyw6YRAnRVCKZaMkPJCSG4XMouRRYw6xarHxCxfTisa,Polymer
+Ustur,22,31,9rNiU3NcSJA2XmLYzRHM7SKPFwg1Po3U6goEuCEDUPg7,Aerogel
+Ustur,22,31,CdrEbCvnKTzgT898LmDGs6p9TS1wqahCdewASYEBLEZf,Carbon
+Ustur,22,31,E9UjddWy1HuqDt11fcEVQjJZRHXZj1VMqTsxfzW9BzkL,Calico Maxhog
+Ustur,22,31,2jTv76qEWRkE7bi9P9Qr2UN7MuC8XGc1SF8QnEqbCE5h,Copper Ore
+Ustur,22,31,qge9LHdM3A4keWJQB7q3xiwjwbz71wPiv96ThWQvXnF,Diamond
+Ustur,22,31,1X4Mx7Hk1JoE8fJMLYd13J4AnCKp9mTgMsCrWNX3b8U,Super Conductor
+Ustur,22,31,4w6TKUswdgBDN6oUSvJTzC49fdqx2ZJPkrcFAsTcmM9y,Arco
+Ustur,22,31,HzDm3KDST7b1Uw74ZNAATLJnawnMPbuJyz3yzVeQCmP5,Graphene
+Ustur,22,31,9VDppJbRfUAmP3Yb8ds6TSr9GNfqQAnHR7QrSBySZf7R,Fimbul Mamba EX
+Ustur,22,31,EQMvpDD15wd9474KVw6SyQDWy8Ess3r4Ykgjge3fVP9Q,Magnet
+Ustur,22,31,A8rd95q3TFMZBiwakhnY44gDYbD85izkqufP49XnF6i5,Electromagnet
+Ustur,22,31,8gkiFHgLQ4Eu2K8UnwWDJ3QtnhQL3nN5stMwwKF7YDGA,Lumanite
+Ustur,22,31,9paLWAEXePqErpHBfRiCWf6Gz6LczzGYWRrR74mh7yh3,Copper
+Ustur,22,31,6g4YjQ8Xg8jSQqnPUgQxESRgfvkGo16JqBsFWFVJVodd,Silica
+Ustur,22,31,AXHuUj7nfGaX48UuTLeckUQ4UQiiRLS6pwbhK8WhoNjw,Ammunition
+MUD,21,-26,HsVgF1BqvzeWHfc1waH8VoVxe5q7soiURG3SPaHGbNc1,Particle Accelerator
+MUD,21,-26,6UiEXQZiydMjs99TKatTUDPGhM2W5L3GxE4ur9GZDgJd,Fuel
+MUD,21,-26,5CphMasNCaw9AokuGcgh5TbnWKBNyUD5KigMSp2VcSc4,Strange Emitter
+MUD,21,-26,4z2h44RaGTwQifAwCEZmHM6vDNgn5TnJJj98sj7ymtSj,Biomass
+MUD,21,-26,3sQEBswuJKy7xW2J4N9KfNPPZMcUMuwVmJFc1aZkBtaf,Honeyland Explorer Badge
+MUD,21,-26,H9nKa54DXn2DnfCYYFWibBfkFrvCit8D6Bi5nyfGUn1b,Titanium
+MUD,21,-26,Gw8eMca3dFsP3ERQY9TNTY7ZiPMiedhPUopgWvDYskyJ,Hydrocarbon
+MUD,21,-26,EnevqJHQ2TPSHcpdbY3Q9HfB6bQc4J9hG1BRor6h4iMD,Iron Ore
+MUD,21,-26,E2m7rc9pnbWzTkNNyDyuDymJe19NXv61TvhrpjN3jpx6,Golden Ticket 2624
+MUD,21,-26,5kWx4RAhzXvFUYmihxihU6PirYsr8yLRw6NPPaSY9N8C,Nitrogen
+MUD,21,-26,SWKFZJ3FeGNvJ6fA7Lv8zBU6KuGRzG1QeWzzfetHwyu,The Edge of Paradise
+MUD,21,-26,CzzKSmDDfuobCfuS3gsEah82Lttii4Cns6mVGReLo1Hk,Rochinol
+MUD,21,-26,ANPKiPSFnNGXXkp2DrXudV8DKMwoQGAwHEx3QyKqovJS,Copper Wire
+MUD,21,-26,4GeQpJyn3RYtK7RU3dvt2kwnXEGBG2extnoQaQsTeZRG,Energy Substrate
+MUD,21,-26,HQWq6nUNjsxc4v5eYKe6NyqvW88VtAo9mPPVW4tPXhF1,Crystal Lattice
+MUD,21,-26,Cuej1e8kC1EHbxPiMWm3j1H7wt4xzJfHhS3KMrxpRiVK,Survey Data Unit
+MUD,21,-26,5LiZ4bWbQdAypSuKkVCe1LV1DXQW7bRbncWrDrtQEfWs,Radiation Absorber
+MUD,21,-26,3Eg5tXmpnEovoJQbfcaMU3rHj4godNeKbDvgjPQNpSyE,Food
+MUD,21,-26,9j6WPw69xJbZQEii8Du9FCWYkE1RZTg3urfHeHt8M5vA,Power Source
+MUD,21,-26,8MsMBaJ3zWF7QpBaL4Ypn6Rx1KVMhSx1YU8jKFGd5Cxd,Iron
+MUD,21,-26,2qbST6rMzkoBqkWCGpgxax9ADV8446EDKuDs8DY1KvYa,Titanium Ore
+MUD,21,-26,8PPL5dKfXNu57ySaLdrxo1oDghGYpq9JCgX8JC73ikTs,Electronics
+MUD,21,-26,HEL4ZFMAKUaUJpaFM3G7bjsi9AdQtFb7jptC1wHu9qiJ,Framework
+MUD,21,-26,gZzXQUPKN5SojgeiUep1TCPZbhzAU7TAcc8wSCqpNwu,Hydrogen
+MUD,21,-26,FMLwZeBxPTBCCVVN9NQdsaQbkrSZc7N9ZgV9TohAA8HJ,Field Stabilizer
+MUD,21,-26,7bf7Pn1Ah4D9Sgg5Vn8LNKUcWzBt7ZJxjtzScB5QSC5b,Steel
+MUD,21,-26,4WL6MYFpYyAV5PZDFsEDmyU6G7tjSVTq7We2aFgtSkQc,Toolkit
+MUD,21,-26,B51rt28Rz2WkRzFz3suYScPTnXhHxY3buMxdT1rMiGsL,Polymer
+MUD,21,-26,3pQmiS8v47RQw9iLczurRFnS3J5wwS5g9oH9DZSYKRxY,Aerogel
+MUD,21,-26,EGrkdozEqQMrwrKUZf2G1mbexjBww3KQfZQAjwUviZY2,Carbon
+MUD,21,-26,Gtx6XpmkexJuo65ft85Y1YJkHBSKHhf9obupmLhgcZst,Calico Maxhog
+MUD,21,-26,5ZMJ9R5tgZ1iVnwKBJxUMbxNLep9cCRAurKHMMUrBpYC,Copper Ore
+MUD,21,-26,7BmwVFYVE19SMtkdMUQmLht6uPwaso81ysARcA9qnsBz,Diamond
+MUD,21,-26,89HkK521rLBTdPEq4pRj1et1LAGY1aa8N1dk7w16c9CE,Super Conductor
+MUD,21,-26,JBehp3YU2Cp1QrQxoAmTD3pUkbpyEfubD1pAXpovmKKm,Arco
+MUD,21,-26,3LL1gYzmoGE6PZmdW565U5QEthm1hPyBQPTksy6RhNaf,Graphene
+MUD,21,-26,4CtMdS9VBVVXtzC2AsVFLghe4ChvrjB7dWQaY6ytDE7G,Fimbul Mamba EX
+MUD,21,-26,9pSpHY5YWdc1AEkhZfsaGDHFFLx3WUGFGkds3thj14zx,Magnet
+MUD,21,-26,9J2A9hPcvRVc4ftxYJixbatThdVxxmmfkWq1FPY3Fp25,Electromagnet
+MUD,21,-26,J4XxqfigaP28aKemjRvrvaUwEeP8ZARaYG6A9capg4zp,Lumanite
+MUD,21,-26,4YRUFm7E8EzcnbMdKP9LWPw61Ts9xtsLeFzYEaBayRS5,Copper
+MUD,21,-26,61Gb9f8kzfD6VqVkGbKnGBUDf9JgtdjZEanREZRwvAry,Silica
+MUD,21,-26,Abhb85J4r34JmSdgjpwWuUmQuigsAHg2v1xm4dWEHMsm,Ammunition
+Ustur,35,16,Dmsp6PrRocBt4x6yTNmQ7DiRbrFGf38yNMmvTK4qrLAF,Particle Accelerator
+Ustur,35,16,DDdnDKMXLhxxwsmf7YPeZmJigZKZsETUNvsAGisa5iFS,Fuel
+Ustur,35,16,4CfE1LDNULVset9ZZJyvLimL8etbaNMo23PG51ar1r7L,Strange Emitter
+Ustur,35,16,AQxXwTQvNWRbhbrSJ1iYgy8PiL5VkzT9sXkNoTUG7Gkr,Biomass
+Ustur,35,16,FMJMraBZNr5MDEnnrVtWEH2gMUtirX2ynADzVncTwasv,Honeyland Explorer Badge
+Ustur,35,16,52BKtyCLBX95SQZCaK3SD9KrNPox8Joa5zuShibptWps,Titanium
+Ustur,35,16,6dt1srDhyCM4JQ3nggrdUHB4in7uxAqCSkMktXorFPXB,Hydrocarbon
+Ustur,35,16,CfwdiurUfQQhVX1hQxaYDLbvjmZvK2hqnMzuGU1yx7BW,Iron Ore
+Ustur,35,16,Ed3LAdTp2uWJy5HLxd1Ti3udnVCJzEjtveMqo9ZKWqWF,Golden Ticket 2624
+Ustur,35,16,5urh6MbCiU3eub53BHqoVKcQNS4JWsJhFmf58GThtSEV,Nitrogen
+Ustur,35,16,BuMNL5rZKSLdzfrJ2rBtVXJEeHSYWXMAXFjtdBmnPRnC,The Edge of Paradise
+Ustur,35,16,BSAdFXAgdMwY3G6UXDACJ86J9BcqhuA9q9EqGna6Fa6,Rochinol
+Ustur,35,16,AM2wp6fiVif8xo6psTVz2h65gTC6tvyUUCUNJr2wscvi,Copper Wire
+Ustur,35,16,AKbVTSgMQMyxAjiUy8Ry4uKTUSHirudzDRYG498y1xRn,Energy Substrate
+Ustur,35,16,898j6Tb6RxdKHch19ivHxpDooU8XJa4Lkdjcau5ujF6A,Crystal Lattice
+Ustur,35,16,94u36QnKceHBrCf6AokiJfo8VTKXaSBtRg2aJmQ25FH1,Survey Data Unit
+Ustur,35,16,81dQYi6tdVDF6AFDskCLHbAGkGhvgt8k1qk5SeWthCay,Radiation Absorber
+Ustur,35,16,8GDBrFynZFnKGivGGgPtb8VVykThyuQxEMxVxFmz7kfM,Food
+Ustur,35,16,3c8av5v6pkmF5Ep7yzEnhr5UR9b6n221F7eMsJEQUsrp,Power Source
+Ustur,35,16,2mqi5Zq2myBUAfCxpaBCneTfXMjgGh6AEMvZUvESEZVJ,Iron
+Ustur,35,16,ETwqXUXZNQskXncV25vuCM2UrruCyFowEtK5ij5JhBor,Titanium Ore
+Ustur,35,16,A9kDLmvNZKFdj13vyw7yVZgzAvNJZHmJ8dLHpayLV4Qn,Electronics
+Ustur,35,16,wMQTzgVjFMxWrQYidzxcUwyKZExFsyHND8m2MDv6PyJ,Framework
+Ustur,35,16,F7ZxDP2KpfMzaxJmjsRt8phAVWCi2TJhC4T8hFk8gpdm,Hydrogen
+Ustur,35,16,3Zj6i8HbthYsvW1uBKzDd6NBAgVu5qz5pQfdKe91Ar8r,Field Stabilizer
+Ustur,35,16,GjBznNkpVjxdeHtvA9YvE1CVSmdHmnmoWmpmouWBKQtV,Steel
+Ustur,35,16,2JhqEvbSQoUyxTFhcHNGdiwqE3UKx8ZQo3wz2StmoweM,Toolkit
+Ustur,35,16,WTKNx6pRkcvd91E1GQgmgs28Wv8Cun56X1M5yxLMznE,Polymer
+Ustur,35,16,3ngBwsKG5tQ7Dp2H7pghJnocZwfK8v4rK4S7XfLPh5y1,Aerogel
+Ustur,35,16,CTNqwoMk7Lbk5cpJC4gDc5tjf9TYhBCTGyUW8zaep3Em,Carbon
+Ustur,35,16,3dE9cH76S5Wjk1CGkWauvUQCrtbR7Pfra84GuoMzHahf,Calico Maxhog
+Ustur,35,16,3bD7y7VGvBgrkjy5tjTF77xRJx3EjrB29r1DTWHqSFgA,Copper Ore
+Ustur,35,16,6hwxR53MxaQt24TiibU7aYk65XvCFwxvEe44hVQtCh9J,Diamond
+Ustur,35,16,25SqPAHrdYgHB77KKS8qz4VMiYQdKZ8sB2BLfLtFqB3b,Super Conductor
+Ustur,35,16,7LaAH9ESiY5MEbaA33o8QQsFZokNZLZCe1Xbo52kQK7V,Arco
+Ustur,35,16,De5nT4WCrkFTEtkJDLK9DiaZY4aHemCaGFgeZr294Vg1,Graphene
+Ustur,35,16,6FxmZE8gW5Qn7FcvJPi7bCgxa2xpUiPPf7ZTuFCFMQ9U,Fimbul Mamba EX
+Ustur,35,16,6EeBvQXadcAopkbJ9h1G2MPJcswAKcV8kdi7SDGxbWQi,Magnet
+Ustur,35,16,2iwWH7EKNuauzNngRZ5ttUHESLa2jqWYfBh7tFgzaD35,Electromagnet
+Ustur,35,16,3vaXrDbp1y1RXDvQECqnYzEcJWSari2FXqsDKf71hq27,Lumanite
+Ustur,35,16,2dv5vuDmM2wbDRNVFQNni9x4w8bj9PLF3nuEVVvg9ndD,Copper
+Ustur,35,16,9Tafav2RYxU6g4w5BzEDDFLa285Vpaq2xZ8UYtmmbHWS,Silica
+Ustur,35,16,2XPL7gyBEMJcXNGa7xoySEjpFdVdHv2ZpDwKPNCB4XbA,Ammunition
+ONI,-9,24,E1Jez5tsPuVHnY9EwGKjZS4MBgobaZeXETdansNoHjX9,Particle Accelerator
+ONI,-9,24,2ftZRXVbsLR5W3z1k4o8n8da3MjmU5zk2E45fjtdtn1W,Fuel
+ONI,-9,24,7zjXJSGMLdohEaNnUcpneCH6CNrsZgFa2NLPBx9Q9Ggz,Strange Emitter
+ONI,-9,24,7QzG5StYfnji6KhgzwYFDJvYJnitQ8qsiatjDeKaN6zh,Biomass
+ONI,-9,24,FvioVVa5VZgwrDbrsKMtmhAjdFeXLnDAwBpK1CyuUJDp,Honeyland Explorer Badge
+ONI,-9,24,4wmoe8KQeaNonNog7n8vGrgShtjRv235GxEhZ4cnXxft,Titanium
+ONI,-9,24,87wUfmRSGp9MLvFoUp6WfaWZnZh35Hk9vW1Wv7BVDDfv,Hydrocarbon
+ONI,-9,24,7LfBPUDejUfMBr8XAj96xhK7mEmDRMwno3RgcifznX8t,Iron Ore
+ONI,-9,24,BsyNzpiAL3rSsZu2wHu4GqfdRJLcnAk5TrBxVDTCPCks,Golden Ticket 2624
+ONI,-9,24,EUZEg9n9ri3TYmy6p9qBQPNLFMNdnbFxRLEoePqy1Asm,Nitrogen
+ONI,-9,24,8DByiZqo3wZBU8rdweZqz6XA7CP4urUrL21qmikQxyZJ,The Edge of Paradise
+ONI,-9,24,8UvP7UQd6oyeEnTMaxJx5un5uaR9FFkdtH14rGghyfmn,Rochinol
+ONI,-9,24,CVo7fHRBQUyPykBCe9ESh3ZES32wLbVfwXnSVTDSrvCw,Copper Wire
+ONI,-9,24,4W6UkDGe223kCVWehwEz4yEU5e9PZxiMt6sB6ZDEsvq4,Energy Substrate
+ONI,-9,24,43QQzXPZyQ4MwKGou4xRWJ8NqSQHk2WunGevoiVJ5big,Crystal Lattice
+ONI,-9,24,FxHsoEbryYTZFfqpipmkjMknhyChYrNeihywnBHTu3Mu,Survey Data Unit
+ONI,-9,24,Fbm64QK5h4okDr982TeG9mgX8ejTa4qeHKb1YYKtykNT,Radiation Absorber
+ONI,-9,24,92YKnfJeYGdLpYr2fLvb6vDHJxtsNMbhWeEKyb47nWG,Food
+ONI,-9,24,GD1iCK4zGFd3nmTrHFj7D1tERXLZmowvqurcUfZqjZiM,Power Source
+ONI,-9,24,HnSqSRJdJcvLMQ2WSpyocQtR1Gu6QUgq6tbupLkZ5CSQ,Iron
+ONI,-9,24,3cyJAWJzvEUdqhBWCGnkEE2932prMzbN5buzCFbEr1sC,Titanium Ore
+ONI,-9,24,GRjeQwZkJ5QdWtTR2Ym6DrpnpmdAahEu33eHu4WD2CVG,Electronics
+ONI,-9,24,2jTyWoHkberyMmmi75hDp2RVVDvRG9FQNnZScUCFdrA7,Framework
+ONI,-9,24,GFC9UqBXMzGX1Lb9fBVAUU7yprGEy4AKkeqiobPH3Kd5,Hydrogen
+ONI,-9,24,DuzZHtuXr5kp1baPmUj88v3ToFjupdgpDWmRnF6LftJL,Field Stabilizer
+ONI,-9,24,3qmDZEis2cwcuB5Yfk3XVsGqjJGRcV3kk5ttGU6WAYvF,Steel
+ONI,-9,24,9Cgh2izGEZ3MA1ruN5c5uYEeD2ngAQEzThHJp5amPL1G,Toolkit
+ONI,-9,24,4ZbjKoMdwdn71pHx5D8kSu3FZKtSWLFhs1FrTjVAam3K,Polymer
+ONI,-9,24,DkMdg2y8LXApYLrVmDhsLsGXDuiYmCJMwmMcrVC5tbzt,Aerogel
+ONI,-9,24,3Cy8gS5jJd589MM9KtDuW8UJaZa84ZpnqRie2LDLtW6a,Carbon
+ONI,-9,24,FJ51sSXTx72yTwcbpDTFrZdSzgkwvRn3BVH5bq89FXa9,Calico Maxhog
+ONI,-9,24,977g2FJT7SkGFLp3gA5sVNawCsB3zoXBhMmJG5VfXfyV,Copper Ore
+ONI,-9,24,7popLdKKrvArvgDdhfJP2dsZjpsgXdnmjC2e9Tz6pt9G,Diamond
+ONI,-9,24,4yPSYjjpsFsf1N3DysEumAn1Ly712gcZYFqJk1JaGRet,Super Conductor
+ONI,-9,24,4wmgzU7Vis9mmXCMaTDLUCuwSzZMs7rSvZwcrPkXRZem,Arco
+ONI,-9,24,G4gLhQexoe1LLQPjuwuT6LV4594wpLRvgSbJicUrrx83,Graphene
+ONI,-9,24,5nLJS8EsKwn8GRYAQrxjvZMewWgwjKVvvRV78cX1Ju3T,Fimbul Mamba EX
+ONI,-9,24,Hiydn9ButZguSrRjnHpKHp5boH3iMBHFZ1W2UJ22Ae51,Magnet
+ONI,-9,24,2UW2wiGRwCYk53N9uPP7ZftWugi5Eez11WMZDAxLVbtX,Electromagnet
+ONI,-9,24,BbTwJZu6nmvymqwfG6G92GJS7ngEZ1pQserdTkKpGjGk,Lumanite
+ONI,-9,24,6dTwUcFbheAPWbyDMWnPZ6mk7PVq27a2VSqwpgn3G4mH,Copper
+ONI,-9,24,6VvA8Wk7fi6bWgKRTgiQt9oxJ2Bc1CcrahTPvU6zBaEt,Silica
+ONI,-9,24,6GEbhQ63ET2pffrg8vRmyLmp4ghnsP49THFysysXE2MH,Ammunition
+ONI,-42,35,HPzw7g9GSSMW5C7JuZ5PHwj9Xx1dJdFhHAPbYmEdgtoi,Particle Accelerator
+ONI,-42,35,78CzWJKNF3aMF92qF7rkA5g4dQmsXXfVkxcqMjMbZwig,Fuel
+ONI,-42,35,9ynEs9N3JkHiENYb2GTBmA6BZ3ezKw39yffDhKTCrapf,Strange Emitter
+ONI,-42,35,4aMSrev1bpBSiy1UwfUAig538k3VvJpzvxP3k1xLXMc7,Biomass
+ONI,-42,35,9VKkTxmZjpoBk71c9qbGfMbRjPKGPHNEyb53AKy5SaA7,Honeyland Explorer Badge
+ONI,-42,35,6Rk7edRs99V2doZjWiAv15iC2GrZrAwUbjBYYA8GPLFA,Titanium
+ONI,-42,35,Cmmi2PnE7sgxMYC8mrQQL3oJAnNhhwVhWjwGw2hcVXVa,Hydrocarbon
+ONI,-42,35,9Na5pVxvnDgw6SC1piWobgzBoEt2PKXs8V232K4cLajF,Iron Ore
+ONI,-42,35,Bs3Zpw2rLMXK8akFMrqUwazsedovWrS2AeTH2X2ddYm,Golden Ticket 2624
+ONI,-42,35,7CYrpHXXJmoD3yR1hDhcFrfKMeBC5wWHx2NaryXBPqg9,Nitrogen
+ONI,-42,35,Ao7ZhgQeEVrP2udSVp776ZnPjswfDrX2GHEfHKboXTcT,The Edge of Paradise
+ONI,-42,35,HWeFwq8NBv9JDt6DAsXszjuoT9ZoU3S5sg9gLKBSfCPy,Rochinol
+ONI,-42,35,7MwbBha7VBm6SBWW758BjSaEU7pi3RR8Vbh4ka1AxVyw,Copper Wire
+ONI,-42,35,D7YaJbD24ewBmbiti2WnFQohhvwrDaCmT2SM4efUwZVA,Energy Substrate
+ONI,-42,35,5eYNFLUqRGMMcaShefBUSUro2BQT5AKqKto3ZZNwaxw,Crystal Lattice
+ONI,-42,35,9GpUAtVgjcJ7VyZ9daU4KdYwaXGhxXdkQej2MxYG2GMF,Survey Data Unit
+ONI,-42,35,2WZQEvX5AhamxRRNpUtuvYHPC8fYhoYv4Af8VLwnAhPW,Radiation Absorber
+ONI,-42,35,y8dSZDN8UJfe8VjaWwQq646tmJsN23SHEPJs9xkivd4,Food
+ONI,-42,35,BncnyqQ4FhVP1VuzManeMCtKCeWMWGcCPyPJtjhhX8n,Power Source
+ONI,-42,35,HrusVqDEkFhbirEVSYa4fERLez1QBAYkmkoCZrkMLWeJ,Iron
+ONI,-42,35,E2JUJhusqxxA5V9nd6pV9FW68Bx4pXTWToWZwxNNoF4e,Titanium Ore
+ONI,-42,35,3Lu8b24K96pBPrjuzgPyLoGUsF4EhaSWqSKxdsPxSucD,Electronics
+ONI,-42,35,JAiSz6JpUTN1xmNf5VNLjQKuc6p5MS3VwJGyGv4fgehe,Framework
+ONI,-42,35,HACEvZD7t3w7JrTp442gbAWCtuRNpAzFmzB1Pdir5MQD,Hydrogen
+ONI,-42,35,5KFtuFwkm9oV4B33Jrx6eqzNSiDcjXFaaRD1J6hC517A,Field Stabilizer
+ONI,-42,35,92rs1fuLtKUTf2131L2KLsfrpAg1Pg4JXtXdEbu3y1LV,Steel
+ONI,-42,35,7CwJ1bo1ytwKcobx1eRtmwfDhsLc9ghCGWzYXX5rYHGR,Toolkit
+ONI,-42,35,CUvAVdLxkcRhwtQn19DnakDxFCaFifu8kjyz4BJ2QYa4,Polymer
+ONI,-42,35,93WCCJMSoR4NmaWSpxCSwcFXorh5EgxrZXtTavrv6i7G,Aerogel
+ONI,-42,35,FeXHYm8FFyov4uVXsdu3ssPhPcWTVd8s9p4T2W1jFtX3,Carbon
+ONI,-42,35,3uCCoGs1hKzpLKrayCCDjFtPFS7MWGVAtJEfiwnSFauH,Calico Maxhog
+ONI,-42,35,CFXxjhBmRZHxw9qgXvSkFJcCpsHX8CwZZCUswgsRNzC6,Copper Ore
+ONI,-42,35,7hRKxh82PMrCDBZaept6mNd3nHNsrLkp12m1oCg9JvZG,Diamond
+ONI,-42,35,4EUe8UT1jDTG3KfWCTTGDbWELakAJLi2GR9XeqUwYqg8,Super Conductor
+ONI,-42,35,4wX2KF1nkgF4jtf6E4M5H6kBeCAWkNj8BZcGTFf1sZvz,Arco
+ONI,-42,35,4jvpkPNJCa7D1ogswq3MSvGajHT8X4jmRTNBLc1AUgnr,Graphene
+ONI,-42,35,CPgTzrRxd5GA1phpS5UCxjvLtcL6Smy6nAZ4Tm1LjPGU,Fimbul Mamba EX
+ONI,-42,35,9Tg8fiaRWjt5eNWELxCxUdkB3tzypkvUF6FUCGTKLMSY,Magnet
+ONI,-42,35,AApHttsuXQc6pseE4KvY4gdUK49yr9PRd3eZq1FX3ZX1,Electromagnet
+ONI,-42,35,AnMYvVe5vu9dr97wzwqXbjxzkH3hjj7xXpMVAwNJQscF,Lumanite
+ONI,-42,35,AbW2Xc8DEd862HPd3SjNjoMWWTbnsyjd8GNBkNkqrXx9,Copper
+ONI,-42,35,Bpe2DFjCYDecm1x9XVcm8TzbnjBvztXkDChV9dp2FcwU,Silica
+ONI,-42,35,GJ1iJvjj9sFwHz7n7D2QmbudezWqT3tdZMvDtY7pJ9vz,Ammunition
+Ustur,25,14,A2eoaRkh9joggkP8m1DRbCySFfyWDzYUCXPRCnmM5rhf,Particle Accelerator
+Ustur,25,14,6y7YGZo8BqYvtTS5RdQsSj9fhUMSHziySQBoR89PrSey,Fuel
+Ustur,25,14,9uhouGwWAV6YJqtdfMzxoZvNvwqKcfqSVZ5MpJxujqGQ,Strange Emitter
+Ustur,25,14,5taEUAUsXHsveQavm4bjRYK3MxYpNnz8WoH3SmrEKy8D,Biomass
+Ustur,25,14,8w7z2Fi1WqWsCaKwaWZNLMsXTewAs4wWm2FjqRfRm2tR,Honeyland Explorer Badge
+Ustur,25,14,4afrEfyRan6ve6pdHdDjGZmwtfUr7ktjccVLujNHJBaf,Titanium
+Ustur,25,14,9xkADihkEjrhE7oYt3C9vM3pwQ6ECM1YSyZk9PLG3ThU,Hydrocarbon
+Ustur,25,14,EmEYCop2dkxFm4Gz9pm4v5moUAHSrvMt1FVkpAdAV9h8,Iron Ore
+Ustur,25,14,7E4feqMZZ85CeDRkkz5zrjzwpkMLhTE1xYkfPkERTqkV,Golden Ticket 2624
+Ustur,25,14,D6XQqXrpPB3QPWpupoQtaVtpjTzq8wYCqihqRAESfWPP,Nitrogen
+Ustur,25,14,9vLo4PWzqaBRt6QSKL5j2VuKiL5DsTCBnPYbLj4VMT2i,The Edge of Paradise
+Ustur,25,14,DsNRW88ajmXzPXujAVhe4t1wo4K6oxCgRRZoxPaVdSdr,Rochinol
+Ustur,25,14,AdadYYCKwinjuSiDyQGJpCjoBon9xxjn3hsxrZp8eTNi,Copper Wire
+Ustur,25,14,6dtZZ2rLxjqMnRBfMk76iYXDz5Xgk7kRNDEthTBYbUhK,Energy Substrate
+Ustur,25,14,6wnFe9j3QVz19WRmW6HjCuccVfYyvoHjYXEYQNpZJwME,Crystal Lattice
+Ustur,25,14,GpsPtykvvkfjjrpD9bhiDiGK41jk2sLNsaSYUT1UVYHN,Survey Data Unit
+Ustur,25,14,4dMXhCvozCX6PKqcHKVXsYNh9G6ADpMgC5iZTrqcKfJH,Radiation Absorber
+Ustur,25,14,7V2ZMXaLqJBFhyiVAW2VSssQeMe9ejBS5zpHRnarVLx4,Food
+Ustur,25,14,8gWsBeW3qkmW7ekSQeoc4iF5yEQgyJmkTx6NaGXeRvJn,Power Source
+Ustur,25,14,8qr6f6oM8UTw3w6xoPYNdquSrVoGr6baztXJWytDAHsk,Iron
+Ustur,25,14,32MQkhHh6xCdfaz6gVaqQLQJn9GXJsiBJ5mmAdVaodNc,Titanium Ore
+Ustur,25,14,7oKXDcu6QK7PQFWUwwUqribWmP4UgwahpvSSAb6LWcB8,Electronics
+Ustur,25,14,13u7wJqh65bpmZjavxC4NBr6n2qX2JNC2rfZyGWweCno,Framework
+Ustur,25,14,F7F5ua2DegbRA8VhiEtp5oLGoA4y19caVxtYhG8tMiE4,Hydrogen
+Ustur,25,14,AuCQjMUxBDQvGYVn5RNQprn2dDKyBBTdDCxcjo8Cqg7h,Field Stabilizer
+Ustur,25,14,6ieHQpKACn4yuQvS1G7f4kuTg4sQnaaagEX9bgpxgUUb,Steel
+Ustur,25,14,FVGswKxaFnBLopaZnokfsGoEdVKrTqdspKPYe7CZpE79,Toolkit
+Ustur,25,14,3NCGSbNfR8Uji3uNFurjJtRkKevbWdXMpeGq2ovd7iG7,Polymer
+Ustur,25,14,H5sY47C58x45dDvZP6AMUrDS8gUKF438GzEiYNQovNjB,Aerogel
+Ustur,25,14,6WjZt8rjD8M5W3ro4VNJrK1QkYH7q4fjEzsxvPM27BrB,Carbon
+Ustur,25,14,9GdEH4DsFNni52Pv5xoEHLpqgm95K4s25766bULBJ7m3,Calico Maxhog
+Ustur,25,14,2rwigtdCVUFGyjCD7qWsMwB2PFMeEzPZpZ4RSwmaZS6D,Copper Ore
+Ustur,25,14,9RabQHe1qpGzdHXtZ7suFqrj3kWvYBM4HvdVsf52iP9G,Diamond
+Ustur,25,14,7Lnem4mhgYCbh48rYgdhEETVg4K4iN1Nun5TouhD2mmS,Super Conductor
+Ustur,25,14,GHCTaYF9mSWq4vnD2ctg97hUqkErZVCTaMSkrXxhuVJj,Arco
+Ustur,25,14,G2uWF53Bir5cEF8bKo6afVG1ViLoM5afi32RiUMtKDJY,Graphene
+Ustur,25,14,GmcNSExn8Fta9KqgDoKxgBM8GmTdVTkScjzaK553NAhH,Fimbul Mamba EX
+Ustur,25,14,6JshKREyHX4yXA9e1r123xkE39BipRGV9egfzPYGKyEx,Magnet
+Ustur,25,14,4hxLwkb8cuQsgP3Vnw8vqHYjtmCF93UG6zwLmNZ1jiXS,Electromagnet
+Ustur,25,14,DcwhH6Csh65MygstW5WBkoP1SNsEVDn1giFxPz3KZoNU,Lumanite
+Ustur,25,14,YMWq5UNGLkso87419MG6t6WPDcQxQrBG4fESjifhCPG,Copper
+Ustur,25,14,BmTQgejM3rsHv5umz6s9BYEpxcoLte1SsYmRr5LkBzH1,Silica
+Ustur,25,14,HW9AwwKPisf8t4V46o6np8TbGt3hztZMigJqdGyJY83U,Ammunition
+MUD,31,-19,EGoMX2qwWfk5umg9HAkyEEjTpZorGBVZng39c6VUaFd,Particle Accelerator
+MUD,31,-19,DpSTEaRBGPAH8QHkREyXm4m5PWzNTEGtQetM8UWFh1AC,Fuel
+MUD,31,-19,9gTSqMXmCzjJmW7xAN1ueSYsGfCdFmyGbqMQ9NicL3SR,Strange Emitter
+MUD,31,-19,9butCrvARoGtuSPvFBnFpp16tGaDyzWxktBJxBtRVuwP,Biomass
+MUD,31,-19,C5ehgbzFQzGvSF2dLGi7o6Nqz3iMUiBrx5XPmKax85vH,Honeyland Explorer Badge
+MUD,31,-19,5V3jtgBZEaipap6mKTJKh2m9NJZ3ptuHAwK256K8jbxG,Titanium
+MUD,31,-19,Cn2GbNTtvz6u6h3qD9wLZwLRg2qKRvPXQir7eYZLf45b,Hydrocarbon
+MUD,31,-19,3bRjEjvMHH6sVVfySStaW3FgTSt2W9Y6ytTcxtjmWWFK,Iron Ore
+MUD,31,-19,9ng5yuCpX7zHEh5vpQh2VAKCae8RRr7kh4o9RuXCBUTn,Golden Ticket 2624
+MUD,31,-19,Gddx6aYUgdu5dPgfWFfEr85HxqnwVkectuaqghufnEAD,Nitrogen
+MUD,31,-19,Gdtfiw8tzP312DBohuEzkVcX4QAnuYGXcJFboX7WVUrq,The Edge of Paradise
+MUD,31,-19,J6m4fAdn1w6ZqVSMVjg6GUwGh6pMwTcJCTgDsQWjj28R,Rochinol
+MUD,31,-19,CX1fz1x1BKD6XoLpZrh3BQwoPHHjgLi1rTaF2fpeUXL4,Copper Wire
+MUD,31,-19,6PZQhXTKuTaD6f4yFZNwBzUBRmuVdYXALPjgqpo3qmnW,Energy Substrate
+MUD,31,-19,F8wmhvCMzAp6LTn991GXk1hPa7oRsJQLW4NdTg9GUkP2,Crystal Lattice
+MUD,31,-19,FEiTHgvgGneBduKXY2a2Dr4wVgbqnMQ1sohJcncJi8cu,Survey Data Unit
+MUD,31,-19,2sYon9Vpkw632VFDnBk2AvT77BubRJvj6Ej28QL8omb7,Radiation Absorber
+MUD,31,-19,NSKyGirRotzoAZPRHAqGtx98k9swPA7PYdPB3JDGP9V,Food
+MUD,31,-19,BmHbs2AhxU7YKiBZDpPkAZDAPYJshfiQsAmTqVQ6dN8p,Power Source
+MUD,31,-19,6edYDPYvjmYgeyGonHPXPEiLswG283w9jMyPUXb6QeDw,Iron
+MUD,31,-19,92KGhJjsRbDwnqXiTW9i3ktXfPpJ4aHnbSJXY8h617JA,Titanium Ore
+MUD,31,-19,5H4pKWTjuxeZ5U2JfBgGek8kyUCoF2CcvYSwJE7A2KVc,Electronics
+MUD,31,-19,4mycUk8jS8ptmbQB7ix89VQA2Skpku7TinL6iy21NDFu,Framework
+MUD,31,-19,31ADw3Fi23JLUxh7LXV8minenUjuJRv7hv72rmbWdLUt,Hydrogen
+MUD,31,-19,7hpo6ee4UknZKwBxwwvw4AhNx5tLV7GpB1n5rZB5ts1,Field Stabilizer
+MUD,31,-19,3GF5ivRYmLe8sKNH4YojTRZSTSYNcoKRreTySEcq2ZaN,Steel
+MUD,31,-19,G5zgckh1s4e6PVfztGyuVdS6WCpX6uPQJPMkZac8KUaJ,Toolkit
+MUD,31,-19,HDCt6Pgz9GHF8ZeGYxddvubNjtTsE5KXJPmWfv2dd6gC,Polymer
+MUD,31,-19,AGz99HSK4WvkRbBcBT7NDmFBgjDyp64YmnUr1YLRhAe7,Aerogel
+MUD,31,-19,8hzmRVUvUoJRttiGGP5UMf3h1XTmMAMkDdKCrjSUfxdu,Carbon
+MUD,31,-19,9wvmmk74PGb4aixMfEUB92gSEHdyspmH1KqLzN6JmiuV,Calico Maxhog
+MUD,31,-19,Ghcf8nNSgK8Ty5b96DwwQkkBtVP384csqkHgMwqS7LuF,Copper Ore
+MUD,31,-19,8sd4Dp2UQbBDNTiTKhpTymCrizhViUu3NzP9P4CQKRH2,Diamond
+MUD,31,-19,6NkxnFYyFSfcgx7KqiuwfYYt4aBiNg6kiS6aGkCman8,Super Conductor
+MUD,31,-19,9LAG2JY9HK3Gi9jR6hHmZdwWAoMsDEBVXfQ5aYALmwoD,Arco
+MUD,31,-19,DywjCdE5PNeULurnC8kNLVAqhmWt2f7V4NhQ8JoNDZMB,Graphene
+MUD,31,-19,6o7VAbGZzgZ4FiT96J94P63cB9vQNoXf94dTcy8RMDEe,Fimbul Mamba EX
+MUD,31,-19,43nh7StzBmBC4Bv2wXGtTkyD1MqKqZWf7mKzQ3xL52gh,Magnet
+MUD,31,-19,B73hFGmPbM9uPkXv4LegDMQq8FePfZwpDpA5eKMM7x2D,Electromagnet
+MUD,31,-19,3uP2VKYEnvWSp8nHqi3MAwPqYxKxMRcdbJJJ4mvYQ9s7,Lumanite
+MUD,31,-19,DfWy9jeeVEuwHFyJ1S2sv5Lm4KqF7MvYaSsHuiBtNok4,Copper
+MUD,31,-19,4fVy3i45F2Bk31qTTn8eCocKVp8U8686Nh7PNN2o6WLD,Silica
+MUD,31,-19,6wVJ6LkGpKfBKiXZks6njEkoodSa4zykFpYmRm2VfCn8,Ammunition
+Ustur,42,35,A9wfBYbE48MVEgsHjQke8pwBpDWrY4yYbN7GRcPSRhcT,Particle Accelerator
+Ustur,42,35,DQdCT57YEkEnpHdkrh6yMKsN3ghcEdbHw8LDjJMzL1QN,Fuel
+Ustur,42,35,Ze4V2hy7xHXKkkWo5TPoUNTode2jUYqUzhpceDN6tBL,Strange Emitter
+Ustur,42,35,5A3FAHm6bpqek39txeLTc1jHRDzs5RPYTRthAmVzy1WH,Biomass
+Ustur,42,35,32Zt7riXbapm4GQrK7KeSUz3AVpYqhwPzXQdzF8FW3Cq,Honeyland Explorer Badge
+Ustur,42,35,5SJ7eDGUMYvUjtNHhEKzMe9NupovxDxrayUghrQnhWaP,Titanium
+Ustur,42,35,3JygpiMfffzt942PmVAARHUiejSZ2coYAo2eNtSZtwrx,Hydrocarbon
+Ustur,42,35,2mSJfNYPJWeNz8cuF5tJWCu6vF6qewmGMBT3wu32sUMg,Iron Ore
+Ustur,42,35,yWt2LNDrEL6agLmpaoXKKvVwoxFVY8WbK5ybUVdJBwK,Golden Ticket 2624
+Ustur,42,35,HwhVFRdPpJtdVAB6eAsVQ54M6EYDdhenbTFt7nL1yy7u,Nitrogen
+Ustur,42,35,BCZ3d6TSN2GuUsiVwGvMVhEEZw2c5uD4yFr3N9LKLYsa,The Edge of Paradise
+Ustur,42,35,4X9wNHtoLbWKbWTce1pBbFYKqcWQTyFdg4FttAev1XtM,Rochinol
+Ustur,42,35,x4aDSV13cjdSneNyqSisE4n9SWaRq4FRmHcVkT1hZk3,Copper Wire
+Ustur,42,35,AXStWYvBWUQ76PJPuo3X32re5VW3bTEpC7mtSBJUFk3E,Energy Substrate
+Ustur,42,35,9PtdcP5TC9c4CfKSepXUNBGuAG3ePCTw8ND7vnkB8sF3,Crystal Lattice
+Ustur,42,35,5eDLFGK1Z8gjWKNDEcFmj77xiZa6Lg2XQeyjTfUub9p2,Survey Data Unit
+Ustur,42,35,2v7cdK3QvXdfHPtg7VN9fFvSLDcHySC762qupgEfdewB,Radiation Absorber
+Ustur,42,35,7wwBWmt1sL7XPFkWbHALV7fqeUHZ5Tjd1XfkfBERzira,Food
+Ustur,42,35,25k6JVwYia6Dvxwjito3vnWuwtArR7sAPmYwQazCxDBp,Power Source
+Ustur,42,35,KF9r2ByHDZLL4UnzXgqTZL5rnrQHd6JhC8B7dBJyYex,Iron
+Ustur,42,35,DV8HSzyGg8VJ5chNS9juEALjFUz1RS1VMwv54zDk9kPn,Titanium Ore
+Ustur,42,35,5QtBPEAf2AnmuEajzo6oYRws4reHFqsnoKVfq3TMgsGL,Electronics
+Ustur,42,35,HWLEFHMo25XnngStTjAiwjaxcvQvTmCMWivbCwTL1NbE,Framework
+Ustur,42,35,J6oinQKwrA52wo5thN1LFZYtqjRDhqgN2XLXMTLbjJh3,Hydrogen
+Ustur,42,35,8hWFAjU12kMKas7PPKR1mAEpJHajjVJbMNTYf5Yr8mqZ,Field Stabilizer
+Ustur,42,35,FiiJNLJQ6xFtQHRaDHVVCyAqZhfoNw9PFR89qzH1zcnZ,Steel
+Ustur,42,35,7vJDcWSTBbMedJvaaHaezJ6PBHpLLBQw1X57yRywhXRb,Toolkit
+Ustur,42,35,B2LXkmEh24gnkDEnTngKEN8AbtQLfiwzNRAudZ6EYuUd,Polymer
+Ustur,42,35,EDJexkTdtzoYXqKenno7REEoQEaEBoAofMYhgnXWampG,Aerogel
+Ustur,42,35,7C5efD9ToCKQKiWfVLZWwCFsdv2ptCRxrMUm5rfautFq,Carbon
+Ustur,42,35,6zAwBYnQGusz3SGz6uLvyzSzW5mNQAFMQs1nEVE3nMDE,Calico Maxhog
+Ustur,42,35,CzUsN4gxex52vh87qfFUWZs9DApWmU6owbNe83W7kKck,Copper Ore
+Ustur,42,35,DoWQ7xmJBKdvmZHD8GtHq3rVgUSh3FYVLMcJLmTrZKsa,Diamond
+Ustur,42,35,2xJB7djSSF4AUEE6P9Lmw6fQLnRwfLfGjvkoxJ9hLvb7,Super Conductor
+Ustur,42,35,pzH7xnhoWBx8g2WNHdCRttvjSfUBvSkJrRKLDHXa65t,Arco
+Ustur,42,35,4WgeqtXx4BSC1rbp2G3ZYnAqDvQKveXYLshGmYTtGD8G,Graphene
+Ustur,42,35,BkXoT4kusBj94yQ287NtbQ2QH5dxdoKERoakHYBbN2LN,Fimbul Mamba EX
+Ustur,42,35,AqVJrLPTnGBaKuQLJge1fCzqFuFribB85nWpBMTd1uEw,Magnet
+Ustur,42,35,DvFnZfpTLEVy2YMF6QPjYf3DPKzRsk1rmTfXgyoiL2Jj,Electromagnet
+Ustur,42,35,5Ks94mw7JVvRyt8zaQXQjfqLMpxEuLtfJ44B4C9Z9hbU,Lumanite
+Ustur,42,35,6nCu2UpzJPZWgt4K1ZhAwh2N4RDFUBxNjiNP2BzZsj5s,Copper
+Ustur,42,35,ADnhdZ2UZFgyViTB2ERfRXGXBwzWnQXyi6Dwmto9YG6M,Silica
+Ustur,42,35,HnHU7kuumZk7UDhchzVkVH3fdFjRFbxrYs3CiW7cRzjA,Ammunition
+ONI,-38,25,HsXBEnM9jjuzPi9oSQQ5f4RZoxpVcjVzY1BJYisCwjot,Particle Accelerator
+ONI,-38,25,8B9zNDfoEtZpZY2wS1eu5Wv6BvNeJr3uMzc9wWDv83tc,Fuel
+ONI,-38,25,tu3ARhhPPrGsnzM9kZb6tTXvEeyzKwRhtDUuRKVHY1K,Strange Emitter
+ONI,-38,25,8E7PWayZKGA8FZisq9K7dt1HYyaPAWhtmYU2RbKkrEo9,Biomass
+ONI,-38,25,Db4qyPPzd34PvT2DTJN5swZKdTq3uWWKwFW76b3Pd94q,Honeyland Explorer Badge
+ONI,-38,25,FbGx5etm3AxKUqpZDveR6s1VPuQZxceFPEKs7kahx3hg,Titanium
+ONI,-38,25,3ZbygQXT1b538ED8K4W99XhaM1jPUvK5Hj85EUnuVQ9k,Hydrocarbon
+ONI,-38,25,9LmN2Y4eXoBckyxzqRuu7mrwsn4fb11hWgvPrZpP6qJF,Iron Ore
+ONI,-38,25,6QepHoXoTCnjns9MW93NgXZWkhpijcQqp6Pyy53rfAYS,Golden Ticket 2624
+ONI,-38,25,5rJgXrVW6ksfyAj5tCfaNToBwsBFnr15oDnvAdv9yVro,Nitrogen
+ONI,-38,25,98RpSVJE1PSy1PkXrfRd89rwmKCnYVSLieHfrDCyKi5K,The Edge of Paradise
+ONI,-38,25,FMQt3JxzLbn5dmqhfB21Br3REdFU6mAwKwAGCiV1VR4i,Rochinol
+ONI,-38,25,7Zcu2LuRWM213YLegxWYENqzEP9nZZ5wiZDk5r42z9U3,Copper Wire
+ONI,-38,25,8h8ZUdKGyX8T5NhcKYUsSPJJC1gZw3ug1dVghZmEqmQt,Energy Substrate
+ONI,-38,25,FTywZyKikKcF1fytpzggWMW9kCfq6mqf3eM6xspfP1tM,Crystal Lattice
+ONI,-38,25,4ok5VVA6cr4U5WHwpYuWrnx1tQWEd79J1puviAe28wNQ,Survey Data Unit
+ONI,-38,25,JD3j5BagpUPmhfJbEYQwhY28bTyUThYUdNH81uZVB76b,Radiation Absorber
+ONI,-38,25,8svPN4zCwkoNKTr6hAn6BiCyskkrs9KNvqJiuoyoF5Cm,Food
+ONI,-38,25,3ZgnPMnjrp8yGQzgu5UdJ5D7cKF1e4htuweTBMvU5xzs,Power Source
+ONI,-38,25,sLBAtJsdaktFMLiNoSC8wZuxWyyFarTTTcaNzrTqjbk,Iron
+ONI,-38,25,F8QXZAxe9dcBMAoVZjuugKBH9EeY2ugWpKdPongNTLXe,Titanium Ore
+ONI,-38,25,7CQxjNrnf9GFmANPAwNQgr1fQQLWJYxGXkGAY6W7uFHw,Electronics
+ONI,-38,25,G2kTs91BZyYER8U6LXLRU2PYKNxgo88a5pdbJsTibBKu,Framework
+ONI,-38,25,DSqtVqEmhNtKzEzayE7kYQhAgWU2iZmqNSWJ5687SYsi,Hydrogen
+ONI,-38,25,2hp85i6fVEnFLa9QDN5P977ECjDHKU64B5LQ7Gs8rb6t,Field Stabilizer
+ONI,-38,25,HegUiGdV1TTBsT9ZQ33w8gDXpy9xwbNqXkJ67XKMUr4K,Steel
+ONI,-38,25,85de1XHHbjsETAFSvBbQXSC4rxD8beXNRGH2n1T6ubPD,Toolkit
+ONI,-38,25,F9mLGLoweDqd5CP9t6MTRVwEQ3tCaqndSh9emER3bR2t,Polymer
+ONI,-38,25,3WdvTEAHhDkAyoRYL22pfdgWQF1Eyb36YySyx42S1KBX,Aerogel
+ONI,-38,25,A3yzwgUXkni3NRCUUTcbvW5mecetdeEN7o8tUVtAybPp,Carbon
+ONI,-38,25,9B3QPf1jwMLwfbH43eTJMN2absokdsD9522eThrz1TBo,Calico Maxhog
+ONI,-38,25,MkwZq3PqEjgULLKakSpKZvVdwMMTk7f9XvReBjrTy64,Copper Ore
+ONI,-38,25,BTx4mbzybfQPd3PqBfrSxtTyfnfsYP31A3QzxD6GG3Ep,Diamond
+ONI,-38,25,AwPkAjzVcApGWcQ2fHdfLjJ8qG2yCB4dN5CCga8mUjhj,Super Conductor
+ONI,-38,25,HMWCi79qHbKqkB3HQmF5tHmQLi2r7ZDhCju3kvbUHc9Q,Arco
+ONI,-38,25,Gwptibf5G7M6dTM9wdpKBRqWCBZCvePWouAHfhot6wV6,Graphene
+ONI,-38,25,hCtgyXj53x5Gdro9px2fZGtYg1F78y9wurSX5CXzXjr,Fimbul Mamba EX
+ONI,-38,25,FFydTwPXaV7d6ZvxCDqr9CME4DSg9H6c7wZs56zvAdH9,Magnet
+ONI,-38,25,2ABEAAwQrEcweaoYSTSyH6WwYyzkho3kPCehLvLFsRqU,Electromagnet
+ONI,-38,25,7y8sj3bSQBfphag9Svaaz4xQ26y95o2pVFKftibJcHuG,Lumanite
+ONI,-38,25,693xVQkJhYmakxP636HpW3ujTkHXGsyevWeU97JfVXjy,Copper
+ONI,-38,25,2rir4vRsGy8dYPiXux3KsEm6JEioFFqFUmJsZNEdW5eT,Silica
+ONI,-38,25,8SyMaQXDF1sr27bCVoSi1GHHhBLSKSsJRs7dJfSBjUza,Ammunition
+Ustur,48,32,FxuX1pn7VCKcm1RmXCa8WhanDsLi1DmseaLicp28d9Ps,Particle Accelerator
+Ustur,48,32,tm2pqiK2aXdU3E7FvBwdKokLDKmu98dHk9So6F8ERw5,Fuel
+Ustur,48,32,F7S8ftaD3r5RRWsG6iXCxkdqR6dK7XnDxnm9RneW26ci,Strange Emitter
+Ustur,48,32,7KQc9tw18uTGjw4BDsMSS5qdoHrAarEcLvzCr8yAFji9,Biomass
+Ustur,48,32,68JWcY526a5Jc3oFhListWPHGURJpX6q33CrBr7BQA9x,Honeyland Explorer Badge
+Ustur,48,32,6p2ECyxpWL4kE6bkGsns5HXfyKMqoebBvMUabg8ASg1e,Titanium
+Ustur,48,32,6T8KPQf8pRrEbKuudsqiVihM2UDeb9mhqDXNEbYNVMkD,Hydrocarbon
+Ustur,48,32,EfGUrrYdazW2KKfWcCPfEv6AgsP31wMvWPvKPkDho69m,Iron Ore
+Ustur,48,32,H3TfNtfNikcn3pagVJLrfCc6ibvkbGyDej8nDQDAYCxd,Golden Ticket 2624
+Ustur,48,32,AbdXuvpQoyFeRwVcFboJ4SHZcyzozdtcWGQ1jYGwfBSz,Nitrogen
+Ustur,48,32,3oiau1DQV1vQ22b6c4zdhx8ojhxAdJnffWK1zYdSoDvv,The Edge of Paradise
+Ustur,48,32,DhLbzU1Js7fPHbXvFD5oGKYKMtWuvAuBz7CyWmFcmHgJ,Rochinol
+Ustur,48,32,CUD6iYqd7c7ibTpzDXzvtPFUXDZFFRdWuhJ3wdevAumg,Copper Wire
+Ustur,48,32,H5b3P6bdajLUqUwvC94MfEuCUnYbYhMZAmC5wY9PAgPe,Energy Substrate
+Ustur,48,32,H3DGC1bYtpAoyqTDseM8tD9NigG2Z7qt7iym6zngL8m9,Crystal Lattice
+Ustur,48,32,HrwRtMQFQknjaK659zU9FneLZZz1J8XAGMX7ZHJpeBcb,Survey Data Unit
+Ustur,48,32,BXvyKNknXJqEmGQYCi1B7qhEk41P3M93HgaaqeyySpkt,Radiation Absorber
+Ustur,48,32,F6FikiQ4fwn8VDtxnnHtndHrgW4qJF3JUvvt5qAZSFbi,Food
+Ustur,48,32,3qXwuWr2uFvrZGoW8duDZM7YjGmd5zdAiEsGkM1o76Aa,Power Source
+Ustur,48,32,HcWtUPyL9zacxrHLu8NZrR5H1BiUS4pAW32TWDX24U9D,Iron
+Ustur,48,32,DvP1azvC1UKdwP1Fb39nCAQjsaHmNPKmu64kUbeB457X,Titanium Ore
+Ustur,48,32,BBmDwCaHG9Czm5ohmvuBymwh2mPjGn7WM1EN8LK1cVUj,Electronics
+Ustur,48,32,ESoXz9v2XrRV3zGDz2tyxnRUvPtCDTTixhrAGkiJ8ovy,Framework
+Ustur,48,32,EKcdJincgizhNF4cjaGaycjozT6mu3fJx4fAAFHiytnf,Hydrogen
+Ustur,48,32,82jkU1VswGFCix7iFeiuZkBD64cNTXJKiDSaNwSxqHvx,Field Stabilizer
+Ustur,48,32,9TitKTggEdSdDGwQe9KpXV3SigJvEjNF6YZWPskWcnPP,Steel
+Ustur,48,32,DuAqqDParWhhgBshEXzjYaV3he1mqqoVdgBk9JkUNdhR,Toolkit
+Ustur,48,32,3BcPV6oEKVHS6JNEv6TENpYoKbyUrU6zyhnJpsbnfafc,Polymer
+Ustur,48,32,AgeYLvtfTrzbCP9rpFa53PFAmz6afoTHdaZqPjSPtMoG,Aerogel
+Ustur,48,32,9MX8ZLij4TNaG5mgtVZ1FESmmQZes7QYuRhrgxC4aRCh,Carbon
+Ustur,48,32,45sevmtiGQwSuyop9k496MtgXguwk91NBvy9gMuZZ3WG,Calico Maxhog
+Ustur,48,32,GCGXrwX6wQvLdA3gjzNQ5DuB7fWk7TWDMKEtKfwMU5sX,Copper Ore
+Ustur,48,32,FDSK7tz6iaCDT5tnUyRM2oofBsr7ktqoJjQgUh5G32gx,Diamond
+Ustur,48,32,BGbGByTvJKAVK9eVuzTpo5ZCLjXk1qDKGPpteDVqBs4G,Super Conductor
+Ustur,48,32,GksXo5H3yPNdzJikMVjHSSFREDEWfC73Fvc66SbspcQi,Arco
+Ustur,48,32,GBSi4bnvNq5QBELH4BAJMUqdaESoHoCji7g4fKQRtZCx,Graphene
+Ustur,48,32,BaSmHkVMjXMUiHGbiCJAc7LnC9R8aetVwCKLFPwyY8rq,Fimbul Mamba EX
+Ustur,48,32,12jgN9eXrqdZijngtkhWXCzLCpqYucop6VxvQ65Wboz4,Magnet
+Ustur,48,32,5iZiSwWEvBeru7ePDo4ULrPWFTTraBchtbTCWMpTSDzU,Electromagnet
+Ustur,48,32,12bpwpcpTsh4hfXpZ6dQ5AJGRtucs4AGoZfWRw2TM5bJ,Lumanite
+Ustur,48,32,6nrspJwTBECYmNqhvKwLhJLkjHkt5yrKJvop3oEMKYcY,Copper
+Ustur,48,32,3H1ZhqhEqsj8erjNdEtrNzG5WLmBq1CPfSu8mjTt43GK,Silica
+Ustur,48,32,5TMHbN87rA1LCm2vos6NP3wTQ9zT4DVZi4mYnZRXBfG3,Ammunition
+ONI,-19,40,7GBRifK8XVghvQci3z7cdgrBxXFN3aZ7RNqcLwY5n1Tp,Particle Accelerator
+ONI,-19,40,5fmBwcR9Nsc9FL6BSmSCyBG42zn74CpQzRA3WWXfY3gW,Fuel
+ONI,-19,40,FpZq5h77TVbNn4hPHk6Q3VKsuCJYE8QHe1kTECvCZQhT,Strange Emitter
+ONI,-19,40,14qE2yw3zndFWZCPmoCfjgyPSmb2ed2e2QktDrxsMd7K,Biomass
+ONI,-19,40,N6oH8AQrhGwiM7qKPfHA2zYkCCwghvZufL7BF6XZjqk,Honeyland Explorer Badge
+ONI,-19,40,8LzmAKZq9jcbwmyoY55k5y2V6tHzGgJ7YYcEkvtLXWJJ,Titanium
+ONI,-19,40,ByYtBviWip2zuL7zmKuuyKEexLdbDNDTw9NmEytWtDDz,Hydrocarbon
+ONI,-19,40,F4GTcKnZbEj8EGMk66X6WJuPaa4RPsfNGceLivdXJwcY,Iron Ore
+ONI,-19,40,uxu7azsMjtSQUAByYM26T64uoCrwcZQBw7D5bxAjBoh,Golden Ticket 2624
+ONI,-19,40,B1usCcFpkeygtnV2BUhrkpHYxNk3iHLNCE8dszxwxqWS,Nitrogen
+ONI,-19,40,8cQFeewZds3n8y3di2Gw9hcUp2s5EprdSjaXLCJDsHgz,The Edge of Paradise
+ONI,-19,40,6veeBhtPJjAjaW6UgAJhVnRCz4FTReope27ZzEevN92Y,Rochinol
+ONI,-19,40,H7gz8yWGQGtZb5VvGncKrghT5vDKRdTyxigWmx6B9e5F,Copper Wire
+ONI,-19,40,6257KjSsz8cayEvKB5fs98fBcsAasdp4oUdgjr5o3xW9,Energy Substrate
+ONI,-19,40,4LpDSDzKtS759Vy8obiV8jHoYrULwF63Yrx8gXL7BRzm,Crystal Lattice
+ONI,-19,40,9XJaXaksJtPiM51cHCHH1Azpmt5c8bVkS8UHy6fYKcw5,Survey Data Unit
+ONI,-19,40,QiVAHbnPHKLirKG7at2XTVQpcmXmhKRVFrxocpcHEHR,Radiation Absorber
+ONI,-19,40,HUoSN37gRyGsbhqYhFa9b1q8bvE5WrXYwBPsr8zABwL9,Food
+ONI,-19,40,BpGpwU6U3n6z8EcUKhHWmFR7y3piEiHzNfREKR5tPRfX,Power Source
+ONI,-19,40,C3VhkZTrzdesVVY7pPvdqs5fFSyMomNxsK9f3Lo3PKpa,Iron
+ONI,-19,40,4LjnVWeJoxivZuZXABH6J4Jx7htADtPVobGCHj1v5Eeb,Titanium Ore
+ONI,-19,40,HAD64pWH9n49c2AfoLf6YjjDibaSGAECVkrwxdXLzhDJ,Electronics
+ONI,-19,40,DkVtg1TNoiFrNmTnyuT1Xs3aoJHcUn2re2ufdLh2DUHQ,Framework
+ONI,-19,40,A7BHKfKYd8UyJenpTH7jVUinFjctXkfrqNVesxHJDBDu,Hydrogen
+ONI,-19,40,8yXAnmuwmsWfyyyncyqW2oDZhRGBpCLq38DRGmnJNPZf,Field Stabilizer
+ONI,-19,40,5zBL2uMrAHPaGz6bt2Bvi5iCzPQ2zFwMjfFo6mo64LEv,Steel
+ONI,-19,40,3FXjq3eWvs6qeywxVX3pWPz29jARTms9oQsc5uVnMwdK,Toolkit
+ONI,-19,40,4LFN1qRnDVuF2vB5XjdZciEBBgvKJ498eQpvDU9HY7i7,Polymer
+ONI,-19,40,UgtVsQdq84wTTDd625bmZqBSwoXcCmbs3kaW7C2ZQUN,Aerogel
+ONI,-19,40,E2JWqZibe3nWVKqx33WTenaGVSkXX5AogpfpMvamr2JD,Carbon
+ONI,-19,40,EAGATp3GrPAG7jxNa99u17ocTBgTT95Wqsvdq7To8MNT,Calico Maxhog
+ONI,-19,40,APnH1LgBPuDKfrroGiQFpDKApPqqhgNf5qocA6cg6UsV,Copper Ore
+ONI,-19,40,8tkF8D7QU4z5FFV5dyiYW1rLfgxkwu2qvkeEWAZ2aSgQ,Diamond
+ONI,-19,40,7SXKwbt7TkEqVMbXMVb27JbgUEEbSSifc8fjRYUEUoS4,Super Conductor
+ONI,-19,40,3gufXMgxhjmEeBzvMXQQYzKKZyRVu6tbF5Miqj1wN3uk,Arco
+ONI,-19,40,6iQNHikSqYvJKAfPqzTYE3B4VRvzjSe8X4pspoGiEdgH,Graphene
+ONI,-19,40,5bBFsHwRAJDZpv8MjvkbGqUZcMKP8QYJWQJ5gAuM5sHg,Fimbul Mamba EX
+ONI,-19,40,F2nTDXVSsPG6ycwx1EL5NyYziH4GsrHwyp6mTAvbKgL9,Magnet
+ONI,-19,40,8oA318jvjCsWzMqA84inqnwC4kLNHAsJgCswXGjWaJAX,Electromagnet
+ONI,-19,40,D1mFHNeLN466DHN77zcSciQwUAYzubhT8BmJyDHXhbDM,Lumanite
+ONI,-19,40,2JoAij9X7Do9ioaQqHaPtLk1gRHCniPGUx3vjGZ8p1MG,Copper
+ONI,-19,40,Cfem8Cvg7UNxTFvAKBnZN5w5h58PzMy9ReMiisLMXfUZ,Silica
+ONI,-19,40,CWHd4mgHxy3S9USLDDNqbUCtwDx5VTPWdBFuZaGhQGEo,Ammunition
+ONI,-40,3,3tVt9PJ9ygJn5J5ngiE3EAYHQFcaX2Cn9DmbPEsASvHj,Particle Accelerator
+ONI,-40,3,DaDhNrBaiZTz2E9VEdUTEN6GFrfEcGkss6xcSskvtqkn,Fuel
+ONI,-40,3,4a4kJGBTfZNzRgQUfUaKkb1pQ4Cr1siviD3qgEPe9VZn,Strange Emitter
+ONI,-40,3,AFpLjU2RcyFJk79kqWxDB1Fu2CqD6JPU7fCEf27NbAUp,Biomass
+ONI,-40,3,HTWJCn1sZP7cHWHGaC8cmCmzoJdN6C6Hmr1CukZEpgNS,Honeyland Explorer Badge
+ONI,-40,3,ENdieTRFNGLvtcV1hHrmYTZoFaHZzoUWmUxYgAy5z9Wz,Titanium
+ONI,-40,3,6jFoWC3uoVYuzAt55Gj6q1F339WE3HuKiF42Hn3LHLnx,Hydrocarbon
+ONI,-40,3,2mZWGfndZwBqsHnyT3VFFppCHvegHUZj2YmNsdm2nQhU,Iron Ore
+ONI,-40,3,21o7QXCZ2ydBkSH1XKbM4somMkumTJmVgDCKhC5wCZC9,Golden Ticket 2624
+ONI,-40,3,FxjhLpj2Ybkk9uz2RS9Jn65w6zLXGf6iECcHvygYffm8,Nitrogen
+ONI,-40,3,8Bwe194XCt6Q3fKxch6xKdkNpfgKFYXLGHvzeJjHUHnZ,The Edge of Paradise
+ONI,-40,3,BWeGUudaJ3fU76jDRfkoJR9qWC3stBfLqauLaJZoTq4A,Rochinol
+ONI,-40,3,9cUMPziBSMfpRzJ8UnhR9qCc1ghJVaQL4ucQbfBQAc4q,Copper Wire
+ONI,-40,3,CKQ1meUTFQuMUcvgJUbJkFSYv6Pb73PvCrP6VUxgmxAo,Energy Substrate
+ONI,-40,3,DThBaWSYHJG9nrSixYHqn4URwx9bSPKMr6NMyR9WZF2q,Crystal Lattice
+ONI,-40,3,4wRu4BNtpYChDJ4g286GBBxUoUzo7gN9fKnKNiMcdtPX,Survey Data Unit
+ONI,-40,3,5HwCEfjMhbQjLLEBojQJKEMGY48tq9RttHQTUr6RUmve,Radiation Absorber
+ONI,-40,3,4bjQsDVGwHsNv4hisuYb6KzBc9KvG9Y7fgmchx2u85TT,Food
+ONI,-40,3,6UNZgJ9PrkumpzXK75qNV5LajyFggG6unZSp2bKc3xqu,Power Source
+ONI,-40,3,3KxzMU1buxBR1G2JBSEW9aJCCejypa13AUiysoeFfMtX,Iron
+ONI,-40,3,32uzQyk32nN1R5krWC86zPQXhNe6YGmkt1Db5iQaYMXS,Titanium Ore
+ONI,-40,3,FTCptUbbz9DTNirFMw9wqeh8iFEqD5GTcnaYNE3h7fg5,Electronics
+ONI,-40,3,AAaMbWiVzF74HvAmmkkyUnM5NcqFrTuAbNwi9HgdtHsc,Framework
+ONI,-40,3,4mZCiY5ZNYECxAc852bhtpk61LoHXnC5Bxyggi4oe63L,Hydrogen
+ONI,-40,3,pPkq8iaPndvQ3NAW2FqbZ3m2BnR8LkrELPqP5JfWhnd,Field Stabilizer
+ONI,-40,3,4f4gYeSRcGY7eXUn5oFyStU7P94qSFFMPnHDnrpXuHJi,Steel
+ONI,-40,3,7x9T2qnr6y7tTQdUUUcgP3P3nZnWdtcFsEUiU9Tc9Aop,Toolkit
+ONI,-40,3,4d3LVpSAtdyFen5W3kUpjdRjbDZ2n1sTCt7NLLMVgrAW,Polymer
+ONI,-40,3,5WCvTTiwRYov6Me861qtVDRyB3LxcxyDgrLGgZAUw2NJ,Aerogel
+ONI,-40,3,7vpuo747vVFp6bPdAi521tBsjJQSR9CCZkVeaeJkB4R2,Carbon
+ONI,-40,3,E5VGanqk8766DqjhWYcAfL1X8bmcWTTsNb1rnEuibyBF,Calico Maxhog
+ONI,-40,3,D9P2YesYwCcWRinJQDyD82kyGuBtVWTdm7s6NejP1ttp,Copper Ore
+ONI,-40,3,9sJHS6cNyCJ8wbSnM8mZSDFnPu6cP2SpmUGasas2oEjx,Diamond
+ONI,-40,3,2Sv4t1HbKJr9L8cWGd6wpPT55JpLfdew4kYGyTqC3EUd,Super Conductor
+ONI,-40,3,DNKM22xfziEY1bM9PFqTgAJkSvFUzmEwLrGTVw9HYd4b,Arco
+ONI,-40,3,HqCjzxcYu1kcVdjeT2RPHSRXJvtaaiq89pQy5rhscWgt,Graphene
+ONI,-40,3,9pAJGxGYktC4ZECCAbbkftWjKFVc9NU6idR9TsVk8pVR,Fimbul Mamba EX
+ONI,-40,3,2GRNgJHQ3BPPtgAWtCYkaAZHi1kTZm5k2ydrBpVGXHZd,Magnet
+ONI,-40,3,5zAcJK68ANk6vL8PKsHVNiG4Gs9ZeMCW2CHz75hf2gB4,Electromagnet
+ONI,-40,3,XpULA2gYPk2sk96uJ85sLPPDixdSiGeprAyCGX6mrSY,Lumanite
+ONI,-40,3,9zqzgceBFkweHmrRdxxyWx5CYzAwzfpAFGSaBZfwYyio,Copper
+ONI,-40,3,D2GFonzcfq8Mz56CxaTVvTsqfNVWr2f7Etoc3PgYRvNA,Silica
+ONI,-40,3,9m4YDtmSKBj5KrFeMgMoyepth7TnMPhDehQSWjGcnCxV,Ammunition
+MUD,-22,-25,BkfAKmjiteihgZxpwE4UUnmV8Us3Bz8UMM39v6ciPU9P,Particle Accelerator
+MUD,-22,-25,AHrBZ4DSpaGFwtYjwfPWsCqPR5CjpJc6ebBAe8GyC8fE,Fuel
+MUD,-22,-25,MJTtEiDs8NN4Mjhah1LVZKxF1rxKLrg9mf8KSutrq3U,Strange Emitter
+MUD,-22,-25,AnPUX6h6yaQwG6byc9gHGkMLUp8eFU4VdBbTtRFowZws,Biomass
+MUD,-22,-25,EX9jf4jU2ms3b7Wo3KN8kRxsbbtsKRipz5Rea4NRjyKy,Honeyland Explorer Badge
+MUD,-22,-25,F4mVPWpt1kczPduRHAqVDXLAWRQJRjfuXGG7x8iB4orW,Titanium
+MUD,-22,-25,HPT5XspNmZCoAP8gSV6Dc7D7SyRyBofpuAyq9DdxSG7,Hydrocarbon
+MUD,-22,-25,2xoHauLfPFNW3BpXL1cSZWpvDRfm1CUam6ZpV8k8yDqi,Iron Ore
+MUD,-22,-25,5DiZSp7jmQmkFgQu8Mgus21VQdujPMTsMUsf9qMCTfz8,Golden Ticket 2624
+MUD,-22,-25,AbaU8T95K8891DmKeptwnK5Wa3b5HWxyvCkAwvXy49fc,Nitrogen
+MUD,-22,-25,DvBvFeshY6FxhSzgbNN62SXQLVK6M2Fn2BWzhQsM4NNT,The Edge of Paradise
+MUD,-22,-25,7A5J9nQRE4eiaNXsNfvFdL6fpGyGByDzUjigbRyur8zt,Rochinol
+MUD,-22,-25,G5fpmPuRtQt133HLtnmiTA9zyqFUrzm6vMv26cMjCBo7,Copper Wire
+MUD,-22,-25,DB3rNBm7y4YS1xPqTBeWmJXx7z6Qq3ypQh7YHJQMGSRn,Energy Substrate
+MUD,-22,-25,2g5GXTw2tyFUzwXTThyMgDoQEVBUDZgSPkJBwdnCccoz,Crystal Lattice
+MUD,-22,-25,3AhiT1GBxDArPEjM8xCYx6fHWa9CdCEjgv9orDttUbkM,Survey Data Unit
+MUD,-22,-25,Fz5326DwsAEHzPKhVmJGWR3pkq6Wwk4MxavQWiS5aYCc,Radiation Absorber
+MUD,-22,-25,792LSNrYcLFCaTPasXSQfBM3Ea4pCzLckTGmteNU6NN8,Food
+MUD,-22,-25,7oYtgKK3dgNLCZC9erGT5xAFKJyBjaPqcBZEAovF49k4,Power Source
+MUD,-22,-25,EprbGgk5Puc6CjtW2nxhwKTyXSdLX3x5AWevp1neeBN9,Iron
+MUD,-22,-25,48DxBuQx1ZXubkGKSpScdgQtpcm3NcjUVk1UMEVnBxEY,Titanium Ore
+MUD,-22,-25,E13AP6TVU96gF8GhC1XqXL1d9Goz2mRYudt96TRfZdhc,Electronics
+MUD,-22,-25,3KLmHU4keSaQbfooRSWTKzxqcLVPK8Z37uNpjQCafgDY,Framework
+MUD,-22,-25,641XuMJgx8MFfYDpBtycA3iDLmeYy51bjE898WSaWwKg,Hydrogen
+MUD,-22,-25,8SSG1crxdkMRvELutiSGN9y7GnouoaF6Nz2dX5jopnCr,Field Stabilizer
+MUD,-22,-25,C3Ayz5rd2UxLA3yQHvoMqNzsRErzTW9KXKkYC9TViKnE,Steel
+MUD,-22,-25,5Uez2kfu63DiRWxLVuEBGMsMXs13EeDKaJgpWTHrPRUL,Toolkit
+MUD,-22,-25,HmADFBm15G54nCyrv4voHVBGWs6jMFEJvKFmVKctGUx7,Polymer
+MUD,-22,-25,FgAsNPph8DaLJxMJsJxJ6mJJKSdfcsDHpKTy37rDQ7aL,Aerogel
+MUD,-22,-25,8bVvq9g4JuFaNv2AEgNWqnPmStCkNKuvoyXyaneTi7Xj,Carbon
+MUD,-22,-25,HoS9ohEz1jcgXmtZqYVUbkTsGayN5U2j4utmU1eoq2ME,Calico Maxhog
+MUD,-22,-25,FWuppQ1afxMSuTtE23jFT9f9y47K887kgUA1eMbAQ2j7,Copper Ore
+MUD,-22,-25,71KDZkkcBLf6LLGb8TwgGaoXEtEtXazrxAvaWW5vN4D1,Diamond
+MUD,-22,-25,6ywMipkPZyUuvZGrD8R1LPGKcvb7J3nGFbKbq8hjHkne,Super Conductor
+MUD,-22,-25,6EPoEYmdX1wwNf58Gi3PFD1ZMZVym4bRFivZvUVKnyn5,Arco
+MUD,-22,-25,GD3qHdoZdXhdsndtsR7riNkHQ1uE4GJ3hPAMS3psob8f,Graphene
+MUD,-22,-25,6y3tF6nTf886ZrRMsf5BgpCrRXQn25923v8AewZPTiVH,Fimbul Mamba EX
+MUD,-22,-25,AjsqS5UBJVP1WTHVgbgoMBxqj9tzmyAiNwUkEmgoBjX2,Magnet
+MUD,-22,-25,FJ8CuGqQqcEbkxvhacuDY1RYzQ4rnfwLsd5PkgGnnmxd,Electromagnet
+MUD,-22,-25,13qN3mySS5AhRfxYmmoJAkopft21TgXwcaNd3wF7zvoe,Lumanite
+MUD,-22,-25,7RVTkbiivHzQbbDvDSwRq57zzrif83EwuiVEhyuLYLCk,Copper
+MUD,-22,-25,JDWMVhETvPgPxqf84Qk1bnnp1Xjen4x7Qsty8X5dmzTw,Silica
+MUD,-22,-25,QyKS5vpf38bWrVw4gpudsMk8zuZ1qFYBzSuik3MVes7,Ammunition
+ONI,-45,15,2LWjxen8EEWbP9ic7gfPAxKB8dRgnWa9SvoHZ3T6HWj2,Particle Accelerator
+ONI,-45,15,31CXNzWZk8hXrU6kZ3hq8JbeDbxy5EgMYTZioGi1NYSJ,Fuel
+ONI,-45,15,7rfgCYFN955A16BzpMmDMERgp4NR7voHhTHMsbWFcmCE,Strange Emitter
+ONI,-45,15,7hmFfy3JajmAGtdV5YsLo33pGKZi5eKSxNuT4ru1N7xZ,Biomass
+ONI,-45,15,39KiVVdHgNf6X5RPrrHbJcy7urfRKEcu92Xb2dmhrytp,Honeyland Explorer Badge
+ONI,-45,15,FfQdQVCocgu6EudrFDRjmB45u4v5Y13AFwuxxjqKYBmh,Titanium
+ONI,-45,15,9apHv9D89v9X4fEx4LyiXBsZeczXiCuqYoyoeAATv7ox,Hydrocarbon
+ONI,-45,15,9CTmXAHmMrTS6AH2WDFNRjRdvR974rfWMMFx9Ar9EeRA,Iron Ore
+ONI,-45,15,HT65XS42hQzLhC37Kvk7Xi1PVLahQmuswJpp87JyRGZz,Golden Ticket 2624
+ONI,-45,15,GLDqc4o6BsPUyrgSn67JsC2XSzXtwpcxT5BBdHQ7zz6D,Nitrogen
+ONI,-45,15,GhpCd3MWA4ATdKXPCKCCQJ7J6y1fgLnwZbGgQaytJSiC,The Edge of Paradise
+ONI,-45,15,9aLnh9zCCNJbTu5HrbNYHxkFLEP5q26bAmhZMdNbBhHA,Rochinol
+ONI,-45,15,C2cSh24swbis97FNDJ46uDEqyFbXJjQn7D8aybec19KD,Copper Wire
+ONI,-45,15,BeTamQiKuKTEaj7x8Nw5AgUtF1rpuG39KkrRYy7tBVfA,Energy Substrate
+ONI,-45,15,HtaPmJsF1s3jy9Qo2qg9Kpt6dFJfu1jwbvoiugDPkLxs,Crystal Lattice
+ONI,-45,15,FQ6UJiPotjF6cDkWM4SztrMA7tbeUXDBRYW1ZUrmNEkY,Survey Data Unit
+ONI,-45,15,85jaCDzsgvbGsTqB2WgwadGdcfSERYEcWbSKd6tZEQS2,Radiation Absorber
+ONI,-45,15,F5BzwMKoVs8PNJknJqHbNNZ4MfxvLFfBv43ZQi4wThke,Food
+ONI,-45,15,38Z69GRSqWwonj5h55X29BDKy3mfWGNtK9PcrZZLHmAM,Power Source
+ONI,-45,15,2D3sY6Mat1K1txAViK6QkK35fV3Va3k5zYkpWAxFBdGE,Iron
+ONI,-45,15,kFggpwGVBfGfyUKA8XmKyqcwUmEZ2Cgq6tLvk2C6aUx,Titanium Ore
+ONI,-45,15,DS1mgTmEzshk49dBwY9rFKKaovAHMrfACca21fQ6utkJ,Electronics
+ONI,-45,15,9CrYqKtMLtbvEf3uaqjzWmU2mFotZcEAnE9CiHZtTBjX,Framework
+ONI,-45,15,AGdp4PWB72CwCCnF1cpWz3jYz5XSpKXac4aQUb5LSXbx,Hydrogen
+ONI,-45,15,DB3tgrK36YHZgDaaxC52nbzZA5An2w7KphbefQ37zjBC,Field Stabilizer
+ONI,-45,15,pan2wRBbWMbzvy4v6DDZ1pEJdi6r3pucbttPG7AeUgS,Steel
+ONI,-45,15,BbQx2Jz6qJvMqJviurUjNEyHER3z6ScwECJnDbAHudj1,Toolkit
+ONI,-45,15,CfVaK93bNaDB5zEvHM9meYU3N8ojXNQnHK8muTSpkTU,Polymer
+ONI,-45,15,4PZJM4CqZJwcZ3c57FSUdSX79UJqU1KCqY8q5jcHhMfG,Aerogel
+ONI,-45,15,HdHqzBNosvrzHNHtZVfLZGahbWZkoHnPzcyxeW3E8WY3,Carbon
+ONI,-45,15,6JfinTBGsm5j7Zm3q26U8b5EWUDEUsDG1SJF9WARAF4F,Calico Maxhog
+ONI,-45,15,CF5eQXzHRZXDgQua9cj4eA5JP3F3k3yQuwwtH5RcrZCX,Copper Ore
+ONI,-45,15,4bEh5nMRQvsPkKiqMLvyNWHCiPy2gqv8wUfcvabrz4Gd,Diamond
+ONI,-45,15,Gxmy6a3dsAEwPVAS8u9nxBqywKWC3s9gb56n7gd1Erun,Super Conductor
+ONI,-45,15,38h4tmk9zSFHTjAHioRXeicG2fjkG9mChjgQXhaYr5H1,Arco
+ONI,-45,15,Hv1g5tYAb9uM3JLL4ZzXCqZWonpVQ2c7GcfJpRfuxh6h,Graphene
+ONI,-45,15,CNxnbJRuqzqig8cTkGkJe4Y2CtwyHMNZdgUak63wSqKx,Fimbul Mamba EX
+ONI,-45,15,HRDKA6cxLG8T1SRHoPYtYv6pxZEpV9L9Gs851NHUjtvu,Magnet
+ONI,-45,15,7zefLJc3FiQUpTE2upCM98Q7pvdySjNUe5Vwm3VT2gbA,Electromagnet
+ONI,-45,15,5yNb3yrNzrZdScJSGseoJoLV5W7LHPCBmDgErgXYm6F8,Lumanite
+ONI,-45,15,2MHvqJPSLAfUdJWnCPbbYirkDWBCiKvTomgy7cmxxhCj,Copper
+ONI,-45,15,BrWXnQnhpnqzvJN5oyBHyduVNs3FdZuLEQRc6zSVMbXP,Silica
+ONI,-45,15,74usBY5Vbf7DeV5njaRCRLBSzCJE1pdXm2WEtCm3rfXA,Ammunition
+Ustur,5,44,3eXxzhVK6Q3wcoBugdNMhhnUs99NjJA1Maeqn9DW6yPU,Particle Accelerator
+Ustur,5,44,7nYHaNvGV158cGuUtbFbNavWUKGqNAcuKP6bxuTAbwD9,Fuel
+Ustur,5,44,7BcMvR8bAH3aTRSeVPoV6mHQg9gfwQVUtWuU4TAmXhgF,Strange Emitter
+Ustur,5,44,6F2497vfZzn6dFbu6oLyiXFWDfESEx5WJKt7N9xeFVPB,Biomass
+Ustur,5,44,4iv1WivvQRgQ9vXivawmeo51T9WXexL4QVS1Yicf4UaQ,Honeyland Explorer Badge
+Ustur,5,44,Bk8CyH3jyvsvRZBme1xrfTVWKomsBZZF1Jo6oP14xYe7,Titanium
+Ustur,5,44,HYHyBTVMB5wYitqHRVA2jnuesxZjqePs4kxepU2hngKM,Hydrocarbon
+Ustur,5,44,2jyVqUHSTdixxPgkBiYKrArDZoinqNEJBhDGXRNMpD6a,Iron Ore
+Ustur,5,44,BEW8Z6EtnECuDVm8Y5gG3vxbJnyr9iyUcnBfRDLNNwsa,Golden Ticket 2624
+Ustur,5,44,7DBEpvv58nD3g6SP9CZRdBZfyF2R8YVMouA6wvLQmb5z,Nitrogen
+Ustur,5,44,8Mr6Cb9GLqhK4u9P9CSviHrncM8APewJLgXGYm4nfVrP,The Edge of Paradise
+Ustur,5,44,7ggtiBmCcwKEymBbfzUmuz3564ZuACSfpMBb44khmjy9,Rochinol
+Ustur,5,44,ET6mo9mAH95Wym4pG2iMTJhvwD5YXVQSCsN8Pk5SNZF2,Copper Wire
+Ustur,5,44,H15ttFxTpHk8o5BbqgBvxzWoEWGrqniAgdHzxe17K7oY,Energy Substrate
+Ustur,5,44,45Ns1CX8CG6YbtR9gMR7J63UBRb4aDNLqduznMBRHPFw,Crystal Lattice
+Ustur,5,44,4JCcvu31AKimCBmJzWHsqbLBifhb2ab7oduyAvQkRCuD,Survey Data Unit
+Ustur,5,44,8WLxoj5KPFiPoJNGsg6PwE9ixvreKwfAKENzj7TupNWf,Radiation Absorber
+Ustur,5,44,5cC4HPGYV7FsVf7AZtKJPhnDyvxAg6roALX3Vh1i6mcm,Food
+Ustur,5,44,7d4AMXTFaGdb1YDoBaHqEmMRb92SPD7tr6qmLcGJBRU,Power Source
+Ustur,5,44,35UjoXeBzk2o7nNj5vM6RLQw7nUDKewfkyztbMxPS4B9,Iron
+Ustur,5,44,7PVbi5RL9LLwqc6fodiBm5RM6t77jT4GBGUZshuZQZbK,Titanium Ore
+Ustur,5,44,58mNFctSRN77K9Vpv716ozbMD1wAmDgjHLP8rNNzS9dh,Electronics
+Ustur,5,44,32HZfXvb9yNaQhuCoBcZ26pmyWLqtrgHpP4WpW1DZ9zR,Framework
+Ustur,5,44,6hSTwhLVJxVEa57GCYrrXikZqecJPhvgpRt3YdFCaGqB,Hydrogen
+Ustur,5,44,De6uiWzPHWwcvuESu7MwV7XyVMjnWghh5GTCQ1AydTfD,Field Stabilizer
+Ustur,5,44,25rN9RzauyokvFrgkxHyK1Stue56LJvsB7jbeUZCyQZQ,Steel
+Ustur,5,44,Hh8FgZfhUbn5TfkkWDPYU3ArVwyerWzQDjhuRnzpUsgw,Toolkit
+Ustur,5,44,HUNEdvFrzDxN22Yv1oJz6GDC6XG3KbGWM5RHJPUoh6sn,Polymer
+Ustur,5,44,7eFToYDtDd7AEym3h2SC8fWmWz4eDE9coJxviN83dZ2Q,Aerogel
+Ustur,5,44,JDsXKX6kcBzJihcdBSfpMNLj5TkyPRuLA3Nut3nrfxgF,Carbon
+Ustur,5,44,FVp148cHFswcsrrLL2oTCewHphS9RmGHrowS7UoUxAhJ,Calico Maxhog
+Ustur,5,44,BS4GyuvvfbFrHZTnauJBhMsBNtZXwcpDwN7smAFkELpA,Copper Ore
+Ustur,5,44,CUrjAcqfZHvVSiVD1gZW8PESyKRmFKCLkKDvjiED2azh,Diamond
+Ustur,5,44,A7KgxjnQdcZLRLGKEd4xxm3LCHSrmdvJfvMckNtZMN4U,Super Conductor
+Ustur,5,44,5ACS9boKWkfxifoZRZh2jUyae9kAXWdyv9ZP1kkk8tJF,Arco
+Ustur,5,44,CFfK5nFnaJtsLb3mdzGxUr18v5jpeibhsLCM5Gv7Zz72,Graphene
+Ustur,5,44,FyPRqadb2wxniVTLrbXno4avyfWsyeSheJEpMqRLxDpa,Fimbul Mamba EX
+Ustur,5,44,2wtJiZR5mMoexs9eFzQCGMmiLBZrxEeduNRoW3fyxjgL,Magnet
+Ustur,5,44,9EsFHNKhqvMK79wqRAKNtyk5LsW36dQwDjbBe2433yHu,Electromagnet
+Ustur,5,44,ED3NuBQD4gcmpPWB6AbGhFUkuVTr3CpeSQGtKr9LxszS,Lumanite
+Ustur,5,44,ALW5L9ikf4qC8wjBxqp47zSPriRJejY1QwrrdNxdBXSC,Copper
+Ustur,5,44,DoWbajaWwC7uPSYuRN7MuQdhfdGYU1V4FvCDddMgKExs,Silica
+Ustur,5,44,9vXDRFf9ALAjxVKBTf81SM2W8rvd9KUYhnzLBPXm7uuA,Ammunition
+ONI,-36,-7,guwxiJmg89dMjoLSvQrG7cmLvmYkMVbnf3s14LfwzLP,Particle Accelerator
+ONI,-36,-7,XioTiwJdgjr363AJcogvyzkkTiqkWQksGDKDweyz4QP,Fuel
+ONI,-36,-7,2cTLBjRfmAbhnW1dGRpRNYRdsJWrpGW56urDvi3nBfyJ,Strange Emitter
+ONI,-36,-7,HRwBXtAmyWFcrYBgNKigN5PVMP2xWgKprw31T52bbpEM,Biomass
+ONI,-36,-7,G8EQuCHJgrabj53r7g4od7yF1xJ1pa97DhfyfsuNcupN,Honeyland Explorer Badge
+ONI,-36,-7,QNGgdfcA2q3e75WedHqVJrweSnLJpfTVu3M1B25oiUt,Titanium
+ONI,-36,-7,H478eTSgvm1QNF8t5ioG8yBxhctKwLLicYgsWqY6tot3,Hydrocarbon
+ONI,-36,-7,Dac1ykXrxRJbAgSnk71yJQBbuYJxkkKdT4QpKgBpotxy,Iron Ore
+ONI,-36,-7,E6a3hzdupuRk7Jti4m9qrZteyEcsJ3RcWFb3akeQYush,Golden Ticket 2624
+ONI,-36,-7,84536kt8rsJJz8y1wWQbheRobRdn1VCEg1ygXGASUeJD,Nitrogen
+ONI,-36,-7,95gNSDMb7wy59c5fL1NWathq88TaZGXGE2VKyNmXpk9j,The Edge of Paradise
+ONI,-36,-7,85w8T4gvMzUR85shwTG5XJeUBAUM9cKN3ewT1T2mczGB,Rochinol
+ONI,-36,-7,2nbG5qXZYJbxiFcPXx8KgspKmpMYKaWo1cBtqZMnuc2r,Copper Wire
+ONI,-36,-7,BoFxhDirGVL5xjLqVNMtUeuVRsQ1p1G9ZTDMGLju2g5c,Energy Substrate
+ONI,-36,-7,79nrAQUiZXrYY6xCYw3bSrnSB5PY9q3951SyMbyUH3Bx,Crystal Lattice
+ONI,-36,-7,CiSH8JGvRmAdijb54VHGigMdhVwboEkJSvAnwwhQvoak,Survey Data Unit
+ONI,-36,-7,7NwrpLg3buCesHxa6Ws3C2FH8aCduyPh1DFwGyFifGwx,Radiation Absorber
+ONI,-36,-7,91gG6scXX6nzB3ww4cRsm2tKgqHi3C83vUXbYtqLjqec,Food
+ONI,-36,-7,2TwEq42HhTq7xbaRd9F1MoQ5CbHL4P8Ct1E7rAMXbRzF,Power Source
+ONI,-36,-7,9gRjYU1tnUt5r9Cv11kfgamrtg8yHSVnZuZUgp8w3NAF,Iron
+ONI,-36,-7,AZMRUJijabDxq1taH5rynFkwPkg9pyMjkUmexaCY946g,Titanium Ore
+ONI,-36,-7,9JDV8o5cpmcKhBcgFbtp46CCRTx2NVAdMRNBD6X6DPJP,Electronics
+ONI,-36,-7,8ryGGsrF4MHCv8wSYdVsnM2mZd5rvi1k96LkZwSNR5zj,Framework
+ONI,-36,-7,ABYnVeDtYP7pGXNe2t18njVprTVeKD1EH8Du1qLE4Qqo,Hydrogen
+ONI,-36,-7,5BXjWb635c5mQQvBSLZvAWFeiPCCSYr9JsCchzWa3ocP,Field Stabilizer
+ONI,-36,-7,9ADpemVLurCXBAPgQEezkXH5Vr5iyXrUCbnzUqMJahKp,Steel
+ONI,-36,-7,68trq67kxbrNy5BYTsoapaGxwg2RajeL3K54QsMa1K9F,Toolkit
+ONI,-36,-7,JFMagWpaq828ie1Xb3YcXec65fA5qPAcDFdM4jNbnGL,Polymer
+ONI,-36,-7,FjoNb24AfhvoHGQFDLYEV3rYnrBH6CAWfQCsURQsrM1r,Aerogel
+ONI,-36,-7,FkTFXfviAWGMtujsHNdQ5gUMo8Z9VrxtvH6poDgAXbqK,Carbon
+ONI,-36,-7,2b5qpq1sikEG7pa2nztZs58qy2co6DoKoAEyTyin5pgo,Calico Maxhog
+ONI,-36,-7,6bAXVd91Bhb7Dsi4FmttvBBm4yBcK7ZoKbXTwzFuUQPJ,Copper Ore
+ONI,-36,-7,7BKjhWYbRxB5jc5WiQ7Lc6Uy6vcVTdncLTXh4UrV623A,Diamond
+ONI,-36,-7,JBH2ozyP8DbZMabpc9FokrSwsTnmNUFwLy4c2ntu8Deo,Super Conductor
+ONI,-36,-7,87ZVV9BjE2uBUbmonuNV1mV9vQbXJeHijeELpyVjuH8C,Arco
+ONI,-36,-7,36tDY1mTGsUim7NqHzv3cz8jWKAStPrabK68kLAn4aYW,Graphene
+ONI,-36,-7,642tFss9R68g6d7k7aewDD21Lyc6Eb2mQicTmDPwA8BR,Fimbul Mamba EX
+ONI,-36,-7,F1LQPiMeD3Md1VrTjNULm7UBvxKwApnqYTRJUVJxWMD7,Magnet
+ONI,-36,-7,9KhhbfwW3hAFBod7ZToihVxF6ua6ku5LgXerAe3wgLY6,Electromagnet
+ONI,-36,-7,DgQzwcLPQ3nNJeSTDC5GCP4HvJGS4UeSLKEKGLHLMdmN,Lumanite
+ONI,-36,-7,ALFNkX4QEDYvqPxq7HBVLXMHKpoThZkUDo3WkJTdURr9,Copper
+ONI,-36,-7,68fzBigLn3vzDcp5Y2pJVcpAaTmzGd8b5Pc33pvsubQd,Silica
+ONI,-36,-7,BJsp7DMoTp1HiXbBQSb5KHjwwP1NSGM8tHJpTiS6eZji,Ammunition
+Ustur,16,-5,8WBAsHvxdvUYPbZceTZ9RgVy74WdQWqthYaanihpza8Z,Particle Accelerator
+Ustur,16,-5,ATPGojydaoDrGw8Kyy9Aw4YrJsVvCquenfDcLMseUznS,Fuel
+Ustur,16,-5,9XizdH4SAJ38FYtJxuRTZQpkDJZxgueWDZVAth1ThmNn,Strange Emitter
+Ustur,16,-5,A26RJuZCgufyndr4xxCuuf5NeGWgYAKbHcaAFyu4dWZ2,Biomass
+Ustur,16,-5,Ey4hGT2Vw1ePhJFVskLEf1gzBVdGKfieKBQbF3gNQ28B,Honeyland Explorer Badge
+Ustur,16,-5,G4gP8pKCQtKQbyEqSPBUNVgv5TQ5VkeYg6Q4r91NcwRe,Titanium
+Ustur,16,-5,FtRHSgENnzBb7DbVmMiGpsNPwfJsshNJrba378PdkAJW,Hydrocarbon
+Ustur,16,-5,J4Co3H4vVGVbHcfWBpmABfp6h1Jk8UECbF7LwSFXTZoS,Iron Ore
+Ustur,16,-5,FN7HdHjj252GdibWYR9CRdQAgbzDqMiWXBAyQ7AFFDfV,Golden Ticket 2624
+Ustur,16,-5,BB1sh2zNYvqnRb4S2KZLausk1envUeRaeVgCXEmATwNK,Nitrogen
+Ustur,16,-5,5V9hQmtDZtdV4L3i5wDLhkYpjdGzyjJQCPfAuUWLCGbD,The Edge of Paradise
+Ustur,16,-5,AcVjoLQxYa7iBeiWw1Nk7je9qus6twBBDmDskCwrpaEM,Rochinol
+Ustur,16,-5,GvTj8UqjRMCvDScRbNxmDimtFeYGkyHrYBpuPk3YGh7K,Copper Wire
+Ustur,16,-5,D5BUQcFe6aA6bRwhCM14MU8J2Yer1ikeksfrsKamtMyM,Energy Substrate
+Ustur,16,-5,CZVk8mzKbRCDHWsdLXwDqrJdSCYyRxwg69kFnYNmm25C,Crystal Lattice
+Ustur,16,-5,4SBaZh6FLxLnUpekRxrXMs5dY65xup4gwCxxzFtvoJ7H,Survey Data Unit
+Ustur,16,-5,7zHW3kyhBY7JyWvzXpiCzxQAmaXoSmK1DSgpjHGgvWKA,Radiation Absorber
+Ustur,16,-5,FzeGpJFewKjCL5tHP9ZpPPModqX6zNBMR545dfi1yECc,Food
+Ustur,16,-5,2kAwwPHXGJRz2iMYxUP3Hhvxt7Cq1AVvCJqnPadszDXR,Power Source
+Ustur,16,-5,ByUuM7s5vUxAyZuXVEeUrjGtqt3rxvYZKkMeS3p25u3u,Iron
+Ustur,16,-5,6vsP2jK4LvrLnVN269E4qpe7BMtksLwVhdfJhzAFe8Jd,Titanium Ore
+Ustur,16,-5,AobKsXnPp1SxEWNyYi2V3UxgnajZT3JN2o4DaAGwMDhg,Electronics
+Ustur,16,-5,5iRQDyKU2AJUw83HMRcwuTTkzZg4Gw6ud16ipkUR3YBA,Framework
+Ustur,16,-5,8nbjDt85BesYwWwKrCsdEcFA3Dem7RfQ6i5FGwS5YYxi,Hydrogen
+Ustur,16,-5,5fGdaHTvLKoH8pWtyUBELYHuVuX25r1wfV5dKPKpudFT,Field Stabilizer
+Ustur,16,-5,5nZuBQ4Ed9nPR7tACjfnGhRWq3Bs8hPofFZ5yCqjZ8at,Steel
+Ustur,16,-5,7CSyYHPaPoJa4bXDEQ4DN9EHbuy36R6ELrbeVjJXTD1j,Toolkit
+Ustur,16,-5,8UrMQjSXB1mWc2yhw7MZ48CYXLb4YxtzGfTxWS7jHe7R,Polymer
+Ustur,16,-5,GQdUgL4LzSTmkB6znrxAf3gsSwFuLLFFxiVM5coQSdWY,Aerogel
+Ustur,16,-5,8v63ypHm9MrBY7znLN5ok1yRWV3vZGfbRaE7UT4v2juK,Carbon
+Ustur,16,-5,Grp56fuZyr9Jy7ZPxAEXFXoPkYU968eiwP4SuRSQRB7a,Calico Maxhog
+Ustur,16,-5,B7MsS4rJ4EzuB6ryGDqxsyx54wnqp8BM9MrzXxkXpRAc,Copper Ore
+Ustur,16,-5,DKnEnXHAN4D1kJvpkeTnLhpGtrZo2xZ5c6y8kULCd4GZ,Diamond
+Ustur,16,-5,8kbWrDa1cahmBnWsUcqCENHyjSyPsZ7krpVQvj41T6VW,Super Conductor
+Ustur,16,-5,5ESB2CmyREP2FJPAjgrAZxfpftxj8iAKC62WfFQM9VKD,Arco
+Ustur,16,-5,GZWstPdT7t9Fq82YuoYmo9feviWjSrWW7gnwt2FN4DkU,Graphene
+Ustur,16,-5,FLqEQ3qCRKeFg3GpoLigJrgA84VCmP1E4HnRCBack7sw,Fimbul Mamba EX
+Ustur,16,-5,DsUEFSUsAMaMgwT89zdWS4y3QYMHPRE1gA4sqTPisNnn,Magnet
+Ustur,16,-5,A3umkvYWUpAPBfc8buBbBymM3JPtKRVs6dkVCfp8mVHv,Electromagnet
+Ustur,16,-5,EZRgtV5vexU5DJhoajmrohXxUYk4qgNkeW5DrDKgstwK,Lumanite
+Ustur,16,-5,GEiQCx8gsbE9P8JMycEKWKMeZpUjLMgJAyHLAs7L5z19,Copper
+Ustur,16,-5,GxWqAbHHJ3Ms8hAaprnkqSgA1LYtARJLtssLawEtXp9f,Silica
+Ustur,16,-5,71vR4L1yLfh9VKhdmojev1au2cjkVpKV3PRCTK6opHHR,Ammunition
+MUD,-8,-24,7bxbN6JYe3ARNEpb8vZFEMRD5RUQaSugyKUkjJ3rRQ65,Particle Accelerator
+MUD,-8,-24,95C7suXjYyspZWtbVpjNRafii7Adc1ZPhGUkAC7FyGf7,Fuel
+MUD,-8,-24,8jMCn4YsnHy5DunDkdZp7htfkPjVhicK7rof1kN6mgny,Strange Emitter
+MUD,-8,-24,C3N8FsoyhR1UstLHJFRs6ULnkp7wjHvABZPRN5qPFVt3,Biomass
+MUD,-8,-24,Cxe4W3vccRVfxdtXJk93MKcurBDCXednFvqbyEoEMDZZ,Honeyland Explorer Badge
+MUD,-8,-24,pwUtQw2nqrgZh7jj3RJohGLKYGtQ5Zy15euiuUPrSNg,Titanium
+MUD,-8,-24,J2azMh86L6etabzf4pt5DACY6A2CoJ3bT6WgpPjfrJvx,Hydrocarbon
+MUD,-8,-24,AkCg9bWNQg3bjgg36BnTdWJmxQ8R852U5KfbndU64ju3,Iron Ore
+MUD,-8,-24,34bhWZHSFde55sghWkc9k7V3PfdXXJn5Q7uSmeXr2Ss6,Golden Ticket 2624
+MUD,-8,-24,8xEKjaXBGG35M3gQFJeeZUvm4A4mTrm6e9izNLuk1B33,Nitrogen
+MUD,-8,-24,5cjcmid5QVWbXykDXRnriBBP77VQW5NeZTMAX6E249qr,The Edge of Paradise
+MUD,-8,-24,ABn1qAaXmVSPS97r24Eq7iMRGPX2Lgbnd451pLUtyU6P,Rochinol
+MUD,-8,-24,3kriJUp7scHBHSkecUubwo4A5gNBrTq5feFVTpbqrw9M,Copper Wire
+MUD,-8,-24,AuVYRrbisGUMjijETpR1MpdfTa5qHZ6Eafpp2hjMj7oC,Energy Substrate
+MUD,-8,-24,9U6KCUs8JxUPV8K8pgfTLVUEs3VgPd3BANziE3U5dYwX,Crystal Lattice
+MUD,-8,-24,HkxZe9EsTkXqBQRdZQVWQ4apwRZobyY9S3cUGexZCfKB,Survey Data Unit
+MUD,-8,-24,6C8d5qydCw9ZcNMGhoDWRKYzxGFNE7deASmejaTJXAdZ,Radiation Absorber
+MUD,-8,-24,HVR7kXLaCkXRiwY2tSjJEayFn74VDJYDH7UzpVjye5Qg,Food
+MUD,-8,-24,GuG5V9r28LaQXW6Rh9xiwYYQ5P2Ba2vx7DkuqPaXnDM6,Power Source
+MUD,-8,-24,vhoBmZ8m1XN8QRXrBSYSKjNSRJXvagPRX9RBoK3kTUS,Iron
+MUD,-8,-24,ErzK9zhMHjLWc7WLKizrzQtuFELWCBTCo417ocNcNij5,Titanium Ore
+MUD,-8,-24,46ejsaCUNs53WqfpChrW24SaaBRaeV2xVCdx5b7m1Xp7,Electronics
+MUD,-8,-24,CNCyRotz9EEcdjte5vGxwLWLwb6SEDAu1TmUp9cUNC1m,Framework
+MUD,-8,-24,7DESgeguYHyEzFAr7DbTwMat93dTDPuTPBEpqkTj9Hig,Hydrogen
+MUD,-8,-24,AMTaQjT3azwpEowmdgu1Gd7XirukgC4sWHtC3WHDhHoj,Field Stabilizer
+MUD,-8,-24,H88iKBRRoqGdnmgGkLQVJu4ghxgdMUDzAgPqN2YYtZMX,Steel
+MUD,-8,-24,Cb3WSNZNYEDeSpayhz3spy6t7GGiKJJfUcyV5Ji9ZLHN,Toolkit
+MUD,-8,-24,8wyaWbtRr5KdeueeffqBGWot8ijwzJSjZXsFgRwK38nU,Polymer
+MUD,-8,-24,4aouXJRZCYco7rg7TLEDJkBfbwdi9Af3nf3wVDW3T9du,Aerogel
+MUD,-8,-24,BnkQDYdU1TrTP4qdPx7ipDZdninYAUCb3MhfenQSpbmA,Carbon
+MUD,-8,-24,8wW2iMEkxS2ToRr3GT5U4cZpTb6MQQ6FHP7TD2TP3nYQ,Calico Maxhog
+MUD,-8,-24,AhcxdtoJbamCnh4mBBjM5Y3iBu7ESxvWWDbVbLWX7jXo,Copper Ore
+MUD,-8,-24,CwaVahnrsU62pRByjpCaRCAwVu8DfTbUvCLM5uYVpubf,Diamond
+MUD,-8,-24,39i9BWa7ayayA2f42J9brZ4Dch3SKAkwasv6GdHrTRho,Super Conductor
+MUD,-8,-24,Gs3wT3Jv8qPsmBzwttMb2YXkibLugkesYnT3utfSq6d6,Arco
+MUD,-8,-24,7D5RtMTSDJ3H5vk8tjCSJhaqsgL4jeP66yvkFgxhuygA,Graphene
+MUD,-8,-24,E39qWLothKpgWSEvURLoyWAcaJ6UR4PejBx7puZioVxr,Fimbul Mamba EX
+MUD,-8,-24,91qvCrT7xHw6mf4ocwhVCwqek7SAeyvg2WuoFpZXiXE6,Magnet
+MUD,-8,-24,DMUtEcv1XYnbpRGK1VmKhuBiDyAB9sCRqpHfWNDFe8aE,Electromagnet
+MUD,-8,-24,CZCHCfXRhckowkfbd4DUeJPx9VXFcSTcnUZvD2J25YZ4,Lumanite
+MUD,-8,-24,H3tZzbhK916Ew1QaXAh6fpyw7ikHXy9rmtWm3AW9ZgHv,Copper
+MUD,-8,-24,FqN2kjoanVMESmMwZuzttGPabMgiwieRwCDH57TmXx1t,Silica
+MUD,-8,-24,916zsjxo5qNNFFYdyCxCNAt9zhnoxgcqjzdJ3Z1x4UW9,Ammunition
+ONI,-22,32,x6vAiefb21qAN6kVkD4dpEJVanvTMgMdDj2ZLKPATu1,Particle Accelerator
+ONI,-22,32,7krtzygfSjfGcERL6eaNL5hcUZsw9gWVuGoKrAbLejq7,Fuel
+ONI,-22,32,CmodiLo1R2irRU6jDDS69tUXxPtcNTBg8eGkMbWJCSJJ,Strange Emitter
+ONI,-22,32,5PsoL8yVaEv5qg2ERcWL4VKnL4eQYS2uXLL6PPfFWdPX,Biomass
+ONI,-22,32,CwpF7wye2AxRRL2zXHmMsoULUvpGpszUWqhPgeJ6qGno,Honeyland Explorer Badge
+ONI,-22,32,2PoUvCy7AKtPkkRKpytUCcjsKdX3MLoQcVwT82Yqw6Xh,Titanium
+ONI,-22,32,DV1qo99mmWEB8oqWmCLVfQfkq22wnSGctsjfyPrJeK1N,Hydrocarbon
+ONI,-22,32,368fnu2pGqSkgWhZe4tYRSfBF5rZFdX3AarwnceGcNTh,Iron Ore
+ONI,-22,32,BBueBABVWpEEvEoezNDMW6RhnqxDQwa67C6YC5ZrEELa,Golden Ticket 2624
+ONI,-22,32,BtCYGvwpBk2dKJUKbhfRWEKVvqocjYQwmJjwczVJznHX,Nitrogen
+ONI,-22,32,DQritqUxxqGYcWKqDfZFcyAcUBgKiLgSm7WgtSB7KprS,The Edge of Paradise
+ONI,-22,32,HPADJAwDtnjygxMnkEh3BSQVMSeW1cejcnLbypsgnbCa,Rochinol
+ONI,-22,32,EGNtmfitACGNVGxzgRaLpPFQuoLWiVB1iQSpvBPqnHKf,Copper Wire
+ONI,-22,32,5VsghLjAUNtgq6TGVDEGomRumETMa6DL6fRshqbfWAgS,Energy Substrate
+ONI,-22,32,AS7Q8rJkYAyM7fQTw9mDJB5BCCSxz88uRcy7SiqQP6q2,Crystal Lattice
+ONI,-22,32,7nAEJv5MnAtoZ3XyE5BXdQEYbqjCwx6G5Au5RNp1Uhxs,Survey Data Unit
+ONI,-22,32,44KcjQfagu6LkKmpTNNxDYThNSgJD1kAzP2WCTAPw6a9,Radiation Absorber
+ONI,-22,32,DDDHAAdtfYyTJoYtCMvhd3v6pPkE5fMtzZ661qNVU1qT,Food
+ONI,-22,32,HztyaLrBprZgeXLnLefL48u4A86Ps6XosJEZwgguwEXV,Power Source
+ONI,-22,32,A4jZ9HV15P115oyEBjzhEHnRtR49dN5hff5TSaC4H8Zr,Iron
+ONI,-22,32,2vV7XiRSX9BbMwnh1JzPyQitWRymu4vsXBKxT7QcEYPz,Titanium Ore
+ONI,-22,32,A76GHc5iCMqVDpEmEUX21jtg8K5fT97mZMdBndhJRBe5,Electronics
+ONI,-22,32,FwGKzt81FVHQciN1Yf7YseVvz76wxvZ3NPVB4tfaSt5G,Framework
+ONI,-22,32,BpkzKUV8gbhVjbPz869g8MpEhqTNsnP4wSKVE7AbxHD3,Hydrogen
+ONI,-22,32,G7miFrdTDvGxeeVs1hcvP9QUTb39BJsyJknxZmXAmh6B,Field Stabilizer
+ONI,-22,32,AaEuJYWHx4F5K1Z3vzkrc1bgVR9ph2mCrY7SYmRhAMsS,Steel
+ONI,-22,32,EGL29oMH8NSWS52CHRBs7UrCXGokGd2JjZAf9uZKp2Jj,Toolkit
+ONI,-22,32,BCXY89cpvwjTXUvKPMHNN24BL271RyDggqLvVtHATBJc,Polymer
+ONI,-22,32,CZsAL6gdQZXBKpw4u6aVnU8ZyB5nhFxTLQzVV8kSHL3m,Aerogel
+ONI,-22,32,83VUAFPsTeBSfqsGuiAhDRGeiAEAH3ZJCMwvWhmgbJVT,Carbon
+ONI,-22,32,3g6Tqh4YbRgHrEy22SBPeMjF9DkBQioRxA8KmmxPgabL,Calico Maxhog
+ONI,-22,32,5uKYeTbnL2FKqkrD2NTRtNF4teooAjWgEVRe3wwAuGxf,Copper Ore
+ONI,-22,32,vJNPtFBdNR5ygaAuaHidgdPW2cCxVPCJY8F8JYqR9p7,Diamond
+ONI,-22,32,D3VNENHrgebgsGRbqoLcCmCkNF2hgdcepjw7KJYuza13,Super Conductor
+ONI,-22,32,58xt646kNejp2Y7Mwg1597Htz1w6AwVrFe7fhNvfwuoM,Arco
+ONI,-22,32,4pzjRmyrhry4WR7SqjEqTGSqnTbwB3GeXV8Y5PiuZuV4,Graphene
+ONI,-22,32,4z7Nd62S8HaaNiBqQR1KKgNmJZ1PcFFWN7uLGCp1pcKp,Fimbul Mamba EX
+ONI,-22,32,6G1ufUJAG3fFF4PwpXKE2ge5KCRv7rHETRS6rjatLyjV,Magnet
+ONI,-22,32,HS8VUbdiFfjDbFekLDTTcBP12vf6KNjDGQh812MyaHEG,Electromagnet
+ONI,-22,32,Xz4XYxy5L1EsEpKXyjvZ8WeqkhZZr2qSiQf3MxUeiue,Lumanite
+ONI,-22,32,4R3jMwuNhzF6Hv3ZazxbucPLBkFHUbQP2pT6wb1WiASq,Copper
+ONI,-22,32,HRVZHz1XHrJXvw98M8aEYvAGhpe8WD3QKE551GsK3mup,Silica
+ONI,-22,32,AjTxbibe8PdwmzqgJym8uzzCua6WLkZ7EungyZQmcrLr,Ammunition
+MUD,2,-23,7D5WBEE5cEwg3BcmgcnCGvW917z1DzHq8SPSMpJSqkpw,Particle Accelerator
+MUD,2,-23,4P6DkxaZiy7U6cE8Qhhw4kNsfdh2YXCwa9AbViVTk1Az,Fuel
+MUD,2,-23,GdtrhSSZN5VeigXeauQFvv359qLnwJ7mefjUQKJJV6gv,Strange Emitter
+MUD,2,-23,D4wBC6RT93wMnGDZcjQR2hgYBTmTu62jUpNTQ35jzyYL,Biomass
+MUD,2,-23,Eo9QimGJgk4TUC9E5j6uVMZD4XZq9BSJgKcprsF2J4vv,Honeyland Explorer Badge
+MUD,2,-23,65NTSgccYn7fi9PnDM1r125BWXXifVRyfFykfgB2LY7d,Titanium
+MUD,2,-23,2BiFXud6igvQxVLZUbaS4kj7nuw3UtkzTw2HAB2GGSYu,Hydrocarbon
+MUD,2,-23,3grU5nHbtquAaPjb553jXrfnACXp79xsYHFqHx9Sbzjc,Iron Ore
+MUD,2,-23,E3awXMexoP4zKLZjhqoZgsgfzJwdkQYiW7W8Jd1hKbaC,Golden Ticket 2624
+MUD,2,-23,kbnLzLH6H6xhFE9zupTyGbrqeKFNbPccxj5AyjrU5Sr,Nitrogen
+MUD,2,-23,EGbpxi6b9ghKvz9WSWSyUYaZ2GfUiQfLaSXgeiYjdkqC,The Edge of Paradise
+MUD,2,-23,DdZ4TpQs1idTjWsMTQPH62Kk5s5CakLSmaRJYjZbL6XB,Rochinol
+MUD,2,-23,BfRQdG6V89wN1j6cwcexBCCKgoDeBtVWfeTF5aotGzpU,Copper Wire
+MUD,2,-23,8iBXqxEDkwzupPG7Aej2HtJpP9TipgTg9jsb1sTmgQ7v,Energy Substrate
+MUD,2,-23,ARAwVXkHMni5agnA7eSVmQxMf3TPpRK2ArGXHGLGTo7Q,Crystal Lattice
+MUD,2,-23,APHSjzwnGThsaxzzuTuHfkQjKNxSB83GkeP6Wc6p2DuF,Survey Data Unit
+MUD,2,-23,9rQXcbcPJCViMmnkKxSDBQiQS9Ad15r1VRwRCSuvgjWs,Radiation Absorber
+MUD,2,-23,5ozARX73N2ZNN4k9uAduwEu3RCoHFufpQuEX5DwFKRbU,Food
+MUD,2,-23,ESYMqS5qzgvpyC5gFbbtwkiU3a9T35Un4mCvWivMXfPM,Power Source
+MUD,2,-23,CBooLTWFoLwspJ1z85L2WhWwWtXgsXzQDHLj4esivK6n,Iron
+MUD,2,-23,8TYwg9uaYUSiuWHs4TYtigqfiQTb65JC1UNyBNaArGQ7,Titanium Ore
+MUD,2,-23,7dRDHfnv9jEuUmPPUSzhVG3pMKrB1Z5LWZeM8BP6Rv8F,Electronics
+MUD,2,-23,4Rz4uqDb1vc5ZYb2ZbTvjNQ1pKjQnm9JTLG3dzosxwL7,Framework
+MUD,2,-23,HhH2WoBtygUFBJqBmj625fCYEe9zHscxEpprtHYQkfDE,Hydrogen
+MUD,2,-23,GoSoSMmimy5AcQCBj2hkCx3iwJ8diSPgXR9YeAsJiUGM,Field Stabilizer
+MUD,2,-23,Bfk75f2x43M6D8Mq85P6pwTmkB5u9MWwy8jRroBokEws,Steel
+MUD,2,-23,5euRMRTB2ktfcRnSNb9TrCr5E7MBRVcpmEVVoeU1eFwr,Toolkit
+MUD,2,-23,GGqfS8cmcBB1YgFuCob4BmnMuJn6xfguLPY93JcUuQry,Polymer
+MUD,2,-23,4Z7PgNEtA2WjucS7ytQGv2xdxN769F5D5d3MRRxCWRZq,Aerogel
+MUD,2,-23,4QngJjWuG5JX7fG3Koh1u4UJZ5J7Wq2z4xL7dCXW9os5,Carbon
+MUD,2,-23,9UQwAgj8EKj3ufB3fwzk2at9vKNUj4Ad2EFP7ZXa3gqt,Calico Maxhog
+MUD,2,-23,9J5mZi2qG6vuNiDELjH1r6eAD5igj8bfig5tWpTWqSXQ,Copper Ore
+MUD,2,-23,CwKupt2hiaDdvBJaRNJCcVLm4KN6iuw9dtP3i6eM3jaf,Diamond
+MUD,2,-23,CZqvuUQ8tAEwB9Fz2kpqTjfKPUeTZJ7rMuxKo9NjFito,Super Conductor
+MUD,2,-23,q31fWyqXmQd6M3v6xUq5hcRraEzW1JiVkBTWEKmhieZ,Arco
+MUD,2,-23,AvN5h4QWmNX1MyGiquPs8MGzzuu3HoDbVk18d9fqcuN9,Graphene
+MUD,2,-23,H1wWby2sdVxi5m3KxmShX2JbbJsVdq7U8PuPLu9DMxsS,Fimbul Mamba EX
+MUD,2,-23,2XQ5jYCd52GzyUNiHdrTtTP5gCZbPaarHLcRYyondHMb,Magnet
+MUD,2,-23,6k7F5auaWocTa4manW2ybz6xHvYzX3VohjRmsi8hZH4W,Electromagnet
+MUD,2,-23,8zdEizM6x5HuaAZrYaUnQbg8r8RCArTMKvxQZcdC9Ynv,Lumanite
+MUD,2,-23,7spGGyenkjw9hmpAcdULhvYcAgdi91YKypMB34Y6XMGa,Copper
+MUD,2,-23,7w6msGtsyDanqqX81HrfsqKCL2QX4xvzEiAyRDwu5ULR,Silica
+MUD,2,-23,AZj7DHq1LZmVzk4RoqcWvcHF9apunmaLDWfZzadRpv5P,Ammunition
+MUD,-16,0,BWkHnWGRFyAEfBiZnyF7NCDySF6u8CETwFNB4kwpDZQP,Particle Accelerator
+MUD,-16,0,8mFWBafBk7A58dbadkH3tirZQyi4LtdWa8V82CU49Lu4,Fuel
+MUD,-16,0,7TNq17SXDBdM7hAXF22cEbbpnjNNgvLooqRNEz7wYdbw,Strange Emitter
+MUD,-16,0,3ib1StpPx79FnmJMQVfwbKbqeuZ68RgcPcs2ATrmvSZ8,Biomass
+MUD,-16,0,sB7cHXVXnEWuckEQG94z2gs7hm3VyrzxR4zvfaE9cUA,Honeyland Explorer Badge
+MUD,-16,0,7jrdmjnyewANUEcQ4B9dhzcxZGPpoxPMyo2RQgomN1rF,Titanium
+MUD,-16,0,JANR5birbCYeXKWYPF6TU4gu6svKBZ3fcHaixY72dShC,Hydrocarbon
+MUD,-16,0,56WGoA5cYpiW2YNan9h9c5R5eqjzsscLJFHDUFkwgSz1,Iron Ore
+MUD,-16,0,7AExEf8Qwk4wfJLUUTrnezEBvGC2ESM6giqEDNh1dfQp,Golden Ticket 2624
+MUD,-16,0,2zsMVxgoBWdSPVwjbxGh7vJBXvKada7EnBn2q18Q9HnD,Nitrogen
+MUD,-16,0,6p5GjNAyXW1tZ9mK3CHLNbNcUc9yXJDLCA15UuWotM1S,The Edge of Paradise
+MUD,-16,0,CfBPbosUDusVuPc42gjx5jmxknAYcM5yegAxVoJyp1tX,Rochinol
+MUD,-16,0,2zFAfV9TfowDFGwmfkcHR7apmPBK1NrHTuef5c5YffmQ,Copper Wire
+MUD,-16,0,93Z9FfBEFc7q4hWrLaJZS6FfjcSui4L6gCrNMgQAEVDy,Energy Substrate
+MUD,-16,0,ESFojvsqrsKx32ViQawigLZyCLuVca7ocuT1W2qGYDhP,Crystal Lattice
+MUD,-16,0,5fMCe61tVZvUe8bCoXQ6uHS66gwkZHANTZTQPCuPHa7g,Survey Data Unit
+MUD,-16,0,9HrVEK6fxX9aRCmqNnqE6sT2QfZbmxF7ropmBhmbb1fz,Radiation Absorber
+MUD,-16,0,8ehba9kz9cbLjpBc4d3AoQn2NbrtbxP8pSM7k3jmugNE,Food
+MUD,-16,0,4YpULZkJhtonxEhWdc4CSz2EopmbT1vqAzUYfWsnqDrg,Power Source
+MUD,-16,0,ACAFDzQeot14msn63SoDfB6e5n6U4vtc7kKwgzRUBUHV,Iron
+MUD,-16,0,Axccdaxvb9QYDZ85uGb1cXMtueYVn5JsDjBozjCvN4d1,Titanium Ore
+MUD,-16,0,7xvVdtSC7Leob6FTRJ5TBGQeRNoNMex8xkkWWNGBwZ1T,Electronics
+MUD,-16,0,BvQZAG1emEVdh4N8wkc92UzBjcD5f7XVnSZrsUq7qLea,Framework
+MUD,-16,0,DNZTgyGJED3gQm9YyDWPj9L8os5vYs5SfARLLoCeKAcV,Hydrogen
+MUD,-16,0,6rS2TCnCcBxjfCb2NPzJSmbggy8GryvPBPwKrq8wabss,Field Stabilizer
+MUD,-16,0,C3s28VbGCe6wfCtbLwh4wbMEadJFTmyhzLQkey7iniZd,Steel
+MUD,-16,0,4XKpQEUKM9RQmvPXHUnzvZBxwXLPbiRALzDbEa5wVGkv,Toolkit
+MUD,-16,0,GmNjGSQKPDQU6mvrM6oEa8cdDpD5Yy73N5b3uSeVfYjs,Polymer
+MUD,-16,0,2NSXfDhnMYVigAuHyncMkzASMRUzSJs7N3Jmuepn9MMi,Aerogel
+MUD,-16,0,HZV2jkV5Hhjnxyfczbk6LXQgD4GXoxcsFGCPPVdjXqmx,Carbon
+MUD,-16,0,4mYnKkxPKoRdGg7yWR5rBuCTL9QqVch9GVJr7krSjxgY,Calico Maxhog
+MUD,-16,0,aHeTbxRoYdLHCuYnV4xwdVddGRff4BEKYBuxoJAxo7y,Copper Ore
+MUD,-16,0,2AXN2NWBKfQDCaidVbs4zgAZqSBmysxeoEX2g98ARqZD,Diamond
+MUD,-16,0,BWSPDbAhWeiemuF2ibtU77NDDDGkZmiMc2FS8CwHd4Jr,Super Conductor
+MUD,-16,0,3r8yD7hToQWM5iLFH8vxgbkSg8NQTahBBNmLn6p6QSEP,Arco
+MUD,-16,0,8PpoU1izkCqAeQhXPkWJEjq37EwFv2V2CuzFfHNJeF4a,Graphene
+MUD,-16,0,64iEpRh7EUppLWZw1meGaL8stT7zHsXfV3oA6oVn2jyP,Fimbul Mamba EX
+MUD,-16,0,E3v5pMQsMidPQjKLzueEFP5zCJ1jXpRhJfkiJXtEmXrZ,Magnet
+MUD,-16,0,HhH1jCgcxUEf9eAEfaEcw3PYf4ukvLfEN6Zrmp8S1Bur,Electromagnet
+MUD,-16,0,3GFznZnCoCyewKdGPrcVsBMYVX5gBSDbuoddTKtUMVSd,Lumanite
+MUD,-16,0,4EjXJqSFWPXDqaE5cCyvuGBQi5uSUiMQfWyZk1MNmoxq,Copper
+MUD,-16,0,HCJDrATf3EpDFdhwFUnbzLif5hNeKeqNxFXPsdY3tPzj,Silica
+MUD,-16,0,GzpJuzHRQYcaFcNw8pUoAFxqHkPQe2TKZ1RGk7dRSuab,Ammunition
+MUD,12,-31,7UZt3PHPCNZU2Jk9txofoVEpN2UBqX1MvP7DYidNvwXF,Particle Accelerator
+MUD,12,-31,EbZZUZ5QPQWhqEsLMNnmLyC2FFr93hv4Da5eBQjBLFRw,Fuel
+MUD,12,-31,HXtUZb64sDB3tttMWMSbLA3wVsHQf4Mg8bNa1Gz9eBFh,Strange Emitter
+MUD,12,-31,Gh6WNvoeKn9FDZ84drTPUzop1TJFACWtGxBqbtA6Q7nT,Biomass
+MUD,12,-31,AqR6sT7jGXKyfV7NP6fogX4FqQXtHmEYxv26ACDR2itp,Honeyland Explorer Badge
+MUD,12,-31,8AXs1Lqat6XwUSdYPtag5td7KYbdudLJkPQemdAftmv3,Titanium
+MUD,12,-31,7LaoQJRdXiu6VLnxH4e6ZsZHAhGsdSjvd1A7xsoJuopQ,Hydrocarbon
+MUD,12,-31,9YuS26bHqWzq6wH2PHf5qiCSpwyi4F4QNv3NHu2WBcrD,Iron Ore
+MUD,12,-31,cuX6cFCn5YWvMByUGcmdjeU8C5vYSFpLYEAfvDC8JhP,Golden Ticket 2624
+MUD,12,-31,5mrirEjJsdKP2UrhRQKNdZvotoZh6G74dPk9k1s5R6m7,Nitrogen
+MUD,12,-31,4PzdQzD9CtmGL8vnbmAsvB1CxtNubk3jfKKBUD1D4JLZ,The Edge of Paradise
+MUD,12,-31,7fB3YEPpjsstgA2neV9ib7oWk3UGd44ieCnrhjjaMdzu,Rochinol
+MUD,12,-31,C2oSUqvehnMfrXW1ZsmuP1nw6cBGVuEp5RJ9T4SLDa7F,Copper Wire
+MUD,12,-31,44Wd9K25JGfn6i1ZReUJNxFEtMHDhgbqYFvhUQvjFhrv,Energy Substrate
+MUD,12,-31,GgKf3m5qxauDhkoghDMdxB2iG3LAnAwdBW4GbLW3ayEh,Crystal Lattice
+MUD,12,-31,7sKqBop128vgC8NZvFqif1t782dZHUZtpdNqTMVgJLTy,Survey Data Unit
+MUD,12,-31,H6z6K4wYeeXtSxCigqcZjWWGtN6aCtiMbhJxvxCL1H9A,Radiation Absorber
+MUD,12,-31,7pm1E1nvs96qpY1qu6PLjMMwKu15x5puR5wd1pQ7Wx55,Food
+MUD,12,-31,2iDGzVLvRQc3MxGhdYnNf3rAu1JtpzBUSsuxVSoXRgap,Power Source
+MUD,12,-31,5DWiwBuMvPsvRk37F7maPfC6Z1EJ9x8tx8vuTuzcQeiq,Iron
+MUD,12,-31,EJwC61h8RzLKGaNJfhUXdt3HShm2eBBfGyNwD5Caa56M,Titanium Ore
+MUD,12,-31,2uEGKpRvXTA36GHYLq2pPK9BYgczFV5bcgiJ6883PvPm,Electronics
+MUD,12,-31,EUsyk9Ky5G2EUTKQsusFqp81VMah4mBY12zNhukKfCnR,Framework
+MUD,12,-31,3hhp2MtY8YekNEFGa2Jah5KVpccRHHijJiuzqNBZEMJu,Hydrogen
+MUD,12,-31,9KwmVn4kE9udBE1E37Yp3CWAqjF8p2vV1UDD571StEDQ,Field Stabilizer
+MUD,12,-31,BwJmhJjSYuk3oMEN281V9R5Y9Z213FjcwLBXtF8fXjAZ,Steel
+MUD,12,-31,9tZ4VynvHCT6KF3wtUNhSzvMKTU232AHAdb7Pi9KUfyd,Toolkit
+MUD,12,-31,KckkLkGP336cLj3WEwmbdCeCL5qtHdFdWDB1Emg8nwG,Polymer
+MUD,12,-31,CqeFQe9TaeebEj5fGFykziWkpxpuR8nfAjdXg12YDv52,Aerogel
+MUD,12,-31,E3HsLtrLqh5p9X4y26CA9cgSGyGZvsPYUM7DCLvSYqrZ,Carbon
+MUD,12,-31,DTARquAhUn3JY8yLqU2eysL9cWSMgubzPNKbcnGjZ79u,Calico Maxhog
+MUD,12,-31,848RaW9fSXffS8AaED8JWXM4UZxvekdutoZwyFoY3ofH,Copper Ore
+MUD,12,-31,Hg4yqmMhQP7Bp92qJsLe5iJimHfpLM8qwPxGLBaF934x,Diamond
+MUD,12,-31,6Uk7CqYJBJWXtgMnbMeuEAiEezfWBd7d5gmQ4fNrkDTs,Super Conductor
+MUD,12,-31,HcZYjE8nsBdpa5RFf6hQ8JhvRXXTnXfM9tyg98QaHx8p,Arco
+MUD,12,-31,A7L411Cg4o6e8XovxUJWocnT1u5tB6Tb7j5VduhYq83k,Graphene
+MUD,12,-31,F3XnN5yu1EXmJKUgFwhQGTKncWx6FftnV4WPojqyreEE,Fimbul Mamba EX
+MUD,12,-31,3D4fJbRbqz7mL2CQ2JaEmDeXpBy2aVEsXuD1ZBbubAUA,Magnet
+MUD,12,-31,AZxhfZhAYpV2YKQk5vvzR1wXPbUyj1wySUbwJ65ifSv6,Electromagnet
+MUD,12,-31,9BhCvXv1J6yCpKhKYG3S9VR4YLWeo2vzt72s7mQTUcnW,Lumanite
+MUD,12,-31,8JLbyhKsQvfHGHPJgFU7Kxbgq7TYno2W5VPssB9puTif,Copper
+MUD,12,-31,FNBdhFb3peALzT5GqLneWNbwYbCdzp14h5ocQTQJnVcZ,Silica
+MUD,12,-31,4iigUrSpbvJNFn8AeJBqD6BVq1teueKKbLcTS1eBHyEr,Ammunition
+Ustur,2,26,Dgm6dfpkBccn6xMNdTSD9q4TyGbmU2PcvCCUNq7WG14u,Particle Accelerator
+Ustur,2,26,4qHNvZiBAvuS8gXZNcAaHYZf3pABvZhoC8xarBRYL3sb,Fuel
+Ustur,2,26,Av4TtbWetQDajALT3VMm79CVUrByhKXqzpmkSNvGf8hf,Strange Emitter
+Ustur,2,26,7LoecUbvdsQeuXZWU8Ek3kEmDbSmvJxJeWvNtjTed4iT,Biomass
+Ustur,2,26,36R52AGmWzNSh3bCyvQaEn2wmy7ghP6WTuVPgnxBqHiX,Honeyland Explorer Badge
+Ustur,2,26,6TDAonm5BLoVDG5oDg8hq4tfVC95waosq54MV396sTVf,Titanium
+Ustur,2,26,VtVuRaU1L9fKpQVhSPrFfGtnP43FMR2Bd13eJcPPuXy,Hydrocarbon
+Ustur,2,26,A3quSnHwrL8rcHQ8c9Kn8DF8B5brjZtKoKccEYXxJHUg,Iron Ore
+Ustur,2,26,5jduEHF5xBSL4WiTs481XLE6Yi4kisDfZKiirisEL4o9,Golden Ticket 2624
+Ustur,2,26,3RtXhKkfcbL1mmFUGJXVfaB9n3F3dpNg6dNrP6NWRnuC,Nitrogen
+Ustur,2,26,H6z1h6Pdd1Lw2cAneK3VoF4SXW4X2kkiXLtoynsTNG3w,The Edge of Paradise
+Ustur,2,26,6r6ytS9AffCUCFVoFLpuBoh9cNjeenLiSzqeNwPUWC8V,Rochinol
+Ustur,2,26,3zkFhVbMu4G4Vx3sfYzMYnDcX6Phcti1v5VYkfMu6KNU,Copper Wire
+Ustur,2,26,4qa9n7hAR2Eb5KbQwmWHD7mq8Gyzp2jGSx9ZSkZbicLp,Energy Substrate
+Ustur,2,26,4GZUFU5RXgxN1VJpvhphxGnbUoVRGJi1ngwKadfyNhkk,Crystal Lattice
+Ustur,2,26,CS5TLdqf8kbrDJ6dxfMTAxRjpxLnSCojR24HZv4Ks6E2,Survey Data Unit
+Ustur,2,26,FWkuHiMaqft3kte5Ru2GGshDj886MxqNwYCi6dm6e4yz,Radiation Absorber
+Ustur,2,26,vdY1s35rirG8S7nU62FumhWhEdkYbzbqUosrQsyZF6q,Food
+Ustur,2,26,AdcvPayK4o9MLmBLE6UVizpigBWcwzFr4wHk5xcQxJka,Power Source
+Ustur,2,26,3MA9y4DoGRwKSvdcghMvTRMuusxypVGAwZ1Ft7XTK4hd,Iron
+Ustur,2,26,4L5DpLJUzDaraY2LZB9Qop8D9iGpQafFbXJDHAEMfUiw,Titanium Ore
+Ustur,2,26,86bButcdKR8iS5tWkNaekWWBZa8V8SKiBPnhdUt4w7wx,Electronics
+Ustur,2,26,AwtwYc9xePnMQNjcPdjp9Lqu5tn4wyKvkZnmSbLtxR3p,Framework
+Ustur,2,26,7nziawRvYMM9aa3jqz3XkcrhMGdoC4PXrdJHQ3dTCd2h,Hydrogen
+Ustur,2,26,DBq2TiEnqJ9EUD5YUjc8qNrQNHMa9nZed8vb3x2oWYy5,Field Stabilizer
+Ustur,2,26,BgoYpBKRhqpRCdpc53YFtuEruNQdRpeGRwbqThYxHAen,Steel
+Ustur,2,26,91TgRAbiQDttiEbDrrwYtLHy8o7sUohDueuUYBbKEmGk,Toolkit
+Ustur,2,26,9ce1wQ9akUTuUKTE7ZVJAna9PFeAdSPYjgGmogNS4NU9,Polymer
+Ustur,2,26,3QcLHW4sqLygvqnNcSTsyFt4gwwB9CtKpS4Ss6eZw41L,Aerogel
+Ustur,2,26,7xFxvtoU9gyUygjFUHyTCFL1okpX56YLYvk3fEaaBTUr,Carbon
+Ustur,2,26,7UtjtAnuLZiHbnE6mMVsGYwLZJ1nDsLfg3wVJ2KvTTVh,Calico Maxhog
+Ustur,2,26,J2LXCjETHpWDykQwpw8HsdFCNeaLKx5HmXy44aADJJA8,Copper Ore
+Ustur,2,26,Hbdck4GozqeMxMBxVErJMecHKTLM4rgC98RX1RN5A35b,Diamond
+Ustur,2,26,EP1gqq8djFYoVtMW2s27c6dh1N8bcngk5HHxV7m5287q,Super Conductor
+Ustur,2,26,AJRErrrQWbdpLkz45NpvLyuUVAQRfymUuR5JBD6Z63zE,Arco
+Ustur,2,26,AjkezaCHwedrujLqfxg79QgV5XU3QFTg81aFuLGP28kc,Graphene
+Ustur,2,26,2pnX3vJT8Cyqbi781cuH65mJDPcNTQ97Aj2NGe4TTnYp,Fimbul Mamba EX
+Ustur,2,26,4R7RUyi6b2y6iad1c2qXHJx2sjEWLQLZzzkQBBwRFCSf,Magnet
+Ustur,2,26,5AKq6wZRXY2pZ6YQf4VYBuTPnb3cF8twMAaFXiZNengA,Electromagnet
+Ustur,2,26,DHAxxFEsrXG4cQaSwEudjaGMmfKURovHR9k7CPD8bmJX,Lumanite
+Ustur,2,26,FoN1DvzazmGVS8kF7WgzTN9YebiCjkkBNgu2RHwRW19j,Copper
+Ustur,2,26,LJEDr75XLqK2BCUdNHGE8JDVWsFnRNRrdWDN5HmodZG,Silica
+Ustur,2,26,8usJtwbpVzG33zPpviR2NUenL5Y8z389vkY5FbEXbxcg,Ammunition
+Ustur,49,20,HoagEhxgxMam229hrgT93oSYDd5MfSSeg1DdNJFzzFoE,Particle Accelerator
+Ustur,49,20,FsVZ4Uuy6zwjJSN4FKgM9MvUVE2Tj67y1GexiZwddWGv,Fuel
+Ustur,49,20,8h2btMrrd1YezsuXzFTRY3AZj39AQ4HvVqzPWkNsSXmX,Strange Emitter
+Ustur,49,20,Djk8MKsSGF9kyTAsSKT3mr9wR5XSLCD27cLjoKCXagiZ,Biomass
+Ustur,49,20,3CCLoxxc9AfgJmcHrn3WJL36WAGcGPPbPp9co6K3Wipb,Honeyland Explorer Badge
+Ustur,49,20,9nY6y8PcwLHUYSDs4o4gWQBdW3LKaQgsYw6Ersn91P4D,Titanium
+Ustur,49,20,DrQTEdGUJSMWqr9UR4y4WGckKT8oHWD8B2P3pfCSujMe,Hydrocarbon
+Ustur,49,20,AK8cbRZTFLgB6xLGgEbdyocGUDZU8BrWs6ujYvRkr7Z5,Iron Ore
+Ustur,49,20,7SbtkQ2f7M1iaxp91aeHzJWSi9dqqrTeH8LAMxAC9gxv,Golden Ticket 2624
+Ustur,49,20,3yC4vH6bSrro5wkDfcyvAZvirF7x4LSe1U5LV8vBULtC,Nitrogen
+Ustur,49,20,9c2N1THpADvLDcLS3dfsBvo4nUAHvtySTZ6RCMXv9WG6,The Edge of Paradise
+Ustur,49,20,HYeBvhQ2jCw73Wbe8VSu5Z9YndtznVpeSVLhz6bdQEnV,Rochinol
+Ustur,49,20,bFGu1fVPA6QbFoBKeZwpwKsnBGPCorknCBebD6Gohx9,Copper Wire
+Ustur,49,20,F61q65Vv9dpkv3Tw7VG5q9uE4ghwHQZkSYEXhjQeZdGo,Energy Substrate
+Ustur,49,20,FJcNzBKnNdaWmgrUX44S9tbnrQ4ZdhZQvczLfDhHiGuv,Crystal Lattice
+Ustur,49,20,4oUrQo1DT8RAgeFwnvKVVThpHLeVpTjGCV4nUk298sR9,Survey Data Unit
+Ustur,49,20,2RLXZ4sh66kJyzqnbCBCEYZ5F8cFZpw6ju7pfiGK7TUt,Radiation Absorber
+Ustur,49,20,DQ5HTedCkygo1U7PPSnrr8nVNzJMv6RtxHHdQBmFSbyo,Food
+Ustur,49,20,DVFxHyKCJweYrvpGxWwBPKQp3wo3aeoe1jT7FRpZA8Lp,Power Source
+Ustur,49,20,8p7jYghNxMhnzRZ52n5BPW98MTDfkeZpMXFGTrhVnese,Iron
+Ustur,49,20,HWPPT5ribHeVSjnFxGsYcx7Zh1G1JAzQTdj2sfk9wGnL,Titanium Ore
+Ustur,49,20,6RhdRqPPWm2vs4x79Ld9sto73D6CuhVRmtQVZXPKaa2a,Electronics
+Ustur,49,20,5hztmD2t7YesGYZWubt8vCVSi1sBw6Dt5c117jAbuQJA,Framework
+Ustur,49,20,3ukJgGzfVu99HtcM6nuyNjGdEnhHiPLgMbe7YtQnrchU,Hydrogen
+Ustur,49,20,2tnsdkhDZDkbRDdw1e5nsBtQsqmUAUTCmr8cfB1TCTLP,Field Stabilizer
+Ustur,49,20,BzG1d3QCWPZFqXb1AMdEoMwym43YrcP7bZfgaDSXazUy,Steel
+Ustur,49,20,FX5tya2yG5kud3YzJNP4q1KEebnyV3juxB7jsfVs5qqm,Toolkit
+Ustur,49,20,BCJyHLFuF68PbCcdC8qKAznQwWYrYpQ1ZLcqA5H9Rat3,Polymer
+Ustur,49,20,3utk8QCdTdcQNgnkF3cXXmYaeqSZ9MZJNfwFv5B3ocGd,Aerogel
+Ustur,49,20,5a41sbm4fg6k4eaErYuyazKW7KHK3uXmkXzMiKeXv7VE,Carbon
+Ustur,49,20,8PFwNj4ZFbdu38TMgZe3kN4R7WvJ6XirHWEcCWCBZncp,Calico Maxhog
+Ustur,49,20,EBVyMd8H28RGbXrH3efgoSKtcJpuRWQQ4Dk1yh8bL7cn,Copper Ore
+Ustur,49,20,2R8JQZD9ihrCD1JyhCkveUyUx7b3JnqfuVVb66HZk3Pr,Diamond
+Ustur,49,20,8zoZXhENVSJpSvgubavuGTWpWU7PZXzY3ydfYv7DmXdL,Super Conductor
+Ustur,49,20,GqTyu3mxUvLbk9m9tiY1pVGFfg7W397ctD3yKuTWoNzx,Arco
+Ustur,49,20,CBQjyz9jzLmXwa88hSyCvwKKKVuFNFv3bLwTESwNe7UM,Graphene
+Ustur,49,20,Dc8Y2RVwefBuP6VECZK1T98R4Cu7L5FLkJxJrZ6i1tVa,Fimbul Mamba EX
+Ustur,49,20,3WRNfc6aedg3RZZCn13kZ9d7Z4r27F2YNWG5Es2J75WD,Magnet
+Ustur,49,20,FnWWotsmQyv9REWN65GAwMfMCBBo2gzSeU4Mhbu3MdbG,Electromagnet
+Ustur,49,20,8Gr1EzsEDCnBSg3efeA6gpd4nkBFx6tGzW1soeGebqkr,Lumanite
+Ustur,49,20,5NiF8zmNgbXQrPetNgGqfYPC31R79u1yNsY9j4Ra7A7Z,Copper
+Ustur,49,20,3V66JcyHtFfpaVoMm68w5bqEFpjRcqvRYxj6azVx21DR,Silica
+Ustur,49,20,UdubbbPmc7aBHpid5gX299XWvxpTvmJBUhhAcbP3jGp,Ammunition
+"","","",8ajjHzHaNBwHFVmtkjKibKTfYTDMZ3Bommt5G1Ngcz5V,Particle Accelerator
+"","","",Eqf4KdqLPjxGVg1x9WvteCtgsmnKuRguDUE3or3wvhdY,Fuel
+"","","",FF2JUfYnZRsAw8D8XLR4DWuRWNnrsL7gBigx55PiV8um,Strange Emitter
+"","","",H4ikRKzSxjqBLDsqu1kXBRqH9nHRNoGfqyVRaR5X33Ff,Biomass
+"","","",91tD8mG3PKuCqjc2zo9p14hX3XSkdsqKk7DpsWnDonJn,Honeyland Explorer Badge
+"","","",BPYZ8nLEL3YVFSqYPNw3rZjQ1uUEdzghF9tGsWtqvs4F,Titanium
+"","","",8ucCFgmro5TjP3YNnYMNgHfE4EpLrqRQdf5SYxeeBVUP,Hydrocarbon
+"","","",6DiDGeFm9gQZxKMEJiV51DuYvFtkXawrB8XXVNTgCvoB,Iron Ore
+"","","",DESfW5ZTHQPF5NDBnEt1ewk7tNnpd4mNwuVLc8AFwneS,Golden Ticket 2624
+"","","",WumWby5aiEBfoz5nAAcxiBYhCMYGxK8F5wvrZKiPz3r,Nitrogen
+"","","",5ACmcU27Sh8nP8vhFaJkHTE6C4WWPzTHBxCuSV59uE4t,The Edge of Paradise
+"","","",HiC7EjDreC9ks1rChdEyPZhv4PqFh36uNsQqVMY6A9Qf,Rochinol
+"","","",A8dmvtPiRPGq91PG7DYyHzkfzTUy5YMf1njGDyRv8q1R,Copper Wire
+"","","",5qYL5UsHiq3zVTtBNbKXVgqoY6nHjv8Ncu4uZ8GJmDU7,Energy Substrate
+"","","",BZaz9Un4W4zYnND2BwKhQ32hcy99XH5NTW7SvFDTqET2,Crystal Lattice
+"","","",8Qw8sf9AAiGtgUk3thEMpY9GkYA4xBEfTMZeZfevf3nP,Survey Data Unit
+"","","",CDxSmfWLvHDaa2oZ94DJw6RitXijdEea6EkKZ28hstrz,Radiation Absorber
+"","","",PuuTRy9VS4nuteVySu2agLxsCN3TcRtCaDq2fJFeFfT,Food
+"","","",5UXJ6M3koDxmGUpCRX2CX8eCp9za2LG2TpaRGJnjEBZv,Power Source
+"","","",GuUoCCSgPG7QDabLWUdaK9VtNk2BP2qgZssbVbtMu1Jj,Iron
+"","","",ECuT7ProhRNyGGEP1rfZajNyqMuvSqAe5yfzZ6d5RC2i,Titanium Ore
+"","","",BjuPsJN1bt2ETmdge3LP9UVeFbk5QdmWcMoBH7bWn3UE,Electronics
+"","","",EDyouSgLx79i8YXpHfpEuq4Ek1DdhogdcZs4fLxHKGYA,Framework
+"","","",2mQgCmF67ox4okJfYkYnS4GgckSXEzND5t5QLVM5sM9N,Hydrogen
+"","","",9CHuhGyXa72W2Kvp1xUFkZhSj8Yi9q94kLXFMLFkcw95,Field Stabilizer
+"","","",EZ5HascwXrAcv5cEKVkS5kqqWn2z1fN59qRRrjagrSfs,Steel
+"","","",39ksCE1HsU8PoY1n8LYhp7od7WMRyVviD5Y7GZ8JAqJw,Toolkit
+"","","",EyUi6UeBdBtAY5uqYcUJm6TdE1ttPNJccpeABJtC4fTd,Polymer
+"","","",DoypcKKQdSmctCjNYej1zteaPshr7dUS9TZ1pC7jLFNS,Aerogel
+"","","",3rUjmKVU5TXPue9eieamfhhfF1bMBWpX6MwQEK1q8Qoy,Carbon
+"","","",37AxqyTvyPh35uCMr2FK4Th1okypVfWo1xuhfQMRV9Fq,Calico Maxhog
+"","","",3PuhJvtNZkq47X7ZWtfj99rg2q7wF5xWWWrbeSK5cTGG,Copper Ore
+"","","",DyasPgVAoLy9TsQqxAMyJSaqAwv1USyDWFo6PGWXYJK6,Diamond
+"","","",G9no91Rscssv4T7tbdsFz5sU1UK3qYpG8J76w7vbuay5,Super Conductor
+"","","",8aydwdHeXyD5He5yFpzyCCxWxiEpNoShSZ2Cg4NxvtLM,Arco
+"","","",82S1izpiXkvJFuBXC6qRma5gB1XWPzNHPKiP7ze2shBf,Graphene
+"","","",GzZMxvBjodY78S5JoC1NLxf6JnjFfGmPX8Vv73PUNoh,Fimbul Mamba EX
+"","","",FmRNyDi2a6SQL8fiKaENWNU4SSzXLXnecXdnVgdMTxnS,Magnet
+"","","",ARuuhN2AYiipbocGUMLjwkkgjStBvS8rmJEFtDZ9yGQU,Electromagnet
+"","","",52gihrSrVePqkQe6bnSUR2XYErgJKyvJCTKxNExJTTnr,Lumanite
+"","","",2pPier4emCNs4FdH2f2hfuWgL66dmKFswHRS5bijssYK,Copper
+"","","",CDuWVVX6GEDth1LduBZWGAXsiJF5qiR1yeTvw8DPp6Vv,Silica
+"","","",5t4pq9wRsez5bQQhpSh42sGc3DZ3ne38z1Rg4HVPVxmQ,Ammunition
+Ustur,30,28,CCvYBLTMkbviommASW16vujv5Uskz5pYdgrS2T2UMca8,Particle Accelerator
+Ustur,30,28,BHvnHJiEo93J8ZkHVGQSTVvifwPQgeW6XKEAiL8DFC3v,Fuel
+Ustur,30,28,C8q9pBjAar3FpSVp1ofC4qVzCUANm4iH6pgpZNBMffiB,Strange Emitter
+Ustur,30,28,7EhrcLbPD6yLKnWoV8qkdwkTmtcSgBtAnCXy6ZU5erEu,Biomass
+Ustur,30,28,9Pw2Sr8rkcJJxMAjPkUWof5DZr2gP3A96FWMUJ4UXAuu,Honeyland Explorer Badge
+Ustur,30,28,H6i9WHQJAPcDefBPESTHjXQW1tfNQGqx6EgPzVuEwEah,Titanium
+Ustur,30,28,4eoccbmMJ2R6cmjwksH6TWccYuTcW338eBThaGvkFJsA,Hydrocarbon
+Ustur,30,28,oZVamkFg5A2JPPmBVo3hgnphgGTUJTGwXcWwcmTVqgh,Iron Ore
+Ustur,30,28,7YrTkXnyL7u3ZkpkZR8cvk99d9JaNdB2HNSgjeruggX2,Golden Ticket 2624
+Ustur,30,28,GYf3YjZ8p4QQE6vwaq34TXhNBYSzutKa7nn7zFb8Fces,Nitrogen
+Ustur,30,28,Gise17TJkP1H34HkJ5zraZKTKVpYMTgEBfs3RZwv81sM,The Edge of Paradise
+Ustur,30,28,HZJQpwfpkaUZYrqEKt3dCwQHM1B5tkNAzvQUJux7CnPU,Rochinol
+Ustur,30,28,14spVYa5ugTyK8Fq6DSTCG6bgDxxVzNvWykohK8jmSU4,Copper Wire
+Ustur,30,28,BxA3NZCE2NdWGSKhUU2gNvCASNmTH1dBRq2ke5eX4rXK,Energy Substrate
+Ustur,30,28,J71GfcPCoE2bznaqfJnguiDeuj8t6pghwWeqSmx3gWDm,Crystal Lattice
+Ustur,30,28,DXmNXUZCgiooEdw1oxPDKeWw8MGYcpU6xXGUiMeWWzwW,Survey Data Unit
+Ustur,30,28,AVMzESr1BjCmivALmYQ2NAfjdvVDjazVMjEFFjDDA8uK,Radiation Absorber
+Ustur,30,28,E7zeGr6RcjxYogZnoQibgJAKZaPN1k7rjzsXMfL6Lvqv,Food
+Ustur,30,28,BtrTBGdirJtqbcy3Ajd9qnHxGTFxH3StEKSKV7iX4P2K,Power Source
+Ustur,30,28,7juva6A5rrMw6FiHkbC17GB8a5CV9TDCd7TgwF3pxqcx,Iron
+Ustur,30,28,5DxMvVvcy3ySDceqAF3Qe1xrER78kqeBdh4TtBJ3BjvS,Titanium Ore
+Ustur,30,28,AXVpkx9EPEnK7hTrcLHCcbgepJ5t5Y7oZvfTJ5gxc8Kz,Electronics
+Ustur,30,28,5iYaTtQV5teJBe6qnzRCANrqrRusFc5t9ntPb4R32pJG,Framework
+Ustur,30,28,n18xREs8EQfkqARUThkx5F5dV9YwUUD7iez2RH8frgV,Hydrogen
+Ustur,30,28,9h41xeVC5pJBtxtTn7YUkkGYKck3ijaoq9CujnqL3Kdu,Field Stabilizer
+Ustur,30,28,7oeDA78FURDKqKyD5NP46TjT93mHEwUbJLi41YeLMzDY,Steel
+Ustur,30,28,912JSJDXWMDrGmxAKUvJ6rY7Y24GwVgFsukuaVe4q54G,Toolkit
+Ustur,30,28,EehPwhs5nNULh6j9EWUwPaNxkR94k2zRCXmJnxfBPGnX,Polymer
+Ustur,30,28,Hpq1WKPSzidbLggAqTZqqxCTguryTYUvERaFH8VSWMBx,Aerogel
+Ustur,30,28,Z22tH9hXSMDgnHgYVNbGuiJ76e1QVnZyGkQkQLhBJQT,Carbon
+Ustur,30,28,6QcVSjdH8kYJVbCeKsNPNtdZd3iPf2QtvjFvJqTU93PP,Calico Maxhog
+Ustur,30,28,EWFPHxjzDW7ZuYxedgyECDEd5nj7j46PWhvUzvwrFxfB,Copper Ore
+Ustur,30,28,HBfusQ1TpQp94oe3DeDPFjsq4FtoR2qQAPPer5CKzANi,Diamond
+Ustur,30,28,5G6oQnfGcHxY8bmxstZhK1eyKrL4hbNq6w546J12AUwM,Super Conductor
+Ustur,30,28,6JeTdea3cQqNqVxQynyPjVLQ2ZhjG3Z1QW9M5fLS7B7r,Arco
+Ustur,30,28,2fp3N9UzWSJyqgv8heq5VsTLthumCisbGsAM3xzgqoPQ,Graphene
+Ustur,30,28,FM7vLFG8A31fYFfBFsQnCM5DbevAwhwBWS8iGN8u6TaS,Fimbul Mamba EX
+Ustur,30,28,3nvdZ9VkC3qPiCtbuJpu5tFTvEeBvdKqM7oYCxG1cKFp,Magnet
+Ustur,30,28,227JAaM7m8TwQgUSgNNhXfc39yvuD6eG4BDESWHDspkC,Electromagnet
+Ustur,30,28,GaA35yvZMEEF7vpqGfhyqfM7MSt3Z89qiXse1rFgLBcK,Lumanite
+Ustur,30,28,BjEQdLivhiZmZrzWRMuxCrR9oCToFPH78BtvkaAErikJ,Copper
+Ustur,30,28,BMRwjAX1VfLPNne76vtUzZYdUAa64GzCQVx6AaoqMvzv,Silica
+Ustur,30,28,C56mM68yzCR9CEwxisqXbEyMw1Brzhfkek1ugr3Dyp8m,Ammunition
+ONI,-30,30,Crk2kQnE2nPxz89Z3L6hUp6vGPnM971yABn9Pnc2ZV49,Particle Accelerator
+ONI,-30,30,2TxHSzB1N5q7SHkjFvopK5bDhAMa8t395bgbzReN9698,Fuel
+ONI,-30,30,6iEjqv3UpvVQUE4Tnt3H9jT6fjJnHgFg3jtTUGQfUwNk,Strange Emitter
+ONI,-30,30,77mBSity7sSbyXKHzXBqx5euFvCvepP9ekoHJAEBjUEh,Biomass
+ONI,-30,30,8t6P61w9udrc6oF5uGYieGfi62Rxusgzq1P9CTUHjA3w,Honeyland Explorer Badge
+ONI,-30,30,5ve2A5xWNDEN6oXbnS5w5zuems5xTKapU7ZjKfwPbsu5,Titanium
+ONI,-30,30,98c7qpVq2orw3DWXdzygHeJYG1uhVCUpJswKQu7HGsur,Hydrocarbon
+ONI,-30,30,EbZmtQpQVXR9ZJTfJiS5zKSupvAwnzZAtpMgFLMNS7aY,Iron Ore
+ONI,-30,30,6Pzts4Nqqi45fP8uNBTcGLD884fjPXvCkGFoz1RH2qwV,Golden Ticket 2624
+ONI,-30,30,Bjpuqrek6tzy28xu3Df2qXvpzDXkAbhD4z29sK9gTrRu,Nitrogen
+ONI,-30,30,FbZ1EFvs1HQ3Xdn3vhSBm8oSJstDSAp1dPJC8fZxJ6B7,The Edge of Paradise
+ONI,-30,30,4ckdFhh6kqf5c7ZZkRqYLKj515EHSrWZqqkXaPcxM3c6,Rochinol
+ONI,-30,30,DBWomqgWvgQG44B16jviLokNsZ8eZAQAHaJiSG8yEvvr,Copper Wire
+ONI,-30,30,9aspFt12vNMZnxqRbaMuHdXrW9poHWerBLyibUcykEfS,Energy Substrate
+ONI,-30,30,FfNydM64yZiQMdTmhjs9KtdQN4h8mitFAb2MToEzs74t,Crystal Lattice
+ONI,-30,30,wvp1Gs547VuUewNnWbUqzoGHidiSs6PtGZGFtwvomS8,Survey Data Unit
+ONI,-30,30,3qX89Y5JQFhJkwf8eL3D3nQcpcBEG58526YtxKc7GnmY,Radiation Absorber
+ONI,-30,30,9zoscFgd2oMDacWPBrV9fJRvcV4zyCmreBnpogrZPj3K,Food
+ONI,-30,30,G7kkL1wRFruZMxBrDRyZXzCSanthth17Tu9VhzWWAvZe,Power Source
+ONI,-30,30,CBxUMuNh6U8UBu6kdCJg7J3xve93WDKAcY4tsrD4nmH5,Iron
+ONI,-30,30,8ijWvcSPTiePRN7U273jqCNXv91seCvtmZEyB5Pj4M3p,Titanium Ore
+ONI,-30,30,SxZxsoPWFU6emjUarBSq9EmuuE7MZchKfSe8WAY4sKi,Electronics
+ONI,-30,30,7TjH5FtbxUvHsWgjR2zVDo978eqxS7s1xjRWp6oN9hWz,Framework
+ONI,-30,30,3TXNd3UXQMkzka1GCMgpr3xPf9r4Dm5AbWMCuEYJmivv,Hydrogen
+ONI,-30,30,2EdN85wGQnEy8eE9fcRoHbjqgzcQR1jHc1cwYtjvFAPq,Field Stabilizer
+ONI,-30,30,AXWnYPKXPZrgXBdBbMgjYs5w2UzaTzQxiKttB75r3Fjd,Steel
+ONI,-30,30,7Gx4wijYd2joDjC7He535keJPHacU5PRG8qMT7fBzXAd,Toolkit
+ONI,-30,30,HAxpd8fLMoFfNnngV8v5MvefmgFYmYdUnfotNbbLpNs2,Polymer
+ONI,-30,30,9Vi4QnYr9HQqCpQArD6zrvqkrTgUjFQ5dE6K6Y981K6m,Aerogel
+ONI,-30,30,7NtdMYddXxxbfG9CEeLYBD8VcuB1tcovhhs8ode3kAVD,Carbon
+ONI,-30,30,2G6RdSvX1guUaZkxBPTqRfwASTiNR9UvY6ASW6scurdx,Calico Maxhog
+ONI,-30,30,JTr5ZJmYWMKpD8yk9h4ycTHes6YgDiUQscb3TNRhX5Y,Copper Ore
+ONI,-30,30,9tNmn2Z8KwPSZAEVp1E82eUbwpXtsWEUnruZ3x9ggU1V,Diamond
+ONI,-30,30,7Dh47yA1P5z6drXnaUdgUyXDPKFgAEsdMF3yUQDJ3iVa,Super Conductor
+ONI,-30,30,AJUzRvdaqU3EUFjdzN9qK3NF7UEp6xuMoyfNB47HXSdM,Arco
+ONI,-30,30,FMZqtod687c4eGaCtdk44Ewg4BrKvb2uE9yddGw6UG1e,Graphene
+ONI,-30,30,Fj76MiXLCFYY2bCbCMcuEf2VxrEzWZKsNNNn5nfbzyAq,Fimbul Mamba EX
+ONI,-30,30,CiRYas8jBVaraDjZYUwpaFXLzng4rXeU4U8WBqqEPsRG,Magnet
+ONI,-30,30,8dG6oJVKTUhVghEAWq8aguJxWgMUcXVGWcLMXW28xRQq,Electromagnet
+ONI,-30,30,iZDjwJT9NEMvUWTLUiYBuozoKYhzP4iursri4PUrsze,Lumanite
+ONI,-30,30,8Dsrobm4T94yy3XzCJQMNpSn5Rkwj2hCemyNjzR2XaFK,Copper
+ONI,-30,30,Hjk9jG1ygQrB9f3byuoEDjCceVWeepLRzomhNYxhgHBw,Silica
+ONI,-30,30,xJ7J2z4SK4xq8M8GBUcidiNq8JfFrqJkZbPMFXbCpxn,Ammunition
+ONI,-47,30,7cesZmoBUboJwkLvxJBWDMhhBhGgoWimwJ2drjPJhrn2,Particle Accelerator
+ONI,-47,30,AmSasgoFSAcMyTUVyXf5VWLBP7hGtyptUeE49e1b3sQv,Fuel
+ONI,-47,30,CovUEi7ycDBFPfwJc8cok7SoxWsMUNpWd7z7x53iPY2,Strange Emitter
+ONI,-47,30,BpBibavrwv8HGvMRhS1u4s4REs27rtYYno6HcaQGsYMy,Biomass
+ONI,-47,30,GhZpB3xyGYoLAENHjXTaEwhtqHyAggziBNyWN7euQsX6,Honeyland Explorer Badge
+ONI,-47,30,JBJ8RBFQozUaXAKSVV83yEEcVWnczfNBHGWPhh5QrVh,Titanium
+ONI,-47,30,AaszYDAtNhmv6ZY5Jnndg1SCuEyqxVG98sP3dn2ZVtje,Hydrocarbon
+ONI,-47,30,GLLGg9CpSbspAPSJrG8aZunRKKrvtnCp1YKbR7J6acAj,Iron Ore
+ONI,-47,30,BgQUYLeAjR7AKx2crUHXGJd3LmQRgFhPB1GMevdBTLTm,Golden Ticket 2624
+ONI,-47,30,GyDrJETdUXgKM9MDfvAEZB4AY8UVbMtqVCy3Xs3CM4Dq,Nitrogen
+ONI,-47,30,uFgSrgEHpbTwFs3h2ZUzEUD4c9B4RNw9T6zqAHnoKsT,The Edge of Paradise
+ONI,-47,30,7S6v6w8ux38gnrkpLx4CgkCLqDpPxwqRRcHbDPe2LVwp,Rochinol
+ONI,-47,30,8GJvidqGtk6HgKyUR8vrAU643TYVmcnTKCWbwB1uxKU8,Copper Wire
+ONI,-47,30,3Q4UCiLdGjLP3VegghkdznpNx48SxqEqkzfCM7MjEbp8,Energy Substrate
+ONI,-47,30,9TX5RB2spnK5bJPJSYv1XDrNWVjGwa9Td7Zp6iM7Ni5g,Crystal Lattice
+ONI,-47,30,Aw8vJF5cx5NbR8ujZ49G177v3M3coT8Pj6VqeFDAVmg4,Survey Data Unit
+ONI,-47,30,EimisDy1umM1Pjvg882ueuTXd4pHe7d5stUEp4Nn8ZFr,Radiation Absorber
+ONI,-47,30,38MQdAXrSjLDAtswTWyMATnLG9B71D2Gm28cTL8U91oa,Food
+ONI,-47,30,FQJZXTizsButEQvvDyrNLSQ4CEh27QBmuK5F9oYYH1pz,Power Source
+ONI,-47,30,9KXoJnEBtm64Y5kq4B2ku2KWG8VTUu8hiSFsC2ezDMgg,Iron
+ONI,-47,30,4vrb3DRiqC5YSAoSqDc8DCw4vFDzQptSPv1eqhRwikX7,Titanium Ore
+ONI,-47,30,HBf57F6MtgddJw9WsmPh9Qp761y65Py2E1A84UhPZoKQ,Electronics
+ONI,-47,30,2ZmvjjBjuXsWwH6dchtizgH5HfJEorHwDbMjifyBFYrM,Framework
+ONI,-47,30,GvyQbNkKpCJbux1S8hEvMxLSdcHsdzGmJ6cZqnn7Sv9M,Hydrogen
+ONI,-47,30,2KnVKBNCPRxQdQUKKVG4dqjugHbP1tEseL2npYqAJHon,Field Stabilizer
+ONI,-47,30,DgNjYxdBz41JBxr2FW42YG9EMoD4c5ijHM5LMSGpyJRU,Steel
+ONI,-47,30,GbSxUapYGzGtoyqvvPUJACwqMWEAcSt6zFHzXvbNApyy,Toolkit
+ONI,-47,30,CccK2pztsE3TRsmVwDpgG1r9XAbZdPQqV9ERUAVupYXE,Polymer
+ONI,-47,30,2MRpf4CdT1sjHsaKAvN3XG9EXRBR7NCaPzxUufp6aayk,Aerogel
+ONI,-47,30,FVHJRgdfuihkzFarR2LC1kCm9ZR48x3eabHNt6dqi7RG,Carbon
+ONI,-47,30,rebmFvTaQRM3JFwugjtni4mn6q6pq1oEY7QizRPsDuP,Calico Maxhog
+ONI,-47,30,7c1MfnvqY6VWeK1r9foddk92H8aCnmtVSMj6x7aZvyNn,Copper Ore
+ONI,-47,30,BuGH8WRGE4XppUrgb1JupsQRu4qiP2RxJpVYVA8Nyhec,Diamond
+ONI,-47,30,4oDRnTjWNCc2wpjdamBfmV1YTXSGt9VE9yLv2Lu7YCiT,Super Conductor
+ONI,-47,30,3qmhKMN7mMMRabZ2Mh1qHQtgsrSJJ5i4cqzxGgiHK8iQ,Arco
+ONI,-47,30,4Sj7vW1kepnZsW5wNzjSbV9Rxx7hymYNydBybsYPYkZ6,Graphene
+ONI,-47,30,4UNbr5bpEsoYAiLuFeYJ2aLVWz36toCC6X1sbCyxiJbh,Fimbul Mamba EX
+ONI,-47,30,J91doPQeHAx6BL2t9YQWucg4i5Hm4AXyAqbPZRdNFS5q,Magnet
+ONI,-47,30,CBgs5hRAJknuAtoJdxewvboVVghXQxQZdnyWys3svFZ1,Electromagnet
+ONI,-47,30,DmvQ249i1zEoFUydmz5qfMNcMr7UZQqr1HFtKyZdFwQR,Lumanite
+ONI,-47,30,7K1PiJKpijYTJ6YrSt21dQtTtDreA9YXfreXSt5U87Wq,Copper
+ONI,-47,30,CigZX9rHXndfZCmuYvmrzK47FidpoLngtHMtf2cFaxfk,Silica
+ONI,-47,30,3qXZDpVYGe1KMiUrP8s2cwsdt9SFatmEhTYpW85YU5q4,Ammunition
+MUD,-14,-16,GGrZ2NqMkAzPqKChqbHzYh8aZqvPa9Bd98Qm7Ki4i1pc,Particle Accelerator
+MUD,-14,-16,nk7yApqKafAEnyyWEWknyuL3G7MwD9ZwakfLPjvFNDo,Fuel
+MUD,-14,-16,Gd9r8ARdK9MYiUg8QyVbjTSjQ4eaxysicznvd4sJ5jbV,Strange Emitter
+MUD,-14,-16,ATRE7zqprDH27fdGTx2JhtgBMUCFPaibgdGmdSK2bxX4,Biomass
+MUD,-14,-16,8s6i4a5McY2GxQNZ9r3wFCaa3UZW6wKexaLEfCiiNG34,Honeyland Explorer Badge
+MUD,-14,-16,H6ivZzDFCDeJxyd4brhGP3WxXdjGAUaVvECHtdy8H5zi,Titanium
+MUD,-14,-16,7EMWyRh3sJNJ5eVbbPCyQ4ETyZ54XxhdiK6mwCTiJxNB,Hydrocarbon
+MUD,-14,-16,98nHNadMdskvYM6kGHVEEvowc3cz1m3LpHa6GWxVuTZF,Iron Ore
+MUD,-14,-16,7b8wqHraiUPBmRFfCKauUGev3yKKTjhAerix1ADPGoz1,Golden Ticket 2624
+MUD,-14,-16,DZqyymt6kHcLzXg27TRtiar6CVQ8itJFk1E7a5TKXgc3,Nitrogen
+MUD,-14,-16,Bqp3bnzBv6J7FLSAMevj4UwgTXm5jQCb1ygASvR61dfX,The Edge of Paradise
+MUD,-14,-16,DDFAXEJeP4qrNChBFuoNeCJCFY8sw2ciDLxW8Hu86RK4,Rochinol
+MUD,-14,-16,HhpTCjB5qFcZpLYRfenb4CaGaKpZVtUUYFyyCvV61ohU,Copper Wire
+MUD,-14,-16,BQ5P3yQL44yxVfw4XUspTAwqYUgmp7r4NEfGhECwbsiX,Energy Substrate
+MUD,-14,-16,58RSvG94W1PugohucyRre2HPmVQZ4rUmoaJCwBgMM3uf,Crystal Lattice
+MUD,-14,-16,2mjhVzBnxPk5hrAtZr6bbt6GaHBxgP2cYYeqXZku1Wy2,Survey Data Unit
+MUD,-14,-16,3XYUxmmyUPMoD8eGbQSnuQkBQRx6xBASfFhDe6rWiuKp,Radiation Absorber
+MUD,-14,-16,Dwt6AbfhTL985ep9h4TGbbsvgKXuF8TSNsYhSd2t7heK,Food
+MUD,-14,-16,2zfQaYD7zL5UQ51GNVU1no5yZWD9s4ihbV9TxNX1jDfk,Power Source
+MUD,-14,-16,BkLfSfvsLtENYnRGkn75EC23wSnE6NHaLQwnx6YzFSp6,Iron
+MUD,-14,-16,E191XUf63GMsQ3mF9LY54suz8VTmN66RnV8TU3uBoYcE,Titanium Ore
+MUD,-14,-16,Bxgh771jUYMYTsJLhHxsYyaN3bs8qC4MRMcUWN3QxCgo,Electronics
+MUD,-14,-16,HDtPD614MfFpZqSvY8x8qrM6AGnWmjwQSPcwrtiKEnte,Framework
+MUD,-14,-16,EVHo61QUVsHq8phsuCWR42oWarwgAWkRNX7f6v1ziXXT,Hydrogen
+MUD,-14,-16,AKKEv2AWUaHUQp8FK2vnidNd4TPkfseXS6aaRwtrHsW3,Field Stabilizer
+MUD,-14,-16,52B4rxWBUqMcipuZMybGBC2gh63KCYXyjHBBRDiEf4HL,Steel
+MUD,-14,-16,ELhhHrnWauFj1yXLanixpoqemq4HDPjj1YN2hT2KRo64,Toolkit
+MUD,-14,-16,BKi1cWhGijFBCEAACUz9r1Mvu1wUzePYFScGVeLH1iBw,Polymer
+MUD,-14,-16,7RnBwa64UErvh21DL6X7G1yy3tPptPf2gJWk95LpsPrk,Aerogel
+MUD,-14,-16,79rTFN5KFngT5dZLwoqetVGEjVeKd7LYKED48kACSsva,Carbon
+MUD,-14,-16,EZz6twyALicteo2NpskwHv46K22cyiXcbGCbqtNhYavT,Calico Maxhog
+MUD,-14,-16,DmrkQ7X1akpvPuwUFoKSxsbDDFmpvxCRvegWcEoWWALr,Copper Ore
+MUD,-14,-16,FQQ9PpYMDQJ6esu254Y2xvSvgKLGnsCN2kUHaFRcjK2o,Diamond
+MUD,-14,-16,FkrdZcZaiZJjVLgiYbY7LubKRtirRKp9TAJNooNvi4rq,Super Conductor
+MUD,-14,-16,GsaapWESsZjFpB3GKmhdRkW2EMXdD1wN6dFnENCR1vUm,Arco
+MUD,-14,-16,9EgD69aREvYBEkJcfyaK9ktX2MRgNbVfWsKTR1m6WPss,Graphene
+MUD,-14,-16,FvCXDFsyyxYi3VhVkd5thaKQRyGgFh4CoE1vQrA3WDNm,Fimbul Mamba EX
+MUD,-14,-16,2qxu3K8LRExTPkLaHso35M39Uqxpn4mtmkH6Vj8BzDo6,Magnet
+MUD,-14,-16,6SDieYZqCu5vwgi1AkiAW8HyYeWiq9R4TQMo5uZZ2DTq,Electromagnet
+MUD,-14,-16,Biu3smrDuiZnKX5k1bJQrnWkw2LChrhtvE1nPZx3GC56,Lumanite
+MUD,-14,-16,B54S9xFjFBfnezqfNVfYUwep8mcbpdKY3jAcFqU9x9UL,Copper
+MUD,-14,-16,26tL7vtHUYZNQjFJJA6EPiu5pUDiAAv8ahqGYpcUcMn7,Silica
+MUD,-14,-16,5khh6Lpo4GbrBaY334GUnS1WyAG35LivEcwoazYQyTom,Ammunition
+ONI,-18,23,HAYD47hyNcGXunXfytNwA6QwC5CFHZ6iLa5XBEHNeMow,Particle Accelerator
+ONI,-18,23,G2Pk3sChS3AfotGCwofZURPL3LpKturrRhUbvSPUvUq9,Fuel
+ONI,-18,23,H9WxqVdYtMmbbDmrW52GyvTf86x1Lo3ajiNqmY6JYk5H,Strange Emitter
+ONI,-18,23,7az4jqgTg4KDL1jq4xrvBJJ3LWCC1ioGEqCydnC5YnZf,Biomass
+ONI,-18,23,7fyE9jQ4nNnCRevr3V3ztfJU85aBcFcEmfeedTghDU7X,Honeyland Explorer Badge
+ONI,-18,23,7w3sKnVF9fpQ3Cfgu1ikay22HULE79mxu6rshtcVNYLQ,Titanium
+ONI,-18,23,5YVwnVTh3qqCSEDeeWCmL1UerZJDao4p4XsuAEcQ3NEm,Hydrocarbon
+ONI,-18,23,C7M5gRLoJouBfPPKJExYj41Xp1FLVjN9UN8jEZsuKEii,Iron Ore
+ONI,-18,23,AGXc6zVsYaH3ZHiGnHPzTtG8zqBVHwNrFwAb2UTUFjs6,Golden Ticket 2624
+ONI,-18,23,Ccby22x4LdkCMnQuwhpMFYY5UWWxyA6Ho68oLgwzVwB8,Nitrogen
+ONI,-18,23,Dd7B9j9gZRZMivXWGfjP4ThVYPcWgKXrdYuCGv2g4idV,The Edge of Paradise
+ONI,-18,23,2CNJcRupf7QCUgqpSFUYeqvrZEkgV96Akw6FfUwCJ7bA,Rochinol
+ONI,-18,23,9YYtjFXBhpUdLYZXbs8vmxKvMfpA4uGSquhumRLDUVES,Copper Wire
+ONI,-18,23,8uVyXbJ8tnTZeWG8EFTxP4L21wKCV221MXuaf5WygRjR,Energy Substrate
+ONI,-18,23,7whxu14SsYJhnV1CHYMuci9Ux7MMsL6iNQXTj7vj6jxP,Crystal Lattice
+ONI,-18,23,8MQF41XXy1Vn7jNTPgRHyswYznUTZ4VcxDSKi61jRmVe,Survey Data Unit
+ONI,-18,23,HyqMHtcK3zFRkj6uSkCd4MEvKPw4H2tNPRg8GctYWhjk,Radiation Absorber
+ONI,-18,23,48QmaEYk3TR95BUSP7Yk2wZwFt7BaNgiwAv9Pz5t5J9M,Food
+ONI,-18,23,BpK6u9YRmXEzVzESf94A9tNvZz3WAzUniBNYJdJxjdZP,Power Source
+ONI,-18,23,GmXq342h7PWD7yLS68GQtr2J43Cvjt6QGvkhZSoxvJ4E,Iron
+ONI,-18,23,Hx648dd9xJsHRKoiGnYpKYes1USRyh6XCUUi228cb74X,Titanium Ore
+ONI,-18,23,7pwpzg3umd5TShQsgroqmhZ5Dm1J1wcDiLmCZ2Cb1Q27,Electronics
+ONI,-18,23,CiK1sxCFzAbxSGVHfuxNregZazJn81sFRQpCdXkP1oAV,Framework
+ONI,-18,23,BiuPqqxPGru8nE2w3etyeG1t5CtNgYCu7xo3htMoH9Ki,Hydrogen
+ONI,-18,23,Bp8sZoCKe8ecidjiHzCaYE4KkBPPTydDgx6rcWF1fn27,Field Stabilizer
+ONI,-18,23,A9ApUqMNM6P6quxxhtotxeooqiLpEL9EjPPU7tezG89s,Steel
+ONI,-18,23,AUSwSu4JE5B8Toqmky2jbQf1eE5qUNSUKwDBExZJAa82,Toolkit
+ONI,-18,23,CCDdj3BaXJiKxARqYkqWsuG6fBetszhToYLWs4Zn7xyC,Polymer
+ONI,-18,23,DA7h5a4s8hfvPsqrYcUFNR8htx8N2YNwU4PMo9AGL6t4,Aerogel
+ONI,-18,23,79ZzHQToNV3Zsdjf95ggWRz37hTafM1jsRMgc7zTcxf9,Carbon
+ONI,-18,23,8sBeEbdcRpXnhR6N3WWw3vGDXmke9NLgSbfidKSef3G5,Calico Maxhog
+ONI,-18,23,3XAaFySuUhTxPc7c2faANoGaU9h3X7v7Ka96ks4HSVYk,Copper Ore
+ONI,-18,23,5CtV9A3cBMETvqhaCWTSkqwD7bM8S61vPpSewUe1ghvF,Diamond
+ONI,-18,23,3hXRffkLDumpG8x6FSJbKkpDo8u4NWWySR7WpJizB4C8,Super Conductor
+ONI,-18,23,DmPyJeazVT8FanhQ48krEazgMmD8T1kremyFTyi81Rc,Arco
+ONI,-18,23,4fAotg5UQBYAnZp9Vie6mVkmbuV85pHQtbDFbnB3CW55,Graphene
+ONI,-18,23,D8eax99PYzxt7cCCdQ73qwbvdzDs6gdjvrko1XFDoqFM,Fimbul Mamba EX
+ONI,-18,23,8i4NsLoWbq5keBQmsQLQEYRu3hMJNqzDW8VtHRMotWuM,Magnet
+ONI,-18,23,GFJ1P6wYRjBtHiKXDRRrNG15YPVqh6k4FVk6b6GBEGQ4,Electromagnet
+ONI,-18,23,6PME9FoaqHXGQzxpSPTHmy9zGyUwnbjoxTYmbgrvBuDF,Lumanite
+ONI,-18,23,7wpyHkLH89KqYGoydQM7tWTKJ22yqirkmMvoxJsmLxna,Copper
+ONI,-18,23,F7ZEugKMoW5AgSCydY8sSyQsvQqwbh4Z6NDRgeWFTucg,Silica
+ONI,-18,23,DRaq7cXrE4zy7zpjYchjEboEfhwN8S95YLn7GSVyZ9tF,Ammunition
+Ustur,39,-1,92vkTNiAuV4mEmwP2jtS6jdDuU84C97QeHB2XwiYnmVS,Particle Accelerator
+Ustur,39,-1,BizgwAENNJEKmJeyjNrYoSJYqwtSX1k5DaoA1KKBLcCM,Fuel
+Ustur,39,-1,7WWdBe6RHFqKXu26JoS6CpH6jKBEhwLXDNBNGiBGf1WA,Strange Emitter
+Ustur,39,-1,6ZuxaMffNFNgF79SQwkERVyKo449pe1WfgzLooSsHeWh,Biomass
+Ustur,39,-1,8Ezcm4rUgyx4PDoQvE9KXDfsmstSRa6JE8ESenJZds5s,Honeyland Explorer Badge
+Ustur,39,-1,FivtrUFoZJBBG2EwUnXTTDcJwwuMZuezPy65xDF38KiV,Titanium
+Ustur,39,-1,FHyobZ7Dv3RXahoM7hhqXSDAUGwnAtpt8Zahxn5NNS9L,Hydrocarbon
+Ustur,39,-1,D5QBDaRGvxtAtJEsSmqsCmv5LR3285VkjoBbvSN2wnTN,Iron Ore
+Ustur,39,-1,HDicL5bH9qoa4rxad7kuFzZJ6ZpZbD5eCbHeV3pw2ZrC,Golden Ticket 2624
+Ustur,39,-1,7P6D6uWbvCsPcM2m1H4mEV8Sf1yLueXKTv3svBWCVBuj,Nitrogen
+Ustur,39,-1,ANWcZUEvB6EtscESUkUjSb1zfnXK9EKYFfWw8vWS2mwZ,The Edge of Paradise
+Ustur,39,-1,8FnFaf9yX9Q5kAniX4UKiaAnn8PyVqF9EAKLdK5bxDuf,Rochinol
+Ustur,39,-1,FnbZpWfqnmCAFhh6FwhAcfHBxt5aWMBGvWdJ5iKGstTH,Copper Wire
+Ustur,39,-1,FPsAKzooPDWjTJQCxrG8GJUL6eYT1NEuSft7dz4cnYEU,Energy Substrate
+Ustur,39,-1,EUKx4WWjD1hZVXRapfR3WauQKST2NuM71yEDZijrJpeY,Crystal Lattice
+Ustur,39,-1,G8cgZCsbAKjaM5vDMiddkD3EP8pCRa4W5rwFRWt1HEhu,Survey Data Unit
+Ustur,39,-1,VSqrVaK3A4XcUbBShDHgeuxQcXTcAUnNaN9CVG2u7rk,Radiation Absorber
+Ustur,39,-1,3Ks64BRxkCKuKJ5V9cy52rksHUSY4nov2ikvwH4eagtW,Food
+Ustur,39,-1,BCUkFmF1E1fJvmkLMYNhXXgcJzeEWNfgS9AtLXN5jZDW,Power Source
+Ustur,39,-1,EMYJXfz4kjKnucLiCG5Ap4bMwUNAmN9awAVm3AAQkySt,Iron
+Ustur,39,-1,4Zod2iHGQejRGqPSmcnyZLBJFvNmqKKsrd4AGCqEvZkd,Titanium Ore
+Ustur,39,-1,8r2P64nSgh6GWQYayGnzLLZjnHSRMzHaDNZ8ZpAyPe5V,Electronics
+Ustur,39,-1,42dy2GweYdkBbHJoJ4gwgL4jNDjw4bNb58JxuwWDUgEr,Framework
+Ustur,39,-1,AMhZ8TzyomJDZskrC59LuZKPxYMT4QGHUuY6L4aZq6gy,Hydrogen
+Ustur,39,-1,4miJeBxE2vNKSK6wJ2WEDAUyUH4L95RdhcrzTbvsusVA,Field Stabilizer
+Ustur,39,-1,LMEXVVJzeAcuSY51CqdzqBiJb88rLaZn69hvznZNP6f,Steel
+Ustur,39,-1,Ca1QgFpy97Jp3br8Kk5GRH9owEooANsc7c3Yr3fzNQe9,Toolkit
+Ustur,39,-1,664zq93iFbgZAgwwZhJCBmwfAdrYrpEmpAzK5AaYKLeA,Polymer
+Ustur,39,-1,2MoNnPDP9rkqL5X82Lvda9SdhqwGHx7gwAFqBLESSRrd,Aerogel
+Ustur,39,-1,7hSsJghBMwCNyqFJfbLGFTPrZq1SeyHUpECGKz237HTq,Carbon
+Ustur,39,-1,AobbXLyKqnY4uuwihwP8JD84qvPjbqbHPHuDqRurbDry,Calico Maxhog
+Ustur,39,-1,GQaXhUoLCV5VZV8o51Fu7BJXvmxVW6j4nUCqQsqHoFVC,Copper Ore
+Ustur,39,-1,1aftzWavnqyawdwGPf88um8LRKe52PkTuYEvXcjrAEe,Diamond
+Ustur,39,-1,9n4Yj2X8iz4UHbY9CMYnjSS8H5DsGD4FeTx7jHLfsRQ9,Super Conductor
+Ustur,39,-1,BrpHZFxxHziuR8hv7oMPnghx4CE2VKxY92d1fuyQEmfa,Arco
+Ustur,39,-1,BUj1CWnhfbgvF858QHdRpKBtBehYvnkBzkEXcjbmBAoq,Graphene
+Ustur,39,-1,Ew17ARGnLJyC6BEBdo6ZA2CEki4azKcqqp7qpGPh8v6a,Fimbul Mamba EX
+Ustur,39,-1,Dgufsf8Lk46pLNHeqTZeyXkGL76cYNDknPH8K2Rxr6yi,Magnet
+Ustur,39,-1,dsQrSytn55k9iUxFH5zegsEwXbrrEKXXT5QeswrJp1K,Electromagnet
+Ustur,39,-1,BAtbJgHgCyR3P5nm1GeEtQGTy2PGwG4CLEhT7NFF33Uz,Lumanite
+Ustur,39,-1,DkzfzpRowgH7TFfTvHJqRbMhr3fKKnx7KhrzifMt6BMh,Copper
+Ustur,39,-1,2EfYwThHd6AstifUSwaZWpv3xz3BQ7GYNTvkZ1XmThex,Silica
+Ustur,39,-1,CJxKtErs6Pua7YriPrdU1QaFgBtp1TcUNqSfAvgLxMAb,Ammunition
+MUD,-10,-37,Ehpx7dc8BqTiiwkENESB2xjKzksVAnTmXYa2rRSkmCQR,Particle Accelerator
+MUD,-10,-37,h6RnVLgoPAKt1n6E7Gy1pbMs7oNYMvCfJQSvpJ3Jjmq,Fuel
+MUD,-10,-37,BEEJrXfoMmRGgV6WB7BYj2UE5NQruFJ4DUUHTLu7dYq5,Strange Emitter
+MUD,-10,-37,DVD5PSYJKSiQEHj5BiZv8KQSgcrNgx3GtStL5EQjcQtE,Biomass
+MUD,-10,-37,91dx3AATCn47hxZSZK6AodspAVcoUgQKzBQ2cir7gzf1,Honeyland Explorer Badge
+MUD,-10,-37,6wDqCBCrakCnCpLytmHb8ck7DNEpHrpyDyY6DM9iEZ2c,Titanium
+MUD,-10,-37,2e3tiUma39QQRBzcKZVtiHw3JWUP2MVYYMPotPHd3d5L,Hydrocarbon
+MUD,-10,-37,66oVgUgVJjyYqDrpwVfHDFx49HLbrqV7TiHFCrQ2bohN,Iron Ore
+MUD,-10,-37,6ESpVQQQo3GdSPyfWYXCyv9wLZPRVaRCk6SxNyjdyFWY,Golden Ticket 2624
+MUD,-10,-37,BxHrtZv8P2CRxsYzzJoKd6ErBT1EF5e4MSYKUjY7WeeJ,Nitrogen
+MUD,-10,-37,HvTYQkqtwzFfvUMP163BQ4BGa86ENZspRBJaQa8wKWTV,The Edge of Paradise
+MUD,-10,-37,58B7r3aC1CXSWycZFWujLMXgigMYbpxGDVRuq7rFE6G,Rochinol
+MUD,-10,-37,J3FbBAGYCM8dbaiKFGqqPSsn4MQ3UJh5NVK7e5yfiQcs,Copper Wire
+MUD,-10,-37,B2hFdSipA1cto4ioeLy1Rmyzdr8mzYbu35nZeoZq2tpx,Energy Substrate
+MUD,-10,-37,Crr6z1mMf8fcdofCWpZVCnrTX6SyJoymEuVrcxhL2X4g,Crystal Lattice
+MUD,-10,-37,HVq1YqgKmFy85kkqqmvFCJdPyfZA3jaoFzcwxP8YCnFz,Survey Data Unit
+MUD,-10,-37,6DZo2WunXo5mvmWWQjhvHH3ete1yrfHf1yt5jaSdY6Gq,Radiation Absorber
+MUD,-10,-37,7ZRcaur8XCkUzguiqBknYdFRxmS63iCLugynrpjNPH6n,Food
+MUD,-10,-37,Bwa1ZNcgSmdsdZZLxGxf4kL1bRR3fuj7r8MmUEscwMuo,Power Source
+MUD,-10,-37,DKsZA8R7USy6qNircwaXjKKv6xfxwV4zTTv197WzAEmA,Iron
+MUD,-10,-37,7D94KqdXy72AUCh2T9QdFmPv2LDXNghhfV1QKNERY1eP,Titanium Ore
+MUD,-10,-37,HAutkcLCarWCBbbWqB8nUcN7fW2ywWaNFt2Q2hi4f9sc,Electronics
+MUD,-10,-37,9wE6wJrCqzWgH6DzUYQR86GkNmJRj9UdFeZFtv8aAi2v,Framework
+MUD,-10,-37,DxF9XqnpA9hex7faZG2EYUAAqyWVsiWKaHarT5FRz4SE,Hydrogen
+MUD,-10,-37,7NJ7oqmyzwJSG2y18XQPceuuSY3tnKHntdYygZyxeFoF,Field Stabilizer
+MUD,-10,-37,77ct3h2A5NjNh66hXe41ieotBEYrVrksbJcG1eZX5c7D,Steel
+MUD,-10,-37,3TkYGqDA3gVjXdNyJKxo2VW25jFZhPY4SwL12TPRY2BD,Toolkit
+MUD,-10,-37,L2mEosdqdUDqHrQbGXLLXhvoagRVmigEatvWj2pCWfp,Polymer
+MUD,-10,-37,AhJxaUMzgNA4Qonxj1VKR73sbMJygD4TeLEFqgZiZeXR,Aerogel
+MUD,-10,-37,6c9Jr6GoUA1Q9pu9HVzx3X4zTwKNnPKbmKSHwahB7qKn,Carbon
+MUD,-10,-37,MksAv9HJGE3nftX47hCWYPaXZ3jDAcGk4L575foJ8FD,Calico Maxhog
+MUD,-10,-37,GE1CUfaxV8RFcKVcMi3C6WvtxpPoYaLriu9jFKYunJkG,Copper Ore
+MUD,-10,-37,HreabEyWNeiXWygJfaEHXrWcHedXPqnM7L7YWD1go9kP,Diamond
+MUD,-10,-37,9GH1SmkSDS4wEYSY2EGGhEEYHxkvAqiUq6MgWdE3pLLL,Super Conductor
+MUD,-10,-37,ioGe5LYYquW8RoVW2meFNQFRmZY6aByKx6CpA8QfqwT,Arco
+MUD,-10,-37,FG1vFsk36UzuixwJNGhuVUWPtAAuJY2CqsnA7dxKjqjo,Graphene
+MUD,-10,-37,5HxrCyL22N8pVTiRPuhDw3zzdzJCub9vdSa3wh1ytUnX,Fimbul Mamba EX
+MUD,-10,-37,CWQkUT6TgJedj22TrQ4CSTmEQ4ymfYZSBT38AHPvQnLq,Magnet
+MUD,-10,-37,B29dpPxUA8N64QscgaDzzL8m6WGfP18fwNGGymWuLvVu,Electromagnet
+MUD,-10,-37,6uBmuBexdyFFv6UdYPZ9KbXDJMQbayfzEMzZHP5CftBk,Lumanite
+MUD,-10,-37,CsYeJeYdy2PHdvvUqEsjd3YGak1wTXGKhsg42zB5iyuE,Copper
+MUD,-10,-37,7X5vjxrDM1ezuNF9MppdEAECRjAHLqEVZnd4Y4XsqFH7,Silica
+MUD,-10,-37,5QJwF1uXv6ouwzT7p2vEJXE3vmiLVWD7ykhFpcCXGwUL,Ammunition
+MUD,-2,-44,EMfyMRGwMjmwfCBVooSq5TtHdN1L5g3TWCD9A5G2FLFC,Particle Accelerator
+MUD,-2,-44,8ygUxHrqbxFxaqW1RAvWz42iTn6x728wnfsoRnf3JAjB,Fuel
+MUD,-2,-44,ELv1G8Nyi1a2V6kyizovh3wxw9kjdVmsv9MQuSgmLfAv,Strange Emitter
+MUD,-2,-44,AgYXv1omZvpXJAQbSCqA3jLnho98WZAbgvhn49L7EvKU,Biomass
+MUD,-2,-44,J2BB1cxciKP8zF8fbqoEFausi8iuE3s7LwNMP1y2s2rr,Honeyland Explorer Badge
+MUD,-2,-44,3cLzycLRh9yHfgjDzH1SaDrWkKzoLAR3ouXUh9fSy8qg,Titanium
+MUD,-2,-44,5rG3jLhV4gBHMZSy8A2rjpKdBKxCdvc8bDi85vczRRqG,Hydrocarbon
+MUD,-2,-44,8VbU5fB5Adu24pSVU5qnWkAN1U96wsAPU1utgeu9sSs9,Iron Ore
+MUD,-2,-44,7qdwmqgo3qPuRJZv86pr14aYFwyCcfCSCqPsonBGdmEm,Golden Ticket 2624
+MUD,-2,-44,Bus4M3rY8iefrEFY1JoDXTbHEjrGq6VLbhpJ1dM8jKRB,Nitrogen
+MUD,-2,-44,4iBns57xoNYv9ZChWy5HQFAWgMFDLCEpykfUKg9BYE2t,The Edge of Paradise
+MUD,-2,-44,DndeAJshziqmByCAxYtjfoVSGqqwjRn7SchxkCUoQExr,Rochinol
+MUD,-2,-44,EHeDXwtaLJuCRqQDqMFv16Sc3ZD6XTiUmrGW9xGMTyLN,Copper Wire
+MUD,-2,-44,6A5VLMPraKT9AhjFaBoY6tKErny2XiSFNH8rgECNp7eF,Energy Substrate
+MUD,-2,-44,JAFhWTZMriAqXJAM1u8zHu5haUGPfPdjeTXSzzuto4W5,Crystal Lattice
+MUD,-2,-44,6TjrsRNGUQgDoLcgemcpbyW4iYVTL2uGNp89A1xX4Mmv,Survey Data Unit
+MUD,-2,-44,3GiTXw5snh1vNNCHZg9qABKxXuiCTGJWeg2VV2JBgwAL,Radiation Absorber
+MUD,-2,-44,DbYbFLdbj8Jmmd842b8tm3U1GQj2eD2Ua3ALR7pZ5k5Y,Food
+MUD,-2,-44,DTSctKJaLxkrxWiautVp7M1s7xEDXrTKQbHYSETeAb8w,Power Source
+MUD,-2,-44,BPzxSJBYsbXHx851fcJjTKCB8wMJafP24Z3ikBAkSXVo,Iron
+MUD,-2,-44,CsNgKSzkGJnzWPUX66yUpfXQRkwkwAYKyCK3cTU4wTih,Titanium Ore
+MUD,-2,-44,8zchqYp4EXv7mD4T6x2QgZPPnMW9YRCDGJpuD6bETN4g,Electronics
+MUD,-2,-44,Bj9AZq4i2wgCzvMJW3Qmv5zAqV7MWjAo6TUG4qMzU3zs,Framework
+MUD,-2,-44,CEpfqtcb1riyFkBcSLzpWLHG2R74SaM2bSQEKWVktu8x,Hydrogen
+MUD,-2,-44,7txozjepx7yC9688KNe9B9c5oHZ96xDHuQfUUEVtARn3,Field Stabilizer
+MUD,-2,-44,GuXHwnjNMExxNtj6ur7V872ZFTdW56KjyZG5tzkJPbvT,Steel
+MUD,-2,-44,5FAxPrNChiRmReq9J2CF4HcHoCSiiFLDoj75uEScUeiV,Toolkit
+MUD,-2,-44,7hJUFr1FCWohGygYFpyeWhumX22nx8pDi9qB9AVCKSo4,Polymer
+MUD,-2,-44,4v9F8XUWmTsAG7g45Dtih2BfRJHQcEzqE5jNmvanKCtt,Aerogel
+MUD,-2,-44,3bD5BKNGLEy9DJ8RR7G8xWGVdj71eEayKRbdrX4AAJuS,Carbon
+MUD,-2,-44,4MRMHwChYHQKzUFtNFcwUyXRKkEpfouikwy1EBM72YAs,Calico Maxhog
+MUD,-2,-44,E8dYyvywKGqv4mkb4EREBpaMacmU5ChZpk7vVLduJyFR,Copper Ore
+MUD,-2,-44,DwHsCyDi5vUSShijRn7zN4UnEbsBVkNL7oZCJ5BYNyTB,Diamond
+MUD,-2,-44,8K7J55PVU6nwcj9nMmoKnnAfETCfd4oNsLzxcXBbpGmr,Super Conductor
+MUD,-2,-44,43r6psgdSA9oDWR5iYAdEy1RwngPQAPap9GsryGpuz5B,Arco
+MUD,-2,-44,HtJKUV1ZcATPmZDrfQxDC8GjgKgVbTA287Yz7vXo5YJH,Graphene
+MUD,-2,-44,8pQicDqk5hdmMF7JQc34Nrvu12DzQQhVpjvYwNX9ot4K,Fimbul Mamba EX
+MUD,-2,-44,HY5ezU7q1HCPJpTZNwjcYg8v1yDJdbnXfpmZb69y6u1E,Magnet
+MUD,-2,-44,GTkWTen9Mzd1nCHqomW4FiXv1XS2Y8ucNFRwX6dcjGXZ,Electromagnet
+MUD,-2,-44,6nPVvFyEgP9gVj3ASBVRYxJCW6xG43toki3j98FnLbZJ,Lumanite
+MUD,-2,-44,5eZSFUes7HiXYVuZybTwZMUpqsF9wyfLBThvJEZocUBA,Copper
+MUD,-2,-44,2HXJC4itA4a2tqCfQK5kKeNhbgmKg8q2vDxAdKjePwk6,Silica
+MUD,-2,-44,ADF6xwgXikY6R1vVz9xtZ2533dGT9ihrK2LhbdZgyXbY,Ammunition

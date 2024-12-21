@@ -1,0 +1,1 @@
+* https://api.skullnbones.xyz/docs/

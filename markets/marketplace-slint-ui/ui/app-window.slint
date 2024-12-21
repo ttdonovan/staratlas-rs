@@ -1,0 +1,52 @@
+import { Button, TabWidget } from "std-widgets.slint";
+
+import { Facade } from "global.slint";
+
+import { CertificateMints } from "certificate-mints.slint";
+import { GalacticMarket } from "galactic-market.slint";
+import { LocalMarket } from "local-market.slint";
+
+component MainContent inherits VerticalLayout {
+    TabWidget {
+        Tab {
+            title: "Galactic Marketplace";
+            GalacticMarket { }
+        }
+        Tab {
+            title: "Local Marketplace";
+            LocalMarket { }
+        }
+        Tab  {
+            title: "Certificate Mints";
+            CertificateMints { }
+        }
+    }
+}
+
+export component AppWindow inherits Window {
+    // in-out property <int> counter: 42;
+    // callback request-increase-value();
+    // VerticalBox {
+    //     Text {
+    //         text: "Counter: \{root.counter}";
+    //     }
+
+    //     Button {
+    //         text: "Increase value";
+    //         clicked => {
+    //             root.request-increase-value();
+    //         }
+    //     }
+    // }
+
+    title: "Star Atlas: Marketplace";
+
+    min-width: 512px;
+    min-height: 320px;
+    preferred-width: 1200px;
+    preferred-height: 640px;
+
+    MainContent { }
+}
+
+export { Facade }

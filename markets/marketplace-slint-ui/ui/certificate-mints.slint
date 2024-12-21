@@ -1,0 +1,16 @@
+import { StandardTableView, VerticalBox } from "std-widgets.slint";
+
+import { Facade } from "global.slint";
+
+export component CertificateMints inherits VerticalBox {
+    in property <[[StandardListViewItem]]> row_data: Facade.certificate_mints;
+
+    StandardTableView {
+        columns: [
+            { title: "Mint" },
+            { title: "Starbase" },
+            { title: "Cargo Type"},
+        ];
+        rows: parent.row_data;
+    }
+}
